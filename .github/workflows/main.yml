@@ -54,19 +54,34 @@ jobs:
         with:
           name: node-app
           path: ./build
-          
-      - name: AWS S3 Sync Action
-        uses: shallwefootball/upload-s3-action@v1.3.0
+      - name: action-upload-to-s3
+        # You may pin to the exact commit or the version.
+        # uses: wixplosives/action-upload-to-s3@33334d52cd7938cad633ec4a709e5cc971e62b7f
+        uses: wixplosives/action-upload-to-s3@v10
         with:
-          # AWS Access Key. [AWS Docs](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
-          aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          # AWS Access key id (short one)
+          accessKeyId: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          # AWS Secret access key  (long one)
+          secretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          # bucket name
+          awsBucket: ciwgo.frontend
+
+          # sourcefolder to upload
+          sourceFolder: build
+
           
-          # AWS Secret Access Key. [AWS Docs](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+#       - name: AWS S3 Sync Action
+#         uses: shallwefootball/upload-s3-action@v1.3.0
+#         with:
+#           # AWS Access Key. [AWS Docs](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
+#           aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID}}
           
-          # The Name of the S3 Bucket.
-          aws_bucket: ciwgo.frontend
+#           # AWS Secret Access Key. [AWS Docs](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
+#           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           
-          # directory to upload
-          source_dir: build/*
+#           # The Name of the S3 Bucket.
+#           aws_bucket: ciwgo.frontend
+          
+#           # directory to upload
+#           source_dir: build/*
 
