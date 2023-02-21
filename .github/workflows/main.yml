@@ -68,5 +68,5 @@ jobs:
           aws_bucket: ciwgo.frontend
           
           # directory to upload
-          source_dir: build
+          source_dir: build/*
 
