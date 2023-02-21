@@ -1,4 +1,4 @@
-name: Backend CI
+name: Frontend CI
 
 env:
   NODE_VERSION: '16.0'               # set this to the node version to use
@@ -11,7 +11,7 @@ on:
     branches: ['main']
 
 jobs:
-  Unit Test and Lint Check:
+  Unit_Test_and_Lint_Check:
     runs-on: ubuntu-latest
     steps:      
       - name: Check out repository code
