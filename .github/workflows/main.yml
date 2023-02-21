@@ -56,16 +56,17 @@ jobs:
           path: ./build
           
       - name: AWS S3 Sync Action
-        uses: awact/s3-action@0.1.1
+        uses: shallwefootball/upload-s3-action@v1.3.0
         with:
           # AWS Access Key. [AWS Docs](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID}}
           
           # AWS Secret Access Key. [AWS Docs](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           
           # The Name of the S3 Bucket.
-          AWS_S3_BUCKET: ciwgo.frontend
+          aws_bucket: ciwgo.frontend
+          
+          # directory to upload
+          source_dir: build
 
-          # Local Directory to Sync/Upload to S3.
-          SOURCE_DIR: ./build
