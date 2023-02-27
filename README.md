@@ -1,7 +1,6 @@
 # Prototype
-```
+
 https://www.figma.com/proto/Q6cPeTEJqvtl8eHgrVlK2i/WRIGO?page-id=0%3A1&node-id=36%3A712&viewport=295%2C504%2C0.09&scaling=contain&starting-point-node-id=70%3A74
-```
 
 # View the frontend through
 
