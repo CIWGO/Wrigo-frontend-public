@@ -1,20 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DashBoardPage from "../pages/Dashboard/index";
+import WrithingPage from "../pages/Writing/index";
 
-function Router() {
+function Router () {
 	return (
 		<BrowserRouter>
 			<Routes>
-				{/* <Route path="/" element={<NavigationPage />} />
-        <Route path="/evaluate" element={<EssayInputPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/verifyEmail" element={<VerifyEmailPage />} />
-        <Route path="/changePassword" element={<ChangePassword />} />
-        <Route path="/UserProfile" element={<UserProfile />} />
-        <Route path="/UpdateUserProfile" element={<UpdateUserProfile />} /> */}
+				<Route path="/dashboard" element={<DashBoardPage />} />
+				<Route path="/writings" element={<WrithingPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
 }
-  
+
 export default Router;
