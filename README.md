@@ -1,6 +1,7 @@
 # Prototype
 
-https://www.figma.com/proto/Q6cPeTEJqvtl8eHgrVlK2i/WRIGO?page-id=0%3A1&node-id=70%3A74&viewport=202%2C545%2C0.11&scaling=contain&starting-point-node-id=70%3A74
+Preview: https://www.figma.com/proto/Q6cPeTEJqvtl8eHgrVlK2i/WRIGO?page-id=0%3A1&node-id=70%3A74&viewport=202%2C545%2C0.11&scaling=contain&starting-point-node-id=70%3A74
+File: https://www.figma.com/file/Q6cPeTEJqvtl8eHgrVlK2i/WRIGO?node-id=0%3A1&t=o5e5Mxuyx225Wwsw-1
 
 # View the frontend through
 
