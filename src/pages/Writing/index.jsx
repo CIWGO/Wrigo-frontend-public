@@ -1,9 +1,12 @@
 import Layout from "../../components/Layout";
+import MyWriting from "./myWriting";
 
 const WrithingPage = () => {
 	return (
 		<Layout>
-			<div>this is right side</div>
+			<div>
+				<MyWriting />
+			</div>
 		</Layout>
 	);
 };
