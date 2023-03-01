@@ -1,14 +1,13 @@
 import HeadingComponent from "../../components/Heading/index.jsx";
 import UtilityCard from "../../components/UtilityCard/index.jsx";
 import styled, { withTheme } from "styled-components";
-import { EllipsisOutlined } from "@ant-design/icons";
+import { PlusOutlined } from "@ant-design/icons";
 // import { defaultFrontEndPrefix } from '../../constants'
 
 const UtilityCardsWrapper = styled.div`
   margin: 8px 15px;
   display: flex;
   justify-content: flex-start;
-  height: 250px;
 `;
 
 const onClickIcon = () => {
@@ -16,14 +15,13 @@ const onClickIcon = () => {
 	// window.location.href = defaultFrontEndPrefix + '<  the rest router path>'
 };
 
-const RecentWritings = (props) => {
+const MyWriting = (props) => {
 	return (
 		<div>
-			<HeadingComponent displayValue={"Recent Writings"} />
+			<HeadingComponent displayValue={"My Writings"} />
 			<UtilityCardsWrapper>
 				<UtilityCard>
-					<EllipsisOutlined
-						style={{ fontSize: "60px", color: props.theme.defaultColor }}
+					<PlusOutlined style={{ fontSize: "60px", color: props.theme.defaultColor }}
 						onClick={onClickIcon}
 					/>
 				</UtilityCard>
@@ -31,4 +29,4 @@ const RecentWritings = (props) => {
 		</div>
 	);
 };
-export default withTheme(RecentWritings);
+export default withTheme(MyWriting);
