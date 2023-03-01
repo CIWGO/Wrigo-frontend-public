@@ -9,7 +9,7 @@ const SignUpForm = () => {
 			const response = await axios.post("http://localhost:3005/users/signup", values);
 			console.log(response.data);
 			notification.success({ message: "Sign up success" });
-			window.location.href = "http://localhost:3005/users/login"; // Redirect to /login page
+			window.location.href = "http://localhost:3001/login"; // Redirect to /login page
 		} catch (error) {
 			console.error(error);
 			notification.error({ message: "Sign up failed" });
