@@ -1,9 +1,9 @@
 import { Form, Input, Button, notification } from "antd";
 import axios from "axios";
 import { MyForm } from "./style";
+import ERROR_MESSAGES from "../../constants/index";
 
 const SignUpForm = () => {
-	// const [form] = Form.useForm();
 	const onFinish = async (values) => {
 		try {
 			const response = await axios.post("http://localhost:3005/users/signup", values);
@@ -25,7 +25,7 @@ const SignUpForm = () => {
 				rules={[
 					{
 						required: true,
-						message: "Please input your username!"
+						message: ERROR_MESSAGES.username
 					}
 				]}
 			>
@@ -38,11 +38,11 @@ const SignUpForm = () => {
 				rules={[
 					{
 						required: true,
-						message: "Please input your email!"
+						message: ERROR_MESSAGES.email
 					},
 					{
 						type: "email",
-						message: "Please enter a valid email address"
+						message: ERROR_MESSAGES.emailFormat
 					}
 				]}
 			>
@@ -55,7 +55,7 @@ const SignUpForm = () => {
 				rules={[
 					{
 						required: true,
-						message: "Please input your password!"
+						message: ERROR_MESSAGES.password
 					}
 				]}
 			>
@@ -68,14 +68,14 @@ const SignUpForm = () => {
 				rules={[
 					{
 						required: true,
-						message: "Please input your password!"
+						message: ERROR_MESSAGES.passwordConfirm
 					},
 					({ getFieldValue }) => ({
 						validator (_, value) {
 							if (!value || getFieldValue("password") === value) {
 								return Promise.resolve();
 							}
-							return Promise.reject(new Error("The two passwords that you entered do not match!"));
+							return Promise.reject(new Error(ERROR_MESSAGES.passwordMatch));
 						}
 					})
 				]}
