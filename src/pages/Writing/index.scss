@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Rubik:wght@400;500;700&display=swap');
+
+*{
+  font-family: Poppins;
+}
+.writing-page {
+  background-color: rgb(242, 242, 242);
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+  width: 100%;
+  height: max-content;
+  position: relative;
+  
+  button.back {
+    background-color: transparent;
+    color: rgb(47, 113, 218);
+    width: max-content;
+    border: none;
+    position: absolute;
+    top: 5rem;
+    left: 15px;
+    font-size: 1.4rem;
+    font-weight: 560;
+    font-family: 'Poppins', sans-serif;;
+    :hover{
+      cursor: pointer;
+    }
+  }
+  .left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 15vh 10px 5vh 20px;
+    border-radius: 10px;
+    background-color: white;
+    width: 45%;
+    min-width: 200px;
+    height: 81vh;
+    flex: 1;
+    textarea {
+      border: none;
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+      
+      &::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(162, 162, 181, 0.828);
+      }
+
+    }
+    .submit {
+    font-family: Poppins;
+    font-weight: 500;
+      bottom: 10px;
+      right: 20px;
+      position: absolute;
+
+      border: none;
+      border-radius: 10px;
+      color: white;
+      padding: 5px;
+      width: 6rem;
+      height: min-content;
+      background-color: rgb(47, 113, 218);
+      &:hover{
+        cursor: pointer;
+        background-color: rgb(36, 78, 144);
+      }
+      &:disabled {
+        background-color: #ccc; /* change the background color */
+        color: #666; /* change the text color */
+        // cursor: not-allowed; /* change the cursor */
+        /* add any other styles you want */
+      }
+    }
+    .wordCount{
+      position: absolute;
+      bottom: 10px;
+      left: 25px;
+      color: rgb(36, 78, 144);
+    }
+    .topic {
+      width: 80%;
+      margin: 30px auto;
+      height: 15vh;
+    }
+    .flex-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      margin: 25px auto 10px;
+      width: 80%;
+      height: 48vh;
+      // overflow-y: hidden;
+      
+      
+    }
+    hr {
+      border: 1px solid rgb(47, 113, 218);
+      height: 0;
+      width: 90%;
+    }
+    textarea {
+      border: none;
+      &::placeholder {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #ccccccc9;
+        padding-bottom: 10px;
+        text-underline-position: under;
+        text-decoration: underline;
+      }
+      &:focus {
+        outline: none;
+        border: 1 px solid rgb(18, 13, 13);
+      }
+      font-size: large;
+      
+      width: 80%;
+    }
+  }
+  .right {
+    position: relative;
+    margin: 15vh 20px 5vh 10px;
+
+    border-radius: 10px;
+    background-color: white;
+    width: 45%;
+    min-width: 200px;
+    height: 81vh;
+    flex: 1;
+    
+}
+}
