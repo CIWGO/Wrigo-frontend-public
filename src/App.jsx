@@ -17,19 +17,15 @@ function App () {
 	const queryClient = new QueryClient();
 
 	return (
-<<<<<<< HEAD
 		<QueryClientProvider client={queryClient}>
+
 			<div className="App">
-				<Router />
+				<ThemeProvider theme={theme}>
+					<Router />
+				</ThemeProvider>
 			</div>
 		</QueryClientProvider>
-=======
-		<div className="App">
-			<ThemeProvider theme={theme}>
-				<Router />
-			</ThemeProvider>
-		</div>
->>>>>>> main
+
 	);
 }
 
