@@ -1,0 +1,41 @@
+.search {
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 2rem;
+  position: absolute;
+  top: 20px;
+  left:20px;
+  width: 47%;
+
+  .searchInput {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .icon {
+      color:rgb(47, 113, 218) ;
+      width: 20px;
+      height: 20px;
+      margin: 10px;
+      border: none;
+      background-color: transparent;
+      :hover{
+        cursor: pointer;
+      }
+    }
+
+    input {
+      border: none;
+      outline: none;
+
+      &::placeholder {
+        color: #a8a3a3;
+      }
+    }
+
+  }}
+
+

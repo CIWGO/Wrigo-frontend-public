@@ -1,19 +1,22 @@
 import Layout from "../../components/Layout";
 import newRequest from "../../utils/newRequest";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
-import "./Writing.scss";
+import RightComponet from "./right";
+import "./index.scss";
+import SearchBar from "../../components/SearchBar";
 
-const WrithingPage = () => {
+const WritingPage = () => {
 	const [topic, setTopic] = useState("");
-	const [content, setContent] = useState(
-		"Some people always yearn for new experiences in life and are never afraid to try new things. Others, on the contrary,  are happy doing the same thing and living in the same place all through their life primarily because they do not like changes. This essay will discuss both these attitudes. Personally, I believe that people who embrace changes and dare to try new things live life to the fullest. People who try new things are often risk-takers and adventure seekers. They believe that life is a constant journey, and they often have an unquenchable thirst to visit as many places as they can, try as many dishes as they come across, take part in numerous adventurous activities and try different career paths in their life. Such people take risks in their personal and professional life. This is why they are either hugely successful or live a nomadic life. For instance, one of my university friends started travelling when all others were busy looking for a job. Due to this, he was struggling financially while others were stable in their jobs and earnings. However, after ten years of our graduation, this friend, who is also a famous travel blogger on YouTube and an investigative journalist, earns at least 10 times higher than any of us. This success is not always assured but comes to those who embrace non-traditional life and try new things.On the other hand, many people are just happy doing the same thing over and over again and trying the things they are already familiar with. This approach involves fewer risks but often lacks big rewards and experience in life. Due to this mentality, many people are not interested in moving to a different city or trying a new career path despite their potential of doing something greater and bigger. Interestingly, many people who are afraid to take risks or try new things often claim to live a less complicated life. But I believe that this is not a way to live life to the fullest as it lacks adventure and never brings out our true potential in life.To conclude, doing the same things and living in the same place come with little risk, but lack adventure and tremendous rewards. Contrary to this, taking challenges and embracing new things come with enormous risks but the rewards are also huge."
-	);
+	const [content, setContent] = useState("");
 	const [comment, setComment] = useState(
 		"submit to see comment. it will take few second..or you can open console network to see if request is success. | score... "
 	);
-	// console.log(content, topic);
+	const [score, setScore] = useState(null);
+	const [resubmit, setResubmit] = useState(false);
+	console.log(content, topic, score);
 
 	const queryClient = useQueryClient();
 	const mutation = useMutation({
@@ -22,26 +25,37 @@ const WrithingPage = () => {
 		},
 		onSuccess: () => {
 			queryClient.invalidateQueries(["input"]);
+			setResubmit(true);
 		}
 	});
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		mutation.mutate({ uid: 333, content, topic });
-		e.target.value = "";
-		const res = mutation.data;
-
-		setComment(
-			`FEEDBACK:TR:${res.data.feedback.TR} CC:${res.data.feedback.CC} GRA:${res.data.feedback.GRA} LR:${res.data.feedback.LR} Overall:${res.data.feedback.Overall} | SCOREs:TR${res.data.scores.TR}, GRA${res.data.scores.GRA}, CC${res.data.scores.CC}, LR${res.data.scores.LR}`
-		);
+		mutation.mutate({ uid: "333", content, topic });
 	};
+
+	const { data } = mutation;
+
+	useEffect(() => {
+		if (data) {
+			setComment({ TR: data.data.feedback.TR, CC: data.data.feedback.CC, GRA: data.data.feedback.GRA, LR: data.data.feedback.LR, OVR: data.data.feedback.Overall });
+			setScore({ TR: data.data.scores.TR, CC: data.data.scores.CC, GRA: data.data.scores.GRA, LR: data.data.scores.LR });
+			// setComment(
+			// 	`FEEDBACK:TR:${data.data.feedback.TR} CC:${data.data.feedback.CC} GRA:${data.data.feedback.GRA} LR:${data.data.feedback.LR} Overall:${data.data.feedback.Overall} | SCOREs:TR${data.data.scores.TR}, GRA${data.data.scores.GRA}, CC${data.data.scores.CC}, LR${data.data.scores.LR}`
+		}
+	}, [data]);
+
+	const wordCount = content.trim().split(/\s+/).length - 1;
 
 	return (
 		<Layout>
 			<div className="writing-page">
-				<button className="back">
-					<LeftOutlined />
-          Back
-				</button>
+				<SearchBar />
+				<Link to={"/"}>
+					<button className="back">
+						<LeftOutlined />
+          Go Back
+					</button>
+				</Link>
 
 				<div className="left">
 					<div>
@@ -60,35 +74,21 @@ const WrithingPage = () => {
 									value={content}
 									onChange={(e) => setContent(e.target.value)}
 									className="content"
-									placeholder="essay body"
+									placeholder="Write here"
 								></textarea>
-								<button className="submit">submit</button>
+								<div className="wordCount">{wordCount} words</div>
+								<button className="submit" disabled={mutation.isLoading}>{resubmit ? "resubmit" : "submit"}</button>
 							</div>
 						</form>
 					</div>
 				</div>
 
 				<div className="right">
-					{mutation.isLoading
-						? (
-							<div className="loading">is loading...</div>
-						)
-						: (
-							<>
-								<div className="comment">
-									<h3>comment:</h3>
-									{comment.split("|")[0]}
-								</div>
-								<div className="scores">
-									<h3>scores:</h3>
-									{comment.split("|")[1]}
-								</div>
-							</>
-						)}
+					<RightComponet comment={comment} score={score} mutation={mutation}/>
 				</div>
 			</div>
 		</Layout>
 	);
 };
 
-export default WrithingPage;
+export default WritingPage;
