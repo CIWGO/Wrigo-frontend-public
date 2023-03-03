@@ -1,7 +1,8 @@
 import { Form, Input, Button, notification } from "antd";
 import axios from "axios";
 import { MyForm } from "./style";
-import ERROR_MESSAGES from "../../constants/index";
+import { ERROR_MESSAGES } from "../../constants/errorMessages";
+import { defaultFrontEndPrefix } from "../../constants/index";
 
 const SignUpForm = () => {
 	const onFinish = async (values) => {
@@ -9,7 +10,7 @@ const SignUpForm = () => {
 			const response = await axios.post("http://localhost:3005/users/signup", values);
 			console.log(response.data);
 			notification.success({ message: "Sign up success" });
-			window.location.href = "http://localhost:3001/login"; // Redirect to /login page
+			window.location.href = `http://${defaultFrontEndPrefix}/login`; // Redirect to /login page
 		} catch (error) {
 			console.error(error);
 			notification.error({ message: "Sign up failed" });
@@ -29,7 +30,7 @@ const SignUpForm = () => {
 					}
 				]}
 			>
-				<Input placeholder="Username"/>
+				<Input placeholder="Username" />
 			</Form.Item>
 
 			<Form.Item
@@ -46,7 +47,7 @@ const SignUpForm = () => {
 					}
 				]}
 			>
-				<Input placeholder="Email"/>
+				<Input placeholder="Email" />
 			</Form.Item>
 
 			<Form.Item
@@ -59,7 +60,7 @@ const SignUpForm = () => {
 					}
 				]}
 			>
-				<Input.Password placeholder="Password"/>
+				<Input.Password placeholder="Password" />
 			</Form.Item>
 
 			<Form.Item
@@ -80,12 +81,12 @@ const SignUpForm = () => {
 					})
 				]}
 			>
-				<Input.Password placeholder="Confirm Password"/>
+				<Input.Password placeholder="Confirm Password" />
 			</Form.Item>
 
 			<Form.Item>
 				<Button type="primary" htmlType="submit">
-          Sign up
+					Sign up
 				</Button>
 			</Form.Item>
 		</MyForm>
