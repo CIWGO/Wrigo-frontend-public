@@ -21,7 +21,7 @@
     "react-icons": "^4.7.1",
     "react-redux": "^8.0.5",
     "react-router": "^6.8.1",
-    "react-router-dom": "^6.8.1",
+    "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "sass": "^1.58.3",
@@ -30,7 +30,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "PORT=3001 react-scripts start",
+    "start": "set PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
