@@ -10,11 +10,11 @@ const UtilityCardsWrapper = styled.div`
   justify-content: flex-start;
 `;
 
-const MyWriting = (props) => {
+const WritingMain = (props) => {
 	const navigate = useNavigate();
 
 	const onClickIcon = () => {
-		navigate("/writings/second");
+		navigate("/writings/evaluation");
 	};
 
 	return (
@@ -32,4 +32,4 @@ const MyWriting = (props) => {
 	);
 };
 
-export default withTheme(MyWriting);
+export default withTheme(WritingMain);

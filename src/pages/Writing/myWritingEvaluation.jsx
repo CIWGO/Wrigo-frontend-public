@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
 import RightComponet from "./right";
-import "./myWritingSecond.scss";
+import "./myWritingEvaluation.scss";
 
 const WritingPage = () => {
 	const [topic, setTopic] = useState("");

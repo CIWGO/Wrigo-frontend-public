@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import MyWriting from "./myWritingFirst";
-import WritingPage from "./myWritingSecond";
+import WritingMain from "./myWritingMain";
+import WritingPage from "./myWritingEvaluation";
 import Layout from "../../components/Layout";
 import SearchBar from "../../components/SearchBar";
 
@@ -10,8 +10,8 @@ const Writing = () => {
 			<SearchBar style={{ marginTop: "40px" }} />
 			<div style={{ paddingTop: "60px" }}>
 				<Routes>
-					<Route path="/" element={<MyWriting />} />
-					<Route path="/second" element={<WritingPage />} />
+					<Route path="/" element={<WritingMain />} />
+					<Route path="/evaluation" element={<WritingPage />} />
 				</Routes>
 			</div>
 		</Layout>
