@@ -2,7 +2,7 @@ import HeadingComponent from "../../components/Heading/index.jsx";
 import UtilityCard from "../../components/UtilityCard/index.jsx";
 import styled, { withTheme } from "styled-components";
 import { PlusOutlined } from "@ant-design/icons";
-import { defaultFrontEndPrefix } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
 const UtilityCardsWrapper = styled.div`
   margin: 8px 15px;
@@ -10,19 +10,20 @@ const UtilityCardsWrapper = styled.div`
   justify-content: flex-start;
 `;
 
-const onClickIcon = () => {
-	// Fix this href, once the link page done.
-	// window.location.href = defaultFrontEndPrefix + '<  the rest router path>'
-	window.location.href = `${defaultFrontEndPrefix}/second`;
-};
-
 const MyWriting = (props) => {
+	const navigate = useNavigate();
+
+	const onClickIcon = () => {
+		navigate("/writings/second");
+	};
+
 	return (
 		<div>
 			<HeadingComponent displayValue={"My Writings"} />
 			<UtilityCardsWrapper>
 				<UtilityCard>
-					<PlusOutlined style={{ fontSize: "60px", color: props.theme.defaultColor }}
+					<PlusOutlined
+						style={{ fontSize: "60px", color: props.theme.defaultColor }}
 						onClick={onClickIcon}
 					/>
 				</UtilityCard>
@@ -30,4 +31,5 @@ const MyWriting = (props) => {
 		</div>
 	);
 };
+
 export default withTheme(MyWriting);
