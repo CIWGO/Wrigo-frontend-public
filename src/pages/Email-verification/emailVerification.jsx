@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Form, Input } from "antd";
 import styled from "styled-components";
 // import { useNavigate } from "react-router-dom";
+import ERROR_MESSAGES from "../../constants/index";
 
 function EmailVerification () {
 	const Container = styled.div`
@@ -16,6 +17,9 @@ function EmailVerification () {
 	};
 	const onFinishFailed = (errorInfo) => {
 		console.log("Failed:", errorInfo);
+	};
+	const onResend = () => {
+		console.log(1123);
 	};
 	return (
 		<Container>
@@ -47,8 +51,8 @@ function EmailVerification () {
 					name="Verification Code"
 					rules={[
 						{
-							// required: true,
-							message: "Please input Verification Code!"
+							required: true,
+							message: ERROR_MESSAGES.verificationCode
 						}
 					]}
 				>
@@ -63,18 +67,18 @@ function EmailVerification () {
 					<Button style={{
 						backgroundColor: "#2F71DA",
 						margin: 0
-					}} type="primary" htmlType="submit">
+					}} type="primary" onClick={onResend}>
         Resend
 					</Button>
 				</Form.Item>
-			</Form>
-			<Form.Item
-				style={{ marginTop: 15 }}
-			>
-				<Button style={{ backgroundColor: "#2F71DA", width: 120 }} type="primary" htmlType="submit">
+				<Form.Item
+					style={{ marginTop: 15 }}
+				>
+					<Button style={{ backgroundColor: "#2F71DA", width: 120 }} type="primary" htmlType="submit">
         Verify
-				</Button>
-			</Form.Item>
+					</Button>
+				</Form.Item>
+			</Form>
 			<a href="/EmailVerificationChange">
         Forgot your password?
 			</a>
