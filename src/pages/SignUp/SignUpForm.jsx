@@ -4,7 +4,9 @@ import { MyForm } from "./style";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 import { defaultFrontEndPrefix } from "../../constants/index";
 
+
 const SignUpForm = () => {
+	// Think about refactor it by using redux and redux toolkit.
 	const onFinish = async (values) => {
 		try {
 			const response = await axios.post("http://localhost:3005/users/signup", values);
