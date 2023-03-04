@@ -1,7 +1,7 @@
-import Layout from "../../components/Layout";
 import MyWriting from "./myWriting";
+import Layout from "../../components/Layout";
 
-const WrithingPage = () => {
+const WritingFirstPage = () => {
 	return (
 		<Layout>
 			<div>
@@ -10,4 +10,4 @@ const WrithingPage = () => {
 		</Layout>
 	);
 };
-export default WrithingPage;
+export default WritingFirstPage;

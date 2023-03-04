@@ -3,6 +3,10 @@ import DashBoardPage from "../pages/Dashboard/index";
 import EmailVerification from "../pages/Email-verification/emailVerification";
 import WrithingPage from "../pages/Writing/index";
 import EmailVerificationChange from "../pages/Email-verification/emailVerificationChange";
+import WrithingPage from "../pages/Writing/index-old";
+import WritingFirstPage from "../pages/Writing/index";
+import SignUpPage from "../pages/SignUp/index";
+
 function Router () {
 	return (
 		<BrowserRouter>
@@ -12,6 +16,9 @@ function Router () {
 				<Route path="/emailVerification" element={<EmailVerification />} />
 				<Route path="/emailVerificationChange" element={<EmailVerificationChange />} />
 
+				<Route path="/writings/first" element={<WritingFirstPage />} />
+				<Route path="/writings/second" element={<WrithingPage />} />
+				<Route path="/signup" element={<SignUpPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
