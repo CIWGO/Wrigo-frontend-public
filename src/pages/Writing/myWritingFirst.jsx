@@ -2,7 +2,7 @@ import HeadingComponent from "../../components/Heading/index.jsx";
 import UtilityCard from "../../components/UtilityCard/index.jsx";
 import styled, { withTheme } from "styled-components";
 import { PlusOutlined } from "@ant-design/icons";
-// import { defaultFrontEndPrefix } from '../../constants'
+import { defaultFrontEndPrefix } from "../../constants";
 
 const UtilityCardsWrapper = styled.div`
   margin: 8px 15px;
@@ -13,6 +13,7 @@ const UtilityCardsWrapper = styled.div`
 const onClickIcon = () => {
 	// Fix this href, once the link page done.
 	// window.location.href = defaultFrontEndPrefix + '<  the rest router path>'
+	window.location.href = `${defaultFrontEndPrefix}/second`;
 };
 
 const MyWriting = (props) => {

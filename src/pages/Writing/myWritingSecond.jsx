@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
 import RightComponet from "./right";
-import "./index.scss";
+import "./myWritingSecond.scss";
 import SearchBar from "../../components/SearchBar";
 
 const WritingPage = () => {

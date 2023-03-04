@@ -1,13 +1,14 @@
-import MyWriting from "./myWriting";
-import Layout from "../../components/Layout";
+import { Route, Routes } from "react-router-dom";
+import MyWriting from "./myWritingFirst";
+import WritingPage from "./myWritingSecond";
 
-const WritingFirstPage = () => {
+function Writing () {
 	return (
-		<Layout>
-			<div>
-				<MyWriting />
-			</div>
-		</Layout>
+		<Routes>
+			<Route path="/first" element={<MyWriting />} />
+			<Route path="/second" element={<WritingPage />} />
+		</Routes>
 	);
-};
-export default WritingFirstPage;
+}
+
+export default Writing;
