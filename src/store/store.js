@@ -5,6 +5,6 @@ export const store = configureStore({
 	reducer: {
 
 		// userAccount: userAccountReducer
-		// you store goes here
+		// your store goes here
 	}
 });
