@@ -5,7 +5,7 @@ import { signupUser } from "../utils/index";
 const initialState = {
 	lodging: false,
 	username: "",
-	username: ""
+	email: ""
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -25,7 +25,7 @@ export const signupUserAsync = createAsyncThunk(
 );
 
 export const userAccountSlice = createSlice({
-	// This name will be the object name in redux 
+	// This name will be the object name in redux
 	name: "userAccount",
 	initialState,
 	// The `reducers` field lets us define reducers and generate associated actions
@@ -65,12 +65,10 @@ export const getAllState = (state) => state;
 
 export default userAccountSlice.reducer;
 
-
 // https://redux.js.org/tutorials/quick-start
-// copy the below line to where you want to use redux data in React 
+// copy the below line to where you want to use redux data in React
 // import { useSelector, useDispatch } from 'react-redux'
 
-
 // useSelector can get the data from redux eg: useSelector(state => state.userAccount) (you will get all data for userAccount)
-// useDispatch trigger the redux action eg: updateUserAccount(youValue) 
+// useDispatch trigger the redux action eg: updateUserAccount(youValue)
 // if you want to trigger your API fetching fn eg: signupUserAsync()
