@@ -1,5 +1,5 @@
 import SignUpForm from "./SignUpForm";
-// import { Layout } from "antd";
+import { defaultFrontEndPrefix } from "../../constants/index";
 import { SignUpLayout, LoginTag, CreateAccount, Logo } from "./style";
 
 const SignUpPage = () => {
@@ -9,7 +9,7 @@ const SignUpPage = () => {
 			<CreateAccount>Create account</CreateAccount>
 			<SignUpForm />
 
-			<LoginTag href="http://localhost:3005/users/login"> Already have account? Log in</LoginTag>
+			<LoginTag href={`http://${defaultFrontEndPrefix}/users/login`}> Already have account? Log in</LoginTag>
 
 			{/* </content> */}
 		</SignUpLayout>
