@@ -5,10 +5,28 @@ import { PlusOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+// const UtilityCardsWrapper = styled.div`
+//   margin: 8px 15px;
+//   display: flex;
+//   justify-content: flex-start;
+//   gap: 20px;
+// `;
+
 const UtilityCardsWrapper = styled.div`
   margin: 8px 15px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
+const SortByDate = styled.span`
+  margin-left: auto;
+  font-size: 16px;
+  color: ${props => props.theme.defaultColor};
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
 `;
 
 const WritingMain = (props) => {
@@ -44,20 +62,22 @@ const WritingMain = (props) => {
 
 	return (
 		<div>
-			<HeadingComponent displayValue={"My Writings"} />
-			<button onClick={sortCardsByDate}>Sort by date</button>
+			<div style={{ display: "flex", justifyContent: "space-between" }}>
+				<HeadingComponent displayValue={"My Writings"} />
+				<SortByDate onClick={sortCardsByDate}>Sort by date</SortByDate>
+			</div>
 			<UtilityCardsWrapper>
-				{cards.map((card) => (
-					<UtilityCard key={card.id}>
-						{card.title} - {card.date}
-					</UtilityCard>
-				))}
-				<UtilityCard>
+				<UtilityCard key="new-card" style={{ marginBottom: "8px" }}>
 					<PlusOutlined
 						style={{ fontSize: "60px", color: props.theme.defaultColor }}
 						onClick={onClickIcon}
 					/>
 				</UtilityCard>
+				{cards.map((card) => (
+					<UtilityCard key={card.id} style={{ marginBottom: "8px" }}>
+						{card.title} - {card.date}
+					</UtilityCard>
+				))}
 			</UtilityCardsWrapper>
 		</div>
 	);
