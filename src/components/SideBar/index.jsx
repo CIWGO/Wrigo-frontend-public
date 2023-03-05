@@ -21,11 +21,16 @@ const SideBar = () => {
 
 	return (
 		<div className="side-bar">
-			<h1 className="title"><a href="">WRIGO</a></h1>
+
+			<h1 className="title">
+				<a href="/dashboard">WRIGO</a>
+			</h1>
 
 			<ul className="main">
-				<li >
-					<a className={activeMenu === 0 ? "active" : ""}
+				<li>
+					<a
+						href="/dashboard"
+						className={activeMenu === 0 ? "active" : ""}
 						onClick={() => handleMenuClick(0)}
 					>
 						DashBoard
@@ -58,7 +63,7 @@ const SideBar = () => {
 						Profile
 					</a>
 				</li>
-				<li><a href="/">Log out</a></li>
+				<li><a href="/signup">Log out</a></li>
 			</ul>
 
 		</div>
