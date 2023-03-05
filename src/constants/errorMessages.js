@@ -1,4 +1,4 @@
-const ERROR_MESSAGES = {
+export const ERROR_MESSAGES = {
 	username: "Please input your username!",
 	email: "Please input your email!",
 	emailFormat: "Please enter a valid email address",
@@ -6,5 +6,3 @@ const ERROR_MESSAGES = {
 	passwordConfirm: "Please confirm your password!",
 	passwordMatch: "These two passwords that you entered do not match!"
 };
-
-export default ERROR_MESSAGES;
