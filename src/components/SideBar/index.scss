@@ -11,8 +11,6 @@
 	width: 20%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -37,6 +35,7 @@
 	.main,
 	.personal {
 		flex: 8;
+		text-align: center;
 
 		.active {
 			background-color: rgb(47, 113, 218);
@@ -51,6 +50,7 @@
 		}
 
 		a {
+			text-align-last: left;
 			display: inline-block;
 			width: 80%;
 			padding: 0.5rem 0;
@@ -61,6 +61,10 @@
 				background-color: rgba(47, 113, 218, 0.3);
 				color: #f5f5f5;
 			}
+		}
+
+		.icon {
+			margin: 0 1rem 0 1rem;
 		}
 	}
 

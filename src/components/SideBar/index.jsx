@@ -1,23 +1,10 @@
-// import styled from "styled-components";
 import "./index.scss";
 import React, { useState } from "react";
-
-// const StyledSideBar = styled.div`
-//   height: 100vh;
-//   display: flex;
-//   flex-direction: column;
-// 	position: fixed;
-//   top: 0;
-//   left: 0;
-//   background-color: #f5f5f5;
-// `;
+import { AppstoreOutlined, FormOutlined, FileTextOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
-	const [activeMenu, setActiveMenu] = useState(0);
-
-	const handleMenuClick = (index) => {
-		setActiveMenu(index);
-	};
+	const [activeMenu, setActiveMenu] = useState(1);
 
 	return (
 		<div className="side-bar">
@@ -28,44 +15,57 @@ const SideBar = () => {
 
 			<ul className="main">
 				<li>
-					<a
-						href="/dashboard"
+					<Link
 						className={activeMenu === 0 ? "active" : ""}
-						onClick={() => handleMenuClick(0)}
+						onClick={() => setActiveMenu(0)}
+						to={"/dashboard"}
 					>
+						<AppstoreOutlined className="icon"/>
 						DashBoard
-					</a>
+					</Link>
 				</li>
+
 				<li>
-					<a
+					<Link
 						className={activeMenu === 1 ? "active" : ""}
-						onClick={() => handleMenuClick(1)}
+						onClick={() => setActiveMenu(1)}
+						to={"/writings/first"}
 					>
+						<FormOutlined className="icon" />
 						Writings
-					</a>
+					</Link>
 				</li>
+
 				<li>
-					<a
+					<Link
 						className={activeMenu === 2 ? "active" : ""}
-						onClick={() => handleMenuClick(2)}
+						onClick={() => setActiveMenu(2)}
+						to={"/writings/second"}
 					>
+						<FileTextOutlined className="icon"/>
 						Topics
-					</a>
+					</Link>
 				</li>
 			</ul>
 
 			<ul className="personal">
 				<li>
-					<a
-						className={`${activeMenu === 3 ? "active" : ""}`}
-						onClick={() => handleMenuClick(3)}
-					>
+					<Link
+						className={activeMenu === 3 ? "active" : ""}
+						onClick={() => setActiveMenu(3)}
+						to={"/"}>
+						<UserOutlined className="icon"/>
 						Profile
+					</Link>
+				</li>
+
+				<li>
+					<a href="/signup">
+						<LogoutOutlined className="icon"/>
+						Log out
 					</a>
 				</li>
-				<li><a href="/signup">Log out</a></li>
 			</ul>
-
 		</div>
 	);
 };
