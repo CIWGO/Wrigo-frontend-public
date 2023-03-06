@@ -10,7 +10,7 @@ const theme = {
 	headingFontWeight: "700",
 
 	fontFamily: "Noto Sans",
-	background: "#F5F5F5",
+	background: "#F5F5F5"
 };
 
 function App () {
