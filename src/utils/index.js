@@ -1,3 +1,3 @@
-export const exampleFunction = () => {
-	return "exampleFunction";
-};
+import { signupUser } from "./API";
+
+export { signupUser };
