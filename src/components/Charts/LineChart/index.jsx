@@ -13,6 +13,7 @@ import { Line } from "react-chartjs-2";
 import DataDisplay from "./DataDisplay.js";
 // import { marks } from "./data";
 import Options from "./LineChartOptions";
+import { LineChartBox } from "./style";
 
 ChartJS.register(
 	CategoryScale,
@@ -30,9 +31,9 @@ const LineChart = (props) => {
 	const { marks } = props;
 
 	return (
-		<div style={{ width: "80%", height: "80%" }}>
+		<LineChartBox>
 			<Line options={Options} data={DataDisplay({ marks })} />
-		</div>
+		</LineChartBox>
 	);
 };
 
