@@ -1,16 +1,16 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
-import styled from "styled-components";
-
+// import styled from "styled-components";
+import { MyForm, PageLayout } from "./emailVerificationStyle";
 // import { useNavigate } from "react-router-dom";
 
 function EmailVerificationChange () {
-	const Container = styled.div`
-		margin: 8px 15px;
-		display: flex-row;
-		height: 250px;
-		color:#2F71DA;
-	`;
+	// const Container = styled.div`
+	// 	margin: 8px 15px;
+	// 	display: flex-row;
+	// 	height: 250px;
+	// 	color:#2F71DA;
+	// `;
 
 	const onFinish = (values) => {
 		console.log("Success:", values);
@@ -19,11 +19,11 @@ function EmailVerificationChange () {
 		console.log("Failed:", errorInfo);
 	};
 	return (
-		<Container>
+		<PageLayout>
 			<h1 style={{ marginTop: 200, marginBottom: 80 }}>WRIGO</h1>
 			<h2>Verify your email</h2>
 			<p>please input new email address</p>
-			<Form
+			{/* <Form
 				name="basic"
 				style={{
 					maxWidth: 300,
@@ -39,10 +39,10 @@ function EmailVerificationChange () {
 				onFinishFailed={onFinishFailed}
 				autoComplete="off"
 				layout="inline"
-			>
+			> */}
+			<MyForm name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
 
 				<Form.Item
-					style={{ margin: 0 }}
 					rules={[
 						{
 							type: "email"
@@ -52,25 +52,17 @@ function EmailVerificationChange () {
 					<Input placeholder="New Email"/>
 				</Form.Item>
 				<Form.Item
-					style={{ margin: 0 }}
 				>
-					<Button style={{ backgroundColor: "#2F71DA" }} type="primary" htmlType="submit">
+					<Button type="primary" htmlType="submit">
         Send Code
 					</Button>
 				</Form.Item>
-			</Form>
-			<Form
-				style={{
-					maxWidth: 300,
-					margin: "auto"
-				}}>
 
 				<Form.Item
-					style={{ marginTop: 20 }}
 					name="Verification Code"
 					rules={[
 						{
-						// required: true,
+							// required: true,
 							message: "Please input Verification Code!"
 						}
 					]}
@@ -78,14 +70,13 @@ function EmailVerificationChange () {
 					<Input placeholder="Verification Code"/>
 				</Form.Item>
 				<Form.Item
-					// style={{ marginTop: 10 }}
 				>
-					<Button style={{ backgroundColor: "#2F71DA", width: 150 }} type="primary" htmlType="submit">
+					<Button type="primary" htmlType="submit">
         Verify
 					</Button>
 				</Form.Item>
-			</Form>
-		</Container>
+			</MyForm>
+		</PageLayout>
 
 	);
 }
