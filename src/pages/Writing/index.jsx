@@ -1,13 +1,21 @@
-import MyWriting from "./myWriting";
+import { Route, Routes } from "react-router-dom";
+import WritingMain from "./myWritingMain";
+import WritingPage from "./myWritingEvaluation";
 import Layout from "../../components/Layout";
+import SearchBar from "../../components/SearchBar";
 
-const WritingFirstPage = () => {
+const Writing = () => {
 	return (
 		<Layout>
-			<div>
-				<MyWriting />
+			<SearchBar style={{ marginTop: "40px" }} />
+			<div style={{ paddingTop: "60px" }}>
+				<Routes>
+					<Route path="/" element={<WritingMain />} />
+					<Route path="/evaluation" element={<WritingPage />} />
+				</Routes>
 			</div>
 		</Layout>
 	);
 };
-export default WritingFirstPage;
+
+export default Writing;
