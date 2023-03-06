@@ -3,6 +3,7 @@ import DashBoardPage from "../pages/Dashboard/index";
 import WrithingPage from "../pages/Writing/index-old";
 import WritingFirstPage from "../pages/Writing/index";
 import SignUpPage from "../pages/SignUp/index";
+import SubIntroCard from "../components/subIntroCard";
 
 function Router () {
 	return (
