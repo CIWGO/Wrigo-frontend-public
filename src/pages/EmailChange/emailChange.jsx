@@ -1,10 +1,11 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
 // import styled from "styled-components";
-import { MyForm, PageLayout } from "./emailVerificationStyle";
+import { MyForm, PageLayout } from "./emailChangeStyle";
 // import { useNavigate } from "react-router-dom";
+// import ERROR_MESSAGES from "../../constants/errorMessages";
 
-function EmailVerificationChange () {
+function EmailChange () {
 	// const Container = styled.div`
 	// 	margin: 8px 15px;
 	// 	display: flex-row;
@@ -81,4 +82,4 @@ function EmailVerificationChange () {
 	);
 }
 
-export default EmailVerificationChange;
+export default EmailChange;
