@@ -12,7 +12,7 @@ const theme = {
 	fontFamily: "Noto Sans",
 	background: "#F5F5F5"
 };
-
+// npm run lint -- --fix
 function App () {
 	const queryClient = new QueryClient();
 	return (
