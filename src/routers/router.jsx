@@ -13,6 +13,7 @@ function Router () {
 				<Route path="/writings/first" element={<WritingFirstPage />} />
 				<Route path="/writings/second" element={<WrithingPage />} />
 				<Route path="/signup" element={<SignUpPage />} />
+				<Route path="/subintrocard" element={<SubIntroCard />} />
 			</Routes>
 		</BrowserRouter>
 	);
