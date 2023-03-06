@@ -1,6 +1,5 @@
 import React from "react";
 import { Form, Input } from "antd";
-// import styled from "styled-components";
 // import { useNavigate } from "react-router-dom";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 // import { defaultFrontEndPrefix } from "../../constants";

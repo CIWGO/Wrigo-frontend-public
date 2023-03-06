@@ -7,7 +7,7 @@ const EmailVerificationPage = () => {
 		<SignUpLayout>
 			<Logo>WRIGO</Logo>
 			<CreateAccount>Verify your email</CreateAccount>
-			<Message>please check your inbox</Message>
+			<Message>Please check your inbox</Message>
 
 			<EmailVerification />
 

@@ -45,7 +45,6 @@ const Logo = styled.h1`
   font-size:48px;
   color: #2F71DA;
   text-align:center;
-  margin-bottom:80px;
 `;
 const Message = styled.h3`
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
