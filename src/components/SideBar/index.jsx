@@ -4,7 +4,7 @@ import { AppstoreOutlined, FormOutlined, FileTextOutlined, LogoutOutlined, UserO
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
-	const [activeMenu, setActiveMenu] = useState(1);
+	const [activeMenu, setActiveMenu] = useState(0);
 
 	return (
 		<div className="side-bar">
