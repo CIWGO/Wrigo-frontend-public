@@ -33,7 +33,6 @@ const CreateAccount = styled.h2`
 
 const Logo = styled.h1`
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
-
   font-family: 'Noto Sans', sans-serif;
   font-weight:800;
   font-size:48px;
@@ -41,4 +40,5 @@ const Logo = styled.h1`
   text-align:center;
   margin-bottom:30px;
 `;
+
 export { MyForm, SignUpLayout, LoginTag, CreateAccount, Logo };
