@@ -1,8 +1,16 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { increaseNumber, increaseByMount, requestNumberAsync } from "../../slice/numberSlice";
+import {
+	increaseNumber,
+	increaseByMount,
+	requestNumberAsync
+} from "../../features/numberSlice";
 
 const ReduxExample = () => {
-	const status = useSelector((state) => { return state.numberStore.status; });
+	const [inputNumber, setInputNumber] = useState(0);
+	const { status, value } = useSelector((state) => {
+		return state.numberStore;
+	});
 
 	const dispatch = useDispatch();
 
@@ -11,21 +19,33 @@ const ReduxExample = () => {
 	};
 
 	const increaseByMountButton = () => {
-		dispatch(increaseByMount(5));
+		dispatch(increaseByMount(inputNumber));
 	};
 
 	const SendRequestButton = () => {
 		dispatch(requestNumberAsync());
-		console.log("status", status);
+		// console.log("status", status);
 	};
 	return (
 		<div>
-			<p>{status}</p>
-			<button onClick={increaseButton}>increase</button>
+			<p>Please install Redux dev tools in your Chrome</p>
+			<p>status: {status}</p>
+			<p>value: {value}</p>
+			<div>
+				<button onClick={increaseButton}>increase</button>
+			</div>
 
-			<button>decrease</button>
-			<button onClick={increaseByMountButton}>increaseByMount</button>
-			<button onClick={SendRequestButton}>Send Request</button>
+			<div>
+				{!(Number(inputNumber)) && <p>Please input a number</p>}
+				<input placeholder="input your number" value={inputNumber} onChange={e => {
+					setInputNumber(e.target.value);
+				}} />
+				<button onClick={increaseByMountButton}>increaseByMount</button>
+			</div>
+
+			<div>
+				<button onClick={SendRequestButton}>Send Request</button>
+			</div>
 		</div>
 	);
 };
