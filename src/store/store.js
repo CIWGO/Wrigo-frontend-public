@@ -1,10 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import userAccountReducer from "../slice/userAccountSlice";
+import numberReducer from "../slice/numberSlice";
 
 export const store = configureStore({
 	reducer: {
-
-		// userAccount: userAccountReducer
+		numberStore: numberReducer
 		// your store goes here
 	}
 });
