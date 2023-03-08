@@ -1,105 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
+import styles from "./styles";
 
 function SubIntroCard () {
-	const [isSubscribed, setIsSubscribed] = useState(false);
-
-	const handleSubscribeClick = () => {
-		setIsSubscribed(true);
-	};
-
-	const handleIconCrossClick = () => {
-		setIsSubscribed(false);
-	};
-
 	return (
-		<div>
-			<SubIntro onIconCrossClick={handleIconCrossClick} />
-			<FreeNPaid />
-			<Subscribe onSubscribeClick={handleSubscribeClick} />
-			{isSubscribed && (
-				<div className="subscriptionConfirmation">
-					<p>Thank you for subscribing to Wrigo Infinite!</p>
-					<button onClick={handleIconCrossClick}>Close</button>
+		<div style={styles.container}>
+			<header style={styles.header}>
+				<div style={styles.infiniteTop}>
+					<div style={styles.iconCross}>
+						<a href="#"><img src="./iconCross.svg" alt="iconCross" /></a>
+					</div>
+					<h1 style={styles.title}>Wrigo Infinite</h1>
 				</div>
-			)}
+				<p style={styles.subtitle}>
+          Wrigo Infinite provides you unlimited access to our intelligent AI
+          writing evaluators with best capabilities on giving you feedbacks for
+          improvement and accurate band estimations to help you better navigating
+          through the exam preparation.
+				</p>
+			</header>
+			<main style={styles.main}>
+				<div style={styles.infiniteContainer}>
+					<div style={styles.freeTier}>
+						<h3 style={styles.tierTitle}>Free Tier</h3>
+						<p style={styles.tierText}>
+              3 Evaluations per month <br />
+              2 Sample writings per month <br />
+              3 Grammar correction per month
+						</p>
+						<h5 style={styles.tierPrice}>Free</h5>
+					</div>
+					<div style={styles.line}></div>
+					<div style={styles.wrigoInfinite}>
+						<h3 style={styles.tierTitle}>Wrigo Infinite</h3>
+						<p style={styles.tierText}>
+              Unlimited evaluations <br />
+              Unlimited sample writings <br />
+              Unlimited grammar corrections <br />
+              Holistic feedback across writing submissions <br />
+              Writing argument suggestion <br />
+						</p>
+						<h5 style={styles.tierPrice}>A$ 9.99 / Month</h5>
+					</div>
+				</div>
+			</main>
+			<footer style={styles.footer}>
+				<div style={styles.subWrigoInfinite}>
+					<a href="#"><button style={styles.button}>Subscribe to Wrigo Infinite</button></a>
+				</div>
+			</footer>
 		</div>
-	);
-}
-
-function SubIntro ({ onIconCrossClick }) {
-	return (
-		<SubIntro>
-			<section className="infiniteTop">
-				<section className="iconCross">
-					<a href="#" onClick={onIconCrossClick}></a>
-					<img src="./iconCross.svg" alt="iconCross" />
-				</section>
-				<h1>Wrigo Infinite</h1>
-			</section>
-			<p>
-        Wrigo Infinite provides you unlimited access to our intelligent AI
-        writing evaluators with best capabilities on giving you feedbacks for
-        improvement and accurate band estimations to help you better navigating
-        through the exam preparation.
-			</p>
-		</SubIntro>
-	);
-}
-
-function FreeNPaid () {
-	return (
-		<FreeNPaid>
-			<div className="infiniteContainer">
-				<FreeTier />
-				<Line />
-				<WrigoInfinite />
-			</div>
-		</FreeNPaid>
-	);
-}
-
-function FreeTier () {
-	return (
-		<section className="freeTier">
-			<h3>Free Tier</h3>
-			<p>
-        3 Evaluations per month <br />
-        2 Sample writings per month <br />
-        3 Grammar correction per month
-			</p>
-			<h5>Free</h5>
-		</section>
-	);
-}
-
-function Line () {
-	return <section className="line"></section>;
-}
-
-function WrigoInfinite () {
-	return (
-		<section className="wrigoInfinite">
-			<h3>Wrigo Infinite</h3>
-			<p>
-        Unlimited evaluations <br />
-        Unlimited sample writings <br />
-        Unlimited grammar corrections <br />
-        Holistic feedback across writing submissions <br />
-        Writing argument suggestion <br />
-			</p>
-			<h5>A$ 9.99 / Month</h5>
-		</section>
-	);
-}
-
-function Subscribe ({ onSubscribeClick }) {
-	return (
-		<Subscribe>
-			<section className="subWrigoInfinite">
-				<a href="#"></a>
-				<button onClick={onSubscribeClick}>Subscribe to Wrigo Infinite</button>
-			</section>
-		</Subscribe>
 	);
 }
 
