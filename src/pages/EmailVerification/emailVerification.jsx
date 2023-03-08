@@ -1,26 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input } from "antd";
 // import styled from "styled-components";
 // import { useNavigate } from "react-router-dom";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 // import { defaultFrontEndPrefix } from "../../constants";
 import { VerifyButton, MyForm, PageLayout, ResendLayout, MyButton } from "./style";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
+import emailVerificationSlice from "../../slice/emailVerification";
 function EmailVerification () {
+	const [OTPcode, setOTPCode] = useState();
+	const { uid, username } = useSelector(state => state.loginData);
+	const dispatch = useDispatch();
 	const onFinish = (values) => {
+		setOTPCode(values);
+		dispatch(emailVerificationSlice(OTPcode, uid));
 		console.log("Success:", values);
 	};
 	const onFinishFailed = (errorInfo) => {
 		console.log("Failed:", errorInfo);
 	};
 	const onResend = () => {
-		console.log(1123);
+		axios.post("http://localhost:3005/users/resetPassword/sendOTPViaEmail",
+			{ uid, username }
+		)
+			.then(response => {
+				if (response.ok) {
+					alert("send email successful! Check your mailbox for the code!");
+				} else if (response.status === 500) {
+					alert("send fail 500 (Something went wrong)");
+				} else {
+					alert("send fail other than 500");
+				}
+			})
+			.catch(error => {
+				console.log(error);
+			});
 	};
 	return (
 		<PageLayout>
-			{/* <h1 style={{ marginTop: 200, marginBottom: 80 }}>WRIGO</h1>
-			<h2>Verify your email</h2>
-			<p>please check your inbox</p> */}
 			<MyForm name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off"
 			>
 				<ResendLayout>
