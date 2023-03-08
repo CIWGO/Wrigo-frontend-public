@@ -1,12 +1,22 @@
 const styles = {
+	container: {
+		display: "flex",
+		flexDirection: "column",
+		width: "100%",
+		height: "100vh"
+	},
 	header: {
 		padding: "1% 10%"
 	},
-	".infiniteTop .iconCross": {
+	infiniteTop: {
 		display: "flex",
 		justifyContent: "end"
 	},
-	h1: {
+	iconCross: {
+		display: "flex",
+		justifyContent: "end"
+	},
+	title: {
 		color: "#2f71da",
 		fontFamily: "Noto Sans",
 		fontSize: "3.6rem",
@@ -16,7 +26,7 @@ const styles = {
 		textAlign: "left",
 		marginTop: 0
 	},
-	p: {
+	subtitle: {
 		fontFamily: "Noto Sans",
 		fontSize: "1.8rem",
 		fontWeight: 700,
@@ -28,74 +38,57 @@ const styles = {
 	main: {
 		padding: "1% 10%"
 	},
-	".infiniteContainer": {
+	infiniteContainer: {
 		display: "flex",
 		flexDirection: "row",
 		justifyContent: "space-between"
 	},
-	".freeTier": {
+	freeTier: {
 		marginTop: 0,
 		display: "flex",
 		flexDirection: "column"
 	},
-	".freeTier h3": {
+	tierTitle: {
 		fontSize: "2.4rem",
 		fontWeight: 700,
 		color: "#2f71da",
 		marginTop: 0,
 		marginBottom: "10px"
 	},
-	".freeTier h5": {
+	tierPrice: {
 		fontWeight: 600,
 		color: "#2f71da",
 		fontSize: "1.8rem",
 		margin: "10px 0"
 	},
-	".freeTier p": {
+	tierText: {
 		margin: 0,
 		fontWeight: 500,
 		fontSize: "1.8rem",
 		lineHeight: "2.5rem"
 	},
-	".line": {
+	line: {
 		border: "1px solid #2f71da",
 		marginBottom: "20px"
 	},
-	".wrigoInfinite": {
+	wrigoInfinite: {
 		display: "flex",
 		flexDirection: "column"
-	},
-	".wrigoInfinite h3": {
-		fontSize: "2.4rem",
-		fontWeight: 700,
-		color: "#2f71da",
-		marginTop: 0,
-		marginBottom: "10px"
-	},
-	".wrigoInfinite h5": {
-		fontWeight: 600,
-		color: "#2f71da",
-		fontSize: "1.8rem",
-		margin: "10px 0"
-	},
-	".wrigoInfinite p": {
-		margin: 0,
-		fontWeight: 500,
-		fontSize: "1.8rem",
-		lineHeight: "2.5rem"
 	},
 	footer: {
 		display: "flex",
 		justifyContent: "center",
 		marginTop: "10px"
 	},
-	".subWrigoInfinite button": {
-		color: "#fff",
-		boxSizing: "border-box",
-		background: "#2f71da",
-		borderRadius: "10px",
-		padding: "15px 30px",
-		fontWeight: 700
+	subWrigoInfinite: {
+		button: {
+			color: "#fff",
+			boxSizing: "border-box",
+			background: "#2f71da",
+			borderRadius: "10px",
+			padding: "15px 30px",
+			fontWeight: 700
+		}
 	}
 };
 
