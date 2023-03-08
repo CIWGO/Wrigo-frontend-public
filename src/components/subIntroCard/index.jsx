@@ -6,9 +6,6 @@ function SubIntroCard () {
 		<div style={styles.container}>
 			<header style={styles.header}>
 				<div style={styles.infiniteTop}>
-					<div style={styles.iconCross}>
-						<a href="#"><img src="./iconCross.svg" alt="iconCross" /></a>
-					</div>
 					<h1 style={styles.title}>Wrigo Infinite</h1>
 				</div>
 				<p style={styles.subtitle}>

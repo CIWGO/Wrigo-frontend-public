@@ -10,7 +10,7 @@ const styles = {
 	},
 	infiniteTop: {
 		display: "flex",
-		justifyContent: "end"
+		justifyContent: "start"
 	},
 	iconCross: {
 		display: "flex",
@@ -44,9 +44,25 @@ const styles = {
 		justifyContent: "space-between"
 	},
 	freeTier: {
-		marginTop: 0,
-		display: "flex",
-		flexDirection: "column"
+		h3: {
+			fontSize: "2.4rem",
+			fontWeight: 700,
+			color: "#2f71da",
+			marginTop: 0,
+			marginBottom: "10px"
+		},
+		h5: {
+			fontWeight: 600,
+			color: "#2f71da",
+			fontSize: "1.8rem",
+			margin: "10px 0"
+		},
+		p: {
+			margin: 0,
+			fontWeight: 500,
+			fontSize: "1.8rem",
+			lineHeight: "2.5rem"
+		}
 	},
 	tierTitle: {
 		fontSize: "2.4rem",
