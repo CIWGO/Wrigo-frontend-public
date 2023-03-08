@@ -4,8 +4,10 @@ import EmailVerificationPage from "../pages/EmailVerification/index";
 // import WritingPage from "../pages/Writing/index";
 import EmailChange from "../pages/EmailChange/index";
 import WritingPage from "../pages/Writing/index-old";
-import WritingFirstPage from "../pages/Writing/index";
+import Writing from "../pages/Writing/index";
 import SignUpPage from "../pages/SignUp/index";
+import UserProfile from "../pages/UserProfile/index";
+import ReduxExample from "../pages/ReduxExample/index";
 
 function Router () {
 	return (
@@ -15,9 +17,10 @@ function Router () {
 				<Route path="/writings" element={<WritingPage />} />
 				<Route path="/emailVerification" element={<EmailVerificationPage />} />
 				<Route path="/emailChange" element={<EmailChange />} />
-				<Route path="/writings/first" element={<WritingFirstPage />} />
-				<Route path="/writings/second" element={<WritingPage />} />
+				<Route path="/writings/*" element={<Writing />} />
 				<Route path="/signup" element={<SignUpPage />} />
+				<Route path="/userprofile" element={<UserProfile />} />
+				<Route path="/reduxExample" element={<ReduxExample />} />
 			</Routes>
 		</BrowserRouter>
 	);
