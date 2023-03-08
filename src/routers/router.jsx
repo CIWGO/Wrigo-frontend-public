@@ -6,6 +6,8 @@ import EmailChange from "../pages/EmailChange/index";
 import WritingPage from "../pages/Writing/index-old";
 import Writing from "../pages/Writing/index";
 import SignUpPage from "../pages/SignUp/index";
+import LandingPage from "../pages/Landing";
+import SubIntroCard from "../components/subIntroCard";
 import UserProfile from "../pages/UserProfile/index";
 import ReduxExample from "../pages/ReduxExample/index";
 
@@ -19,6 +21,8 @@ function Router () {
 				<Route path="/emailChange" element={<EmailChange />} />
 				<Route path="/writings/*" element={<Writing />} />
 				<Route path="/signup" element={<SignUpPage />} />
+				<Route path="/landing" element={<LandingPage />} />
+				<Route path="/subintrocard" element={<SubIntroCard />} />
 				<Route path="/userprofile" element={<UserProfile />} />
 				<Route path="/reduxExample" element={<ReduxExample />} />
 			</Routes>
