@@ -49,7 +49,8 @@ const styles = {
 			fontWeight: 700,
 			color: "#2f71da",
 			marginTop: 0,
-			marginBottom: "10px"
+			marginBottom: "10px",
+			textAlign: "start"
 		},
 		h5: {
 			fontWeight: 600,
@@ -103,6 +104,7 @@ const styles = {
 			background: "#2f71da",
 			borderRadius: "10px",
 			padding: "15px 30px",
+			justifyContent: "center",
 			fontWeight: 700
 		}
 	}

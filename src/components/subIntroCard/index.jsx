@@ -42,7 +42,7 @@ function SubIntroCard () {
 			</main>
 			<footer style={styles.footer}>
 				<div style={styles.subWrigoInfinite}>
-					<a href="#"><button style={styles.button}>Subscribe to Wrigo Infinite</button></a>
+					<a href="#"><button style={styles.subWrigoInfinite.button}>Subscribe to Wrigo Infinite</button></a>
 				</div>
 			</footer>
 		</div>
