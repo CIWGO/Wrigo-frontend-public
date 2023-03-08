@@ -1,85 +1,48 @@
 
-import { Button } from "antd";
-// notification
-import { MyForm, ButtonLayout } from "./style";
+import { notification, Row, Col } from "antd";
+import { MyForm, LoginButton } from "./style";
 import InputField from "./InputField";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
-// import axios from "axios";
-
-// import { setUserLogin, setUserInfo } from "../../slice/userSlice";
-// import { Navigate } from "react-router-dom";
-// import { Dispatch } from "react";
-
-// const handleSubmit = async (values) => {
-// 	event.preventDefault();
-// 	const response = await fetch("http://localhost:3005/users/login", {
-// 		method: "POST",
-// 		headers: {
-// 			"Content-Type": "application/json"
-// 		},
-// 		body: JSON.stringify({ username, password })
-// 	});
-// 	if (response.ok) {
-// 		const data = await response.json();
-// 		// login success
-// 		localStorage.setItem("token", data.token); // store the token in localStorage
-// 		localStorage.setItem("uid", data.uid); // store the uid in localStorage
-// 		localStorage.setItem("username", data.username); // store the username in localStorage
-// 		alert("Login successful!");
-// 		navigate("/userProfile");
-// 	} else if (response.status === 401) {
-// 		// unverified email
-// 		alert("unverified email");
-// 	} else {
-// 		// login failure
-// 		alert("Invalid username or password.");
-// 	}
-// };
+import axios from "axios";
+import { setUserLogin, setUserInfo } from "../../slice/userSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const LoginForm = () => {
-	// const handleSubmit = async (values) => {
-	// 	try {
-	// 		const response = await axios.post("http://localhost:3005/users/login", values);
-	// 		console.log(response.data);
-	// 		notification.success({ message: "login success" });
-	// 		if (response.ok) {
-	// 			const data = await response.json();
-	// 			// login success
-	// 			Dispatch(
-	// 				setUserLogin({
-	// 					userId: data.uid,
-	// 					userName: data.username,
-	// 					token: data.token
-	// 				})
-	// 			);
-	// 			alert("Login successful!");
-	// 			Navigate("/userProfile");
-	// 		} else if (response.status === 401) {
-	// 			const data = await response.json();
-	// 			Dispatch(
-	// 				setUserInfo({
-	// 					userId: data.uid,
-	// 					userName: data.username
-	// 				})
-	// 			);
-	// 			alert("unverified email");
-	// 			Navigate("/emailVerification");
-	// 		} else {
-	// 			// login failure
-	// 			alert("Invalid username or password.");
-	// 		}
-	// 		// window.location.href = `http://${defaultFrontEndPrefix}/login`; // Redirect to /login page
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 		notification.error({ message: "login failed" });
-	// 	}
-	// };
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
+	const handleSubmit = async (values) => {
+		try {
+			const response = await axios.post("http://localhost:3005/users/login", values);
+			console.log(response.data);
+			if (response.status === 200) {
+				// login success
+				const { uid: userId, username: userName, token } = response.data;
+
+				dispatch(setUserLogin({ userId, userName, token }));
+				console.log("login success");
+				navigate("/userProfile");
+			}
+		} catch (error) {
+			// unverified email
+			if (error.response.status === 401) {
+				const { uid: userId, username: userName } = error.response.data;
+
+				axios.post("http://localhost:3005/users/resetPassword/sendOTPViaEmail");
+				dispatch(setUserInfo({ userId, userName }));
+				console.log("unverified email");
+				navigate("/emailVerification");
+			} else {
+				const errorMessage = error.response.data.error;
+
+				notification.error({ message: `${errorMessage}` });
+			}
+		}
+	};
 
 	return (
-		<MyForm name="basic"
-			// onFinish={handleSubmit}
-		>
-
+		<MyForm name="basic" onFinish={handleSubmit}>
 			<InputField
 				name="username"
 				placeholder="Username"
@@ -90,18 +53,19 @@ const LoginForm = () => {
 				placeholder="Password"
 				errorMessages={ERROR_MESSAGES.password} />
 
-			<ButtonLayout>
-				<Button type="primary" htmlType="submit">
+			<Row justify="space-between">
+				<Col>
+					<LoginButton type="primary" htmlType="submit">
         Sign up
-				</Button>
-
-				<Button type="default" htmlType="submit">
+					</LoginButton>
+				</Col>
+				<Col>
+					<LoginButton type="default" htmlType="submit">
         Login
-				</Button>
-			</ButtonLayout>
-
+					</LoginButton>
+				</Col>
+			</Row>
 		</MyForm>
-
 	);
 };
 

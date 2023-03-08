@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Form, Layout } from "antd";
+import { Form, Layout, Button } from "antd";
 
 const MyForm = styled(Form)`
   width: 300px;
@@ -16,6 +16,7 @@ const LoginLayout = styled(Layout)`
 `;
 
 const ForgotTag = styled.a`
+  margin-top:1.5rem;
   text-align:center;
   text-decoration:underline;
   color: #2F71DA;
@@ -41,11 +42,8 @@ const Logo = styled.h1`
   margin-bottom:30px;
 `;
 
-const ButtonLayout = styled.div`
-  background-color:"red";
-  display:"flex";
-  flex-direction:"row";
-  justify-content:"space-between"
+const LoginButton = styled(Button)`
+  width: 8rem;
 `;
 
-export { MyForm, Logo, WelcomeBack, LoginLayout, ForgotTag, ButtonLayout };
+export { MyForm, Logo, WelcomeBack, LoginLayout, ForgotTag, LoginButton };
