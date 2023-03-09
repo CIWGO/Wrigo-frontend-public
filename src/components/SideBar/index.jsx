@@ -60,7 +60,7 @@ const SideBar = () => {
 				</li>
 
 				<li>
-					<a href="/signup">
+					<a href="/landing">
 						<LogoutOutlined className="icon"/>
 						Log out
 					</a>
