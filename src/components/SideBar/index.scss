@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Rubik:wght@400;500;700&display=swap');
+
+* {
+	font-family: Poppins;
+	margin: 0;
+	padding: 0;
+}
+
+.side-bar {
+	height: 100vh;
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #f5f5f5;
+
+	ul {
+		width: 100%;
+	}
+
+	li {
+		list-style: none;
+		font-size: 1.2rem;
+		width: 100%;
+		margin: 5px;
+	}
+
+	.title {
+		flex: 2;
+		font-size: 3rem;
+	}
+
+	.main,
+	.personal {
+		flex: 8;
+		text-align: center;
+
+		.active {
+			background-color: rgb(47, 113, 218);
+			color: #f5f5f5;
+
+			&:hover {
+				/* Keep the same background color on hover */
+				background-color: rgb(47, 113, 218);
+				/* Keep the same text color on hover */
+				color: #f5f5f5;
+			}
+		}
+
+		a {
+			text-align-last: left;
+			display: inline-block;
+			width: 80%;
+			padding: 0.5rem 0;
+			border-radius: 0.5rem;
+			transition: all 0.3s;
+
+			&:hover {
+				background-color: rgba(47, 113, 218, 0.3);
+				color: #f5f5f5;
+			}
+		}
+
+		.icon {
+			margin: 0 1rem 0 1rem;
+		}
+	}
+
+	.personal {
+		flex: 1.5;
+	}
+}
