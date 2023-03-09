@@ -1,69 +1,50 @@
-import "./index.scss";
-import React, { useState } from "react";
+import React from "react";
 import { AppstoreOutlined, FormOutlined, FileTextOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import "./index.scss";
 
 const SideBar = () => {
-	const [activeMenu, setActiveMenu] = useState(0);
-
 	return (
 		<div className="side-bar">
 
-			<h1 className="title">
-				<a href="/dashboard">WRIGO</a>
-			</h1>
+			<Link className="title" to="/dashboard"><h3>WRIGO</h3></Link>
 
 			<ul className="main">
 				<li>
-					<Link
-						className={activeMenu === 0 ? "active" : ""}
-						onClick={() => setActiveMenu(0)}
-						to={"/dashboard"}
-					>
+					<NavLink to="/dashboard">
 						<AppstoreOutlined className="icon"/>
 						DashBoard
-					</Link>
+					</NavLink>
 				</li>
 
 				<li>
-					<Link
-						className={activeMenu === 1 ? "active" : ""}
-						onClick={() => setActiveMenu(1)}
-						to={"/writings/*"}
-					>
+					<NavLink to="/writings/*">
 						<FormOutlined className="icon" />
 						Writings
-					</Link>
+					</NavLink>
 				</li>
 
 				<li>
-					<Link
-						className={activeMenu === 2 ? "active" : ""}
-						onClick={() => setActiveMenu(2)}
-						to={"/dashboard"}
-					>
+					<NavLink to="/topics">
 						<FileTextOutlined className="icon"/>
 						Topics
-					</Link>
+					</NavLink>
 				</li>
 			</ul>
 
 			<ul className="personal">
 				<li>
-					<Link
-						className={activeMenu === 3 ? "active" : ""}
-						onClick={() => setActiveMenu(3)}
-						to={"/"}>
+					<NavLink to="/userprofile">
 						<UserOutlined className="icon"/>
 						Profile
-					</Link>
+					</NavLink>
 				</li>
 
 				<li>
-					<a href="/landing">
+					<Link to="/landing">
 						<LogoutOutlined className="icon"/>
 						Log out
-					</a>
+					</Link>
 				</li>
 			</ul>
 		</div>

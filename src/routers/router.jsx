@@ -18,6 +18,7 @@ function Router () {
 				<Route path="/subintrocard" element={<SubIntroCard />} />
 				<Route path="/userprofile" element={<UserProfile />} />
 				<Route path="/reduxExample" element={<ReduxExample />} />
+				<Route path="/topics" element={<DashBoardPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
