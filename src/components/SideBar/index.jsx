@@ -29,7 +29,7 @@ const SideBar = () => {
 					<Link
 						className={activeMenu === 1 ? "active" : ""}
 						onClick={() => setActiveMenu(1)}
-						to={"/writings/first"}
+						to={"/writings/*"}
 					>
 						<FormOutlined className="icon" />
 						Writings
@@ -40,7 +40,7 @@ const SideBar = () => {
 					<Link
 						className={activeMenu === 2 ? "active" : ""}
 						onClick={() => setActiveMenu(2)}
-						to={"/writings/second"}
+						to={"/dashboard"}
 					>
 						<FileTextOutlined className="icon"/>
 						Topics
