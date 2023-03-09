@@ -21,6 +21,9 @@ const LoginForm = () => {
 				const { uid: userId, username: userName, token } = response.data;
 
 				dispatch(setUserLogin({ userId, userName, token }));
+				localStorage.setItem("token", token); // store the token in localStorage
+				localStorage.setItem("uid", userId); // store the uid in localStorage
+				localStorage.setItem("username", userName); // store the username in localStorage
 				console.log("login success");
 				navigate("/userProfile");
 			}
