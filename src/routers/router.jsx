@@ -5,6 +5,7 @@ import SignUpPage from "../pages/SignUp/index";
 import LandingPage from "../pages/Landing";
 import SubIntroCard from "../components/subIntroCard";
 import UserProfile from "../pages/UserProfile/index";
+import Login from "../pages/Login/index";
 import ReduxExample from "../pages/ReduxExample/index";
 
 function Router () {
@@ -17,6 +18,7 @@ function Router () {
 				<Route path="/landing" element={<LandingPage />} />
 				<Route path="/subintrocard" element={<SubIntroCard />} />
 				<Route path="/userprofile" element={<UserProfile />} />
+				<Route path="/login" element={<Login />} />
 				<Route path="/reduxExample" element={<ReduxExample />} />
 			</Routes>
 		</BrowserRouter>
