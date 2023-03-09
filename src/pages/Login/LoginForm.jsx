@@ -29,7 +29,7 @@ const LoginForm = () => {
 			if (error.response.status === 401) {
 				const { uid: userId, username: userName } = error.response.data;
 
-				axios.post("http://localhost:3005/users/resetPassword/sendOTPViaEmail");
+				await axios.post("http://localhost:3005/users/resetPassword/sendOTPViaEmail", values);
 				dispatch(setUserInfo({ userId, userName }));
 				console.log("unverified email");
 				navigate("/emailVerification");
