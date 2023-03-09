@@ -7,7 +7,7 @@ import { VerifyButton, MyForm, PageLayout, ResendLayout, MyButton } from "./styl
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-import emailVerificationSlice from "../../slice/emailVerification";
+import emailVerificationSlice from "../../features/emailVerificationSlice";
 function EmailVerification () {
 	const [OTPcode, setOTPCode] = useState();
 	const { uid, username } = useSelector(state => state.loginData);
