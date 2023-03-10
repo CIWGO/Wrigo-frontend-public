@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { Input, Form, Button, Col, Row } from "antd";
+import axios from "axios";
 import {
 	Item,
 	ButtonSection,
@@ -9,11 +11,30 @@ import {
 } from "./style";
 
 const ProfileInfo = () => {
+	// const [hideLoader, setHideLoader] = useState(false);
+	const [profile, setProfile] = useState({});
 	const email = "louis_12gmail.com";
-	const since = "20 Feb, 2023";
-	const gender = "Male";
+	// const since = "20 Feb, 2023";
 	const expiry = "21 Mar, 2023";
 	const paymentMethod = "Visa - 1221";
+	const url = "http://localhost:3005/users/getuserprofile";
+	// const token = localStorage.getItem("token");
+	const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InppemhlbiIsInVpZCI6IjkwZTllMjcwLTE3NWQtNDA2Yi1hZjBiLTViOWZjYTAyNDA0NSIsImVtYWlsIjoieml6aGVubHVvMjMyOEBnbWFpbC5jb20iLCJpYXQiOjE2Nzg0MzE3NDcsImV4cCI6MTY3ODQzNTM0N30.4ojOw35I7_8-lBJQ2z6sfH4LgYQFEdWr9rA0huTR128";
+	const uid = "90e9e270-175d-406b-af0b-5b9fca024045";
+	useEffect(() => {
+		const getData = async () => {
+			const response = await axios.post(url, {
+				uid,
+				token
+			});
+			const user = response.data.user;
+			console.log(user);
+			setProfile(user);
+		};
+		getData();
+	}, []);
+
 	return (
 		<>
 			<ProfileContainer>
@@ -68,7 +89,7 @@ const ProfileInfo = () => {
 							</Item>
 						</Col>
 						<Col span={12}>
-							<Item>{since}</Item>
+							<Item>{profile.birth}</Item>
 						</Col>
 						<Col span={4}>
 							<Item />
@@ -80,7 +101,7 @@ const ProfileInfo = () => {
 							</Item>
 						</Col>
 						<Col span={12}>
-							<Item>{gender}</Item>
+							<Item>{profile.gender}</Item>
 						</Col>
 						<Col span={4}>
 							<Item />
@@ -92,7 +113,7 @@ const ProfileInfo = () => {
 							</Item>
 						</Col>
 						<Col span={12}>
-							<Item>China</Item>
+							<Item>{profile.country}</Item>
 						</Col>
 						<Col span={4}>
 							<Item />
@@ -130,16 +151,16 @@ const ProfileInfo = () => {
 							</Item>
 						</Col>
 					</Row>
-				</Form>
 
-				<ButtonSection>
-					<Button htmlType="submit" type="primary" size="small">
-            Save
-					</Button>
-					<CancelButton htmlType="button" type="default" size="small">
-            Cancel
-					</CancelButton>
-				</ButtonSection>
+					<ButtonSection>
+						<Button htmlType="submit" type="primary" size="small">
+              Save
+						</Button>
+						<CancelButton htmlType="button" type="default" size="small">
+              Cancel
+						</CancelButton>
+					</ButtonSection>
+				</Form>
 			</ProfileContainer>
 		</>
 	);
