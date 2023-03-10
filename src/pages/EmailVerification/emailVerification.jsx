@@ -5,7 +5,7 @@ import { ERROR_MESSAGES } from "../../constants/errorMessages";
 // import { defaultFrontEndPrefix } from "../../constants";
 import { VerifyButton, MyForm, PageLayout, ResendLayout, MyButton } from "./style";
 import { useDispatch, useSelector } from "react-redux";
-import { requestVerifyOTPAsync, updateEmailVerification } from "../../features/emailVerificationSlice";
+import { requestVerifyOTPAsync, updateEmailVerification } from "../../slice/emailVerificationSlice";
 import { sendOTPViaEmail } from "../../utils/index";
 import { useNavigate } from "react-router-dom";
 

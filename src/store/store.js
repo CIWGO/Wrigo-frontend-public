@@ -3,7 +3,7 @@ import { userReducer } from "../slice/userSlice";
 // import userAccountReducer from "../slice/userAccountSlice";
 // import userAccountReducer from "../slice/userAccountSlice";
 import numberReducer from "../features/numberSlice";
-import emailVerificationReducer from "../features/emailVerificationSlice";
+import emailVerificationReducer from "../slice/emailVerificationSlice";
 export const store = configureStore({
 	reducer: {
 		numberStore: numberReducer,
