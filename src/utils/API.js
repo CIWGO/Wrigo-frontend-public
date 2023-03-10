@@ -8,7 +8,7 @@ export const loginUser = (values) => { return axios.post("http://localhost:3005/
 
 export const sendOTPViaEmail = (values) => { return axios.post("http://localhost:3005/users/resetPassword/sendOTPViaEmail", values); };
 
-export const verifyOTP = (values) => { return axios.post("http://localhost:3005/users//resetPassword/verifyOTP", values); };
+export const verifyOTP = (values) => { return axios.post("http://localhost:3005/users/resetPassword/verifyOTP", values); };
 
 // example mock request
 export const requestNumber = () => {

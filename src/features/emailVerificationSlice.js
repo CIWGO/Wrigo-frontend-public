@@ -12,7 +12,7 @@ export const requestVerifyOTPAsync = createAsyncThunk(
 	"emailVerification/postData",
 	async (data) => {
 		const response = await verifyOTP(data);
-		return response.data.email_verified;
+		return response.data.user.email_verified;
 	}
 
 );
@@ -22,10 +22,14 @@ export const emailVerificationSlice = createSlice({
 	initialState,
 	reducers: {
 		updateEmailVerification: (state, action) => {
+			console.log("updateEmailVerification", state, action);
+			// state.uid = action.payload.uid;
+			// state.userId = action.payload.uid;
 			state = {
 				...state,
 				...action.payload
 			};
+			return state;
 		}
 	},
 	extraReducers: (builder) => {
