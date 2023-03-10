@@ -14,29 +14,39 @@ import {
 const ProfileInfo = () => {
 	const [hideLoader, setHideLoader] = useState(false);
 	const [profile, setProfile] = useState({});
+	const [error, setError] = useState(null);
 	const email = "louis_12gmail.com";
 	// const since = "20 Feb, 2023";
 	const expiry = "21 Mar, 2023";
 	const paymentMethod = "Visa - 1221";
 	const url = "http://localhost:3005/users/getuserprofile";
 	// const token = localStorage.getItem("token");
+	// one hour duration per token, please copy another token from login response
 	const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InppemhlbiIsInVpZCI6IjkwZTllMjcwLTE3NWQtNDA2Yi1hZjBiLTViOWZjYTAyNDA0NSIsImVtYWlsIjoieml6aGVubHVvMjMyOEBnbWFpbC5jb20iLCJpYXQiOjE2Nzg0NDg2MTgsImV4cCI6MTY3ODQ1MjIxOH0.mZ5itRDMCPacQZGiSi0CmxIfFQR6enPWRG_GKq2IYfU";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InppemhlbiIsInVpZCI6IjkwZTllMjcwLTE3NWQtNDA2Yi1hZjBiLTViOWZjYTAyNDA0NSIsImVtYWlsIjoieml6aGVubHVvMjMyOEBnbWFpbC5jb20iLCJpYXQiOjE2Nzg0NTI0MjEsImV4cCI6MTY3ODQ1NjAyMX0.IUYU_PLgBnOS37q15wmjk2S7PPMGl4KqTfsFC2zJ_5c";
 	const uid = "90e9e270-175d-406b-af0b-5b9fca024045";
 
-	useEffect(() => {
+	const fetchUserProfileData = async () => {
 		setHideLoader(false);
-		const getData = async () => {
+		setError(false);
+		try {
 			const response = await axios.post(url, {
 				uid,
 				token
 			});
+			if (response.statusText !== "OK") {
+				throw new Error("Couldn't fetch user profile data");
+			}
 			const user = response.data.user;
-			console.log(user);
 			setProfile(user);
-		};
-		getData();
+		} catch (error) {
+			setError(error.message);
+		}
 		setHideLoader(true);
+	};
+
+	useEffect(() => {
+		fetchUserProfileData();
 	}, []);
 
 	return (
@@ -55,7 +65,7 @@ const ProfileInfo = () => {
 					middleCircleColor=""
 				/>
 			)}
-			{hideLoader && (
+			{hideLoader && !error && (
 				<ProfileContainer>
 					<HeaderSection>
 						<h2>Edit Profile Details</h2>
@@ -180,6 +190,15 @@ const ProfileInfo = () => {
 							</CancelButton>
 						</ButtonSection>
 					</Form>
+				</ProfileContainer>
+			)}
+			{hideLoader && error && (
+				<ProfileContainer>
+					{" "}
+					<HeaderSection>
+						<h2>Edit Profile Details</h2>
+					</HeaderSection>{" "}
+					<p>{error}</p>
 				</ProfileContainer>
 			)}
 		</>
