@@ -27,7 +27,7 @@ function EmailChange () {
 					<Form.Item
 					>
 						<MyButton type="primary" htmlType="submit">
-        Send Code
+        					Send Code
 						</MyButton>
 					</Form.Item>
 
@@ -47,7 +47,7 @@ function EmailChange () {
 				<Form.Item
 				>
 					<VerifyButton type="primary" htmlType="submit">
-        Verify
+        				Verify
 					</VerifyButton>
 				</Form.Item>
 			</MyForm>

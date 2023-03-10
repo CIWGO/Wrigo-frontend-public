@@ -72,7 +72,7 @@ function EmailVerification () {
 					<Form.Item
 					>
 						<MyButton type="primary" onClick={onResend}>
-        Resend
+        					Resend
 						</MyButton>
 					</Form.Item>
 
@@ -81,7 +81,7 @@ function EmailVerification () {
 				<Form.Item
 				>
 					<VerifyButton type="primary" htmlType="submit">
-        Verify
+        				Verify
 					</VerifyButton>
 				</Form.Item>
 
