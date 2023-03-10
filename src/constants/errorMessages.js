@@ -4,5 +4,6 @@ export const ERROR_MESSAGES = {
 	emailFormat: "Please enter a valid email address",
 	password: "Please input your password!",
 	passwordConfirm: "Please confirm your password!",
-	passwordMatch: "These two passwords that you entered do not match!"
+	passwordMatch: "These two passwords that you entered do not match!",
+	verificationCode: "The Verification code you entered is incorrect or expired"
 };

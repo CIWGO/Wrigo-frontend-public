@@ -5,7 +5,7 @@ const Options = {
 	plugins: {
 		title: {
 			display: true,
-			text: "Line Chart"
+			text: "IELTS Writing Progress Tracker"
 		},
 		legend: {
 			labels: {
@@ -27,6 +27,9 @@ const Options = {
 			title: {
 				display: true,
 				text: "Score"
+			},
+			ticks: {
+				stepSize: 0.5
 			}
 		}
 	}

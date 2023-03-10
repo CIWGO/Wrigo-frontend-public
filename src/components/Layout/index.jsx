@@ -1,5 +1,6 @@
 import { Col, Row } from "antd";
 import styled from "styled-components";
+import SideBar from "../SideBar/index";
 
 const StyledRow = styled(Row)`
   background: ${(props) => props.theme.background};
@@ -9,8 +10,8 @@ const StyledRow = styled(Row)`
 const Layout = ({ children }) => {
 	return (
 		<StyledRow>
-			<Col span={5}>side bar goes here</Col>
-			<Col span={19}>{children}</Col>
+			<Col span={5}><SideBar /></Col>
+			<Col span={19}>{children}</Col>s
 		</StyledRow>
 	);
 };
