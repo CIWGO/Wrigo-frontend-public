@@ -27,6 +27,7 @@ function Router () {
 				<Route path="/userprofile" element={<UserProfile />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/reduxExample" element={<ReduxExample />} />
+				<Route path="/topics" element={<DashBoardPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
