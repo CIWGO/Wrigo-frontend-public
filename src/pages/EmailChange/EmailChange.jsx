@@ -1,6 +1,12 @@
 import React from "react";
 import { Form, Input } from "antd";
-import { MyButton, VerifyButton, MyForm, PageLayout, ResendLayout } from "./style";
+import {
+	MyButton,
+	VerifyButton,
+	MyForm,
+	PageLayout,
+	ResendLayout
+} from "./style";
 
 function EmailChange () {
 	const onFinish = (values) => {
@@ -11,10 +17,13 @@ function EmailChange () {
 	};
 	return (
 		<PageLayout>
-
-			<MyForm name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
+			<MyForm
+				name="basic"
+				onFinish={onFinish}
+				onFinishFailed={onFinishFailed}
+				autoComplete="off"
+			>
 				<ResendLayout>
-
 					<Form.Item
 						rules={[
 							{
@@ -22,15 +31,13 @@ function EmailChange () {
 							}
 						]}
 					>
-						<Input placeholder="New Email"/>
+						<Input placeholder="New Email" />
 					</Form.Item>
-					<Form.Item
-					>
+					<Form.Item>
 						<MyButton type="primary" htmlType="submit">
-        					Send Code
+							Send Code
 						</MyButton>
 					</Form.Item>
-
 				</ResendLayout>
 
 				<Form.Item
@@ -42,17 +49,15 @@ function EmailChange () {
 						}
 					]}
 				>
-					<Input placeholder="Verification Code"/>
+					<Input placeholder="Verification Code" />
 				</Form.Item>
-				<Form.Item
-				>
+				<Form.Item>
 					<VerifyButton type="primary" htmlType="submit">
-        				Verify
+						Verify
 					</VerifyButton>
 				</Form.Item>
 			</MyForm>
 		</PageLayout>
-
 	);
 }
 
