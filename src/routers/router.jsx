@@ -6,6 +6,7 @@ import LandingPage from "../pages/Landing";
 import SubIntroCard from "../components/subIntroCard";
 import UserProfile from "../pages/UserProfile/index";
 import ReduxExample from "../pages/ReduxExample/index";
+import ResetPasswordPage from "../pages/ResetPassword/index";
 
 function Router () {
 	return (
@@ -18,6 +19,7 @@ function Router () {
 				<Route path="/subintrocard" element={<SubIntroCard />} />
 				<Route path="/userprofile" element={<UserProfile />} />
 				<Route path="/reduxExample" element={<ReduxExample />} />
+				<Route path="/resetpassword" element={<ResetPasswordPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
