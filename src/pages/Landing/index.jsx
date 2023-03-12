@@ -7,7 +7,6 @@ import {
 	NavItems,
 	Title
 } from "./style";
-import { defaultFrontEndPrefix } from "../../constants/index";
 
 const LandingPage = () => {
 	return (
@@ -17,10 +16,11 @@ const LandingPage = () => {
 					<NavContainer>
 						<Logo>WRIGO</Logo>
 						<NavItems>
-							<SignUpTag href={`http://${defaultFrontEndPrefix}/signup`}>
+							<SignUpTag to="/signup">
                 Sign up
 							</SignUpTag>
-							<LoginTag href={`http://${defaultFrontEndPrefix}/users/login`}>
+
+							<LoginTag to="/login">
                 Log in
 							</LoginTag>
 						</NavItems>
