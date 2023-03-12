@@ -29,7 +29,7 @@ const CreateAccount = styled.h2`
   font-weight:700;
   font-size:30px;
   color: #2F71DA;
-  margin-bottom: 1.5rem;
+  margin-bottom: 15px;
   text-align:center;
 `;
 
