@@ -1,8 +1,30 @@
 import EmailVerification from "./EmailVerification";
-import { defaultFrontEndPrefix } from "../../constants/index";
 import { SignUpLayout, EmailChangeTag, CreateAccount, Logo, Message } from "./style";
+import {
+	updateEmailVerification,
+	requestEmail
+} from "../../slice/emailVerificationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const EmailVerificationPage = () => {
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
+	const { userName } = useSelector((state) => state.user);
+
+	const onFinish = async (values) => {
+		await dispatch(
+			requestEmail({
+				username: userName
+			})
+		);
+
+		await dispatch(
+			updateEmailVerification()
+		);
+		navigate("/emailChange");
+	};
 	return (
 		<SignUpLayout>
 			<Logo>WRIGO</Logo>
@@ -11,9 +33,7 @@ const EmailVerificationPage = () => {
 
 			<EmailVerification />
 
-			<EmailChangeTag href={`http://${defaultFrontEndPrefix}/emailChange`}>Wrong email? </EmailChangeTag>
-
-			{/* </content> */}
+			<EmailChangeTag onClick={ onFinish}>Wrong email? </EmailChangeTag>
 		</SignUpLayout>
 	);
 };

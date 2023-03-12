@@ -6,9 +6,13 @@ export const signupUser = (values) => {
 // your fetching data API could go here
 export const loginUser = (values) => { return axios.post("http://localhost:3005/users/login", values); };
 
-export const sendOTPViaEmail = (values) => { return axios.post("http://localhost:3005/users/resetPassword/sendOTPViaEmail", values); };
+export const sendOTPViaEmail = (values) => { return axios.post("http://localhost:3005/users/sendOTP", values); };
 
-export const verifyOTP = (values) => { return axios.post("http://localhost:3005/users/resetPassword/verifyOTP", values); };
+export const verifyOTP = (values) => { return axios.post("http://localhost:3005/users/verifyOTP", values); };
+
+export const getUser = (values) => { return axios.post("http://localhost:3005/users/getUser", values); };
+
+export const changeEmail = (values) => { return axios.patch("http://localhost:3005/users/changeEmail", values); };
 
 // example mock request
 export const requestNumber = () => {

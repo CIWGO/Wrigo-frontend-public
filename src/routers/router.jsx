@@ -24,7 +24,7 @@ function Router () {
 				<Route path="/emailChange" element={<EmailChange />} />
 				<Route path="/writings/*" element={<Writing />} />
 				<Route path="/signup" element={<SignUpPage />} />
-				<Route path="/landing" element={<LandingPage />} />
+				<Route path="/" element={<LandingPage />} />
 				<Route path="/subintrocard" element={<SubIntroCard />} />
 				<Route path="/userprofile" element={<UserProfile />} />
 				<Route path="/edituserprofile" element={<EditUserProfile />} />

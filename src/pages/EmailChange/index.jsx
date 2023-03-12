@@ -1,5 +1,5 @@
 import EmailChange from "./EmailChange";
-// import { defaultFrontEndPrefix } from "../../constants/index";
+
 import { SignUpLayout, CreateAccount, Logo, Message } from "./style";
 
 const EmailChangePage = () => {
@@ -11,9 +11,6 @@ const EmailChangePage = () => {
 
 			<EmailChange />
 
-			{/* <EmailChangeTag href={`http://${defaultFrontEndPrefix}/emailVerification`}>Wrong email? </EmailChangeTag> */}
-
-			{/* </content> */}
 		</SignUpLayout>
 	);
 };

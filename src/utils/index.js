@@ -1,3 +1,3 @@
-import { signupUser, loginUser, sendOTPViaEmail, verifyOTP } from "./API";
+import { signupUser, loginUser, sendOTPViaEmail, verifyOTP, getUser, changeEmail } from "./API";
 
-export { signupUser, loginUser, sendOTPViaEmail, verifyOTP };
+export { signupUser, loginUser, sendOTPViaEmail, verifyOTP, getUser, changeEmail };

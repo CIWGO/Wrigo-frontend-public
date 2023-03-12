@@ -20,7 +20,7 @@ const LandingPage = () => {
 							<SignUpTag href={`http://${defaultFrontEndPrefix}/signup`}>
                 Sign up
 							</SignUpTag>
-							<LoginTag href={`http://${defaultFrontEndPrefix}/users/login`}>
+							<LoginTag href={`http://${defaultFrontEndPrefix}/login`}>
                 Log in
 							</LoginTag>
 						</NavItems>

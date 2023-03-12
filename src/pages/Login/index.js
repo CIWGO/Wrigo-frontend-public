@@ -9,7 +9,7 @@ const Login = () => {
 			<WelcomeBack>Create account</WelcomeBack>
 			<LoginForm />
 
-			<ForgotTag href={`http://${defaultFrontEndPrefix}/users/login`}> Forgot password?</ForgotTag>
+			<ForgotTag href={`http://${defaultFrontEndPrefix}/login`}> Forgot password?</ForgotTag>
 
 			{/* </content> */}
 		</LoginLayout>
