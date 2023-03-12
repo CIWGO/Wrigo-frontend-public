@@ -11,9 +11,9 @@ import SubIntroCard from "../components/subIntroCard";
 import UserProfile from "../pages/UserProfile/index";
 import EditUserProfile from "../pages/EditUserProfile/index";
 import Login from "../pages/Login/index";
+import ResetPassword from "../pages/ResetPassword/index";
 
 import ReduxExample from "../pages/ReduxExample/index";
-import ResetPasswordPage from "../pages/ResetPassword/index";
 
 function Router () {
 	return (
@@ -29,11 +29,11 @@ function Router () {
 				<Route path="/subintrocard" element={<SubIntroCard />} />
 				<Route path="/userprofile" element={<UserProfile />} />
 				<Route path="/edituserprofile" element={<EditUserProfile />} />
+				<Route path="/resetpassword" element={<ResetPassword />} />
 
 				<Route path="/login" element={<Login />} />
 
 				<Route path="/reduxExample" element={<ReduxExample />} />
-				<Route path="/resetpassword" element={<ResetPasswordPage />} />
 				<Route path="/topics" element={<DashBoardPage />} />
 			</Routes>
 		</BrowserRouter>

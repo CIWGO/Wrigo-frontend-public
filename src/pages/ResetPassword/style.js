@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Form, Layout } from "antd";
+import { Form, Layout, Button } from "antd";
 
 const MyForm = styled(Form)`
   width: 300px;
@@ -50,5 +50,15 @@ const Logo = styled.h1`
   text-align:center;
   margin-bottom:40px;
 `;
+const ResendLayout = styled.div`
+display:flex;
+width:300px;
+justify-content:space-between;
+space-between:20px;
+`;
 
-export { MyForm, ResetLayout, CancelTag, Notification, ResetPassword, Logo };
+const MyButton = styled(Button)`
+background-color:#2F71DA;
+`;
+
+export { MyForm, ResetLayout, CancelTag, Notification, ResetPassword, Logo, ResendLayout, MyButton };
