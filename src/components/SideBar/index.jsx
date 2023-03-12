@@ -25,7 +25,7 @@ const SideBar = () => {
 				</li>
 
 				<li>
-					<NavLink to="topics">
+					<NavLink to="topic">
 						<FileTextOutlined className="icon"/>
 						Topics
 					</NavLink>
