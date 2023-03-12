@@ -6,7 +6,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./myWritingMain.module.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const UtilityCardsWrapper = styled.div`
   display: flex;
@@ -108,8 +108,6 @@ const WritingMain = (props) => {
 						/>
 					</UtilityCard>
 				</Link>
-
-				<Outlet />
 
 				{cardsToDisplay.map((card) => (
 					<UtilityCard key={card.writing_id} style={{ marginBottom: "8px" }} cardSize={236}>

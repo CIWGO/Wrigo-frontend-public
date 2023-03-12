@@ -7,25 +7,25 @@ const SideBar = () => {
 	return (
 		<div className="side-bar">
 
-			<Link className="title" to="/dashboard"><h3>WRIGO</h3></Link>
+			<Link className="title" to="dashboard"><h3>WRIGO</h3></Link>
 
 			<ul className="main">
 				<li>
-					<NavLink to="/dashboard">
+					<NavLink to="dashboard">
 						<AppstoreOutlined className="icon"/>
 						DashBoard
 					</NavLink>
 				</li>
 
 				<li>
-					<NavLink to="/writings">
+					<NavLink to="writings">
 						<FormOutlined className="icon" />
 						Writings
 					</NavLink>
 				</li>
 
 				<li>
-					<NavLink to="/topics">
+					<NavLink to="topics">
 						<FileTextOutlined className="icon"/>
 						Topics
 					</NavLink>
@@ -34,7 +34,7 @@ const SideBar = () => {
 
 			<ul className="personal">
 				<li>
-					<NavLink to="/userprofile">
+					<NavLink to="userprofile">
 						<UserOutlined className="icon"/>
 						Profile
 					</NavLink>

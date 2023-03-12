@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Nav = styled.nav`
   position: absolute;
@@ -31,7 +32,7 @@ export const NavItems = styled.div`
   align-items: center;
 `;
 
-export const SignUpTag = styled.a`
+export const SignUpTag = styled(Link)`
   color: #2f71da;
   border: 2px solid #fff;
   border-radius: 20px;
@@ -44,7 +45,7 @@ export const SignUpTag = styled.a`
   background: #ffffff;
 `;
 
-export const LoginTag = styled.a`
+export const LoginTag = styled(Link)`
   background: #2f71da;
   border: none;
   color: #fff;

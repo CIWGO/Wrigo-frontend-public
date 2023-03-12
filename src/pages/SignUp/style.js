@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Form, Layout } from "antd";
+import { Link } from "react-router-dom";
 
 const MyForm = styled(Form)`
   width: 300px;
@@ -15,7 +16,7 @@ const SignUpLayout = styled(Layout)`
   height: 100vh;
 `;
 
-const LoginTag = styled.a`
+const LoginTag = styled(Link)`
   text-align:center;
   text-decoration:underline;
   color: #2F71DA;

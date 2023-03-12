@@ -47,7 +47,7 @@ import Topics from "../pages/Topics";
 import LandingPage from "../pages/Landing";
 import SignUpPage from "../pages/SignUp";
 import Login from "../pages/Login";
-import BlankPage from "./blank";
+import Layout from "../components/Layout";
 
 export default [
 	{
@@ -69,27 +69,28 @@ export default [
 
 	{
 		path: "/user",
-		element: <BlankPage />,
-		children: {
-			path: "dashboard",
-			element: <RecentWriting />
-		}
-	},
-
-	{
-		path: "/writings",
-		element: <WritingMain />
-	},
-	{
-		path: "/writings/evaluation",
-		element: <WritingPage />
-	},
-	{
-		path: "/topics",
-		element: <Topics />
-	},
-	{
-		path: "/userprofile",
-		element: <Profile />
+		element: <Layout/>,
+		children: [
+			{
+				path: "dashboard",
+				element: <RecentWriting />
+			},
+			{
+				path: "writings",
+				element: <WritingMain />
+			},
+			{
+				path: "writings/evaluation",
+				element: <WritingPage />
+			},
+			{
+				path: "topics",
+				element: <Topics />
+			},
+			{
+				path: "userprofile",
+				element: <Profile />
+			}
+		]
 	}
 ];

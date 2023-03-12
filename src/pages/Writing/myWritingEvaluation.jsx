@@ -46,7 +46,7 @@ const WritingPage = () => {
 
 	return (
 		<div className="writing-page">
-			<Link to={"/writings"}>
+			<Link to={"/user/writings"}>
 				<button className="back">
 					<LeftOutlined />
 					Go Back

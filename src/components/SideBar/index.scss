@@ -14,7 +14,7 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: #f5f5f5;
+	background-color: #ffffff;
 
 	ul {
 		width: 100%;
@@ -39,13 +39,13 @@
 
 		.active {
 			background-color: rgb(47, 113, 218);
-			color: #f5f5f5;
+			color: #ffffff;
 
 			&:hover {
 				/* Keep the same background color on hover */
 				background-color: rgb(47, 113, 218);
 				/* Keep the same text color on hover */
-				color: #f5f5f5;
+				color: #ffffff;
 			}
 		}
 
@@ -59,7 +59,7 @@
 
 			&:hover {
 				background-color: rgba(47, 113, 218, 0.3);
-				color: #f5f5f5;
+				color: #ffffff;
 			}
 		}
 
