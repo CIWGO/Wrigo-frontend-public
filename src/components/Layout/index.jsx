@@ -7,11 +7,11 @@ const StyledRow = styled(Row)`
   height: 100vh
 `;
 
-const Layout = ({ children }) => {
+const Layout = () => {
 	return (
 		<StyledRow>
 			<Col span={5}><SideBar /></Col>
-			<Col span={19}>{children}</Col>s
+			<Col span={19}>{}</Col>
 		</StyledRow>
 	);
 };

@@ -18,7 +18,7 @@ const SideBar = () => {
 				</li>
 
 				<li>
-					<NavLink to="/writings/*">
+					<NavLink to="/writings">
 						<FormOutlined className="icon" />
 						Writings
 					</NavLink>

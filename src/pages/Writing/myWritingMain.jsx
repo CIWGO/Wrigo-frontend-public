@@ -2,10 +2,11 @@ import HeadingComponent from "../../components/Heading/index.jsx";
 import UtilityCard from "../../components/UtilityCard/index.jsx";
 import styled, { withTheme } from "styled-components";
 import { PlusOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./myWritingMain.module.css";
+import { Link, Outlet } from "react-router-dom";
 
 const UtilityCardsWrapper = styled.div`
   display: flex;
@@ -52,10 +53,10 @@ const WritingMain = (props) => {
 	const [currentPage, setCurrentPage] = useState(1);
 
 	// nav to next page
-	const navigate = useNavigate();
-	const onClickIcon = () => {
-		navigate("/writings/evaluation");
-	};
+	// const navigate = useNavigate();
+	// const onClickIcon = () => {
+	// 	navigate("/writings/evaluation");
+	// };
 
 	// sort card by date
 	const sortCardsByDate = () => {
@@ -99,12 +100,17 @@ const WritingMain = (props) => {
 				<SortByDate onClick={sortCardsByDate}>Sort by date</SortByDate>
 			</div>
 			<UtilityCardsWrapper>
-				<UtilityCard key="new-card" className={styles.utilityCard} style={{ marginBottom: "8px" }}>
-					<PlusOutlined
-						style={{ fontSize: "60px", color: props.theme.defaultColor }}
-						onClick={onClickIcon}
-					/>
-				</UtilityCard>
+				<Link to="evaluation">
+					<UtilityCard key="new-card" className={styles.utilityCard} style={{ marginBottom: "8px" }}>
+						<PlusOutlined
+							style={{ fontSize: "60px", color: props.theme.defaultColor }}
+						// onClick={onClickIcon}
+						/>
+					</UtilityCard>
+				</Link>
+
+				<Outlet />
+
 				{cardsToDisplay.map((card) => (
 					<UtilityCard key={card.writing_id} style={{ marginBottom: "8px" }} cardSize={236}>
 						<CardTop className={styles.cardTop}>{`${card.task_topic.split(" ").slice(0, 5).join(" ")}...`}</CardTop>

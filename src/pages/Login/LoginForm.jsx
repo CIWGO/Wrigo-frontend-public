@@ -25,7 +25,7 @@ const LoginForm = () => {
 				localStorage.setItem("uid", userId); // store the uid in localStorage
 				localStorage.setItem("username", userName); // store the username in localStorage
 				console.log("login success");
-				navigate("/userProfile");
+				navigate("/user/dashboard");
 			}
 		} catch (error) {
 			// unverified email
