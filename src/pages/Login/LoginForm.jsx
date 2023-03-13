@@ -7,6 +7,7 @@ import axios from "axios";
 import { setUserLogin, setUserInfo } from "../../slice/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { defaultFrontEndPrefix } from "../../constants/index";
 
 const LoginForm = () => {
 	const navigate = useNavigate();
@@ -25,7 +26,7 @@ const LoginForm = () => {
 				localStorage.setItem("uid", userId); // store the uid in localStorage
 				localStorage.setItem("username", userName); // store the username in localStorage
 				console.log("login success");
-				navigate("/userProfile");
+				navigate("/user/dashboard");
 			}
 		} catch (error) {
 			// unverified email
@@ -44,6 +45,10 @@ const LoginForm = () => {
 		}
 	};
 
+	const signUpOnClick = () => {
+		window.location.href = `http://${defaultFrontEndPrefix}/signup`;
+	};
+
 	return (
 		<MyForm name="basic" onFinish={handleSubmit}>
 			<InputField
@@ -58,7 +63,7 @@ const LoginForm = () => {
 
 			<Row justify="space-between">
 				<Col>
-					<LoginButton type="primary" htmlType="submit">
+					<LoginButton type="primary" onClick={signUpOnClick}>
         Sign up
 					</LoginButton>
 				</Col>

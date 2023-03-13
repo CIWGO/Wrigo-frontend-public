@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
+import { BrowserRouter } from "react-router-dom";
 
 // Provider will garb all Redux store data and inject to your React App
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<Provider store={store}><App /></Provider>
+		<BrowserRouter>
+			<Provider store={store}><App /></Provider>
+		</BrowserRouter>
 	</React.StrictMode>
 );

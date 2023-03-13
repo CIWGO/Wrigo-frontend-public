@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Form, Layout } from "antd";
+import { Link } from "react-router-dom";
 
 const MyForm = styled(Form)`
   width: 300px;
@@ -15,7 +16,7 @@ const SignUpLayout = styled(Layout)`
   height: 100vh;
 `;
 
-const LoginTag = styled.a`
+const LoginTag = styled(Link)`
   text-align:center;
   text-decoration:underline;
   color: #2F71DA;
@@ -26,8 +27,9 @@ const CreateAccount = styled.h2`
 
   font-family: 'Noto Sans', sans-serif;
   font-weight:700;
-  font-size:36px;
+  font-size:30px;
   color: #2F71DA;
+  margin-bottom: 15px;
   text-align:center;
 `;
 
