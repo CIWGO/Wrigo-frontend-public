@@ -35,7 +35,6 @@ const CardMiddle = styled.div`
   font-size: 40px;
   font-weight: ${props => props.theme.headingFontWeight};
   color: ${props => props.theme.defaultColor};
-  front_family: ${props => props.theme.fontFamily};
   margin-bottom: 4px;
   display: flex;
   align-items: center;
