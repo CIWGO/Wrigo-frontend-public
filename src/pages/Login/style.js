@@ -27,8 +27,9 @@ const WelcomeBack = styled.h2`
 
   font-family: 'Noto Sans', sans-serif;
   font-weight:700;
-  font-size:36px;
+  font-size:30px;
   color: #2F71DA;
+  margin-bottom: 15px;
   text-align:center;
 `;
 
