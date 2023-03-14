@@ -29,10 +29,12 @@ const SignUpLayout = styled(Layout)`
   height: 100vh;
 `;
 
-const EmailChangeTag = styled.a`
-  text-align:center;
-  text-decoration:underline;
-  color: #2F71DA;
+const EmailChangeTag = styled.button`
+background-color: transparent;
+border: none;
+color: #2F71DA;
+text-decoration: underline;
+cursor: pointer;
 `;
 
 const CreateAccount = styled.h2`
