@@ -12,7 +12,10 @@ export const verifyOTP = (values) => { return axios.post("http://localhost:3005/
 
 export const getUser = (values) => { return axios.post("http://localhost:3005/users/getUser", values); };
 
+export const changePassword = (values) => { return axios.post("http://localhost:3005/users/changePassword", values); };
+
 export const changeEmail = (values) => { return axios.patch("http://localhost:3005/users/changeEmail", values); };
+
 
 // example mock request
 export const requestNumber = () => {
