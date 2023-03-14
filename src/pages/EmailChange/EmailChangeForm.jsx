@@ -7,12 +7,10 @@ import {
 	PageLayout,
 	ResendLayout
 } from "./style";
-import { useSelector } from "react-redux";
 import { sendOTPViaEmail, changeEmail } from "../../utils/index";
 import { useNavigate } from "react-router-dom";
 
-function EmailChange () {
-	const { uid, username, email } = useSelector((state) => state.emailVerificationStore);
+function EmailChangeForm ({ uid, username, email }) {
 	const navigate = useNavigate();
 
 	const onSendCode = (values) => {
@@ -98,4 +96,4 @@ function EmailChange () {
 	);
 }
 
-export default EmailChange;
+export default EmailChangeForm;

@@ -8,7 +8,7 @@ import {
 	ResendLayout,
 	MyButton
 } from "./style";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
 	requestVerifyOTPAsync,
 	updateEmailVerification
@@ -16,24 +16,23 @@ import {
 import { sendOTPViaEmail } from "../../utils/index";
 import { useNavigate } from "react-router-dom";
 
-function EmailVerification () {
+function EmailVerifyForm ({ uid, username }) {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const { userId, userName } = useSelector((state) => state.user);
 	const onFinish = async (values) => {
 		try {
 			const response = await dispatch(
 				requestVerifyOTPAsync({
-					uid: userId,
+					uid,
 					userInput: values.VerificationCode
 				})
 			);
 			if (response.payload === true) {
-				console.log("success:", userName);
+				console.log("success:", username);
 				await dispatch(
 					updateEmailVerification({
-						username: userName,
-						uid: userId,
+						username,
+						uid,
 						OTPcode: values.VerificationCode
 					})
 				);
@@ -51,7 +50,7 @@ function EmailVerification () {
 	};
 
 	const onResend = () => {
-		sendOTPViaEmail({ uid: userId, username: userName })
+		sendOTPViaEmail({ uid, username })
 			.then((response) => {
 				if (response.status === 200) {
 					console.log("Success:", response.status);
@@ -105,4 +104,4 @@ function EmailVerification () {
 	);
 }
 
-export default EmailVerification;
+export default EmailVerifyForm;

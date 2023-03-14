@@ -1,4 +1,4 @@
-import EmailVerification from "./EmailVerification";
+import EmailVerifyForm from "./EmailVerifyForm";
 import { SignUpLayout, EmailChangeTag, CreateAccount, Logo, Message } from "./style";
 import {
 	updateEmailVerification,
@@ -11,8 +11,7 @@ const EmailVerificationPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const { userName } = useSelector((state) => state.user);
-
+	const { userId, userName } = useSelector((state) => state.user);
 	const onFinish = async (values) => {
 		await dispatch(
 			requestEmail({
@@ -31,9 +30,9 @@ const EmailVerificationPage = () => {
 			<CreateAccount>Verify your email</CreateAccount>
 			<Message>Please check your inbox</Message>
 
-			<EmailVerification />
+			<EmailVerifyForm username={userName} uid={userId} />
 
-			<EmailChangeTag onClick={ onFinish}>Wrong email? </EmailChangeTag>
+			<EmailChangeTag onClick={onFinish}>Wrong email? </EmailChangeTag>
 		</SignUpLayout>
 	);
 };
