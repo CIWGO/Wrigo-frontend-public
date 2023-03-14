@@ -3,7 +3,7 @@ import RecentWriting from "../pages/Dashboard/recentWritings";
 import WritingMain from "../pages/Writing/myWritingMain";
 import Profile from "../pages/UserProfile";
 import WritingPage from "../pages/Writing/myWritingEvaluation";
-import Topic from "../pages/Topic";
+import Topics from "../pages/Topics";
 import LandingPage from "../pages/Landing";
 import SignUpPage from "../pages/SignUp";
 import Login from "../pages/Login";
@@ -55,8 +55,8 @@ export default [
 				element: <WritingPage />
 			},
 			{
-				path: "topic",
-				element: <Topic />
+				path: "topics",
+				element: <Topics />
 			},
 			{
 				path: "profile",
