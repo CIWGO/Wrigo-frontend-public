@@ -6,7 +6,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
 import styles from "./myWritingMain.module.css";
 import { Link } from "react-router-dom";
-import { viewHistory } from "../utils/index.js";
+import { viewHistory } from "../../utils/index.js";
 
 const UtilityCardsWrapper = styled.div`
   display: flex;
@@ -50,12 +50,6 @@ const CARDS_PER_PAGE = 10;
 const WritingMain = (props) => {
 	const [cards, setCards] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
-
-	// nav to next page
-	// const navigate = useNavigate();
-	// const onClickIcon = () => {
-	// 	navigate("/writings/evaluation");
-	// };
 
 	// sort card by date
 	const sortCardsByDate = () => {
