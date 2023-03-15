@@ -22,7 +22,7 @@ const ProfileInfo = () => {
 	// const token = localStorage.getItem("token");
 	// one hour duration per token, please copy another token from login response
 	const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InppemhlbiIsInVpZCI6IjkwZTllMjcwLTE3NWQtNDA2Yi1hZjBiLTViOWZjYTAyNDA0NSIsImVtYWlsIjoieml6aGVubHVvMjMyOEBnbWFpbC5jb20iLCJpYXQiOjE2Nzg0NTI0MjEsImV4cCI6MTY3ODQ1NjAyMX0.IUYU_PLgBnOS37q15wmjk2S7PPMGl4KqTfsFC2zJ_5c";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoYW5nMDE5IiwidWlkIjoiNDVmMjNlOTctN2FiNC00YzMzLWJhNDQtYzEzNjFmODc4ZDkxIiwiZW1haWwiOiJjaGFuZ3N0dWR5MTlAZ21haWwuY29tIiwiaWF0IjoxNjc4Njk4ODk2LCJleHAiOjE2Nzg3MDI0OTZ9.XxABdUKIxlWEpOPKKVno5fmV9iE6ruhgZdSt5yb9j9E";
 	const uid = "90e9e270-175d-406b-af0b-5b9fca024045";
 
 	const fetchUserProfileData = async () => {
