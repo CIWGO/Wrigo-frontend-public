@@ -2,9 +2,9 @@ import EmailChangeForm from "./EmailChangeForm";
 import { useSelector } from "react-redux";
 
 import { SignUpLayout, CreateAccount, Logo, Message } from "./style";
-const { uid, username, email } = useSelector((state) => state.emailVerificationStore);
 
 const EmailChangePage = () => {
+	const { uid, username, email } = useSelector((state) => state.emailVerificationStore);
 	return (
 		<SignUpLayout>
 			<Logo>WRIGO</Logo>
