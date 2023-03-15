@@ -65,7 +65,7 @@ jobs:
           secretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           
           # bucket name
-          awsBucket: ciwgo.frontend
+          awsBucket: wrigo.com.au
 
           # sourcefolder to upload
           sourceFolder: build
