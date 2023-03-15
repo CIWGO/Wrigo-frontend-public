@@ -48,7 +48,7 @@ export default [
 
 	{
 		path: "/user",
-		element: <Layout/>,
+		element: <Layout />,
 		children: [
 			{
 				path: "dashboard",

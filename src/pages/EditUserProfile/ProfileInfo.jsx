@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Input, Form, Button, Col, Row } from "antd";
 import { ThreeCircles } from "react-loader-spinner";
-import axios from "axios";
+import newRequest from "../../utils/newRequest";
 import {
 	Item,
 	ButtonSection,
@@ -19,7 +19,6 @@ const ProfileInfo = () => {
 	// const since = "20 Feb, 2023";
 	const expiry = "21 Mar, 2023";
 	const paymentMethod = "Visa - 1221";
-	const url = "http://localhost:3005/users/getuserprofile";
 	// const token = localStorage.getItem("token");
 	// one hour duration per token, please copy another token from login response
 	const token =
@@ -30,7 +29,7 @@ const ProfileInfo = () => {
 		setHideLoader(false);
 		setError(false);
 		try {
-			const response = await axios.post(url, {
+			const response = await newRequest.post("/users/getuserprofile", {
 				uid,
 				token
 			});
