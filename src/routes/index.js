@@ -48,6 +48,8 @@ import LandingPage from "../pages/Landing";
 import SignUpPage from "../pages/SignUp";
 import Login from "../pages/Login";
 import Layout from "../components/Layout";
+import Payment from "../pages/Payment/index";
+import PaymentSuccess from "../pages/Payment/paymentSuccess";
 
 export default [
 	{
@@ -90,6 +92,14 @@ export default [
 			{
 				path: "userprofile",
 				element: <Profile />
+			},
+			{
+				path: "checkout",
+				element: <Payment />
+			},
+			{
+				path: "paymentSuccess",
+				element: <PaymentSuccess />
 			}
 		]
 	}
