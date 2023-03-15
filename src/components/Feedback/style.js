@@ -5,7 +5,7 @@ export const TopicFeedback = styled.div`
   margin: 15vh 20px 5vh 10px;
   position: relative;
   border-radius: 10px;
-  background-color: yellow;
+  background-color: white;
   width: 45%;
   min-width: 200px;
   height: 81vh;
