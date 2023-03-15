@@ -16,6 +16,8 @@ export const changePassword = (values) => { return axios.post("http://localhost:
 
 export const changeEmail = (values) => { return axios.patch("http://localhost:3005/users/changeEmail", values); };
 
+export const viewHistory = (values) => { return axios.patch("http://localhost:3005/users/viewHistory", values); };
+
 // example mock request
 export const requestNumber = () => {
 	const data = { value: 10 };
