@@ -48,6 +48,7 @@ import LandingPage from "../pages/Landing";
 import SignUpPage from "../pages/SignUp";
 import Login from "../pages/Login";
 import Layout from "../components/Layout";
+import ResetPasswordPage from "../pages/ResetPassword";
 
 export default [
 	{
@@ -66,7 +67,10 @@ export default [
 		path: "/login",
 		element: <Login />
 	},
-
+	{
+		path: "/resetpassword",
+		element: <ResetPasswordPage />
+	},
 	{
 		path: "/user",
 		element: <Layout/>,
