@@ -1,8 +1,6 @@
 import React from "react";
 import { Form, Input } from "antd";
-// import { useNavigate } from "react-router-dom";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
-// import { defaultFrontEndPrefix } from "../../constants";
 import {
 	VerifyButton,
 	MyForm,
@@ -10,7 +8,7 @@ import {
 	ResendLayout,
 	MyButton
 } from "./style";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
 	requestVerifyOTPAsync,
 	updateEmailVerification
@@ -18,30 +16,23 @@ import {
 import { sendOTPViaEmail } from "../../utils/index";
 import { useNavigate } from "react-router-dom";
 
-function EmailVerification () {
+function EmailVerifyForm ({ uid, username }) {
 	const navigate = useNavigate();
-
-	const { userId, userName } = useSelector((state) => state.user);
-
 	const dispatch = useDispatch();
-
-	const onFinishFailed = (errorInfo) => {
-		console.log("Failed:", errorInfo);
-	};
-
 	const onFinish = async (values) => {
 		try {
 			const response = await dispatch(
 				requestVerifyOTPAsync({
-					uid: userId,
+					uid,
 					userInput: values.VerificationCode
 				})
 			);
 			if (response.payload === true) {
-				console.log("success:", response);
+				console.log("success:", username);
 				await dispatch(
 					updateEmailVerification({
-						uid: userId,
+						username,
+						uid,
 						OTPcode: values.VerificationCode
 					})
 				);
@@ -54,10 +45,15 @@ function EmailVerification () {
 		}
 	};
 
+	const onFinishFailed = (errorInfo) => {
+		console.log("Failed:", errorInfo);
+	};
+
 	const onResend = () => {
-		sendOTPViaEmail({ uid: userId, username: userName })
+		sendOTPViaEmail({ uid, username })
 			.then((response) => {
 				if (response.status === 200) {
+					console.log("Success:", response.status);
 					alert("send email successful! Check your mailbox for the code!");
 				} else if (response.status === 500) {
 					alert("send fail 500 (Something went wrong)");
@@ -108,4 +104,4 @@ function EmailVerification () {
 	);
 }
 
-export default EmailVerification;
+export default EmailVerifyForm;

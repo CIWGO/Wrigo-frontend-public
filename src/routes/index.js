@@ -48,6 +48,8 @@ import LandingPage from "../pages/Landing";
 import SignUpPage from "../pages/SignUp";
 import Login from "../pages/Login";
 import Layout from "../components/Layout";
+import EmailChangePage from "../pages/EmailChange";
+import EmailVerificationPage from "../pages/EmailVerification";
 
 export default [
 	{
@@ -66,7 +68,14 @@ export default [
 		path: "/login",
 		element: <Login />
 	},
-
+	{
+		path: "/EmailChange",
+		element: <EmailChangePage />
+	},
+	{
+		path: "/EmailVerification",
+		element: <EmailVerificationPage />
+	},
 	{
 		path: "/user",
 		element: <Layout />,

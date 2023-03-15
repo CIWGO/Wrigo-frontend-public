@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { verifyOTP } from "../utils/index";
+import { verifyOTP, getUser } from "../utils/index";
 
 const initialState = {
 	uid: "",
+	username: "",
 	OTPcode: "",
+	email: "",
 	email_verified: "false",
 	loading: false,
 	error: null
@@ -14,7 +16,13 @@ export const requestVerifyOTPAsync = createAsyncThunk(
 		const response = await verifyOTP(data);
 		return response.data.user.email_verified;
 	}
-
+);
+export const requestEmail = createAsyncThunk(
+	"emailVerification/postEmail",
+	async (data) => {
+		const response = await getUser(data);
+		return (response.data.user);
+	}
 );
 
 export const emailVerificationSlice = createSlice({
@@ -22,9 +30,6 @@ export const emailVerificationSlice = createSlice({
 	initialState,
 	reducers: {
 		updateEmailVerification: (state, action) => {
-			console.log("updateEmailVerification", state, action);
-			// state.uid = action.payload.uid;
-			// state.userId = action.payload.uid;
 			state = {
 				...state,
 				...action.payload
@@ -34,6 +39,20 @@ export const emailVerificationSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder
+			.addCase(requestEmail.pending, (state) => {
+				state.loading = true;
+				state.error = null;
+			})
+			.addCase(requestEmail.fulfilled, (state, action) => {
+				state.loading = false;
+				state.email = action.payload.email;
+				state.uid = action.payload.uid;
+				state.username = action.payload.username;
+			})
+			.addCase(requestEmail.rejected, (state, action) => {
+				state.loading = false;
+				state.error = action.error.message;
+			})
 			.addCase(requestVerifyOTPAsync.pending, (state) => {
 				state.loading = true;
 				state.error = null;
