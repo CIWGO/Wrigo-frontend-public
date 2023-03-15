@@ -48,13 +48,8 @@ import LandingPage from "../pages/Landing";
 import SignUpPage from "../pages/SignUp";
 import Login from "../pages/Login";
 import Layout from "../components/Layout";
-import Right from "../pages/Topic/right.jsx";
 
 export default [
-	{
-		path: "/right",
-		element: <Right />
-	},
 	{
 		path: "/",
 		element: <Navigate to="/landing" />
