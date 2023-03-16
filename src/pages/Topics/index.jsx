@@ -1,7 +1,7 @@
 import React from "react";
 import TopicCard from "../../components/TopicCard/index";
 
-const Topic = () => {
+const Topics = () => {
 	return (
 		<div>
 			<TopicCard />
@@ -16,4 +16,4 @@ const Topic = () => {
 	);
 };
 
-export default Topic;
+export default Topics;
