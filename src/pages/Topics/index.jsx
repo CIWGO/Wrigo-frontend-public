@@ -1,13 +1,13 @@
 import { getTopic } from "../../utils/index";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import TopicCard from "../../components/TopicCard/index";
 import styled from "styled-components";
 
 const StyledCardContainer = styled.div`
 	&& {
 		text-align: left;
-		margin: 40px;
+		padding: 40px;
+		background-color: #F2F2F2;
 	}
 `;
 
@@ -24,10 +24,6 @@ const TopicMainPage = () => {
 			});
 	}, []);
 
-<<<<<<< HEAD:src/pages/Topic/index.jsx
-=======
-const Topics = () => {
->>>>>>> main:src/pages/Topics/index.jsx
 	return (
 		<StyledCardContainer>
 			{data.map((item, index) => (
@@ -42,8 +38,4 @@ const Topics = () => {
 	);
 };
 
-<<<<<<< HEAD:src/pages/Topic/index.jsx
 export default TopicMainPage;
-=======
-export default Topics;
->>>>>>> main:src/pages/Topics/index.jsx
