@@ -24,6 +24,10 @@ const TopicMainPage = () => {
 			});
 	}, []);
 
+<<<<<<< HEAD:src/pages/Topic/index.jsx
+=======
+const Topics = () => {
+>>>>>>> main:src/pages/Topics/index.jsx
 	return (
 		<StyledCardContainer>
 			{data.map((item, index) => (
@@ -38,4 +42,8 @@ const TopicMainPage = () => {
 	);
 };
 
+<<<<<<< HEAD:src/pages/Topic/index.jsx
 export default TopicMainPage;
+=======
+export default Topics;
+>>>>>>> main:src/pages/Topics/index.jsx

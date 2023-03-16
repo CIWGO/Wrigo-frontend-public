@@ -6,10 +6,10 @@ const Login = () => {
 	return (
 		<LoginLayout>
 			<Logo>WRIGO</Logo>
-			<WelcomeBack>Create account</WelcomeBack>
+			<WelcomeBack>Welcome back</WelcomeBack>
 			<LoginForm />
 
-			<ForgotTag href={`http://${defaultFrontEndPrefix}/users/login`}> Forgot password?</ForgotTag>
+			<ForgotTag href={`http://${defaultFrontEndPrefix}/login`}> Forgot password?</ForgotTag>
 
 			{/* </content> */}
 		</LoginLayout>

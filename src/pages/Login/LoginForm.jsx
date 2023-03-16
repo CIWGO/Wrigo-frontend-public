@@ -7,6 +7,7 @@ import axios from "axios";
 import { setUserLogin, setUserInfo } from "../../slice/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { defaultFrontEndPrefix } from "../../constants/index";
 
 const LoginForm = () => {
 	const navigate = useNavigate();
@@ -32,7 +33,7 @@ const LoginForm = () => {
 			if (error.response.status === 401) {
 				const { uid: userId, username: userName } = error.response.data;
 
-				await axios.post("http://localhost:3005/users/resetPassword/sendOTPViaEmail", { uid: userId, username: userName });
+				await axios.post("http://localhost:3005/users/sendOTP", { uid: userId, username: userName });
 				dispatch(setUserInfo({ userId, userName }));
 				console.log("unverified email =", values);
 				navigate("/emailVerification");
@@ -42,6 +43,10 @@ const LoginForm = () => {
 				notification.error({ message: `${errorMessage}` });
 			}
 		}
+	};
+
+	const signUpOnClick = () => {
+		window.location.href = `http://${defaultFrontEndPrefix}/signup`;
 	};
 
 	return (
@@ -58,7 +63,7 @@ const LoginForm = () => {
 
 			<Row justify="space-between">
 				<Col>
-					<LoginButton type="primary" htmlType="submit">
+					<LoginButton type="primary" onClick={signUpOnClick}>
         Sign up
 					</LoginButton>
 				</Col>

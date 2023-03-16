@@ -4,9 +4,9 @@ import styled, { withTheme } from "styled-components";
 import { PlusOutlined } from "@ant-design/icons";
 // import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import styles from "./myWritingMain.module.css";
 import { Link } from "react-router-dom";
+import { viewHistory } from "../../utils/index.js";
 
 const UtilityCardsWrapper = styled.div`
   display: flex;
@@ -35,7 +35,6 @@ const CardMiddle = styled.div`
   font-size: 40px;
   font-weight: ${props => props.theme.headingFontWeight};
   color: ${props => props.theme.defaultColor};
-  front_family: ${props => props.theme.fontFamily};
   margin-bottom: 4px;
   display: flex;
   align-items: center;
@@ -51,12 +50,6 @@ const CARDS_PER_PAGE = 10;
 const WritingMain = (props) => {
 	const [cards, setCards] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
-
-	// nav to next page
-	// const navigate = useNavigate();
-	// const onClickIcon = () => {
-	// 	navigate("/writings/evaluation");
-	// };
 
 	// sort card by date
 	const sortCardsByDate = () => {
@@ -74,7 +67,8 @@ const WritingMain = (props) => {
 					from: "2023-02-24",
 					to: "2023-03-08"
 				};
-				const res = await axios.post("http://localhost:3005/users/viewHistory", data);
+				// const res = await axios.post("http://localhost:3005/users/viewHistory", data);
+				const res = await viewHistory(data);
 				setCards(res.data);
 			} catch (error) {
 				console.error(error);
