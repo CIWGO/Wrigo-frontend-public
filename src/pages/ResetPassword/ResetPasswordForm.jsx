@@ -8,6 +8,7 @@ import {
 	changePassword,
 	getUser
 } from "../../utils";
+import { useNavigate } from "react-router-dom";
 
 function ResetPasswordForm () {
 	const [uid, setUid] = useState("");
@@ -18,6 +19,8 @@ function ResetPasswordForm () {
 	const [verified, setVerified] = useState(false);
 	const [resendDisabled, setResendDisabled] = useState(false);
 	const [countdown, setCountdown] = useState(60);
+
+	const navigate = useNavigate();
 
 	// Send email to server to receive verification code
 	function handleSendEmail (event) {
@@ -89,6 +92,7 @@ function ResetPasswordForm () {
 				.then((response) => {
 					if (response.status === 200) {
 						alert("change password successful!");
+						navigate("/login");
 					} else if (response.status === 500) {
 						alert("fail 500 (Something went wrong)");
 					} else {
