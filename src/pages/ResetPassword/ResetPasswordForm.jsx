@@ -86,7 +86,7 @@ function ResetPasswordForm () {
 	async function handleResetPassword (event) {
 		event.preventDefault();
 		// reset password with server
-		verification();
+		await verification();
 		if (verified === true) {
 			console.log(uid, username, confirmPassword);
 			await changePassword({ uid, username, password: confirmPassword })
