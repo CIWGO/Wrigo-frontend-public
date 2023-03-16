@@ -35,11 +35,11 @@ function ResetPasswordForm () {
 				sendOTPViaEmail({ uid, username, email })
 					.then((response) => {
 						if (response.status === 200) {
-							alert("send email successful! Check your mailbox for the code!");
+							alert("Send email successful! Check your mailbox for the code!");
 						} else if (response.status === 500) {
-							alert("send fail 500 (Something went wrong)");
+							alert("Send fail 500 (Something went wrong)");
 						} else {
-							alert("send fail other than 500");
+							alert("Send fail other than 500");
 						}
 					})
 					.catch((error) => {
@@ -71,17 +71,17 @@ function ResetPasswordForm () {
 				setVerified(true);
 			} else if (response.status === 401) {
 				setVerified(false);
-				alert("verified fail 401 (Invalid OTP)");
+				alert("Verified fail 401 (Invalid OTP)");
 			} else if (response.status === 500) {
 				setVerified(false);
-				alert("verified fail 500");
+				alert("Verified fail 500");
 			}
 		} catch (error) {
 			setVerified(false);
-			alert("verified fail other than 500");
+			alert("Verified fail other than 500");
 			console.log(error);
 		}
-		console.log("wait for the verified");
+		console.log("Wait for the verified");
 		console.log(verified);
 	}
 
@@ -91,12 +91,12 @@ function ResetPasswordForm () {
 			changePassword({ uid, username, password: confirmPassword })
 				.then((response) => {
 					if (response.status === 200) {
-						alert("change password successful!");
+						alert("Change password successful!");
 						navigate("/login");
 					} else if (response.status === 500) {
-						alert("fail 500 (Something went wrong)");
+						alert("Fail 500 (Something went wrong)");
 					} else {
-						alert("verified fail other than 500");
+						alert("Verified fail other than 500");
 					}
 				})
 				.catch((error) => {
