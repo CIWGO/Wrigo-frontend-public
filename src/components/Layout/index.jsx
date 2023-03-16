@@ -1,10 +1,9 @@
 import { Layout, theme } from "antd";
 import styled from "styled-components";
-import React from "react";
+import React, { useEffect } from "react";
 import SideBar from "./SideBar";
-// import StyledLogo from "./SideBar/Logo";
 import SearchBar from "./SearchBar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const StyledLayout = styled(Layout)`
   height: 100vh;
@@ -12,12 +11,19 @@ const StyledLayout = styled(Layout)`
 
 const { Header, Content } = Layout;
 const PageLayout = () => {
+	const location = useLocation();
+	let selectedTab = window.location.pathname?.split("/")[2];
+
+	useEffect(() => {
+		selectedTab = window.location.pathname?.split("/")[2];
+	}, [location]);
+
 	const {
 		token: { colorBgContainer }
 	} = theme.useToken();
 	return (
 		<StyledLayout>
-			<SideBar/>
+			<SideBar selectedTab={selectedTab}/>
 
 			<Layout>
 				<Header

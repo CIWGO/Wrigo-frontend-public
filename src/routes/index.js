@@ -30,11 +30,11 @@ export default [
 		element: <Login />
 	},
 	{
-		path: "/EmailChange",
+		path: "/emailChange",
 		element: <EmailChangePage />
 	},
 	{
-		path: "/EmailVerification",
+		path: "/emailVerification",
 		element: <EmailVerificationPage />
 	},
 	{
