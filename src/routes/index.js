@@ -11,7 +11,7 @@ import Layout from "../components/Layout";
 import EditUserProfile from "../pages/EditUserProfile";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
-import TopicContent from "../pages/topicContent";
+import TopicContent from "../pages/TopicContent";
 
 export default [
 	{
@@ -72,7 +72,7 @@ export default [
 				element: <Profile />
 			},
 			{
-				path: "topic/content",
+				path: "topics/content",
 				element: <TopicContent />
 			}
 		]

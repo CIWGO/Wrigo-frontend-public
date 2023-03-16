@@ -2,7 +2,10 @@ import CommentRow from "./components/commentRow";
 
 const RightContainer = () => {
 	return (
-		<CommentRow />
+		<div>
+			This is right container
+			<CommentRow />
+		</div>
 	);
 };
 
