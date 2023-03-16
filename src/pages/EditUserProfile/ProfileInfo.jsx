@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Input, Form, Button, Col, Row } from "antd";
 import { ThreeCircles } from "react-loader-spinner";
-import axios from "axios";
+import newRequest from "../../utils/newRequest";
 import {
 	Item,
 	ButtonSection,
@@ -19,18 +19,17 @@ const ProfileInfo = () => {
 	// const since = "20 Feb, 2023";
 	const expiry = "21 Mar, 2023";
 	const paymentMethod = "Visa - 1221";
-	const url = "http://localhost:3005/users/getuserprofile";
 	// const token = localStorage.getItem("token");
 	// one hour duration per token, please copy another token from login response
 	const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InppemhlbiIsInVpZCI6IjkwZTllMjcwLTE3NWQtNDA2Yi1hZjBiLTViOWZjYTAyNDA0NSIsImVtYWlsIjoieml6aGVubHVvMjMyOEBnbWFpbC5jb20iLCJpYXQiOjE2Nzg0NTI0MjEsImV4cCI6MTY3ODQ1NjAyMX0.IUYU_PLgBnOS37q15wmjk2S7PPMGl4KqTfsFC2zJ_5c";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoYW5nMDE5IiwidWlkIjoiNDVmMjNlOTctN2FiNC00YzMzLWJhNDQtYzEzNjFmODc4ZDkxIiwiZW1haWwiOiJjaGFuZ3N0dWR5MTlAZ21haWwuY29tIiwiaWF0IjoxNjc4Njk4ODk2LCJleHAiOjE2Nzg3MDI0OTZ9.XxABdUKIxlWEpOPKKVno5fmV9iE6ruhgZdSt5yb9j9E";
 	const uid = "90e9e270-175d-406b-af0b-5b9fca024045";
 
 	const fetchUserProfileData = async () => {
 		setHideLoader(false);
 		setError(false);
 		try {
-			const response = await axios.post(url, {
+			const response = await newRequest.post("/users/getuserprofile", {
 				uid,
 				token
 			});

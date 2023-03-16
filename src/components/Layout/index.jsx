@@ -1,19 +1,60 @@
-import { Col, Row } from "antd";
+import { Layout, theme } from "antd";
 import styled from "styled-components";
-import SideBar from "../SideBar/index";
+import React from "react";
+import SideBar from "./SideBar";
+// import StyledLogo from "./SideBar/Logo";
+import SearchBar from "./SearchBar";
 import { Outlet } from "react-router-dom";
 
-const StyledRow = styled(Row)`
-  background: ${(props) => props.theme.background};
-  height: 100vh
+const StyledLayout = styled(Layout)`
+  height: 100vh;
 `;
 
-const Layout = () => {
+const { Header, Content } = Layout;
+const PageLayout = () => {
+	const {
+		token: { colorBgContainer }
+	} = theme.useToken();
 	return (
-		<StyledRow>
-			<Col span={5}><SideBar /></Col>
-			<Col span={19}><Outlet/></Col>
-		</StyledRow>
+		<StyledLayout>
+			<SideBar/>
+
+			<Layout>
+				<Header
+					style={{
+						padding: 0,
+						background: colorBgContainer,
+						display: "flex"
+					}}
+				>
+
+					<div style={{
+						display: "flex",
+						alignItems: "center",
+						padding: "0 10px"
+					}}>
+						<SearchBar ></SearchBar>
+					</div>
+				</Header>
+
+				<Content
+					style={{
+						margin: "0"
+					}}
+				>
+					<div
+						style={{
+							padding: 0,
+							minHeight: 360,
+							height: "100%",
+							background: colorBgContainer
+						}}
+					>
+						<Outlet />
+					</div>
+				</Content>
+			</Layout>
+		</StyledLayout>
 	);
 };
-export default Layout;
+export default PageLayout;
