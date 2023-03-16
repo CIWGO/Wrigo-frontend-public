@@ -28,7 +28,11 @@ const StyledCardContent = styled.div`
 
 const StyledScore = styled.div`
 	position: absolute;
-	bottom: 20px;
+	bottom: 0px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: #2F71DA;
 `;
 
 const TopicCard = (props) => {
@@ -46,8 +50,9 @@ const TopicCard = (props) => {
 				</div>
 				<p>{props.sampleWriting}</p>
 				<StyledScore>
-					<p>Sample score</p>
-					<p>{props.score}</p>
+					<p style={{ paddingTop: "10px" }}>Sample score</p>
+					{/* <p>{props.score}</p> */}
+					<p style={{ paddingLeft: "55px", fontSize: 30 }}>7.0</p>
 				</StyledScore>
 			</StyledCardContent>
 		</StyledCard>
