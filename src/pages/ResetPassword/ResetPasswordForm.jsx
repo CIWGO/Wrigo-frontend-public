@@ -59,37 +59,33 @@ function ResetPasswordForm () {
 		}
 	}, [countdown, resendDisabled]);
 
-	const verification = async (values) => {
-		// Verify code entered by user
+	async function handleResetPassword (event) {
+		event.preventDefault();
+		// reset password with server
 		try {
 			const response = await verifyOTP({ uid, userInput: code });
 			if (response.status === 200) {
 				setVerified(true);
-				console.log(verified, "1");
+			} else if (response.status === 401) {
+				setVerified(false);
+				alert("verified fail 401 (Invalid OTP)");
 			} else if (response.status === 500) {
 				setVerified(false);
-				console.log(verified, "2");
-				alert("verified fail 500 (Something went wrong)");
-			} else {
-				setVerified(false);
-				console.log(verified, "3");
-				alert("verified fail other than 500");
+				alert("verified fail 500");
 			}
 		} catch (error) {
 			setVerified(false);
-			console.log(verified, "4");
+			alert("verified fail other than 500");
 			console.log(error);
 		}
-	};
+		console.log("wait for the verified");
+		console.log(verified);
+	}
 
-	// Reset password using new password entered by user
-	async function handleResetPassword (event) {
-		event.preventDefault();
-		// reset password with server
-		await verification();
+	useEffect(() => {
 		if (verified === true) {
 			console.log(uid, username, confirmPassword);
-			await changePassword({ uid, username, password: confirmPassword })
+			changePassword({ uid, username, password: confirmPassword })
 				.then((response) => {
 					if (response.status === 200) {
 						alert("change password successful!");
@@ -101,9 +97,10 @@ function ResetPasswordForm () {
 				})
 				.catch((error) => {
 					console.log(error);
+					alert();
 				});
 		}
-	}
+	}, [verified, uid, username, confirmPassword]);
 
 	return (
 		<div>
