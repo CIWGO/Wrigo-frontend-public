@@ -50,6 +50,7 @@ import Login from "../pages/Login";
 import Layout from "../components/Layout";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
+import TopicContent from "../pages/topicContent";
 
 export default [
 	{
@@ -99,6 +100,10 @@ export default [
 			{
 				path: "userprofile",
 				element: <Profile />
+			},
+			{
+				path: "topic/content",
+				element: <TopicContent />
 			}
 		]
 	}
