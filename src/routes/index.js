@@ -30,7 +30,14 @@ export default [
 		path: "/login",
 		element: <Login />
 	},
-
+	{
+		path: "/emailChange",
+		element: <EmailChangePage />
+	},
+	{
+		path: "/emailVerification",
+		element: <EmailVerificationPage />
+	},
 	{
 		path: "/edit",
 		element: <EditUserProfile />
