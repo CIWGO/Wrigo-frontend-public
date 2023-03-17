@@ -1,6 +1,6 @@
 import { Layout, theme } from "antd";
 import styled from "styled-components";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import SearchBar from "./SearchBar";
 import { Outlet, useLocation } from "react-router-dom";
@@ -12,10 +12,10 @@ const StyledLayout = styled(Layout)`
 const { Header, Content } = Layout;
 const PageLayout = () => {
 	const location = useLocation();
-	let selectedTab = window.location.pathname?.split("/")[2];
+	const [selectedTab, setSelectedTab] = useState(window.location.pathname?.split("/")[2]);
 
 	useEffect(() => {
-		selectedTab = window.location.pathname?.split("/")[2];
+		setSelectedTab(window.location.pathname?.split("/")[2]);
 	}, [location]);
 
 	const {
