@@ -9,8 +9,9 @@ import SignUpPage from "../pages/SignUp";
 import Login from "../pages/Login";
 import Layout from "../components/Layout";
 import EditUserProfile from "../pages/EditUserProfile";
-import EmailChangePage from "../pages/EmailChange";
+// import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
+import ResetPasswordPage from "../pages/ResetPassword";
 
 export default [
 	{
@@ -44,6 +45,10 @@ export default [
 	{
 		path: "/email",
 		element: <EmailVerificationPage />
+	},
+	{
+		path: "/resetpassword",
+		element: <ResetPasswordPage />
 	},
 
 	{
