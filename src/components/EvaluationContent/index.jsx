@@ -6,11 +6,9 @@ import styled from "styled-components";
 import BackButton from "./components/BackButton";
 
 const StyledDiv = styled.div`
-	&& {
-		display: flex;
-		background: #F5F5F5;
-		height: 100%;
-	}
+  display: flex;
+  background: #f5f5f5;
+  height: 100%;
 `;
 
 const ContentSection = () => {
