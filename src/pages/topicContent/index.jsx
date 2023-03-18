@@ -1,15 +1,15 @@
-// import SearchBar from "../../components/SearchBar";
-import LeftContainer from "./components/leftContainer";
-import RightContainer from "./components/rightContainer";
+import ContentSection from "../../components/EvaluationContent";
+import styled from "styled-components";
 
-import React from "react";
+const StyledDiv = styled.div`
+	height: 100%;
+`;
 
 const TopicContent = () => {
 	return (
-		<div>
-			<LeftContainer />
-			<RightContainer />
-		</div>
+		<StyledDiv>
+			<ContentSection />
+		</StyledDiv>
 	);
 };
 
