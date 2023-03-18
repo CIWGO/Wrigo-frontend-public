@@ -4,6 +4,12 @@
 // const { Search } = Input;
 // const onSearch = (value) => console.log(value);
 // const StyledSearch = styled(Search)`
+// import { Input } from "antd";
+// import styled from "styled-components";
+
+// const { Search } = Input;
+// const onSearch = (value) => console.log(value);
+// const StyledSearch = styled(Search)`
 //   width: 400px;
 
 //   @media (max-width: 991.98px) {
@@ -21,14 +27,60 @@
 
 // export default SearchBar;
 
-// 5
-import React, { useState, useEffect } from "react";
-import { Input, Modal } from "antd";
+// 2
+// import { Input, Select } from "antd";
+// import styled from "styled-components";
+// import { useState } from "react";
+
+// const { Option } = Select;
+
+// const StyledSearch = styled(Input.Search)`
+//   width: 400px;
+
+//   @media (max-width: 991.98px) {
+//     width: 200px;
+//   }
+// `;
+
+// const SearchBar = () => {
+// 	const [searchType, setSearchType] = useState("topics");
+
+// 	const handleSearch = (value) => {
+// 		console.log(`Searching for "${value}" in ${searchType}`);
+// 		// 根据选择的搜索类型，构造相应的搜索查询
+// 	};
+
+// 	const handleSelectChange = (value) => {
+// 		setSearchType(value);
+// 	};
+
+// 	return (
+// 		<StyledSearch
+// 			placeholder="input search text"
+// 			allowClear
+// 			enterButton
+// 			onSearch={handleSearch}
+// 			addonAfter={
+// 				<Select defaultValue="topics" style={{ width: 120 }} onChange={handleSelectChange}>
+// 					<Option value="topics">Search Topics</Option>
+// 					<Option value="writings">Search Writings</Option>
+// 				</Select>
+// 			}
+// 		/>
+// 	);
+// };
+
+// export default SearchBar;
+
+// 3
+import { Input, Select } from "antd";
 import styled from "styled-components";
+import { useState } from "react";
+import { SearchOutlined } from "@ant-design/icons";
 
-const { Search } = Input;
+const { Option } = Select;
 
-const StyledSearch = styled(Search)`
+const StyledSearch = styled(Input.Search)`
   width: 400px;
 
   @media (max-width: 991.98px) {
@@ -36,98 +88,31 @@ const StyledSearch = styled(Search)`
   }
 `;
 
-const MyWriting = ({ myTopics, myWritings }) => (
-	<>
-		<h2>My Writing</h2>
-		{myTopics.map((topic, index) => (
-			<div key={index}>
-				<h3>{topic.title}</h3>
-				{myWritings
-					.filter((writing) => writing.topicId === topic.id)
-					.map((writing) => (
-						<p key={writing.id}>{writing.content}</p>
-					))}
-			</div>
-		))}
-	</>
-);
-
-const SampleWriting = ({ sampleWritings }) => (
-	<>
-		<h2>Sample Writing</h2>
-		{sampleWritings.map((writing) => (
-			<div key={writing.id}>
-				<h3>{writing.title}</h3>
-				<p>{writing.content}</p>
-			</div>
-		))}
-	</>
-);
-
 const SearchBar = () => {
-	const [isModalVisible, setIsModalVisible] = useState(false);
-	const [myTopics, setMyTopics] = useState([]);
-	const [myWritings, setMyWritings] = useState([]);
-	const [sampleWritings, setSampleWritings] = useState([]);
+	const [searchType, setSearchType] = useState("topics");
 
-	const showModal = () => {
-		setIsModalVisible(true);
+	const handleSearch = (value) => {
+		console.log(`Searching for "${value}" in ${searchType}`);
+		// pending input based on search type selection
 	};
 
-	const handleCancel = () => {
-		setIsModalVisible(false);
-	};
-
-	const fetchMyTopicsAndWritings = async () => {
-		// 获取My Writing的topics和writings数据
-		// 你需要根据你的API实现来调整这部分代码
-		const topicsResponse = await fetch("/api/mytopics");
-		const topicsData = await topicsResponse.json();
-		setMyTopics(topicsData);
-
-		const writingsResponse = await fetch("/api/mywritings");
-		const writingsData = await writingsResponse.json();
-		setMyWritings(writingsData);
-	};
-
-	const fetchSampleWritings = async () => {
-		// 获取Sample Writing的数据
-		// 你需要根据你的API实现来调整这部分代码
-		const sampleWritingsResponse = await fetch("/api/samplewritings");
-		const sampleWritingsData = await sampleWritingsResponse.json();
-		setSampleWritings(sampleWritingsData);
-	};
-
-	useEffect(() => {
-		fetchMyTopicsAndWritings();
-		fetchSampleWritings();
-	}, []);
-
-	const onSearch = (value) => {
-		console.log(value);
-		showModal();
+	const handleSelectChange = (value) => {
+		setSearchType(value);
 	};
 
 	return (
-		<>
-			<StyledSearch
-				placeholder="input search text"
-				allowClear
-				onSearch={onSearch}
-			/>
-			<Modal
-				title="Search Results"
-				visible={isModalVisible}
-				footer={null}
-				onCancel={handleCancel}
-				width="80%"
-			>
-				<div style={{ display: "flex", flexDirection: "column" }}>
-					<MyWriting myTopics={myTopics} myWritings={myWritings} />
-					<SampleWriting sampleWritings={sampleWritings} />
-				</div>
-			</Modal>
-		</>
+		<StyledSearch
+			placeholder="Please search for topics or writings"
+			allowClear
+			enterButton={<SearchOutlined />}
+			onSearch={handleSearch}
+			addonBefore={
+				<Select defaultValue="topics" style={{ width: 120 }} onChange={handleSelectChange}>
+					<Option value="topics">Topic</Option>
+					<Option value="writings">Writing</Option>
+				</Select>
+			}
+		/>
 	);
 };
 
