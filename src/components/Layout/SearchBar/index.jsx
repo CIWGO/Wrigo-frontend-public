@@ -70,7 +70,6 @@
 import { Input, Select } from "antd";
 import styled from "styled-components";
 import { useState } from "react";
-import { SearchOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
 
@@ -87,7 +86,14 @@ const SearchBar = () => {
 
 	const handleSearch = (value) => {
 		console.log(`Searching for "${value}" in ${searchType}`);
-		// pending input based on search type selection
+		// 构造相应的搜索查询
+		if (searchType === "topics") {
+			// 在 topic 数据库中搜索
+			console.log("Searching in topics database");
+		} else if (searchType === "writings") {
+			// 在 writing 内容中搜索
+			console.log("Searching in writings content");
+		}
 	};
 
 	const handleSelectChange = (value) => {
@@ -98,7 +104,6 @@ const SearchBar = () => {
 		<StyledSearch
 			placeholder="Please search for topics or writings"
 			allowClear
-			enterButton={<SearchOutlined />}
 			onSearch={handleSearch}
 			addonBefore={
 				<Select defaultValue="topics" style={{ width: 120 }} onChange={handleSelectChange}>
