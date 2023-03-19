@@ -1,4 +1,4 @@
-import newRequest from "./newRequest.js"
+import newRequest from "./newRequest.js";
 
 // Post
 export const signupUser = (values) => { return newRequest.post("/users/signup", values); };
