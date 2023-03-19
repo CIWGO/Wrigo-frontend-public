@@ -31,7 +31,6 @@ const UserProfile = () => {
 	return (
 		<div>
 			<StatisticCard4 />
-
 			{data && <LineChart marks={lineChartData} />}
 		</div>
 	);
