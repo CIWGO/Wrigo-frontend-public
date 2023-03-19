@@ -7,21 +7,20 @@ const StyledCardContainer = styled.div`
 	&& {
 		text-align: left;
 		padding: 40px;
-		background-color: #F2F2F2;
+		background-color: #f2f2f2;
 	}
 `;
 
 const TopicMainPage = () => {
 	const [data, setData] = useState([]);
 	useEffect(() => {
-		getTopic({ type: "allTopics" })
-			.then((response) => {
-				if (response.status === 200) {
-					setData(response.data);
-				} else if (response.status === 500) {
-					alert("Something is wrong network, please retry.");
-				}
-			});
+		getTopic({ type: "allTopics" }).then((response) => {
+			if (response.status === 200) {
+				setData(response.data);
+			} else if (response.status === 500) {
+				alert("Something is wrong network, please retry.");
+			}
+		});
 	}, []);
 
 	return (
@@ -31,7 +30,7 @@ const TopicMainPage = () => {
 					key={index}
 					topic={item.topic_content}
 					topicId={item.topic_id}
-					score={item.score}
+					score={item.topic_id}
 				/>
 			))}
 		</StyledCardContainer>

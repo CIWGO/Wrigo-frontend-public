@@ -1,6 +1,8 @@
 import { Card } from "antd";
 import SampleWriting from "./SampleWriting";
+import SampleScore from "./SampleScore";
 import styled from "styled-components";
+import { useState } from "react";
 
 const StyledCard = styled(Card)`
 	&& {
@@ -33,7 +35,7 @@ const StyledScore = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	color: #2F71DA;
+	color: #2f71da;
 `;
 
 const TopicCard = (props) => {
@@ -43,17 +45,46 @@ const TopicCard = (props) => {
 			? props.topic.slice(0, maxLength) + "..."
 			: props.topic;
 
+	const [scores, setScores] = useState([]);
+	const scoreHandler = (data) => {
+		let finalScore = 0;
+		let scoreAverage = 0;
+
+		if (!data) {
+			scoreAverage = 0;
+		} else {
+			scoreAverage =
+				(data.sampleScore_TR +
+					data.sampleScore_CC +
+					data.sampleScore_LR +
+					data.sampleScore_GRA) /
+				4;
+		}
+
+		if (scoreAverage % 1 > 0.5) {
+			finalScore = Math.ceil(scoreAverage);
+		} else if (scoreAverage % 1 < 0.5) {
+			finalScore = Math.floor(scoreAverage);
+		} else {
+			finalScore = scoreAverage;
+		}
+
+		setScores(finalScore);
+	};
+
 	return (
 		<StyledCard>
 			<StyledCardContent>
 				<div>
 					<p>{truncatedTopic}</p>
 				</div>
-				<SampleWriting topicId={ props.topicId } />
+				<SampleWriting
+					topicId={props.topicId}
+					onTopicDataChange={scoreHandler}
+				/>
 				<StyledScore>
 					<p style={{ paddingTop: "10px" }}>Sample score</p>
-					{/* <p>{props.score}</p> */}
-					<p style={{ paddingLeft: "55px", fontSize: 30 }}>7.0</p>
+					<SampleScore score={scores} />
 				</StyledScore>
 			</StyledCardContent>
 		</StyledCard>
