@@ -9,6 +9,15 @@ const DropdownWrapper = styled.div`
 `;
 
 function YearSelector ({ selectedYear, onYearChange }) {
+	const currentYear = new Date().getFullYear();
+	const startingYear = 2021; // Set the starting year here
+
+	// Generate an array of year options from the starting year to the current year
+	const yearOptions = Array.from(
+		{ length: currentYear - startingYear + 1 },
+		(_, i) => currentYear - i
+	);
+
 	return (
 		<DropdownWrapper>
 			<Select
@@ -16,9 +25,11 @@ function YearSelector ({ selectedYear, onYearChange }) {
 				style={{ width: 80 }}
 				onChange={onYearChange}
 			>
-				<Select.Option value={2023}>2023</Select.Option>
-				<Select.Option value={2022}>2022</Select.Option>
-				<Select.Option value={2021}>2021</Select.Option>
+				{yearOptions.map((year) => (
+					<Select.Option key={year} value={year}>
+						{year}
+					</Select.Option>
+				))}
 			</Select>
 		</DropdownWrapper>
 	);
