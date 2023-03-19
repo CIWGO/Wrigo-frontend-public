@@ -1,5 +1,6 @@
 import { LeftOutlined } from "@ant-design/icons";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledButton = styled.button`
   background-color: transparent;
@@ -18,10 +19,12 @@ const StyledButton = styled.button`
 `;
 const BackButton = () => {
 	return (
-		<StyledButton>
-			<LeftOutlined />
-      Go Back
-		</StyledButton>
+		<Link to={"/user/topics"}>
+			<StyledButton>
+				<LeftOutlined />
+        Go Back
+			</StyledButton>
+		</Link>
 	);
 };
 
