@@ -1,4 +1,5 @@
 import { Card } from "antd";
+import SampleWriting from "./SampleWriting";
 import styled from "styled-components";
 
 const StyledCard = styled(Card)`
@@ -36,10 +37,10 @@ const StyledScore = styled.div`
 `;
 
 const TopicCard = (props) => {
-	const MAX_LENGTH = 100;
+	const maxLength = 100;
 	const truncatedTopic =
-		props.topic.length > MAX_LENGTH
-			? props.topic.slice(0, MAX_LENGTH) + "..."
+		props.topic.length > maxLength
+			? props.topic.slice(0, maxLength) + "..."
 			: props.topic;
 
 	return (
@@ -48,7 +49,7 @@ const TopicCard = (props) => {
 				<div>
 					<p>{truncatedTopic}</p>
 				</div>
-				<p>{props.sampleWriting}</p>
+				<SampleWriting topicId={ props.topicId } />
 				<StyledScore>
 					<p style={{ paddingTop: "10px" }}>Sample score</p>
 					{/* <p>{props.score}</p> */}

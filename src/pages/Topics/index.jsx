@@ -30,7 +30,7 @@ const TopicMainPage = () => {
 				<TopicCard
 					key={index}
 					topic={item.topic_content}
-					sampleWriting={item.sampleWriting_content}
+					topicId={item.topic_id}
 					score={item.score}
 				/>
 			))}
