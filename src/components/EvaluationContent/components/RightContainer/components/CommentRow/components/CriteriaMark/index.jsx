@@ -9,12 +9,13 @@ const StyledDiv = styled.div`
   font-weight: 500;
   color: #2f71da;
   line-height: 54px;
+  gap: 10px;
 `;
 
-const CriteriaMark = () => {
+const CriteriaMark = (props) => {
 	return (
 		<StyledDiv>
-			<span>TR</span>
+			<span> {props.criteria} </span>
 			<div>7.5</div>
 		</StyledDiv>
 	);
