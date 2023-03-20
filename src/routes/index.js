@@ -11,6 +11,7 @@ import Layout from "../components/Layout";
 import EditUserProfile from "../pages/EditUserProfile";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
+import ResetPasswordPage from "../pages/ResetPassword";
 
 export default [
 	{
@@ -30,11 +31,11 @@ export default [
 		element: <Login />
 	},
 	{
-		path: "/EmailChange",
+		path: "/emailChange",
 		element: <EmailChangePage />
 	},
 	{
-		path: "/EmailVerification",
+		path: "/emailVerification",
 		element: <EmailVerificationPage />
 	},
 	{
@@ -44,6 +45,10 @@ export default [
 	{
 		path: "/email",
 		element: <EmailVerificationPage />
+	},
+	{
+		path: "/resetpassword",
+		element: <ResetPasswordPage />
 	},
 
 	{

@@ -1,52 +1,52 @@
 import newRequest from "../../utils/newRequest";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
 import RightComponet from "./right";
-import "./myWritingEvaluation.scss";
+import axios from "axios";
+import { WritingPageDiv } from "./style.js";
 
 const WritingPage = () => {
 	const [topic, setTopic] = useState("");
 	const [content, setContent] = useState("");
-	const [comment, setComment] = useState(
-		"submit to see comment. it will take few second..or you can open console network to see if request is success. | score... "
-	);
+	const [comment, setComment] = useState("");
 	const [score, setScore] = useState(null);
 	const [resubmit, setResubmit] = useState(false);
-	console.log(content, topic, score);
+	const [preFeed, setPreFeed] = useState("");
+	const uid = "userid";
+	const writingId = uid + topic.slice(0, 16);
 
-	const queryClient = useQueryClient();
 	const mutation = useMutation({
 		mutationFn: (input) => {
 			return newRequest.post("/api/evaluate", input);
 		},
-		onSuccess: () => {
-			queryClient.invalidateQueries(["input"]);
+		onSuccess: async () => {
 			setResubmit(true);
+			const previousFeed = await axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
+			console.log(preFeed);
+			setPreFeed(previousFeed.data);
 		}
 	});
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		mutation.mutate({ uid: "333", content, topic });
+		mutation.mutate({ writing_id: writingId, content, topic, uid });
 	};
 
-	const { data } = mutation;
+	// const { data } = mutation;
 
 	useEffect(() => {
-		if (data) {
-			setComment({ TR: data.data.feedback.TR, CC: data.data.feedback.CC, GRA: data.data.feedback.GRA, LR: data.data.feedback.LR, OVR: data.data.feedback.Overall });
-			setScore({ TR: data.data.scores.TR, CC: data.data.scores.CC, GRA: data.data.scores.GRA, LR: data.data.scores.LR });
-			// setComment(
-			// 	`FEEDBACK:TR:${data.data.feedback.TR} CC:${data.data.feedback.CC} GRA:${data.data.feedback.GRA} LR:${data.data.feedback.LR} Overall:${data.data.feedback.Overall} | SCOREs:TR${data.data.scores.TR}, GRA${data.data.scores.GRA}, CC${data.data.scores.CC}, LR${data.data.scores.LR}`
+		if (mutation.data) {
+			setComment({ TR: mutation.data.data.feedback.TR, CC: mutation.data.data.feedback.CC, GRA: mutation.data.data.feedback.GRA, LR: mutation.data.data.feedback.LR, OVR: mutation.data.data.feedback.Overall });
+			setScore({ TR: mutation.data.data.scores.TaskResponse, CC: mutation.data.data.scores.CoherenceAndCohesion, GRA: mutation.data.data.scores.GrammarRangeAndAccuracy, LR: mutation.data.data.scores.LexicalResource });
 		}
-	}, [data]);
+	}, [mutation.data]);
 
 	const wordCount = content.trim().split(/\s+/).length - 1;
 
 	return (
-		<div className="writing-page">
-			<Link to={"/user/writings"}>
+		<WritingPageDiv>
+			<Link to={"/writings"}>
 				<button className="back">
 					<LeftOutlined />
 					Go Back
@@ -62,6 +62,7 @@ const WritingPage = () => {
 								onChange={(e) => setTopic(e.target.value)}
 								className="topic"
 								placeholder="IELTS writing task 2 topic goes here"
+								disabled={resubmit}
 							></textarea>
 						</div>
 						<hr />
@@ -80,9 +81,9 @@ const WritingPage = () => {
 			</div>
 
 			<div className="right">
-				<RightComponet comment={comment} score={score} mutation={mutation} />
+				<RightComponet comment={comment} score={score} mutation={mutation} preFeed={preFeed} />
 			</div>
-		</div>
+		</WritingPageDiv>
 	);
 };
 
