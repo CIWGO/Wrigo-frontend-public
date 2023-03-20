@@ -1,8 +1,9 @@
 import LineChart from "../../components/Charts/LineChart/index";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 // import FeedbackComponent from "../../components/Feedback/index";
 import { useSelector } from "react-redux";
+import StatisticCard4 from "../../components/StatisticsCard4";
 
 const UserProfile = () => {
 	const [data, setData] = useState([]);
@@ -33,6 +34,7 @@ const UserProfile = () => {
 
 	return (
 		<div>
+			<StatisticCard4 />
 			{data && <LineChart marks={lineChartData} />}
 			{/* <FeedbackComponent/> */}
 		</div>
