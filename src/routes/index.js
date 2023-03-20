@@ -11,6 +11,7 @@ import Layout from "../components/Layout";
 import EditUserProfile from "../pages/EditUserProfile";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
+import TopicContent from "../pages/TopicContent";
 import ResetPasswordPage from "../pages/ResetPassword";
 
 export default [
@@ -74,6 +75,10 @@ export default [
 			{
 				path: "profile",
 				element: <Profile />
+			},
+			{
+				path: "topics/content",
+				element: <TopicContent />
 			}
 		]
 	}
