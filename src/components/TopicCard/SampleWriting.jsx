@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyledSampleWriting = styled.div`
 	color: #999999;
-	height: 135px;
+	height: 145px;
 	overflow: hidden;
 	font-size: 11px;
 	line-height: 1.35;
@@ -25,25 +25,21 @@ const StyledSampleWriting = styled.div`
 `;
 
 const SampleWriting = (props) => {
-	const [sampleWriting, setSampleWriting] = useState({});
+	const [sampleWriting, setSampleWriting] = useState(["Not available"]);
 	useEffect(() => {
 		getTopic({ type: "oneTopic", topic_id: props.topicId }).then((response) => {
-			if (response.status === 200) {
-				setSampleWriting(response.data);
-				props.onTopicDataChange(response.data);
+			if (response.status === 200 && response.data.oneSampleWithFeedback.sampleWriting_content) {
+				setSampleWriting(response.data.oneSampleWithFeedback.sampleWriting_content);
+				props.onTopicDataChange(response.data.oneSampleWithFeedback);
 			} else if (response.status === 500) {
 				alert("Something is wrong network, please retry.");
 			}
 		});
 	}, []);
 
-	const content = sampleWriting.oneSampleWithFeedback.sampleWriting_content
-		? sampleWriting.oneSampleWithFeedback.sampleWriting_content
-		: "Not available";
-
 	return (
 		<StyledSampleWriting>
-			<p>{content}</p>
+			<p>{sampleWriting}</p>
 		</StyledSampleWriting>
 	);
 };

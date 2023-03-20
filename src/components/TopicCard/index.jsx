@@ -31,7 +31,7 @@ const StyledCardContent = styled.div`
 
 const StyledScore = styled.div`
 	position: absolute;
-	bottom: 0px;
+	top: 250px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -45,28 +45,26 @@ const TopicCard = (props) => {
 			? props.topic.slice(0, maxLength) + "..."
 			: props.topic;
 
-	const [scores, setScores] = useState([]);
+	const scorePlaceHolder = 0;
+	const scoreWithDecimal = scorePlaceHolder.toFixed(1);
+	const [scores, setScores] = useState([scoreWithDecimal]);
 	const scoreHandler = (data) => {
 		let finalScore = 0;
 		let scoreAverage = 0;
 
-		if (!data) {
-			scoreAverage = 0;
-		} else {
-			scoreAverage =
-				(data.sampleScore_TR +
-					data.sampleScore_CC +
-					data.sampleScore_LR +
-					data.sampleScore_GRA) /
-				4;
-		}
+		scoreAverage =
+			((data.sampleScore_TR +
+				data.sampleScore_CC +
+				data.sampleScore_LR +
+				data.sampleScore_GRA) /
+			4).toFixed(1);
 
 		if (scoreAverage % 1 > 0.5) {
-			finalScore = Math.ceil(scoreAverage);
+			finalScore = Math.ceil(scoreAverage).toFixed(1);
 		} else if (scoreAverage % 1 < 0.5) {
-			finalScore = Math.floor(scoreAverage);
+			finalScore = Math.floor(scoreAverage).toFixed(1);
 		} else {
-			finalScore = scoreAverage;
+			finalScore = scoreAverage.toFixed(1);
 		}
 
 		setScores(finalScore);
