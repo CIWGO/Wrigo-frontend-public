@@ -1,11 +1,18 @@
-import "./right.scss";
+import PreFeedbackCard from "./preFeedbackCard";
 import moment from "moment/moment";
-const RightComponet = ({ comment, score, mutation }) => 	{
+import { useState } from "react";
+import { FeedbackContainer, Group, LoadingContainer, NoFeed } from "./style";
+const RightComponet = ({ comment, score, mutation, preFeed }) => 	{
+	const [previous, setPrevious] = useState(false);
+	console.log(preFeed);
 	if (mutation.isLoading) {
-		return <div className="loading">
+		return <LoadingContainer>
 			<div className="loader"></div>
 			<div className="loading-text">Loading... it will take few seconds</div>
-		</div>;
+		</LoadingContainer>;
+	}
+	if (previous && !mutation.loading) {
+		return <PreFeedbackCard previous={previous} setPrevious={setPrevious} preFeed={preFeed}/>;
 	}
 	if (comment.TR) {
 		const numbers = [score.TR, score.LR, score.GRA, score.CC];
@@ -19,7 +26,7 @@ const RightComponet = ({ comment, score, mutation }) => 	{
 			return Math.round(avg * 2) / 2;
 		}
 
-		return <div className="feedback">
+		return <FeedbackContainer>
 			<p id="moment">Evaluted at {moment(Date.now()).format("MMMM Do YYYY, h:mm a")}</p>
 			<p>band<span>
 				{calOverall(numbers)}
@@ -57,18 +64,18 @@ const RightComponet = ({ comment, score, mutation }) => 	{
 					<h3 className="thin">{comment.LR}</h3>
 				</div>
 			</div>
-			<div className="group">
+			<Group>
 				<div className="scores">
 					<h3>Overall</h3>
 				</div>
 				<div className="comment">
 					<h3 className="thin">{comment.OVR}</h3>
 				</div>
-			</div>
-			<button>previous feedback</button>
+			</Group>
+			<button onClick={() => setPrevious(true)}>previous feedback</button>
 
-		</div>;
-	}; return <div className="noFeed">no feed back yet...</div>;
+		</FeedbackContainer>;
+	}; return <NoFeed>no feed back yet...</NoFeed>;
 };
 
 export default RightComponet;

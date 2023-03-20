@@ -8,8 +8,12 @@ import {
 import { Layout, Menu, Modal } from "antd";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import { userLogout } from "../../../slice/userSlice";
+import { useDispatch } from "react-redux";
+import clearLocalStorage from "../../../features/clearLocalStorage";
 
-export default function SideBar () {
+export default function SideBar (props) {
+	const dispatch = useDispatch();
 	const { Sider } = Layout;
 	const navigate = useNavigate();
 	const { confirm } = Modal;
@@ -20,13 +24,13 @@ export default function SideBar () {
 			okText: "Yes",
 			cancelText: "Cancel",
 			onOk () {
+				dispatch(userLogout());
+				clearLocalStorage();
 				navigate("/landing");
 			}
 		});
 	};
 	const isMobile = useMediaQuery({ maxWidth: 992 });
-
-	const defaultTab = window.location.pathname?.split("/").pop() || "dashboard";
 
 	return (
 		<Sider
@@ -38,7 +42,10 @@ export default function SideBar () {
 				flexDirection: "column"
 			}}
 		>
-			<Link to="/user/dashboard" style={{ flex: "1", color: "#2F71DA", fontSize: "35px" }}>
+			<Link
+				to="/user/dashboard"
+				style={{ flex: "1", color: "#2F71DA", fontSize: "35px" }}
+			>
 				{isMobile ? "W" : "WRIGO"}
 			</Link>
 
@@ -51,7 +58,8 @@ export default function SideBar () {
 					border: "none"
 				}}
 				mode="inline"
-				defaultSelectedKeys={defaultTab}
+				defaultSelectedKeys={["dashboard"]}
+				selectedKeys={[props.selectedTab]}
 			>
 				<Menu.ItemGroup style={{ flex: "9" }}>
 					<Menu.Item
@@ -98,33 +106,8 @@ export default function SideBar () {
 					</Menu.Item>
 				</Menu.ItemGroup>
 
-				<style>
-					{".ant-menu-item-group-title {display: none}"}
-				</style>
+				<style>{".ant-menu-item-group-title {display: none}"}</style>
 			</Menu>
-
-			{/* <Menu
-				theme="dark"
-				mode="inline"
-				defaultSelectedKeys={defaultTab}
-				items={[
-					{
-						key: "dashboard",
-						icon: <AppstoreOutlined />,
-						label: <NavLink to="dashboard">Dashboard</NavLink>
-					},
-					{
-						key: "writings",
-						icon: <FormOutlined />,
-						label: <NavLink to="writings">Writings</NavLink>
-					},
-					{
-						key: "topic",
-						icon: <FileTextOutlined />,
-						label: <NavLink to="topic">Topics</NavLink>
-					}
-				]}
-			/> */}
 		</Sider>
 	);
 }

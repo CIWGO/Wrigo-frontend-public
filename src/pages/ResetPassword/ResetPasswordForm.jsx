@@ -8,6 +8,7 @@ import {
 	changePassword,
 	getUser
 } from "../../utils";
+import { useNavigate } from "react-router-dom";
 
 function ResetPasswordForm () {
 	const [uid, setUid] = useState("");
@@ -18,6 +19,8 @@ function ResetPasswordForm () {
 	const [verified, setVerified] = useState(false);
 	const [resendDisabled, setResendDisabled] = useState(false);
 	const [countdown, setCountdown] = useState(60);
+
+	const navigate = useNavigate();
 
 	// Send email to server to receive verification code
 	function handleSendEmail (event) {
@@ -32,11 +35,11 @@ function ResetPasswordForm () {
 				sendOTPViaEmail({ uid, username, email })
 					.then((response) => {
 						if (response.status === 200) {
-							alert("send email successful! Check your mailbox for the code!");
+							alert("Send email successful! Check your mailbox for the code!");
 						} else if (response.status === 500) {
-							alert("send fail 500 (Something went wrong)");
+							alert("Send fail 500 (Something went wrong)");
 						} else {
-							alert("send fail other than 500");
+							alert("Send fail other than 500");
 						}
 					})
 					.catch((error) => {
@@ -59,51 +62,49 @@ function ResetPasswordForm () {
 		}
 	}, [countdown, resendDisabled]);
 
-	const verification = async (values) => {
-		// Verify code entered by user
+	async function handleResetPassword (event) {
+		event.preventDefault();
+		// reset password with server
 		try {
 			const response = await verifyOTP({ uid, userInput: code });
 			if (response.status === 200) {
 				setVerified(true);
-				console.log(verified, "1");
+			} else if (response.status === 401) {
+				setVerified(false);
+				alert("Verified fail 401 (Invalid OTP)");
 			} else if (response.status === 500) {
 				setVerified(false);
-				console.log(verified, "2");
-				alert("verified fail 500 (Something went wrong)");
-			} else {
-				setVerified(false);
-				console.log(verified, "3");
-				alert("verified fail other than 500");
+				alert("Verified fail 500");
 			}
 		} catch (error) {
 			setVerified(false);
-			console.log(verified, "4");
+			alert("Verified fail other than 500");
 			console.log(error);
 		}
-	};
+		console.log("Wait for the verified");
+		console.log(verified);
+	}
 
-	// Reset password using new password entered by user
-	async function handleResetPassword (event) {
-		event.preventDefault();
-		// reset password with server
-		verification();
+	useEffect(() => {
 		if (verified === true) {
 			console.log(uid, username, confirmPassword);
-			await changePassword({ uid, username, password: confirmPassword })
+			changePassword({ uid, username, password: confirmPassword })
 				.then((response) => {
 					if (response.status === 200) {
-						alert("change password successful!");
+						alert("Change password successful!");
+						navigate("/login");
 					} else if (response.status === 500) {
-						alert("fail 500 (Something went wrong)");
+						alert("Fail 500 (Something went wrong)");
 					} else {
-						alert("verified fail other than 500");
+						alert("Verified fail other than 500");
 					}
 				})
 				.catch((error) => {
 					console.log(error);
+					alert();
 				});
 		}
-	}
+	}, [verified, uid, username, confirmPassword]);
 
 	return (
 		<div>
