@@ -1,5 +1,6 @@
 import { Card, Button } from "antd";
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledCard = styled(Card)`
@@ -8,7 +9,7 @@ const StyledCard = styled(Card)`
 	margin-bottom: 40px;
 	border-radius: 0;
 	border-color: #fff;
-	background: linear-gradient(to right, #2f71da, #7BAEFF);
+	background: linear-gradient(to right, #2f71da, #7baeff);
 `;
 
 const StyledContentContainer = styled.div`
@@ -54,12 +55,10 @@ const ProfileHeader = () => {
 				<StyledUsername>@{username}</StyledUsername>
 				<StyledButtonContainer>
 					<StyledButton type="primary">
-						<p style={{ fontSize: "12px" }}>Edit profile</p>
+						<NavLink to="editUserProfile" style={{ fontSize: "12px", fontWeight: 700 }}>Edit profile</NavLink>
 					</StyledButton>
 					<StyledButton type="primary">
-						<p style={{ fontSize: "12px", fontWeight: 700 }}>
-							Wrigo Infinite
-						</p>
+						<NavLink to="wrigoinfinite" style={{ fontSize: "12px", fontWeight: 700 }}>Wrigo Infinite</NavLink>
 					</StyledButton>
 				</StyledButtonContainer>
 			</StyledContentContainer>

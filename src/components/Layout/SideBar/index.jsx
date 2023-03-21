@@ -96,7 +96,7 @@ export default function SideBar (props) {
 						style={{ textAlign: "left" }}
 						onClick={handleLogout}
 					>
-            Log out
+						Log out
 					</Menu.Item>
 				</Menu.ItemGroup>
 
