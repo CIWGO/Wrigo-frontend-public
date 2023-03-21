@@ -31,7 +31,7 @@ const UserProfile = () => {
 
 	return (
 		<div>
-			<ProfileHeader user={"ddd"}/>
+			<ProfileHeader />
 			<StatisticCard4 />
 			{data && <LineChart marks={lineChartData} />}
 		</div>
