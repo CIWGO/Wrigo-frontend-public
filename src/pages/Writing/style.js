@@ -308,3 +308,6 @@ width: "6rem";
 height: "min-content";
 background-color: "white";
 `;
+
+export const NoPre = styled.p`
+font-size:2rem;`;

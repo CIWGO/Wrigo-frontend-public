@@ -3,8 +3,9 @@ import moment from "moment/moment";
 import { useState } from "react";
 import { FeedbackContainer, Group, LoadingContainer, NoFeed } from "../Writing/style.js";
 const RightComponet = ({ comment, score, mutation, preFeed }) => 	{
-	const [previous, setPrevious] = useState(true);
+	const [previous, setPrevious] = useState(false);
 	console.log(preFeed);
+
 	if (mutation.isLoading) {
 		return <LoadingContainer>
 			<div className="loader"></div>
@@ -32,38 +33,38 @@ const RightComponet = ({ comment, score, mutation, preFeed }) => 	{
 				{calOverall(numbers)}
 			</span>
 			</p>
-			<div className="group">
+			<Group>
 				<div className="scores">
 					<h3>TR:{score.TR}</h3>
 				</div>
 				<div className="comment">
 					<h3 className="thin">{comment.TR}</h3>
 				</div>
-			</div>
-			<div className="group">
+			</Group>
+			<Group>
 				<div className="scores">
 					<h3>CC:{score.CC}</h3>
 				</div>
 				<div className="comment">
 					<h3 className="thin">{comment.CC}</h3>
 				</div>
-			</div>
-			<div className="group">
+			</Group>
+			<Group>
 				<div className="scores">
 					<h3>GRA:{score.GRA}</h3>
 				</div>
 				<div className="comment">
 					<h3 className="thin">{comment.GRA}</h3>
 				</div>
-			</div>
-			<div className="group">
+			</Group>
+			<Group>
 				<div className="scores">
 					<h3 >LR:{score.LR}</h3>
 				</div>
 				<div className="comment">
 					<h3 className="thin">{comment.LR}</h3>
 				</div>
-			</div>
+			</Group>
 			<Group>
 				<div className="scores">
 					<h3>Overall</h3>

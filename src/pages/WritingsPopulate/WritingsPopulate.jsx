@@ -18,15 +18,25 @@ function WritingsPopulate () {
 	const uid = "userid";
 
 	useEffect(() => {
-		const mutationInitial = axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "writingDoc" })
-			.then((response) => {
-				console.log(mutationInitial);
+		async function fetchData () {
+			try {
+				const response = await axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "writingDoc" });
 				setTopic(response.data.task_topic);
 				setContent(response.data.writing_content);
-			})
-			.catch((error) => {
+
+				const previousFeedResponse = await axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
+				const previousFeed = previousFeedResponse.data;
+				setPreFeed(previousFeed);
+				console.log(previousFeed[0]);
+				setComment({ TR: previousFeed[0].feedback_TR, CC: previousFeed[0].feedback_CC, GRA: previousFeed[0].feedback_GRA, LR: previousFeed[0].feedback_LR, OVR: previousFeed[0].feedback_overall });
+				setScore({ TR: previousFeed[0].score_TR, CC: previousFeed[0].score_CC, GRA: previousFeed[0].score_GRA, LR: previousFeed[0].score_LR });
+				console.log(comment);
+			} catch (error) {
 				console.log(error);
-			});
+			}
+		}
+
+		fetchData();
 	}, []);
 
 	const mutationFeed = useMutation({
