@@ -13,6 +13,8 @@ import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
 import TopicContent from "../pages/TopicContent";
 import ResetPasswordPage from "../pages/ResetPassword";
+import PaymentSuccess from "../pages/PaymentSuccess/SuccessPage";
+import WritingsPopulate from "../pages/WritingsPopulate/WritingsPopulate";
 
 export default [
 	{
@@ -65,6 +67,10 @@ export default [
 				element: <WritingMain />
 			},
 			{
+				path: "writing/:writingId", // new route with dynamic parameter
+				element: <WritingsPopulate/>
+			},
+			{
 				path: "writings/evaluation",
 				element: <WritingPage />
 			},
@@ -79,6 +85,10 @@ export default [
 			{
 				path: "topics/content",
 				element: <TopicContent />
+			},
+			{
+				path: "payment-success",
+				element: <PaymentSuccess/>
 			}
 		]
 	}

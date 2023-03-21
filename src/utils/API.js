@@ -15,6 +15,8 @@ export const changePassword = (values) => { return newRequest.post("/users/chang
 
 export const getTopic = (values) => { return newRequest.post("/users/getTopic", values); };
 
+export const 	getHistory = (values) => { return newRequest.post("/users/viewHistory", values); };
+
 // Patch
 export const changeEmail = (values) => { return newRequest.patch("/users/changeEmail", values); };
 
