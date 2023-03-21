@@ -11,7 +11,7 @@ import Layout from "../components/Layout";
 import EditUserProfile from "../pages/EditUserProfile";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
-import TopicContent from "../pages/TopicContent";
+import TopicContent from "../pages/topicContent/index";
 import ResetPasswordPage from "../pages/ResetPassword";
 import SubIntroCard from "../pages/WrigoInfinite/index";
 

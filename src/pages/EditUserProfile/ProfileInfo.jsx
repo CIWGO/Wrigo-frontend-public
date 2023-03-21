@@ -19,11 +19,12 @@ const ProfileInfo = () => {
 	// const since = "20 Feb, 2023";
 	const expiry = "21 Mar, 2023";
 	const paymentMethod = "Visa - 1221";
-	// const token = localStorage.getItem("token");
+	const token = localStorage.getItem("token");
+	const uid = localStorage.getItem("uid");
 	// one hour duration per token, please copy another token from login response
-	const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoYW5nMDE5IiwidWlkIjoiNDVmMjNlOTctN2FiNC00YzMzLWJhNDQtYzEzNjFmODc4ZDkxIiwiZW1haWwiOiJjaGFuZ3N0dWR5MTlAZ21haWwuY29tIiwiaWF0IjoxNjc4Njk4ODk2LCJleHAiOjE2Nzg3MDI0OTZ9.XxABdUKIxlWEpOPKKVno5fmV9iE6ruhgZdSt5yb9j9E";
-	const uid = "90e9e270-175d-406b-af0b-5b9fca024045";
+	// const token =
+	// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoYW5nMDE5IiwidWlkIjoiNDVmMjNlOTctN2FiNC00YzMzLWJhNDQtYzEzNjFmODc4ZDkxIiwiZW1haWwiOiJjaGFuZ3N0dWR5MTlAZ21haWwuY29tIiwiaWF0IjoxNjc4Njk4ODk2LCJleHAiOjE2Nzg3MDI0OTZ9.XxABdUKIxlWEpOPKKVno5fmV9iE6ruhgZdSt5yb9j9E";
+	// const uid = "90e9e270-175d-406b-af0b-5b9fca024045";
 
 	const fetchUserProfileData = async () => {
 		setHideLoader(false);

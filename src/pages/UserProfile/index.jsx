@@ -2,19 +2,23 @@ import LineChart from "../../components/Charts/LineChart/index";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProfileHeader from "./ProfileHeader";
+// import FeedbackComponent from "../../components/Feedback/index";
+import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
-
+import RadarChart from "../../components/RadarChart";
 const UserProfile = () => {
 	const [data, setData] = useState([]);
-	const uid = localStorage.getItem("uid");
-	const token = localStorage.getItem("token");
-
+	const { userId, token } = useSelector((state) => state.user);
+	// const uid = localStorage.getItem("uid");
+	// const token = localStorage.getItem("token");
+	console.log(data);
 	useEffect(() => {
+		console.log(data);
 		axios({
 			method: "post",
 			url: "http://localhost:3005/api/writingStatistics",
 			data: {
-				uid,
+				uid: userId,
 				token
 			}
 		})
@@ -25,7 +29,7 @@ const UserProfile = () => {
 			.catch(function (error) {
 				console.error("Error:", error);
 			});
-	}, [uid, token]);
+	}, [userId, token]);
 
 	const lineChartData = Object.values(data).slice(0, 5);
 
@@ -34,6 +38,8 @@ const UserProfile = () => {
 			<ProfileHeader />
 			<StatisticCard4 />
 			{data && <LineChart marks={lineChartData} />}
+			{/* <FeedbackComponent/> */}
+			<RadarChart />
 		</div>
 	);
 };
