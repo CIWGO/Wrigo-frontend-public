@@ -11,9 +11,9 @@ import Layout from "../components/Layout";
 import EditUserProfile from "../pages/EditUserProfile";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
-import TopicContent from "../pages/topicContent/index";
+// import TopicContent from "../pages/topicContent/index";
 import ResetPasswordPage from "../pages/ResetPassword";
-import PopularTopic from "../pages/Dashboard/popularTopics";
+import popularTopicsCard from "../pages/Dashboard/popularTopics";
 
 export default [
 	{
@@ -59,7 +59,7 @@ export default [
 		children: [
 			{
 				path: "dashboard",
-				element: <PopularTopic />
+				element: <popularTopicsCard />
 			},
 			{
 				path: "writings",
@@ -76,11 +76,11 @@ export default [
 			{
 				path: "profile",
 				element: <Profile />
-			},
-			{
-				path: "topics/content",
-				element: <TopicContent />
 			}
+			// {
+			// 	path: "topics/content",
+			// 	element: <TopicContent />
+			// }
 		]
 	}
 ];
