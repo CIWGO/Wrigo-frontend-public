@@ -11,10 +11,11 @@ import Layout from "../components/Layout";
 import EditUserProfile from "../pages/EditUserProfile";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
-import TopicContent from "../pages/topicContent/index";
+import TopicContent from "../pages/TopicContent/index";
 import ResetPasswordPage from "../pages/ResetPassword";
 // import PopularTopicsCard from "../pages/Dashboard/popularTopics";
 // import DashBoardPage from "../pages/Dashboard/dashboard";
+import SubIntroCard from "../pages/WrigoInfinite/index";
 
 export default [
 	{
@@ -40,10 +41,6 @@ export default [
 	{
 		path: "/emailVerification",
 		element: <EmailVerificationPage />
-	},
-	{
-		path: "/edit",
-		element: <EditUserProfile />
 	},
 	{
 		path: "/email",
@@ -75,12 +72,23 @@ export default [
 				element: <Topics />
 			},
 			{
-				path: "profile",
-				element: <Profile />
-			},
-			{
 				path: "topics/content",
 				element: <TopicContent />
+			},
+			{
+				path: "profile",
+				element: <Profile />,
+				children: [
+
+				]
+			},
+			{
+				path: "profile/edit",
+				element: <EditUserProfile />
+			},
+			{
+				path: "profile/wrigoinfinite",
+				element: <SubIntroCard />
 			}
 		]
 	}
