@@ -1,30 +1,32 @@
 import React from "react";
 import {
-	PopularTopicContainer,
-	Topic,
-	TopicName,
+	ContentBox,
+	Property,
+	Index,
+	TopicContent,
 	IconContainer,
-	PopularityIcon,
-	WritingDetailIcon
+	IndexAndTopic,
+	MoreInfo
 } from "./style";
+import { defaultFrontEndPrefix } from "../../constants/index";
 
 const PopularTopics = (props) => {
 	return (
-		<PopularTopicContainer>
-			{props.map((topic, index) => (
-				<Topic key={index}>
-					<TopicName>{topic.name}</TopicName>
+		<ContentBox>
+			{props.topics.map((topic, index) => (
+				<Property key={index}>
+					<IndexAndTopic>
+						<Index>#{index + 1}</Index>
+						<TopicContent>{topic.topic_content}</TopicContent>
+					</IndexAndTopic>
 					<IconContainer>
-						<PopularityIcon className="material-icons">thumb_up</PopularityIcon>
-						<span>{topic.popularity}</span>
-						<WritingDetailIcon className="material-icons">
-              description
-						</WritingDetailIcon>
-						<span>{topic.writings}</span>
+						<span>👍 {topic.popularity}</span>
+						<span>📝 {topic.writings}</span>
 					</IconContainer>
-				</Topic>
+				</Property>
 			))}
-		</PopularTopicContainer>
+			<MoreInfo href={`http://${defaultFrontEndPrefix}/users/topics`}>{"More in topics > "}</MoreInfo>
+		</ContentBox>
 	);
 };
 

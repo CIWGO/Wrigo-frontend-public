@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-// import RecentWriting from "../pages/Dashboard/recentWritings";
+import RecentWritings from "../pages/Dashboard/recentWritings";
 import WritingMain from "../pages/Writing/myWritingMain";
 import Profile from "../pages/UserProfile";
 import WritingPage from "../pages/Writing/myWritingEvaluation";
@@ -11,9 +11,10 @@ import Layout from "../components/Layout";
 import EditUserProfile from "../pages/EditUserProfile";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
-// import TopicContent from "../pages/topicContent/index";
+import TopicContent from "../pages/topicContent/index";
 import ResetPasswordPage from "../pages/ResetPassword";
-import popularTopicsCard from "../pages/Dashboard/popularTopics";
+// import PopularTopicsCard from "../pages/Dashboard/popularTopics";
+// import DashBoardPage from "../pages/Dashboard/dashboard";
 
 export default [
 	{
@@ -59,7 +60,7 @@ export default [
 		children: [
 			{
 				path: "dashboard",
-				element: <popularTopicsCard />
+				element: <RecentWritings />
 			},
 			{
 				path: "writings",
@@ -76,11 +77,11 @@ export default [
 			{
 				path: "profile",
 				element: <Profile />
+			},
+			{
+				path: "topics/content",
+				element: <TopicContent />
 			}
-			// {
-			// 	path: "topics/content",
-			// 	element: <TopicContent />
-			// }
 		]
 	}
 ];

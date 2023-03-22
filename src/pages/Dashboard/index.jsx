@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout";
 import RecentWriting from "./recentWritings";
-import popularTopicsCard from "./popularTopics";
+import PopularTopicsCard from "./popularTopics";
 
 const DashBoardPage = () => {
 	return (
@@ -9,7 +9,7 @@ const DashBoardPage = () => {
 				<RecentWriting />
 			</div>
 			<div>
-				<popularTopicsCard />
+				<PopularTopicsCard />
 			</div>
 		</Layout>
 	);
