@@ -7,7 +7,6 @@ import styled from "styled-components";
 const StyledDiv = styled.div`
   display: flex;
   background: #f5f5f5;
-  height: auto;
 	min-height: 100%;
 	overflow: auto;
 `;
