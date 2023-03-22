@@ -16,6 +16,8 @@ import ResetPasswordPage from "../pages/ResetPassword";
 // import PopularTopicsCard from "../pages/Dashboard/popularTopics";
 // import DashBoardPage from "../pages/Dashboard/dashboard";
 import SubIntroCard from "../pages/WrigoInfinite/index";
+import Payment from "../pages/Payment/index";
+import PaymentSuccess from "../pages/Payment/paymentSuccess";
 
 export default [
 	{
@@ -83,12 +85,28 @@ export default [
 				]
 			},
 			{
+				path: "checkout",
+				element: <Payment />
+			},
+			{
+				path: "paymentSuccess",
+				element: <PaymentSuccess />
+			},
+			{
+				path: "topics/content",
+				element: <TopicContent />
+			},
+			{
 				path: "profile/edit",
 				element: <EditUserProfile />
 			},
 			{
 				path: "profile/wrigoinfinite",
 				element: <SubIntroCard />
+			},
+			{
+				path: "topics/content",
+				element: <TopicContent />
 			}
 		]
 	}
