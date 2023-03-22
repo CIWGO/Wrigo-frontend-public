@@ -16,7 +16,7 @@ const CriteriaMark = (props) => {
 	return (
 		<StyledDiv>
 			<span> {props.criteria} </span>
-			<div>7.5</div>
+			<div>{props.scores}</div>
 		</StyledDiv>
 	);
 };

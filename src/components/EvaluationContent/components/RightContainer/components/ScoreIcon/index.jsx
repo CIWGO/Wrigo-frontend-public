@@ -53,7 +53,6 @@ const ScoreIcon = (props) => {
 		getTopic({ type: "oneTopic", topic_id: "29dae72e-f633-432c-a105-b0e40f562710" }).then((response) => {
 			if (response.status === 200 && response.data.oneSampleWithFeedback) {
 				scoreHandler(response.data.oneSampleWithFeedback);
-				// props.onTopicDataChange(response.data.oneSampleWithFeedback);
 			} else if (response.status === 500) {
 				alert("Something is wrong network, please retry.");
 			}

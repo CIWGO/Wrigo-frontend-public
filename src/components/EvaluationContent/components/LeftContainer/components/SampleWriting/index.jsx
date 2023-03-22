@@ -7,10 +7,9 @@ const StyledDiv = styled.div`
   margin-right: 30px;
   margin-bottom: 0px;
   margin-left: 31px;
-  width: 660px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 19.0px;
+  line-height: 23px;
   text-align: left;
   color: #000000;
 `;
@@ -22,7 +21,6 @@ const SampleWriting = (props) => {
 		getTopic({ type: "oneTopic", topic_id: "29dae72e-f633-432c-a105-b0e40f562710" }).then((response) => {
 			if (response.status === 200 && response.data.oneSampleWithFeedback.sampleWriting_content) {
 				setSampleWriting(response.data.oneSampleWithFeedback.sampleWriting_content);
-				// props.onTopicDataChange(response.data.oneSampleWithFeedback);
 			} else if (response.status === 500) {
 				alert("Something is wrong network, please retry.");
 			}
