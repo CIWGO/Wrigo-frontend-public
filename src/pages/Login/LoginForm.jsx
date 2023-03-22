@@ -15,7 +15,7 @@ const LoginForm = () => {
 
 	const handleSubmit = async (values) => {
 		try {
-			const response = await axios.post("http://localhost:3005/users/login", values);
+			const response = await axios.post(`http://${defaultFrontEndPrefix}/users/login`, values);
 			console.log(response.data);
 			if (response.status === 200) {
 				// login success
@@ -33,7 +33,7 @@ const LoginForm = () => {
 			if (error.response.status === 401) {
 				const { uid: userId, username: userName } = error.response.data;
 
-				await axios.post("http://localhost:3005/users/sendOTP", { uid: userId, username: userName });
+				await axios.post(`http://${defaultFrontEndPrefix}/users/sendOTP`, { uid: userId, username: userName });
 				dispatch(setUserInfo({ userId, userName }));
 				console.log("unverified email =", values);
 				navigate("/emailVerification");

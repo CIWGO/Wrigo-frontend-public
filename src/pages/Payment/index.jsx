@@ -1,7 +1,8 @@
 import axios from "axios";
 import React from "react";
+import { defaultFrontEndPrefix } from "../../constants/index";
 
-const STRIPE_PAYMENT_URL = "http://localhost:3005/api/checkout";
+const STRIPE_PAYMENT_URL = `http://${defaultFrontEndPrefix}/api/checkout`;
 const Payment = () => {
 	const token = localStorage.getItem("token");
 	const id = localStorage.getItem("uid");
