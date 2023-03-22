@@ -17,7 +17,7 @@ export default function SideBar (props) {
 	const { Sider } = Layout;
 	const navigate = useNavigate();
 	const { confirm } = Modal;
-
+	const isMobile = useMediaQuery({ maxWidth: 992 });
 	const handleLogout = () => {
 		confirm({
 			title: "Are you sure you want to log out?",
@@ -30,7 +30,6 @@ export default function SideBar (props) {
 			}
 		});
 	};
-	const isMobile = useMediaQuery({ maxWidth: 992 });
 
 	return (
 		<Sider
@@ -39,19 +38,26 @@ export default function SideBar (props) {
 			theme="light"
 			style={{
 				display: "flex",
-				flexDirection: "column"
+				flexDirection: "column",
+				height: "100vh",
+				position: "fixed"
 			}}
 		>
-			<Link
-				to="/user/dashboard"
-				style={{ flex: "1", color: "#2F71DA", fontSize: "35px" }}
-			>
-				{isMobile ? "W" : "WRIGO"}
-			</Link>
+
+			<div style={{ padding: "10px 0" }}>
+				<Link
+					to="/user/dashboard"
+					style={{
+						color: "#2F71DA",
+						fontSize: "35px"
+					}}
+				>
+					{isMobile ? "W" : "WRIGO"}
+				</Link>
+			</div>
 
 			<Menu
 				style={{
-					flex: "9",
 					height: "90%",
 					display: "flex",
 					flexDirection: "column",
