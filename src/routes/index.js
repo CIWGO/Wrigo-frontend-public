@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import RecentWriting from "../pages/Dashboard/recentWritings";
+import RecentWritings from "../pages/Dashboard/recentWritings";
 import WritingMain from "../pages/Writing/myWritingMain";
 import Profile from "../pages/UserProfile";
 import WritingPage from "../pages/Writing/myWritingEvaluation";
@@ -13,6 +13,8 @@ import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
 import TopicContent from "../pages/TopicContent/index";
 import ResetPasswordPage from "../pages/ResetPassword";
+// import PopularTopicsCard from "../pages/Dashboard/popularTopics";
+// import DashBoardPage from "../pages/Dashboard/dashboard";
 import SubIntroCard from "../pages/WrigoInfinite/index";
 
 export default [
@@ -55,7 +57,7 @@ export default [
 		children: [
 			{
 				path: "dashboard",
-				element: <RecentWriting />
+				element: <RecentWritings />
 			},
 			{
 				path: "writings",
