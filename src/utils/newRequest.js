@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const newRequest = axios.create({
-	baseURL: "https://api.wrigo.com.au"
+	baseURL: "http://localhost:3005"
 	// withCredentials: true,
 });
 

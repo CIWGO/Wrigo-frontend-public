@@ -30,6 +30,7 @@ flex-direction: column;
     color:rgb(55, 109, 196) ;
     font-size: 4rem;
     font-weight: bold;
+  }
 `;
 export const Scores = styled.div`
   font-size: 1.3rem;

@@ -8,8 +8,12 @@ import {
 import { Layout, Menu, Modal } from "antd";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import { userLogout } from "../../../slice/userSlice";
+import { useDispatch } from "react-redux";
+import clearLocalStorage from "../../../features/clearLocalStorage";
 
 export default function SideBar (props) {
+	const dispatch = useDispatch();
 	const { Sider } = Layout;
 	const navigate = useNavigate();
 	const { confirm } = Modal;
@@ -20,6 +24,8 @@ export default function SideBar (props) {
 			okText: "Yes",
 			cancelText: "Cancel",
 			onOk () {
+				dispatch(userLogout());
+				clearLocalStorage();
 				navigate("/landing");
 			}
 		});
