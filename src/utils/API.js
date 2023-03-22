@@ -1,14 +1,24 @@
-import axios from "axios";
+import newRequest from "./newRequest.js";
 
-export const signupUser = (values) => {
-	return axios.post("http://localhost:3005/users/signup", values);
-};
-// your fetching data API could go here
-export const loginUser = (values) => { return axios.post("http://localhost:3005/users/login", values); };
+// Post
+export const signupUser = (values) => { return newRequest.post("/users/signup", values); };
 
-export const sendOTPViaEmail = (values) => { return axios.post("http://localhost:3005/users/resetPassword/sendOTPViaEmail", values); };
+export const loginUser = (values) => { return newRequest.post("/users/login", values); };
 
-export const verifyOTP = (values) => { return axios.post("http://localhost:3005/users/resetPassword/verifyOTP", values); };
+export const sendOTPViaEmail = (values) => { return newRequest.post("/users/sendOTP", values); };
+
+export const verifyOTP = (values) => { return newRequest.post("/users/verifyOTP", values); };
+
+export const getUser = (values) => { return newRequest.post("/users/getUser", values); };
+
+export const changePassword = (values) => { return newRequest.post("/users/changePassword", values); };
+
+export const getTopic = (values) => { return newRequest.post("/users/getTopic", values); };
+
+// Patch
+export const changeEmail = (values) => { return newRequest.patch("/users/changeEmail", values); };
+
+export const viewHistory = (values) => { return newRequest.patch("/users/viewHistory", values); };
 
 // example mock request
 export const requestNumber = () => {
