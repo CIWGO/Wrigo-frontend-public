@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import RecentWriting from "../pages/Dashboard/recentWritings";
+import RecentWritings from "../pages/Dashboard/recentWritings";
 import WritingMain from "../pages/Writing/myWritingMain";
 import Profile from "../pages/UserProfile";
 import WritingPage from "../pages/Writing/myWritingEvaluation";
@@ -11,8 +11,13 @@ import Layout from "../components/Layout";
 import EditUserProfile from "../pages/EditUserProfile";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
-import TopicContent from "../pages/TopicContent";
+import TopicContent from "../pages/TopicContent/index";
 import ResetPasswordPage from "../pages/ResetPassword";
+// import PopularTopicsCard from "../pages/Dashboard/popularTopics";
+// import DashBoardPage from "../pages/Dashboard/dashboard";
+import SubIntroCard from "../pages/WrigoInfinite/index";
+import Payment from "../pages/Payment/index";
+import PaymentSuccess from "../pages/Payment/paymentSuccess";
 
 export default [
 	{
@@ -40,10 +45,6 @@ export default [
 		element: <EmailVerificationPage />
 	},
 	{
-		path: "/edit",
-		element: <EditUserProfile />
-	},
-	{
 		path: "/email",
 		element: <EmailVerificationPage />
 	},
@@ -58,7 +59,7 @@ export default [
 		children: [
 			{
 				path: "dashboard",
-				element: <RecentWriting />
+				element: <RecentWritings />
 			},
 			{
 				path: "writings",
@@ -73,8 +74,35 @@ export default [
 				element: <Topics />
 			},
 			{
+				path: "topics/content",
+				element: <TopicContent />
+			},
+			{
 				path: "profile",
-				element: <Profile />
+				element: <Profile />,
+				children: [
+
+				]
+			},
+			{
+				path: "checkout",
+				element: <Payment />
+			},
+			{
+				path: "paymentSuccess",
+				element: <PaymentSuccess />
+			},
+			{
+				path: "topics/content",
+				element: <TopicContent />
+			},
+			{
+				path: "profile/edit",
+				element: <EditUserProfile />
+			},
+			{
+				path: "profile/wrigoinfinite",
+				element: <SubIntroCard />
 			},
 			{
 				path: "topics/content",
