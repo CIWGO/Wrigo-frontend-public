@@ -1,6 +1,7 @@
 import LineChart from "../../components/Charts/LineChart/index";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import ProfileHeader from "./ProfileHeader";
 // import FeedbackComponent from "../../components/Feedback/index";
 import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
@@ -162,6 +163,7 @@ const UserProfile = () => {
 
 	return (
 		<div>
+			<ProfileHeader />
 			<StatisticCard4 />
 			{data && <LineChart marks={lineChartData} />}
 			{/* <FeedbackComponent/> */}
