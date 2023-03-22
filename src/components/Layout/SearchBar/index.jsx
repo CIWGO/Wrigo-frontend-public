@@ -1,33 +1,3 @@
-// import { Input } from "antd";
-// import styled from "styled-components";
-
-// const { Search } = Input;
-// const onSearch = (value) => console.log(value);
-// const StyledSearch = styled(Search)`
-// import { Input } from "antd";
-// import styled from "styled-components";
-
-// const { Search } = Input;
-// const onSearch = (value) => console.log(value);
-// const StyledSearch = styled(Search)`
-//   width: 400px;
-
-//   @media (max-width: 991.98px) {
-//     width: 200px;
-//   }
-// `;
-
-// const SearchBar = () => (
-// 	<StyledSearch
-// 		placeholder="input search text"
-// 		allowClear
-// 		onSearch={onSearch}
-// 	/>
-// );
-
-// export default SearchBar;
-
-// 5
 import React, { useState, useEffect } from "react";
 import { Input, Modal } from "antd";
 import styled from "styled-components";
@@ -42,9 +12,9 @@ const StyledSearch = styled(Search)`
   }
 `;
 
-const MyWriting = ({ myTopics, myWritings }) => (
+const MyTopic = ({ myTopics, myWritings }) => (
 	<>
-		<h2>My Writing</h2>
+		<h2>My Topic</h2>
 		{myTopics.map((topic, index) => (
 			<div key={index}>
 				<h3>{topic.title}</h3>
@@ -58,9 +28,9 @@ const MyWriting = ({ myTopics, myWritings }) => (
 	</>
 );
 
-const SampleWriting = ({ sampleWritings }) => (
+const AllTopic = ({ sampleWritings }) => (
 	<>
-		<h2>Sample Writing</h2>
+		<h2>All Topic</h2>
 		{sampleWritings.map((writing) => (
 			<div key={writing.id}>
 				<h3>{writing.title}</h3>
@@ -129,8 +99,8 @@ const SearchBar = () => {
 				width="80%"
 			>
 				<div style={{ display: "flex", flexDirection: "column" }}>
-					<MyWriting myTopics={myTopics} myWritings={myWritings} />
-					<SampleWriting sampleWritings={sampleWritings} />
+					<MyTopic myTopics={myTopics} myWritings={myWritings} />
+					<AllTopic sampleWritings={sampleWritings} />
 				</div>
 			</Modal>
 		</>
