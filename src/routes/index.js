@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
 import RecentWriting from "../pages/Dashboard/recentWritings";
-import WritingMain from "../pages/Writing/myWritingMain";
+import WritingMain from "../pages/WritingMain/myWritingMain";
 import Profile from "../pages/UserProfile";
-import WritingPage from "../pages/Writing/EvaluatingPage";
+import WritingPage from "../pages/WritingEvaluatingPage";
 import Topics from "../pages/Topics";
 import LandingPage from "../pages/Landing";
 import SignUpPage from "../pages/SignUp";

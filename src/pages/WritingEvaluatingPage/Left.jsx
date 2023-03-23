@@ -1,9 +1,9 @@
 import { Button } from "antd";
 import React, { useEffect } from "react";
 import { writingDraft } from "../../utils";
-import { ButtonContainer, InputCardBottom } from "../WritingEvaluatingPage/style";
+import { ButtonContainer, InputCardBottom } from "./style";
 
-const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, resubmit, mutationFeed, writingId, uid }) => {
+function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, resubmit, mutation, writingId, uid }) {
 	const handleSaveDraft = () => {
 		useEffect(() => {
 			const draft = { writing_id: writingId, content, topic, uid };
@@ -26,8 +26,8 @@ const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, r
 								value={topic}
 								onChange={(e) => setTopic(e.target.value)}
 								className="topic"
-								placeholder="Loding your topic..."
-								disabled= {true}
+								placeholder="IELTS writing task 2 topic goes here"
+								disabled={resubmit}
 							></textarea>
 						</div>
 						<hr />
@@ -36,19 +36,23 @@ const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, r
 								value={content}
 								onChange={(e) => setContent(e.target.value)}
 								className="content"
-								placeholder="Loding the content..."
+								placeholder="Write here"
 							></textarea>
 							<InputCardBottom>
 								<div className="wordCount">
 									{wordCount} words
 								</div>
-								<ButtonContainer>
+								<ButtonContainer style={
+									{
+										position: "relative"
+									}
+								}>
 									<Button
 										type="primary"
 										style={{
-											borderColor: "#204f9a",
+											borderColor: "rgb(47, 113, 218)",
 											background: "none",
-											color: "#2254a5"
+											color: "rgb(47, 113, 218)"
 										}}
 										onClick={handleSaveDraft}
 									>
@@ -57,7 +61,7 @@ const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, r
 									<Button
 										type="primary"
 										htmlType="submit"
-										disabled={mutationFeed.isLoading}
+										disabled={mutation.isLoading}
 										style={{ marginLeft: "10px" }}
 									>
 										{resubmit ? "resubmit" : "submit"}
@@ -68,8 +72,9 @@ const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, r
 					</form>
 				</div>
 			</div>
+
 		</>
 	);
-};
+}
 
 export default Left;

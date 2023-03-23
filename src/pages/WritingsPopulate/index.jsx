@@ -5,7 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
 import RightComponet from "./right";
 import axios from "axios";
-import { WritingPageDiv } from "../Writing/EvaluatingPage/style.js";
+import { WritingPageDiv } from "./style.js";
 import Left from "./Left";
 function WritingsPopulate () {
 	const { writingId } = useParams();
@@ -28,10 +28,8 @@ function WritingsPopulate () {
 				const previousFeedResponse = await axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
 				const previousFeed = previousFeedResponse.data;
 				setPreFeed(previousFeed);
-				console.log(previousFeed[0]);
 				setComment({ TR: previousFeed[0].feedback_TR, CC: previousFeed[0].feedback_CC, GRA: previousFeed[0].feedback_GRA, LR: previousFeed[0].feedback_LR, OVR: previousFeed[0].feedback_overall });
 				setScore({ TR: previousFeed[0].score_TR, CC: previousFeed[0].score_CC, GRA: previousFeed[0].score_GRA, LR: previousFeed[0].score_LR });
-				console.log(comment);
 			} catch (error) {
 				console.log(error);
 			}
@@ -48,7 +46,6 @@ function WritingsPopulate () {
 			setResubmit(true);
 			const previousFeed = await axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
 			setPreFeed(previousFeed.data);
-			console.log(preFeed);
 		}
 	});
 	const handleSubmit = async (e) => {
@@ -74,7 +71,7 @@ function WritingsPopulate () {
 				</button>
 			</Link>
 
-			<Left handleSubmit={handleSubmit} topic={topic} setTopic={setTopic} setContent={setContent} content={content} wordCount={wordCount} resubmit={resubmit} mutationFeed={mutationFeed}/>
+			<Left writingId={writingId} uid={uid} handleSubmit={handleSubmit} topic={topic} setTopic={setTopic} setContent={setContent} content={content} wordCount={wordCount} resubmit={resubmit} mutationFeed={mutationFeed}/>
 
 			<div className="right">
 				<RightComponet comment={comment} score={score} mutation={mutationFeed} preFeed={preFeed} />
