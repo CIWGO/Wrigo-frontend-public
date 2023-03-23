@@ -39,14 +39,14 @@ const UserProfile = () => {
 			<ProfileHeader />
 			<GridContainer >
 				<SubGrid >
-					<GridItem width="745px" height="200px"></GridItem>
-					<GridItem width="745px" height="480px">
+					<GridItem height="200px"></GridItem>
+					<GridItem height="480px">
 						{data && <LineChart marks={lineChartData} />}
 					</GridItem>
 				</SubGrid>
 				<SubGrid >
-					<GridItem width="480px" height="345px"><RadarChart /></GridItem>
-					<GridItem width="480px" height="335px"><StatisticCard4 /></GridItem>
+					<GridItem height="345px"><RadarChart /></GridItem>
+					<GridItem height="335px"><StatisticCard4 /></GridItem>
 				</SubGrid>
 				{/* <FeedbackComponent/> */}
 			</GridContainer>

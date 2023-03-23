@@ -2,16 +2,19 @@ import styled from "styled-components";
 export const GridContainer = styled.div`
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto;
-  hight:700px;
-  width:1245px;
   align-items: center;
   justify-items: center;
   padding:20px;
+  grid-template-columns: 745px 500px;
+  grid-template-rows:auto;
+  
   `;
-// grid-template-columns: 745px 480px;
-// grid-template-rows: 200px 480px;
+// grid-auto-columns: 745px 480px;
+// grid-auto-rows:auto;
+// grid-template-columns: auto auto;
+// grid-template-rows: auto;
+// hight:700px;
+// width:1245px;
 
 export const GridItem = styled.div`
   display:flex;
