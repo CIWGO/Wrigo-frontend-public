@@ -5,7 +5,8 @@ import { useMutation } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
 import RightComponet from "./right";
 import axios from "axios";
-import { WritingPageDiv } from "../Writing/style.js";
+import { WritingPageDiv } from "../Writing/EvaluatingPage/style.js";
+import Left from "./Left";
 function WritingsPopulate () {
 	const { writingId } = useParams();
 	const [content, setContent] = useState("");
@@ -51,9 +52,8 @@ function WritingsPopulate () {
 		}
 	});
 	const handleSubmit = async (e) => {
-		const previousFeed = await axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
-		setPreFeed(previousFeed.data);
-		console.log(preFeed);
+		e.preventDefault();
+		mutationFeed.mutate({ writing_id: writingId, content, topic, uid });
 	};
 
 	useEffect(() => {
@@ -67,39 +67,14 @@ function WritingsPopulate () {
 
 	return (
 		<WritingPageDiv>
-			<Link to={"/writings"}>
+			<Link to={"/user/writings"}>
 				<button className="back">
 					<LeftOutlined />
 					Go Back
 				</button>
 			</Link>
 
-			<div className="left">
-				<div>
-					<form onSubmit={handleSubmit} className="form">
-						<div>
-							<textarea
-								value={topic}
-								onChange={(e) => setTopic(e.target.value)}
-								className="topic"
-								placeholder="IELTS writing task 2 topic goes here"
-								disabled= {true}
-							></textarea>
-						</div>
-						<hr />
-						<div className="flex-col">
-							<textarea
-								value={content}
-								onChange={(e) => setContent(e.target.value)}
-								className="content"
-								placeholder="Write here"
-							></textarea>
-							<div className="wordCount">{wordCount} words</div>
-							<button className="submit" disabled={mutationFeed.isLoading}>{resubmit ? "resubmit" : "submit"}</button>
-						</div>
-					</form>
-				</div>
-			</div>
+			<Left handleSubmit={handleSubmit} topic={topic} setTopic={setTopic} setContent={setContent} content={content} wordCount={wordCount} resubmit={resubmit} mutationFeed={mutationFeed}/>
 
 			<div className="right">
 				<RightComponet comment={comment} score={score} mutation={mutationFeed} preFeed={preFeed} />

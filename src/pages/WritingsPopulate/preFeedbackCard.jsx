@@ -1,7 +1,7 @@
 import React from "react";
 import { LeftOutlined } from "@ant-design/icons";
 import moment from "moment/moment";
-import { NoFeed, PreFeedbacks } from "../Writing/style.js";
+import { NoFeed, PreFeedbacks } from "../Writing/EvaluatingPage/style.js";
 
 const PreFeedbackCard = ({ setPrevious, preFeed }) => {
 	function calOverall (numbers) {

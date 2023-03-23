@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import RecentWriting from "../pages/Dashboard/recentWritings";
 import WritingMain from "../pages/Writing/myWritingMain";
 import Profile from "../pages/UserProfile";
-import WritingPage from "../pages/Writing/myWritingEvaluation";
+import WritingPage from "../pages/Writing/EvaluatingPage";
 import Topics from "../pages/Topics";
 import LandingPage from "../pages/Landing";
 import SignUpPage from "../pages/SignUp";
@@ -14,7 +14,7 @@ import EmailVerificationPage from "../pages/EmailVerification";
 import TopicContent from "../pages/TopicContent";
 import ResetPasswordPage from "../pages/ResetPassword";
 import PaymentSuccess from "../pages/PaymentSuccess/SuccessPage";
-import WritingsPopulate from "../pages/WritingsPopulate/WritingsPopulate";
+import WritingsPopulate from "../pages/WritingsPopulate";
 
 export default [
 	{

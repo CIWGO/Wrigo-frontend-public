@@ -138,9 +138,11 @@ button.back {
       background-color: rgba(162, 162, 181, 0.828);
     }
     &::placeholder {
+     line-height: 2.8rem;
+
       font-family: 'Poppins', sans-serif;
       font-size: 2rem;
-      font-weight: 500;
+      font-weight: 700;
       color: #ccccccc9;
       padding-bottom: 10px;
       text-underline-position: under;
