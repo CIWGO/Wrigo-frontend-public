@@ -1,8 +1,7 @@
 import { Navigate } from "react-router-dom";
 import RecentWritings from "../pages/Dashboard/recentWritings";
-import WritingMain from "../pages/Writing/myWritingMain";
 import Profile from "../pages/UserProfile";
-import WritingPage from "../pages/Writing/myWritingEvaluation";
+import WritingPage from "../pages/WritingEvaluatingPage";
 import Topics from "../pages/Topics";
 import LandingPage from "../pages/Landing";
 import SignUpPage from "../pages/SignUp";
@@ -13,10 +12,12 @@ import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
 import TopicContent from "../pages/TopicContent/index";
 import ResetPasswordPage from "../pages/ResetPassword";
+import WritingsPopulate from "../pages/WritingsPopulate";
 // import PopularTopicsCard from "../pages/Dashboard/popularTopics";
 // import DashBoardPage from "../pages/Dashboard/dashboard";
 import SubIntroCard from "../pages/WrigoInfinite/index";
 import Payment from "../pages/Payment/index";
+import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
 
 export default [
@@ -63,7 +64,11 @@ export default [
 			},
 			{
 				path: "writings",
-				element: <WritingMain />
+				element: <MyWritingMain />
+			},
+			{
+				path: "writing/:writingId", // new route with dynamic parameter
+				element: <WritingsPopulate/>
 			},
 			{
 				path: "writings/evaluation",
@@ -107,6 +112,10 @@ export default [
 			{
 				path: "topics/content",
 				element: <TopicContent />
+			},
+			{
+				path: "payment-success",
+				element: <PaymentSuccess/>
 			}
 		]
 	}
