@@ -1,7 +1,7 @@
 import PreFeedbackCard from "./preFeedbackCard";
 import moment from "moment/moment";
 import { useState } from "react";
-import { FeedbackContainer, Group, LoadingContainer, NoFeed } from "./style.js";
+import { FeedbackContainer, Group, LoadingContainer, NoFeed } from "../WritingEvaluatingPage/style";
 const RightComponet = ({ comment, score, mutation, preFeed }) => 	{
 	const [previous, setPrevious] = useState(false);
 	console.log(preFeed);

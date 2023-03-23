@@ -208,17 +208,17 @@ export const LoadingContainer = styled.div`
 `;
 
 export const NoFeed = styled.div`
-  margin-left: 8%;
-  text-align: start;
-  font-weight: 700;
-  margin-top: 30px;
-  padding-bottom: 10px;
-  font-size: 2rem;
-  font-weight: 600;
-  color: #ccccccc9;
-  padding-bottom: 10px;
-  text-underline-position: under;
-  text-decoration: underline;
+margin-left: 8%;
+text-align: start;
+font-weight: 700;
+margin-top: 30px;
+padding-bottom: 10px;
+font-size: 2rem;
+font-weight: 600;
+color: #ccccccc9;
+padding-bottom: 10px;
+text-underline-position: under;
+text-decoration: underline;
 `;
 
 export const FeedbackContainer = styled.div`
@@ -235,11 +235,27 @@ height: 66vh;
   font-size: 0.8rem;
   color: #969494c9;
 }
-
+button {
+  font-family: 'Poppins';
+  font-weight: 500;
+  bottom: 10px;
+  right: 20px;
+  position: absolute;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+  width: 10rem;
+  height: min-content;
+  background-color: rgb(47, 113, 218);
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(36, 78, 144);
+  }
+}
 &::-webkit-scrollbar {
   display: hidden;
 }
-
 p {
   color: rgb(55, 109, 196);
   font-size: 1.4rem;
@@ -247,7 +263,6 @@ p {
   top: 8px;
   right: 10%;
 }
-
 span {
   color: gb(55, 109, 196);
   font-size: 4rem;
@@ -256,19 +271,37 @@ span {
 `;
 
 export const Group = styled.div`
-  height: min-content;
-  h3 {
-    margin: 0;
-  }
-  .thin {
-    font-weight: 400;
-  }
-  .scores {
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: rgb(55, 109, 196);
-  }
+height: min-content;
+h3 {
+  margin: 0;
+}
+.thin {
+  font-weight: 400;
+}
+.scores {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: rgb(55, 109, 196);
+}
 `;
+
+export const Draft = styled.div`
+font-family: "Poppins";
+font-weight: 500;
+bottom: "10px";
+right: "20px";
+position: "absolute";
+border: "none";
+border-radius: "10px";
+color: "rgb(47, 113, 218)";
+padding: "5px";
+width: "6rem";
+height: "min-content";
+background-color: "white";
+`;
+
+export const NoPre = styled.p`
+font-size:2rem;`;
 
 export const InputCardBottom = styled.div`
   display: flex;

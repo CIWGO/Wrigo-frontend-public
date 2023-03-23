@@ -1,5 +1,4 @@
 import { Navigate } from "react-router-dom";
-import WritingMain from "../pages/Writing/myWritingMain";
 import RecentWritings from "../pages/Dashboard/recentWritings";
 import Profile from "../pages/UserProfile";
 import WritingPage from "../pages/WritingEvaluatingPage";
@@ -18,6 +17,7 @@ import WritingsPopulate from "../pages/WritingsPopulate";
 // import DashBoardPage from "../pages/Dashboard/dashboard";
 import SubIntroCard from "../pages/WrigoInfinite/index";
 import Payment from "../pages/Payment/index";
+import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
 
 export default [
@@ -64,7 +64,7 @@ export default [
 			},
 			{
 				path: "writings",
-				element: <WritingMain />
+				element: <MyWritingMain />
 			},
 			{
 				path: "writing/:writingId", // new route with dynamic parameter

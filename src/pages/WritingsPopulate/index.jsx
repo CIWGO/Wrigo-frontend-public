@@ -5,8 +5,8 @@ import { useMutation } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
 import RightComponet from "./right";
 import axios from "axios";
-import { WritingPageDiv } from "./style.js";
 import Left from "./Left";
+import { WritingPageDiv } from "../WritingEvaluatingPage/style";
 function WritingsPopulate () {
 	const { writingId } = useParams();
 	const [content, setContent] = useState("");
