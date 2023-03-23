@@ -9,6 +9,7 @@ import {
 	Legend
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
+import styled from "styled-components";
 
 ChartJS.register(
 	RadialLinearScale,
@@ -18,12 +19,17 @@ ChartJS.register(
 	Tooltip,
 	Legend
 );
+const RadarCard = styled.div`
+display:flex;
+max-height:100%;
+max-width:100%;
+`;
 const RadarChart = (props) => {
 	const data = {
 		labels: ["CC", "LR", "GRA", "TR"],
 		datasets: [
 			{
-				label: "Radar Chart",
+				label: "Grade",
 				backgroundColor: "rgba(24,144,255,0.5)",
 				borderColor: "#1890ff",
 				pointBackgroundColor: "#1890ff",
@@ -56,9 +62,9 @@ const RadarChart = (props) => {
 	};
 
 	return (
-		<div>
+		<RadarCard>
 			<Radar data={data} options={options} />
-		</div>
+		</RadarCard>
 
 	);
 };

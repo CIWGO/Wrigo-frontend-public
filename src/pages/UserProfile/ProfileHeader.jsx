@@ -6,7 +6,6 @@ import styled from "styled-components";
 const StyledCard = styled(Card)`
 	width: 100%;
 	display: inline-block;
-	margin-bottom: 40px;
 	border-radius: 0;
 	border-color: #fff;
 	background: linear-gradient(to right, #2f71da, #7baeff);

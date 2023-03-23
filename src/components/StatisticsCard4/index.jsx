@@ -16,7 +16,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const StyledCard = styled(Card)`
-  width: 40vw;
+display:flex;
+max-height:100%;
+max-width:100%;
+
 `;
 
 ChartJS.register(
@@ -65,12 +68,12 @@ function StatisticsCard4 () {
 	}, [uid, token, selectedYear]);
 
 	return (
-		<StyledCard>
+		<StyledCard >
 			<YearSelector
 				selectedYear={selectedYear}
 				onYearChange={setSelectedYear}
 			/>
-			{chartData && <Bar options={barChartOptions} data={chartData} />}
+			{chartData && <Bar style={{ height: "320px", width: "450px" }} options={barChartOptions} data={chartData} />}
 		</StyledCard>
 	);
 }

@@ -32,7 +32,7 @@ const LineChart = (props) => {
 
 	return (
 		<LineChartBox>
-			<Line options={Options} data={DataDisplay({ marks })} />
+			<Line style={{ height: "480px", width: "745px" }}options={Options} data={DataDisplay({ marks })} />
 		</LineChartBox>
 	);
 };

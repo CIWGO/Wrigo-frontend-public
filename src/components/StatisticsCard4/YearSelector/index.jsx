@@ -5,7 +5,7 @@ const DropdownWrapper = styled.div`
   position: absolute;
   top: 10px;
   right: 10px;
-  z-index: 1;
+  z-index: 2;
 `;
 
 function YearSelector ({ selectedYear, onYearChange }) {
