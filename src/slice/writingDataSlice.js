@@ -69,5 +69,6 @@ export const emailVerificationSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const emailVerificationReducer = emailVerificationSlice.reducer;
 export const { updateEmailVerification } = emailVerificationSlice.actions;
+
+export default emailVerificationSlice.reducer;
