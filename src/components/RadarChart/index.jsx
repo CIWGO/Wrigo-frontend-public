@@ -27,7 +27,7 @@ align-items: center;
 justify-content: center;
 `;
 // width:100%;
-const RadarChart = (props) => {
+const RadarChart = (radarData) => {
 	const data = {
 		labels: ["CC", "LR", "GRA", "TR"],
 		datasets: [
@@ -39,7 +39,7 @@ const RadarChart = (props) => {
 				pointBorderColor: "#fff",
 				pointHoverBackgroundColor: "#1890ff",
 				pointHoverBorderColor: "rgba(179,181,198,1)",
-				data: [6.5, 6, 9, 7]
+				data: radarData.props
 				// data:props
 
 			}

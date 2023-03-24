@@ -27,6 +27,7 @@ const UserProfile = () => {
 			.then(function (response) {
 				const data = response.data;
 				setData(data);
+				console.log(data.radarArr);
 			})
 			.catch(function (error) {
 				console.error("Error:", error);
@@ -34,7 +35,7 @@ const UserProfile = () => {
 	}, [userId, token]);
 
 	const lineChartData = Object.values(data).slice(0, 5);
-
+	const radarData = data.radarArr;
 	return (
 		<Container>
 			<ProfileHeader />
@@ -46,7 +47,7 @@ const UserProfile = () => {
 					</GridItem>
 				</LeftGrid>
 				<RightGrid >
-					<GridItem ><RadarChart /></GridItem>
+					<GridItem ><RadarChart radarData={radarData} /></GridItem>
 					<GridItem><IELTSPieChart /></GridItem>
 				</RightGrid>
 			</GridContainer>
