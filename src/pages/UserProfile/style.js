@@ -32,6 +32,8 @@ export const SubGrid = styled.div`
   grid-gap: 20px;
   grid-template-columns: auto;
   grid-template-rows: auto auto;
+  width:100%;
+  height:100%;
   `;
 
 export const Container = styled.div`

@@ -50,7 +50,6 @@ const UserProfile = () => {
 				</SubGrid>
 				{/* <FeedbackComponent/> */}
 			</GridContainer>
-
 		</Container>
 	);
 };
