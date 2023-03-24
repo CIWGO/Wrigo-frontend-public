@@ -1,9 +1,9 @@
-import { Card, Button } from "antd";
+import { Button } from "antd";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const StyledCard = styled(Card)`
+const StyledCard = styled.div`
 	width: 100%;
 	display: inline-block;
 	border-radius: 0;

@@ -6,7 +6,7 @@ import ProfileHeader from "./ProfileHeader";
 import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
 import RadarChart from "../../components/RadarChart";
-import { Container, GridContainer, GridItem, SubGrid } from "./style";
+import { Container, GridContainer, GridItem, LeftGrid, RightGrid } from "./style";
 const UserProfile = () => {
 	const [data, setData] = useState([]);
 	const { userId, token } = useSelector((state) => state.user);
@@ -38,16 +38,16 @@ const UserProfile = () => {
 		<Container>
 			<ProfileHeader />
 			<GridContainer >
-				<SubGrid >
-					<GridItem height="200px"></GridItem>
-					<GridItem height="480px">
+				<LeftGrid >
+					<GridItem></GridItem>
+					<GridItem >
 						{data && <LineChart marks={lineChartData} />}
 					</GridItem>
-				</SubGrid>
-				<SubGrid >
-					<GridItem height="345px"><RadarChart /></GridItem>
-					<GridItem height="335px"><StatisticCard4 /></GridItem>
-				</SubGrid>
+				</LeftGrid>
+				<RightGrid >
+					<GridItem ><RadarChart /></GridItem>
+					<GridItem><StatisticCard4 /></GridItem>
+				</RightGrid>
 				{/* <FeedbackComponent/> */}
 			</GridContainer>
 		</Container>

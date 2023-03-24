@@ -21,9 +21,12 @@ ChartJS.register(
 );
 const RadarCard = styled.div`
 display:flex;
-max-height:100%;
-max-width:100%;
+height:100%;
+width:100%;
+align-items: center;
+justify-content: center;
 `;
+// width:100%;
 const RadarChart = (props) => {
 	const data = {
 		labels: ["CC", "LR", "GRA", "TR"],
@@ -63,7 +66,7 @@ const RadarChart = (props) => {
 
 	return (
 		<RadarCard>
-			<Radar data={data} options={options} />
+			<Radar style={{ height: "100%" }} data={data} options={options} />
 		</RadarCard>
 
 	);

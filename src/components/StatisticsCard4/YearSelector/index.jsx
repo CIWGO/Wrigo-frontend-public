@@ -19,11 +19,11 @@ function YearSelector ({ selectedYear, onYearChange }) {
 	);
 
 	return (
-		<DropdownWrapper>
+		<DropdownWrapper >
 			<Select
 				defaultValue={selectedYear}
-				style={{ width: 80 }}
 				onChange={onYearChange}
+				style={{ width: "100%", height: "100%" }}
 			>
 				{yearOptions.map((year) => (
 					<Select.Option key={year} value={year}>
