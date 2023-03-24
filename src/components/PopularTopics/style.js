@@ -7,7 +7,7 @@ export const ContentBox = styled.div`
   justify-content: center;
   align-items: center;
   padding: 40px;
-  position: absolute;
+  // position: absolute;
   background: #ffffff;
   border-radius: 5px;
 `;

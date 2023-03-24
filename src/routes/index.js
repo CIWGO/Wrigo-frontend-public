@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import RecentWritings from "../pages/Dashboard/recentWritings";
+// import RecentWritings from "../pages/Dashboard/recentWritings";
 import Profile from "../pages/UserProfile";
 import WritingPage from "../pages/WritingEvaluatingPage";
 import Topics from "../pages/Topics";
@@ -19,6 +19,7 @@ import SubIntroCard from "../pages/WrigoInfinite/index";
 import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
+import DashBoardPage from "../pages/Dashboard/index";
 
 export default [
 	{
@@ -60,7 +61,7 @@ export default [
 		children: [
 			{
 				path: "dashboard",
-				element: <RecentWritings />
+				element: <DashBoardPage />
 			},
 			{
 				path: "writings",

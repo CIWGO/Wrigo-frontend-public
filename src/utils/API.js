@@ -17,6 +17,10 @@ export const getTopic = (values) => { return newRequest.post("/users/getTopic", 
 
 export const writingDraft = (values) => { return newRequest.post("/users/writingDraft", values); };
 
+export const writingStatistics = (values) => { return newRequest.post("/api/writingStatistics", values); };
+
+export const viewAllWritingHistory = (values) => { return newRequest.post("/user/viewAllWritingHistory", values); };
+
 // Patch
 export const changeEmail = (values) => { return newRequest.patch("/users/changeEmail", values); };
 

@@ -1,5 +1,3 @@
-// import { marks } from "./data";
-
 const DisplayData = (props) => {
 	const { marks } = props;
 	const ts = Object.values(marks)[0];
