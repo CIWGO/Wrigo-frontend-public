@@ -40,16 +40,15 @@ const UserProfile = () => {
 			<ProfileHeader />
 			<GridContainer >
 				<LeftGrid >
-					<GridItem><IELTSPieChart /></GridItem>
+					<GridItem><StatisticCard4 /></GridItem>
 					<GridItem >
 						{data && <LineChart marks={lineChartData} />}
 					</GridItem>
 				</LeftGrid>
 				<RightGrid >
 					<GridItem ><RadarChart /></GridItem>
-					<GridItem><StatisticCard4 /></GridItem>
+					<GridItem><IELTSPieChart /></GridItem>
 				</RightGrid>
-				{/* <FeedbackComponent/> */}
 			</GridContainer>
 		</Container>
 	);
