@@ -5,7 +5,7 @@ export const GridContainer = styled.div`
   align-items: center;
   justify-items: center;
   padding:20px;
-  grid-template-columns: 745px 500px;
+  grid-template-columns: 745px 480px;
   grid-template-rows:auto;
   
   `;
