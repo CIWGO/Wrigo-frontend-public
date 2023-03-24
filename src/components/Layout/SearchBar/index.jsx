@@ -1,6 +1,105 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+// import { Input, Modal } from "antd";
+// import styled from "styled-components";
+// import { searchUserTopics, searchAllTopics } from "../../../utils/index";
+
+// const { Search } = Input;
+
+// const StyledSearch = styled(Search)`
+//   width: 400px;
+
+//   @media (max-width: 991.98px) {
+//     width: 200px;
+//   }
+// `;
+
+// const MyTopic = ({ myTopics }) => (
+// 	<>
+// 		<h2>My Topic</h2>
+// 		{myTopics.map((topic, index) => (
+// 			<div key={index}>
+// 				<h3>{topic.title}</h3>
+// 			</div>
+// 		))}
+// 	</>
+// );
+
+// const AllTopic = ({ allTopic }) => (
+// 	<>
+// 		<h2>All Topic</h2>
+// 		{allTopic.map((writing) => (
+// 			<div key={writing.id}>
+// 				<h3>{writing.title}</h3>
+// 				<p>{writing.content}</p>
+// 			</div>
+// 		))}
+// 	</>
+// );
+
+// const SearchBar = () => {
+// 	const [isModalVisible, setIsModalVisible] = useState(false);
+// 	const [myTopics, setMyTopics] = useState([]);
+// 	const [allTopics, setAllTopics] = useState([]);
+
+// 	const showModal = () => {
+// 		setIsModalVisible(true);
+// 	};
+
+// 	const handleCancel = () => {
+// 		setIsModalVisible(false);
+// 	};
+
+// 	const fetchMyTopics = async () => {
+// 		const topicsResponse = await fetch(searchUserTopics);
+// 		const topicsData = await topicsResponse.json();
+// 		setMyTopics(topicsData);
+// 	};
+
+// 	const fetchAllTopics = async () => {
+// 		const allTopicsResponse = await fetch(searchAllTopics);
+// 		const allTopicsData = await allTopicsResponse.json();
+// 		setAllTopics(allTopicsData);
+// 	};
+
+// 	useEffect(() => {
+// 		fetchMyTopics();
+// 		fetchAllTopics();
+// 	}, []);
+
+// 	const onSearch = (value) => {
+// 		console.log(value);
+// 		showModal();
+// 	};
+
+// 	return (
+// 		<>
+// 			<StyledSearch
+// 				placeholder="Please search topic here"
+// 				allowClear
+// 				onSearch={onSearch}
+// 			/>
+// 			<Modal
+// 				title="Search Results"
+// 				visible={isModalVisible}
+// 				footer={null}
+// 				onCancel={handleCancel}
+// 				width="80%"
+// 			>
+// 				<div style={{ display: "flex", flexDirection: "column" }}>
+// 					<MyTopic myTopics={myTopics} />
+// 					<AllTopic allTopics={allTopics} />
+// 				</div>
+// 			</Modal>
+// 		</>
+// 	);
+// };
+
+// export default SearchBar;
+
+import React, { useState } from "react";
 import { Input, Modal } from "antd";
 import styled from "styled-components";
+import { searchUserTopics, searchAllTopics } from "../../../utils/index";
 
 const { Search } = Input;
 
@@ -12,26 +111,21 @@ const StyledSearch = styled(Search)`
   }
 `;
 
-const MyTopic = ({ myTopics, myWritings }) => (
+const MyTopic = ({ myTopics }) => (
 	<>
 		<h2>My Topic</h2>
 		{myTopics.map((topic, index) => (
 			<div key={index}>
 				<h3>{topic.title}</h3>
-				{myWritings
-					.filter((writing) => writing.topicId === topic.id)
-					.map((writing) => (
-						<p key={writing.id}>{writing.content}</p>
-					))}
 			</div>
 		))}
 	</>
 );
 
-const AllTopic = ({ sampleWritings }) => (
+const AllTopic = ({ allTopic }) => (
 	<>
 		<h2>All Topic</h2>
-		{sampleWritings.map((writing) => (
+		{allTopic.map((writing) => (
 			<div key={writing.id}>
 				<h3>{writing.title}</h3>
 				<p>{writing.content}</p>
@@ -43,8 +137,7 @@ const AllTopic = ({ sampleWritings }) => (
 const SearchBar = () => {
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const [myTopics, setMyTopics] = useState([]);
-	const [myWritings, setMyWritings] = useState([]);
-	const [sampleWritings, setSampleWritings] = useState([]);
+	const [allTopics, setAllTopics] = useState([]);
 
 	const showModal = () => {
 		setIsModalVisible(true);
@@ -54,40 +147,33 @@ const SearchBar = () => {
 		setIsModalVisible(false);
 	};
 
-	const fetchMyTopicsAndWritings = async () => {
-		// 获取My Writing的topics和writings数据
-		// 你需要根据你的API实现来调整这部分代码
-		const topicsResponse = await fetch("/api/mytopics");
-		const topicsData = await topicsResponse.json();
+	const fetchMyTopics = async (value) => {
+		console.log("Fetching my topics with value: ", value);
+		const topicsResponse = await searchUserTopics({ input: value });
+		const topicsData = topicsResponse.data;
+		console.log("My topics data: ", topicsData);
 		setMyTopics(topicsData);
-
-		const writingsResponse = await fetch("/api/mywritings");
-		const writingsData = await writingsResponse.json();
-		setMyWritings(writingsData);
 	};
 
-	const fetchSampleWritings = async () => {
-		// 获取Sample Writing的数据
-		// 你需要根据你的API实现来调整这部分代码
-		const sampleWritingsResponse = await fetch("/api/samplewritings");
-		const sampleWritingsData = await sampleWritingsResponse.json();
-		setSampleWritings(sampleWritingsData);
+	const fetchAllTopics = async (value) => {
+		console.log("Fetching all topics with value: ", value);
+		const allTopicsResponse = await searchAllTopics({ input: value });
+		const allTopicsData = allTopicsResponse.data;
+		console.log("All topics data: ", allTopicsData);
+		setAllTopics(allTopicsData);
 	};
-
-	useEffect(() => {
-		fetchMyTopicsAndWritings();
-		fetchSampleWritings();
-	}, []);
 
 	const onSearch = (value) => {
 		console.log(value);
+		fetchMyTopics(value);
+		fetchAllTopics(value);
 		showModal();
 	};
 
 	return (
 		<>
 			<StyledSearch
-				placeholder="input search text"
+				placeholder="Please search topic here"
 				allowClear
 				onSearch={onSearch}
 			/>
@@ -99,8 +185,8 @@ const SearchBar = () => {
 				width="80%"
 			>
 				<div style={{ display: "flex", flexDirection: "column" }}>
-					<MyTopic myTopics={myTopics} myWritings={myWritings} />
-					<AllTopic sampleWritings={sampleWritings} />
+					<MyTopic myTopics={myTopics} />
+					<AllTopic allTopics={allTopics} />
 				</div>
 			</Modal>
 		</>
