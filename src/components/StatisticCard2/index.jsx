@@ -1,9 +1,9 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
-import { Chart, ArcElement, Tooltip, Legend, PieController } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+import { Chart, ArcElement, Tooltip, Legend, DoughnutController } from "chart.js";
 
 // Register the required elements and plugins
-Chart.register(ArcElement, Tooltip, Legend, PieController);
+Chart.register(ArcElement, Tooltip, Legend, DoughnutController);
 
 const IELTSPieChart = () => {
 	const data = [20, 10, 25, 50, 12];
@@ -38,6 +38,7 @@ const IELTSPieChart = () => {
 
 	const options = {
 		responsive: true,
+		cutout: "30%",
 		plugins: {
 			tooltip: {
 				callbacks: {
@@ -53,7 +54,25 @@ const IELTSPieChart = () => {
 		}
 	};
 
-	return <Pie data={chartData} options={options} />;
+	const totalTopics = data.reduce((a, b) => a + b, 0);
+
+	return (
+		<div style={{ position: "relative" }}>
+			<Doughnut data={chartData} options={options} />
+			<div
+				style={{
+					position: "absolute",
+					top: "50%",
+					left: "50%",
+					transform: "translate(-50%, -50%)",
+					textAlign: "center"
+				}}
+			>
+				<p>Total Topics</p>
+				<h4>{totalTopics}</h4>
+			</div>
+		</div>
+	);
 };
 
 export default IELTSPieChart;
