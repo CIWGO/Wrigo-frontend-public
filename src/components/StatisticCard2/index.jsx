@@ -71,8 +71,6 @@ const IELTSPieChart = () => {
 			}} data={chartData} options={options} />
 			<div
 				style={{
-					height: "100%",
-					width: "100%",
 					position: "absolute",
 					top: "50%",
 					left: "50%",

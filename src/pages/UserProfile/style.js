@@ -33,7 +33,7 @@ export const LeftGrid = styled.div`
   display: grid;
   grid-gap: 20px;
   grid-auto-columns: 100%;
-  grid-auto-rows: 30% auto;
+  grid-auto-rows: 30% 65%;
   width:100%;
   height:100%;
   `;
@@ -41,7 +41,7 @@ export const RightGrid = styled.div`
   display: grid;
   grid-gap: 20px;
   grid-auto-columns: 100%;
-  grid-auto-rows: 45% auto;
+  grid-auto-rows: 45% 50%;
   width:100%;
   height:100%;
   `;
