@@ -2,7 +2,6 @@ import LineChart from "../../components/Charts/LineChart/index";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProfileHeader from "./ProfileHeader";
-// import FeedbackComponent from "../../components/Feedback/index";
 import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
 import RadarChart from "../../components/RadarChart";
@@ -27,7 +26,6 @@ const UserProfile = () => {
 			.then(function (response) {
 				const data = response.data;
 				setData(data);
-				console.log(data.radarArr);
 			})
 			.catch(function (error) {
 				console.error("Error:", error);
