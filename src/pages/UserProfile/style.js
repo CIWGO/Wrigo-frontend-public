@@ -1,4 +1,11 @@
 import styled from "styled-components";
+export const Container = styled.div`
+  background-color: #ccc;
+  height:100%;
+  width:100%;
+
+  `;
+
 export const GridContainer = styled.div`
   display: grid;
   grid-gap: 20px;
@@ -10,6 +17,8 @@ export const GridContainer = styled.div`
   grid-template-columns: 60% 38%;
   height:auto;
   width:auto;
+  max-height:800px;
+  max-width:1300px;
   `;
 // grid-auto-columns:  60% 40%;
 // grid-auto-rows:auto;
@@ -45,10 +54,4 @@ export const RightGrid = styled.div`
   grid-template-rows: 50% auto;
   width:100%;
   height:100%;
-  `;
-export const Container = styled.div`
-  background-color: #ccc;
-  height:100%;
-  width:100%;
-  max-height:800px;
   `;
