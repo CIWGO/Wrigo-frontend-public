@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
 import RadarChart from "../../components/RadarChart";
 import { Container, GridContainer, GridItem, LeftGrid, RightGrid } from "./style";
+import IELTSPieChart from "../../components/StatisticCard2";
 const UserProfile = () => {
 	const [data, setData] = useState([]);
 	const { userId, token } = useSelector((state) => state.user);
@@ -39,7 +40,7 @@ const UserProfile = () => {
 			<ProfileHeader />
 			<GridContainer >
 				<LeftGrid >
-					<GridItem></GridItem>
+					<GridItem><IELTSPieChart /></GridItem>
 					<GridItem >
 						{data && <LineChart marks={lineChartData} />}
 					</GridItem>
