@@ -1,59 +1,85 @@
-/* eslint-disable camelcase */
 import { useState } from "react";
-import { Input, Modal } from "antd";
 import styled from "styled-components";
+import { Input, Modal, Card } from "antd";
 import { searchUserTopics, searchAllTopics } from "../../../utils/index";
 
 const { Search } = Input;
 
 const StyledSearch = styled(Search)`
   width: 400px;
-  
+
   @media (max-width: 991.98px) {
     width: 200px;
   }
 `;
 
-const SearchBar = () => {
-	const [searchValue, setSearchValue] = useState("");
-	const [myTopics, setMyTopics] = useState([]);
-	const [allTopics, setAllTopics] = useState([]);
-	const [modalVisible, setModalVisible] = useState(false);
-	const onSearch = async (value) => {
-		setSearchValue(value);
-		const myTopicsResults = await searchUserTopics({ uid: "333", input: value });
-		const allTopicsResults = await searchAllTopics(value);
-		setMyTopics(myTopicsResults.map(({ topic_content }) => topic_content));
-		setAllTopics(allTopicsResults.map(({ topic_content }) => topic_content));
-		setModalVisible(true);
+const SearchBox = () => {
+	const [searchInput, setSearchInput] = useState("");
+	const [searchResults, setSearchResults] = useState([]);
+	const [visible, setVisible] = useState(false); // modal visible state
+
+	const handleSearch = async () => {
+		try {
+			const userResponse = await searchUserTopics({ uid: "333", input: searchInput });
+			const allResponse = await searchAllTopics({ input: searchInput });
+			const userResults = userResponse.data.filter((result) => result.uid);
+			const allResults = allResponse.data.filter((result) => !result.uid);
+			const results = [...userResults, ...allResults];
+			setSearchResults(results);
+			setVisible(true); // show modal when search results are ready
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const handleInputChange = (e) => {
+		setSearchInput(e.target.value);
+	};
+
+	const handleModalCancel = () => {
+		setVisible(false);
 	};
 
 	return (
 		<>
 			<StyledSearch
-				placeholder="Input search text"
-				allowClear
-				onSearch={onSearch}
-				value={searchValue}
-				onChange={(e) => setSearchValue(e.target.value)}
+				type="text"
+				value={searchInput}
+				onChange={handleInputChange}
+				onSearch={handleSearch}
+				placeholder="Please search the topic..."
 			/>
+
 			<Modal
-				title="Search Results"
-				visible={modalVisible}
-				onCancel={() => setModalVisible(false)}
+				visible={visible}
+				onCancel={handleModalCancel}
 				width="80%"
+				footer={null}
+				title="Search Results"
 			>
-				<h3>My Topics</h3>
-				{myTopics.map((content) => (
-					<p key={content}>{content}</p>
-				))}
-				<h3>All Topics</h3>
-				{allTopics.map((content) => (
-					<p key={content}>{content}</p>
-				))}
+				<div>
+					<h3>My Topics</h3>
+					{searchResults
+						.filter((result) => result.uid) // filter results for "My Topics"
+						.map((result) => (
+							<Card key={result.id} style={{ margin: "2px" }}>
+								<p style={{ margin: "0px 0" }}>{result.task_topic}</p>
+							</Card>
+						))}
+				</div>
+				<div>
+					<h3>All Topics</h3>
+					{searchResults
+						.filter((result) => !result.uid) // filter results for "All Topics"
+						.map((result) => (
+							<Card key={result.id} style={{ margin: "2px" }}>
+								<p style={{ margin: "0px 0" }}>{result.topic_content}</p>
+							</Card>
+						))}
+				</div>
 			</Modal>
 		</>
 	);
 };
 
-export default SearchBar;
+export default SearchBox;

@@ -17,7 +17,7 @@ export const getTopic = (values) => { return newRequest.post("/users/getTopic", 
 
 export const searchAllTopics = (values) => { return newRequest.post("/users/searchAllTopics", values); };
 
-export const searchUserTopics = (uid, values) => { return newRequest.post(`/users/searchUserTopics/${uid}`, values); };
+export const searchUserTopics = (values) => { return newRequest.post("/users/searchUserTopics", values); };
 
 // Patch
 export const changeEmail = (values) => { return newRequest.patch("/users/changeEmail", values); };
