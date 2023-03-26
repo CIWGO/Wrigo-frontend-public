@@ -17,10 +17,10 @@ export const getTopic = (values) => { return newRequest.post("/users/getTopic", 
 
 export const writingDraft = (values) => { return newRequest.post("/users/writingDraft", values); };
 
+export const viewHistory = (values) => { return newRequest.post("/users/viewHistory", values); };
+
 // Patch
 export const changeEmail = (values) => { return newRequest.patch("/users/changeEmail", values); };
-
-export const viewHistory = (values) => { return newRequest.patch("/users/viewHistory", values); };
 
 // example mock request
 export const requestNumber = () => {
