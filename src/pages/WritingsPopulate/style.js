@@ -2,7 +2,8 @@ import styled, { keyframes } from "styled-components";
 // import { Link } from "react-router-dom";
 
 export 	const WritingPageDiv = styled.div`
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700&family=Rubik:wght@400;500;600&display=swap');
+font-family: 'Poppins', sans-serif;
 background-color: rgb(245, 245, 245);
 display: flex;
 flex-wrap: wrap;
@@ -51,23 +52,7 @@ button.back {
       cursor: not-allowed;
     }
   }
-  textarea {
-    
-    border: none;
-
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: #f1f1f1;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(162, 162, 181, 0.828);
-    }
-
-  }
+  
 
   .submit {
     font-family: Poppins;
@@ -134,13 +119,30 @@ button.back {
   }
 
   textarea {
+    resize:none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
     border: none;
 
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(162, 162, 181, 0.828);
+    }
     &::placeholder {
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Rubik:wght@400;500;600&display=swap');
+     line-height: 2.8rem;
+
       font-family: 'Poppins', sans-serif;
       font-size: 2rem;
-      font-weight: 500;
+      font-weight: 700;
       color: #ccccccc9;
       padding-bottom: 10px;
       text-underline-position: under;
@@ -152,7 +154,6 @@ button.back {
       border: 1 px solid rgb(18, 13, 13);
     }
 
-    font-size: large;
 
     width: 80%;
   }
@@ -296,16 +297,19 @@ h3 {
 `;
 
 export const Draft = styled.div`
-fontFamily: "Poppins",
-fontWeight: 500,
-bottom: "10px",
-right: "20px",
-position: "absolute",
-border: "none",
-borderRadius: "10px",
-color: "rgb(47, 113, 218)",
-padding: "5px",
-width: "6rem",
-height: "min-content",
-backgroundColor: "white"
+font-family: "Poppins";
+font-weight: 500;
+bottom: "10px";
+right: "20px";
+position: "absolute";
+border: "none";
+border-radius: "10px";
+color: "rgb(47, 113, 218)";
+padding: "5px";
+width: "6rem";
+height: "min-content";
+background-color: "white";
 `;
+
+export const NoPre = styled.p`
+font-size:2rem;`;

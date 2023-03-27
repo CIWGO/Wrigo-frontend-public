@@ -1,19 +1,17 @@
 import { Layout, theme } from "antd";
-import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import SearchBar from "./SearchBar";
 import { Outlet, useLocation } from "react-router-dom";
-
-const StyledLayout = styled(Layout)`
-  height: 100vh;
-`;
+import { useMediaQuery } from "react-responsive";
 
 const { Header, Content } = Layout;
 const PageLayout = () => {
 	const location = useLocation();
-	const [selectedTab, setSelectedTab] = useState(window.location.pathname?.split("/")[2]);
-
+	const [selectedTab, setSelectedTab] = useState(
+		window.location.pathname?.split("/")[2]
+	);
+	const isDesktopOrLaptop = useMediaQuery({ minWidth: 992 });
 	useEffect(() => {
 		setSelectedTab(window.location.pathname?.split("/")[2]);
 	}, [location]);
@@ -22,10 +20,12 @@ const PageLayout = () => {
 		token: { colorBgContainer }
 	} = theme.useToken();
 	return (
-		<StyledLayout>
-			<SideBar selectedTab={selectedTab}/>
+		<Layout>
+			<SideBar
+				selectedTab={selectedTab}
+			/>
 
-			<Layout>
+			<Layout style={{ marginLeft: isDesktopOrLaptop ? 200 : 50 }}>
 				<Header
 					style={{
 						padding: 0,
@@ -33,13 +33,14 @@ const PageLayout = () => {
 						display: "flex"
 					}}
 				>
-
-					<div style={{
-						display: "flex",
-						alignItems: "center",
-						padding: "0 10px"
-					}}>
-						<SearchBar ></SearchBar>
+					<div
+						style={{
+							display: "flex",
+							alignItems: "center",
+							padding: "0 10px"
+						}}
+					>
+						<SearchBar></SearchBar>
 					</div>
 				</Header>
 
@@ -60,7 +61,7 @@ const PageLayout = () => {
 					</div>
 				</Content>
 			</Layout>
-		</StyledLayout>
+		</Layout>
 	);
 };
 export default PageLayout;

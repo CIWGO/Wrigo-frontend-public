@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import WritingMain from "./myWritingMain";
-import WritingPage from "./myWritingEvaluation";
+import WritingMain from "./myWritingMainNew";
 import Layout from "../../components/Layout";
 import SearchBar from "../../components/SearchBar";
+import WritingPage from "../WritingEvaluatingPage";
 
 const Writing = () => {
 	return (
