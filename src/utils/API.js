@@ -15,6 +15,10 @@ export const changePassword = (values) => { return newRequest.post("/users/chang
 
 export const getTopic = (values) => { return newRequest.post("/users/getTopic", values); };
 
+export const searchAllTopics = (values) => { return newRequest.post("/users/searchAllTopics", values); };
+
+export const searchUserTopics = (values) => { return newRequest.post("/users/searchUserTopics", values); };
+
 export const writingDraft = (values) => { return newRequest.post("/users/writingDraft", values); };
 
 export const viewHistory = (values) => { return newRequest.post("/users/viewHistory", values); };
