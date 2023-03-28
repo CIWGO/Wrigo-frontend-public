@@ -7,12 +7,10 @@ const StyledDiv = styled.div`
   line-height: 22px;
 `;
 
-const Comment = () => {
+const Comment = (props) => {
 	return (
 		<StyledDiv>
-      The essay is well-structured and the ideas are clearly expressed. The
-      essay is well-structured and the ideas are clearly expressed. The essay is
-      well-structured and the ideas are clearly expressed.
+			{props.content}
 		</StyledDiv>
 	);
 };

@@ -1,14 +1,14 @@
 import LeftContainer from "./components/LeftContainer";
 import RightContainer from "./components/RightContainer";
-
+import BackButton from "./components/BackButton";
 import React from "react";
 import styled from "styled-components";
-import BackButton from "./components/BackButton";
 
 const StyledDiv = styled.div`
   display: flex;
   background: #f5f5f5;
-  height: 100%;
+	min-height: 100%;
+	overflow: auto;
 `;
 
 const ContentSection = () => {

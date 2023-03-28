@@ -2,7 +2,7 @@ import ContentSection from "../../components/EvaluationContent";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-	height: 100%;
+	height: 100vh;
 `;
 
 const TopicContent = () => {

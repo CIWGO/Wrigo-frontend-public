@@ -6,7 +6,7 @@ import ProfileHeader from "./ProfileHeader";
 import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
 import RadarChart from "../../components/RadarChart";
-
+import IELTSPieChart from "../../components/StatisticCard2";
 const UserProfile = () => {
 	const [data, setData] = useState([]);
 	const { userId, token } = useSelector((state) => state.user);
@@ -41,6 +41,7 @@ const UserProfile = () => {
 			{data && <LineChart marks={lineChartData} />}
 			{/* <FeedbackComponent/> */}
 			<RadarChart />
+			<IELTSPieChart />
 		</div>
 	);
 };
