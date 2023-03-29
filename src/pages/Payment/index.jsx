@@ -1,8 +1,8 @@
 import axios from "axios";
 import React from "react";
-import { defaultFrontEndPrefix } from "../../constants/index";
+import { defaultBackEndPrefix } from "../../constants/index";
 
-const STRIPE_PAYMENT_URL = `http://${defaultFrontEndPrefix}/api/checkout`;
+const STRIPE_PAYMENT_URL = `http://${defaultBackEndPrefix}/api/checkout`;
 const Payment = () => {
 	const token = localStorage.getItem("token");
 	const id = localStorage.getItem("uid");
@@ -13,7 +13,10 @@ const Payment = () => {
 				{
 					id,
 					token,
-					planId: "price_1Ml4JRJm2vMPXBBf8YgX4Aqa"
+					// testing plan id that charges daily
+					planId: "price_1MqA0CJm2vMPXBBfE8jqo1ZX"
+					// actual plan id that charges monthly
+					// planId: "price_1Ml4JRJm2vMPXBBf8YgX4Aqa"
 				},
 				{
 					headers: {
@@ -26,6 +29,7 @@ const Payment = () => {
 				window.location.href = url;
 			}
 		} catch (error) {
+			console.log("wrong");
 			console.error(error);
 		}
 	};
