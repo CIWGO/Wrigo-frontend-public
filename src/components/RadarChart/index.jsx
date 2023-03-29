@@ -31,7 +31,7 @@ const RadarChart = (radarData) => {
 		labels: ["CC", "LR", "GRA", "TR"],
 		datasets: [
 			{
-				label: "Grade",
+				label: "Score",
 				backgroundColor: "rgba(24,144,255,0.5)",
 				borderColor: "#1890ff",
 				pointBackgroundColor: "#1890ff",
@@ -40,14 +40,20 @@ const RadarChart = (radarData) => {
 				pointHoverBorderColor: "rgba(179,181,198,1)",
 				data: radarData.radarData
 			}
-		]
+		],
+		theme: {
+			styleSheet: {
+				backgroundColor: "#1890ff"
+			}
+		}
 	};
 
 	const options = {
 		ticks: { beginAtZero: true },
 		plugins: {
 			legend: {
-				display: false
+				display: false,
+				textStyle: { color: "#1890ff" }
 			}
 		},
 		scales: {
@@ -58,12 +64,22 @@ const RadarChart = (radarData) => {
 				suggestedMin: 3,
 				suggestedMax: 9.0
 			}
+		},
+		series: {
+			itemStyle: {
+				color: "#1890ff"
+			}
+		},
+		theme: {
+			styleSheet: {
+				color: "#1890ff"
+			}
 		}
 	};
 
 	return (
 		<RadarCard>
-			<Radar style={{ height: "100%" }} data={data} options={options} />
+			<Radar style={{ height: "100%", color: "#1890ff" }} data={data} options={options} />
 		</RadarCard>
 
 	);

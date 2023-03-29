@@ -15,8 +15,15 @@ export const GridContainer = styled.div`
   grid-template-rows:100%;
   grid-template-columns: 60% 38%;
   width:100%;
-  max-height:800px;
   max-width:1300px;
+  @media (max-width: 1000px ) {
+		grid-template-columns: 1fr;
+    grid-template-rows:100%;
+    max-width:1000px;
+    width:100%;
+    aspect-ratio: 1;
+
+	}
   `;
 
 export const GridItem = styled.div`
@@ -26,8 +33,8 @@ export const GridItem = styled.div`
   justify-content: center;
   border-radius:10px;
   padding:10px;
-  height:auto;
-  width:auto;
+  height:100%;
+  width:100%;
 `;
 export const LeftGrid = styled.div`
   display: grid;
@@ -36,6 +43,14 @@ export const LeftGrid = styled.div`
   grid-auto-rows: 30% 65%;
   width:100%;
   height:100%;
+  @media (max-width: 1000px) {
+  aspect-ratio: 1 / 2;
+  grid-auto-rows: 30% 65%;
+  height:100%;
+  width:100%;
+
+
+	}
   `;
 export const RightGrid = styled.div`
   display: grid;
@@ -44,4 +59,10 @@ export const RightGrid = styled.div`
   grid-auto-rows: 45% 50%;
   width:100%;
   height:100%;
+  @media (max-width: 1000px) {
+    aspect-ratio: 1 / 2;
+    min-height:500px;
+    width:100%;
+    grid-auto-rows: 45% 50%;
+	}
   `;
