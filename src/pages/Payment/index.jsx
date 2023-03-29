@@ -13,7 +13,10 @@ const Payment = () => {
 				{
 					id,
 					token,
+					// testing plan id that charges daily
 					planId: "price_1MqA0CJm2vMPXBBfE8jqo1ZX"
+					// actual plan id that charges monthly
+					// planId: "price_1Ml4JRJm2vMPXBBf8YgX4Aqa"
 				},
 				{
 					headers: {
