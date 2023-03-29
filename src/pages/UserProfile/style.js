@@ -13,7 +13,7 @@ export const GridContainer = styled.div`
   padding:20px;
   aspect-ratio: 16 / 9;
   grid-template-rows:100%;
-  grid-template-columns: 60% 38%;
+  grid-template-columns:calc(65% - 10px) calc(35% - 10px);;
   width:100%;
   max-width:1300px;
   @media (max-width: 1000px ) {
@@ -21,8 +21,7 @@ export const GridContainer = styled.div`
     grid-template-rows:100%;
     max-width:1000px;
     width:100%;
-    aspect-ratio: 1;
-
+    aspect-ratio: 2/3;
 	}
   `;
 
@@ -36,33 +35,30 @@ export const GridItem = styled.div`
   height:100%;
   width:100%;
 `;
+
 export const LeftGrid = styled.div`
   display: grid;
   grid-gap: 20px;
   grid-auto-columns: 100%;
-  grid-auto-rows: 30% 65%;
+  grid-auto-rows: calc(40% - 10px) calc(60% - 10px);
   width:100%;
   height:100%;
   @media (max-width: 1000px) {
-  aspect-ratio: 1 / 2;
-  grid-auto-rows: 30% 65%;
-  height:100%;
+  aspect-ratio: 1/ 4;
   width:100%;
-
-
 	}
   `;
+
 export const RightGrid = styled.div`
   display: grid;
   grid-gap: 20px;
   grid-auto-columns: 100%;
-  grid-auto-rows: 45% 50%;
+  grid-auto-rows: calc(50% - 10px) calc(50% - 10px);
   width:100%;
   height:100%;
   @media (max-width: 1000px) {
     aspect-ratio: 1 / 2;
     min-height:500px;
     width:100%;
-    grid-auto-rows: 45% 50%;
 	}
   `;
