@@ -62,6 +62,7 @@ const WritingHistoryPage = () => {
 		viewHistory({ type: "writingHistory", from: fromDate, to: toDate, uid: "333" }).then((response) => {
 			if (response.status === 200) {
 				setData(response.data);
+				console.log(response.data);
 			} else if (response.status === 500) {
 				alert("Something is wrong with network, please retry.");
 			}
@@ -86,12 +87,15 @@ const WritingHistoryPage = () => {
 					</UtilityCard>
 				</UtilityCardsWrapper>
 				{data.slice(0, displayCount).map((item, index) => (
-					<WritingCard
-						loading={loading}
-						key={index}
-						taskTopic={item.task_topic}
-						writingContent={item.writing_content}
-					/>
+
+					<Link to={item.writing_id}key={index}>
+						<WritingCard
+							loading={loading}
+							id= {item.writing_id}
+							taskTopic={item.task_topic}
+							writingContent={item.writing_content}
+						/>
+					</Link>
 				))}
 			</StyledCardContainer>
 			{data.length > displayCount && (
