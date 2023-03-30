@@ -1,5 +1,4 @@
-import { WritingPageDiv } from "../style";
-import { PaidRight } from "./style";
+import { WritingPageDiv, PaidRight } from "./style";
 import NavBar from "./rightNavNar/index";
 
 const subscribedUserRight = () => {
