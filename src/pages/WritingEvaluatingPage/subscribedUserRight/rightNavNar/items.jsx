@@ -1,13 +1,13 @@
 // import feedbackIcon from "./icons/images/feedbackIcon.svg";
 // import { ReactComponent as FeedbackIcon } from "./icons/images/feedbackIcon.svg";
 // import Icon from "./icons/icon";
-import { FileDoneOutlined, FileExclamationOutlined, FileTextOutlined } from "@ant-design/icons";
+import { CommentOutlined, FileExclamationOutlined, BulbOutlined } from "@ant-design/icons";
 
 export const items = [
 	{
 		label: "Feedback",
 		key: "feedback",
-		icon: <FileDoneOutlined />,
+		icon: <CommentOutlined />,
 		component: <div>Component One</div>
 	},
 	{
@@ -19,7 +19,7 @@ export const items = [
 	{
 		label: "Writing sample",
 		key: "writing sample",
-		icon: <FileTextOutlined />,
+		icon: <BulbOutlined />,
 		component: <div>Component 3</div>
 	}
 
