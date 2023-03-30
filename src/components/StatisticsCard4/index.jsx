@@ -9,14 +9,19 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { barChartOptions } from "./barChartOptions";
-import { Card } from "antd";
+// import { Card } from "antd";
 import styled from "styled-components";
 import YearSelector from "./YearSelector";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const StyledCard = styled(Card)`
-  width: 40vw;
+const StyledCard = styled.div`
+display:flex;
+height:100%;
+width:100%;
+align-items: center;
+justify-content: center;
+position: relative;
 `;
 
 ChartJS.register(
@@ -65,12 +70,12 @@ function StatisticsCard4 () {
 	}, [uid, token, selectedYear]);
 
 	return (
-		<StyledCard>
-			<YearSelector
+		<StyledCard style={{ height: "100%", width: "100%" }}>
+			<YearSelector style={{ height: "100%", width: "100%" }}
 				selectedYear={selectedYear}
 				onYearChange={setSelectedYear}
 			/>
-			{chartData && <Bar options={barChartOptions} data={chartData} />}
+			{chartData && <Bar style={{ height: "100%", width: "100%" }} options={barChartOptions} data={chartData} />}
 		</StyledCard>
 	);
 }

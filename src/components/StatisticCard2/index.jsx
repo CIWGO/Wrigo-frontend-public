@@ -57,7 +57,14 @@ const IELTSPieChart = () => {
 	const totalTopics = data.reduce((a, b) => a + b, 0);
 
 	return (
-		<div style={{ position: "relative", display: "inline-block" }}>
+		<div style={{
+			position: "relative",
+			alignItems: "center",
+			justifyItems: "center",
+			height: "100%",
+			width: "100%",
+			display: "grid"
+		}}>
 			<Doughnut data={chartData} options={options} />
 			<div
 				style={{
