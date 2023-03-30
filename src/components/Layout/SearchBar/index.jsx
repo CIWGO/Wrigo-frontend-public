@@ -18,19 +18,22 @@ const StyledSearch = styled(Search)`
 		border:none;
 		border-radius: 10px;
 		font-weight: 600;
+		height: 32px;
 	}
 	button{
 		background-color: white;
 		border:none;
 		border-radius: 6px;
+		box-shadow: none;
 	}
 	svg{
-		color:blue;
+		color:#2F71DA;
 		font-size: larger;
 	}
 	span.ant-input-group-addon{
 		border-radius: 6px;
-    background-color:transparent	}
+    	background-color:transparent
+	}
 `;
 
 const SearchBox = () => {

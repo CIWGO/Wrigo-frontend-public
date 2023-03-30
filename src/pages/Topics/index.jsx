@@ -1,14 +1,14 @@
-/* eslint-disable multiline-ternary */
 import { getTopic } from "../../utils/index";
 import { useState, useEffect } from "react";
 import TopicCard from "../../components/TopicCard/index";
 import { Button } from "antd";
 import styled from "styled-components";
+import HeadingComponent from "../../components/Heading";
 
 const StyledTopicPage = styled.div`
 	display: flex;
 	flex-direction: column;
-	background-color: #f2f2f2;
+	background-color: #f5f5f5;
 	align-items: center;
 `;
 
@@ -60,23 +60,26 @@ const TopicMainPage = () => {
 	};
 
 	return (
-		<StyledTopicPage>
-			<StyledCardContainer>
-				{data.slice(0, displayCount).map((item, index) => (
-					<TopicCard
-						loading={loading}
-						key={index}
-						topic={item.topic_content}
-						topicId={item.topic_id}
-					/>
-				))}
-			</StyledCardContainer>
-			{data.length > displayCount && (
-				<StyledButton type="primary" onClick={handleLoadMore}>
+		<div style={{ height: "100svh" }}>
+			<HeadingComponent displayValue={"Topics & Writing Samples"} />
+			<StyledTopicPage>
+				<StyledCardContainer>
+					{data.slice(0, displayCount).map((item, index) => (
+						<TopicCard
+							loading={loading}
+							key={index}
+							topic={item.topic_content}
+							topicId={item.topic_id}
+						/>
+					))}
+				</StyledCardContainer>
+				{data.length > displayCount && (
+					<StyledButton type="primary" onClick={handleLoadMore}>
 					Load More
-				</StyledButton>
-			)}
-		</StyledTopicPage>
+					</StyledButton>
+				)}
+			</StyledTopicPage>
+		</div>
 	);
 };
 

@@ -5,6 +5,7 @@ import SideBar from "./SideBar";
 import SearchBar from "./SearchBar";
 import { Outlet, useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import ProfileHeader from "./ProfileHeader/ProfileHeader";
 
 const { Header, Content } = Layout;
 const PageLayout = () => {
@@ -13,9 +14,13 @@ const PageLayout = () => {
 		window.location.pathname?.split("/")[2]
 	);
 	const isDesktopOrLaptop = useMediaQuery({ minWidth: 992 });
+
 	useEffect(() => {
 		setSelectedTab(window.location.pathname?.split("/")[2]);
 	}, [location]);
+
+	// Determine if the current route is /user/profile
+	const isProfileRoute = location.pathname.includes("/user/profile");
 
 	const {
 		background
@@ -32,18 +37,27 @@ const PageLayout = () => {
 					style={{
 						padding: 0,
 						background,
-						display: "flex"
+						display: "flex",
+						height: "80px"
 					}}
 				>
-					<div
-						style={{
-							display: "flex",
-							alignItems: "center",
-							padding: "0 10px"
-						}}
-					>
-						<SearchBar></SearchBar>
-					</div>
+					{/* Conditionally render the search bar or some texts */}
+					{isProfileRoute
+						? (
+							<ProfileHeader/>
+						)
+						: (
+							<div
+								style={{
+									display: "flex",
+									alignItems: "center",
+									padding: "0 10px"
+								}}
+							>
+								<SearchBar />
+							</div>
+						)}
+
 				</Header>
 
 				<Content
