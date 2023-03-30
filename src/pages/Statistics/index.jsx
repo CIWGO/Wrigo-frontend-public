@@ -1,13 +1,12 @@
 import LineChart from "../../components/Charts/LineChart/index";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProfileHeader from "./ProfileHeader";
 import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
 import RadarChart from "../../components/RadarChart";
 import { Container, GridContainer, GridItem, LeftGrid, RightGrid } from "./style";
 import IELTSPieChart from "../../components/StatisticCard2";
-const UserProfile = () => {
+const Statistics = () => {
 	const [data, setData] = useState([]);
 	const { userId, token } = useSelector((state) => state.user);
 	// const uid = localStorage.getItem("uid");
@@ -36,7 +35,6 @@ const UserProfile = () => {
 	const radarData = data.radarArr;
 	return (
 		<Container>
-			<ProfileHeader />
 			<GridContainer >
 				<LeftGrid >
 					<GridItem><StatisticCard4 /></GridItem>
@@ -52,4 +50,4 @@ const UserProfile = () => {
 		</Container>
 	);
 };
-export default UserProfile;
+export default Statistics;
