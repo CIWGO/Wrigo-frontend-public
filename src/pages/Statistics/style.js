@@ -16,7 +16,7 @@ export const GridContainer = styled.div`
   grid-template-columns:calc(65% - 10px) calc(35% - 10px);;
   width:100%;
   max-width:1300px;
-  @media (max-width: 750px ) {
+  @media (max-width: 768px ) {
 		grid-template-columns: 1fr;
     grid-template-rows:100%;
     max-width:1000px;
@@ -50,7 +50,7 @@ export const LeftGrid = styled.div`
   grid-auto-rows: calc(40% - 10px) calc(60% - 10px);
   width:100%;
   height:100%;
-  @media (max-width: 750px) {
+  @media (max-width: 768px) {
   aspect-ratio: 1/ 4;
   width:100%;
 	}
@@ -63,7 +63,7 @@ export const RightGrid = styled.div`
   grid-auto-rows: calc(50% - 10px) calc(50% - 10px);
   width:100%;
   height:100%;
-  @media (max-width: 750px) {
+  @media (max-width: 768px) {
     aspect-ratio: 1 / 2;
     min-height:500px;
     width:100%;
