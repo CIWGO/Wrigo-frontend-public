@@ -97,7 +97,7 @@ export default function SideBar (props) {
 						icon={<PieChartOutlined />}
 						style={{ textAlign: "left" }}
 					>
-						<NavLink to="statistics">statistics</NavLink>
+						<NavLink to="statistics">Statistics</NavLink>
 					</Menu.Item>
 				</Menu.ItemGroup>
 				<Menu.ItemGroup style={{ flex: "1" }}>
