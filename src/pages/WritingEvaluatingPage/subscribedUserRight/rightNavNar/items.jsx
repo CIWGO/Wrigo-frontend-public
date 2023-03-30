@@ -1,6 +1,4 @@
-// import feedbackIcon from "./icons/images/feedbackIcon.svg";
-// import { ReactComponent as FeedbackIcon } from "./icons/images/feedbackIcon.svg";
-// import Icon from "./icons/icon";
+import Feedback from "../feedback/index";
 import { CommentOutlined, FileExclamationOutlined, BulbOutlined } from "@ant-design/icons";
 
 export const items = [
@@ -8,7 +6,7 @@ export const items = [
 		label: "Feedback",
 		key: "feedback",
 		icon: <CommentOutlined />,
-		component: <div>Component One</div>
+		component: <Feedback/>
 	},
 	{
 		label: "Grammar",
@@ -22,13 +20,4 @@ export const items = [
 		icon: <BulbOutlined />,
 		component: <div>Component 3</div>
 	}
-
-	// {
-	// 	label: (
-	// 		<a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-	//       Navigation Four - Link
-	// 		</a>
-	// 	),
-	// 	key: "alipay"
-	// }
 ];

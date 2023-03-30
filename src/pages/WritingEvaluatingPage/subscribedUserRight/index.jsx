@@ -8,7 +8,6 @@ const subscribedUserRight = () => {
 
 			<PaidRight>
 				<NavBar/>
-        hi
 			</PaidRight>
 		</WritingPageDiv>
 	);

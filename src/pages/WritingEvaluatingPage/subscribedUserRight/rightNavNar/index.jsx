@@ -3,13 +3,7 @@ import React, { useState, useEffect } from "react";
 import { items } from "./items";
 
 const NavBar = () => {
-	// const [current, setCurrent] = useState("mail");
-
-	// const onClick = (e) => {
-	// 	console.log("click ", e);
-	// 	setCurrent(e.key);
-	// };
-	const [current, setCurrent] = useState("1");
+	const [current, setCurrent] = useState("feedback");
 	const [content, setContent] = useState(items[0].component);
 
 	useEffect(() => {
@@ -19,7 +13,7 @@ const NavBar = () => {
 		}
 	}, [items]);
 
-	const onClick = (e) => {
+	const handleOnClick = (e) => {
 		console.log("click ", e);
 		setCurrent(e.key);
 
@@ -32,8 +26,8 @@ const NavBar = () => {
 	return (
 		<>
 			<Menu
-				onClick={onClick}
-				selectedKeys={[current]}
+				onClick={handleOnClick}
+				selectedKeys={current}
 				mode="horizontal"
 				items={items}
 			/>
