@@ -71,7 +71,7 @@ const IELTSPieChart = () => {
 				<div
 					style={{
 						position: "absolute",
-						marginTop: "52px",
+						marginTop: "55px",
 						transform: "translate(-50%, -50%)",
 						textAlign: "center"
 					}}>
