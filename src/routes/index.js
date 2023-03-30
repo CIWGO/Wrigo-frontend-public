@@ -67,7 +67,7 @@ export default [
 				element: <MyWritingMain />
 			},
 			{
-				path: "writing/:writingId", // new route with dynamic parameter
+				path: "writings/:writingId", // new route with dynamic parameter
 				element: <WritingsPopulate/>
 			},
 			{
