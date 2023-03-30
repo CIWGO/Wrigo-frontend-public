@@ -83,7 +83,7 @@ export default [
 				element: <TopicContent />
 			},
 			{
-				path: "statistics",
+				path: "analytics",
 				element: <Statistics />
 			},
 			{

@@ -12,7 +12,7 @@ const UtilityCardsWrapper = styled(Link)`
 `;
 const RecentWritings = (props) => {
 	return (
-		<div>
+		<div style={{ height: "100svh" }}>
 			<HeadingComponent displayValue={"Recent Writings"} />
 			<UtilityCardsWrapper to="/user/writings">
 				<UtilityCard>

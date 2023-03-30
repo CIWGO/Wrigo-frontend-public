@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import HeadingComponent from "../../components/Heading/index.jsx";
 import WritingCard from "../../components/WritingCard/index";
 import UtilityCard from "../../components/UtilityCard/index";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 import { PlusOutlined } from "@ant-design/icons";
@@ -11,7 +11,7 @@ import { PlusOutlined } from "@ant-design/icons";
 const StyledWritingHistoryPage = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
   align-items: flex-start;
 `;
 
@@ -74,6 +74,10 @@ const WritingHistoryPage = () => {
 		setDisplayCount(displayCount + 8);
 	};
 
+	const {
+		defaultColor
+	} = useTheme();
+
 	return (
 		<StyledWritingHistoryPage>
 			<HeadingComponent displayValue={"Writings Main"} />
@@ -82,7 +86,7 @@ const WritingHistoryPage = () => {
 				<UtilityCardsWrapper to="evaluation">
 					<UtilityCard>
 						<PlusOutlined
-							style={{ fontSize: "60px" }}
+							style={{ fontSize: "60px", color: defaultColor }}
 						/>
 					</UtilityCard>
 				</UtilityCardsWrapper>
