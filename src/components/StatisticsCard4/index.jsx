@@ -71,7 +71,7 @@ function StatisticsCard4 () {
 
 	return (
 		<StyledCard style={{ height: "100%", width: "100%" }}>
-			<YearSelector
+			<YearSelector style={{ height: "100%", width: "100%" }}
 				selectedYear={selectedYear}
 				onYearChange={setSelectedYear}
 			/>

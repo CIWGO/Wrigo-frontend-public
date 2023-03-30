@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const DropdownWrapper = styled.div`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 2%;
+  right: 2%;
   z-index: 2;
 `;
 
@@ -19,7 +19,7 @@ function YearSelector ({ selectedYear, onYearChange }) {
 	);
 
 	return (
-		<DropdownWrapper >
+		<DropdownWrapper 	>
 			<Select
 				defaultValue={selectedYear}
 				onChange={onYearChange}
