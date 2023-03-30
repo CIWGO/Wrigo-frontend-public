@@ -1,4 +1,5 @@
-import { Layout, theme } from "antd";
+import { Layout } from "antd";
+import { useTheme } from "styled-components";
 import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import SearchBar from "./SearchBar";
@@ -17,8 +18,9 @@ const PageLayout = () => {
 	}, [location]);
 
 	const {
-		token: { colorBgContainer }
-	} = theme.useToken();
+		background
+	} = useTheme();
+
 	return (
 		<Layout>
 			<SideBar
@@ -29,7 +31,7 @@ const PageLayout = () => {
 				<Header
 					style={{
 						padding: 0,
-						background: colorBgContainer,
+						background,
 						display: "flex"
 					}}
 				>
@@ -54,7 +56,7 @@ const PageLayout = () => {
 							padding: 0,
 							minHeight: 360,
 							height: "100%",
-							background: colorBgContainer
+							background
 						}}
 					>
 						<Outlet />

@@ -6,11 +6,31 @@ import { searchUserTopics, searchAllTopics } from "../../../utils/index";
 const { Search } = Input;
 
 const StyledSearch = styled(Search)`
-  width: 400px;
-
-  @media (max-width: 991.98px) {
-    width: 200px;
+  margin-left: 10px;
+  width: 41vw;
+  &:hover{
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+	}
+  @media (max-width: 500px) {
+    width: 80vw;
   }
+	input{
+		border:none;
+		border-radius: 10px;
+		font-weight: 600;
+	}
+	button{
+		background-color: white;
+		border:none;
+		border-radius: 6px;
+	}
+	svg{
+		color:blue;
+		font-size: larger;
+	}
+	span.ant-input-group-addon{
+		border-radius: 6px;
+    background-color:transparent	}
 `;
 
 const SearchBox = () => {
