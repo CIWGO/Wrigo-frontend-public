@@ -6,7 +6,7 @@ import styled from "styled-components";
 const StyledCard = styled(Card)`
 	width: 100%;
 	display: inline-block;
-	margin-bottom: 40px;
+	// margin-bottom: 40px;
 	border-radius: 0;
 	border-color: #fff;
 	background: linear-gradient(to right, #2f71da, #7baeff);
@@ -54,9 +54,9 @@ const ProfileHeader = () => {
 			<StyledContentContainer>
 				<StyledUsername>@{username}</StyledUsername>
 				<StyledButtonContainer>
-					<StyledButton type="primary">
+					{/* <StyledButton type="primary">
 						<NavLink to="edit" style={{ fontSize: "12px", fontWeight: 700 }}>Edit profile</NavLink>
-					</StyledButton>
+					</StyledButton> */}
 					<StyledButton type="primary">
 						<NavLink to="wrigoinfinite" style={{ fontSize: "12px", fontWeight: 700 }}>Wrigo Infinite</NavLink>
 					</StyledButton>
