@@ -1,13 +1,14 @@
 import LineChart from "../../components/Charts/LineChart/index";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProfileHeader from "./ProfileHeader";
-// import FeedbackComponent from "../../components/Feedback/index";
 import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
 import RadarChart from "../../components/RadarChart";
+import { Container, GridContainer, GridItem, LeftGrid, RightGrid } from "./style";
 import IELTSPieChart from "../../components/StatisticCard2";
-const UserProfile = () => {
+import HeadingComponent from "../../components/Heading";
+
+const Statistics = () => {
 	const [data, setData] = useState([]);
 	const { userId, token } = useSelector((state) => state.user);
 	// const uid = localStorage.getItem("uid");
@@ -33,16 +34,26 @@ const UserProfile = () => {
 	}, [userId, token]);
 
 	const lineChartData = Object.values(data).slice(0, 5);
+	const radarData = data.radarArr;
 
 	return (
 		<div>
-			<ProfileHeader />
-			<StatisticCard4 />
-			{data && <LineChart marks={lineChartData} />}
-			{/* <FeedbackComponent/> */}
-			<RadarChart />
-			<IELTSPieChart />
+			<HeadingComponent displayValue={"Analytics"} />
+			<Container >
+				<GridContainer >
+					<LeftGrid >
+						<GridItem><StatisticCard4 /></GridItem>
+						<GridItem >
+							{data && <LineChart marks={lineChartData} />}
+						</GridItem>
+					</LeftGrid>
+					<RightGrid >
+						<GridItem ><RadarChart radarData={radarData} /></GridItem>
+						<GridItem><IELTSPieChart /></GridItem>
+					</RightGrid>
+				</GridContainer>
+			</Container>
 		</div>
 	);
 };
-export default UserProfile;
+export default Statistics;

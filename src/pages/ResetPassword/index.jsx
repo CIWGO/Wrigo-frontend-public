@@ -10,7 +10,7 @@ const ResetPasswordPage = () => {
 			<Notification>Please check your email box</Notification>
 			<ResetPasswordForm />
 
-			<CancelTag href={`http://${defaultFrontEndPrefix}/users/login`}> Cancel</CancelTag>
+			<CancelTag href={`http://${defaultFrontEndPrefix}/login`}> Cancel</CancelTag>
 
 			{/* </content> */}
 		</ResetLayout>

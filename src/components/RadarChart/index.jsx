@@ -9,6 +9,7 @@ import {
 	Legend
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
+import styled from "styled-components";
 
 ChartJS.register(
 	RadialLinearScale,
@@ -18,30 +19,41 @@ ChartJS.register(
 	Tooltip,
 	Legend
 );
-const RadarChart = (props) => {
+const RadarCard = styled.div`
+display:flex;
+height:100%;
+width:100%;
+align-items: center;
+justify-content: center;
+`;
+const RadarChart = (radarData) => {
 	const data = {
 		labels: ["CC", "LR", "GRA", "TR"],
 		datasets: [
 			{
-				label: "Radar Chart",
+				label: "Score",
 				backgroundColor: "rgba(24,144,255,0.5)",
 				borderColor: "#1890ff",
 				pointBackgroundColor: "#1890ff",
 				pointBorderColor: "#fff",
 				pointHoverBackgroundColor: "#1890ff",
 				pointHoverBorderColor: "rgba(179,181,198,1)",
-				data: [6.5, 6, 9, 7]
-				// data:props
-
+				data: radarData.radarData
 			}
-		]
+		],
+		theme: {
+			styleSheet: {
+				backgroundColor: "#1890ff"
+			}
+		}
 	};
 
 	const options = {
 		ticks: { beginAtZero: true },
 		plugins: {
 			legend: {
-				display: false
+				display: false,
+				textStyle: { color: "#1890ff" }
 			}
 		},
 		scales: {
@@ -52,13 +64,23 @@ const RadarChart = (props) => {
 				suggestedMin: 3,
 				suggestedMax: 9.0
 			}
+		},
+		series: {
+			itemStyle: {
+				color: "#1890ff"
+			}
+		},
+		theme: {
+			styleSheet: {
+				color: "#1890ff"
+			}
 		}
 	};
 
 	return (
-		<div>
-			<Radar data={data} options={options} />
-		</div>
+		<RadarCard>
+			<Radar style={{ height: "100%", color: "#1890ff" }} data={data} options={options} />
+		</RadarCard>
 
 	);
 };

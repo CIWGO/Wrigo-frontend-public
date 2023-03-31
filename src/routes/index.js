@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import RecentWritings from "../pages/Dashboard/recentWritings";
+import Statistics from "../pages/Statistics";
 import Profile from "../pages/Profile";
 import WritingPage from "../pages/WritingEvaluatingPage";
 import Topics from "../pages/Topics";
@@ -81,6 +82,10 @@ export default [
 			{
 				path: "topics/content",
 				element: <TopicContent />
+			},
+			{
+				path: "analytics",
+				element: <Statistics />
 			},
 			{
 				path: "profile",

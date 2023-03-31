@@ -3,7 +3,8 @@ import {
 	FormOutlined,
 	FileTextOutlined,
 	LogoutOutlined,
-	UserOutlined
+	UserOutlined,
+	PieChartOutlined
 } from "@ant-design/icons";
 import { Layout, Menu, Modal } from "antd";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -91,8 +92,14 @@ export default function SideBar (props) {
 					>
 						<NavLink to="topics">Topics</NavLink>
 					</Menu.Item>
+					<Menu.Item
+						key="statistics"
+						icon={<PieChartOutlined />}
+						style={{ textAlign: "left" }}
+					>
+						<NavLink to="analytics">Analytics</NavLink>
+					</Menu.Item>
 				</Menu.ItemGroup>
-
 				<Menu.ItemGroup style={{ flex: "1" }}>
 					<Menu.Item
 						key="profile"
