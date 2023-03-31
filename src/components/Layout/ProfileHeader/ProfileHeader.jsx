@@ -16,11 +16,13 @@ const StyledContentContainer = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	height: 100%;
 `;
 
 const StyledUsername = styled.div`
 	color: #fff;
-	font-size: 35px;
+	font-size: 30px;
+	margin-left: 30px;
 `;
 
 const StyledButtonContainer = styled.div`
