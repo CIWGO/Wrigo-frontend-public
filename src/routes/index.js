@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import RecentWritings from "../pages/Dashboard/recentWritings";
-import Profile from "../pages/UserProfile";
+import Statistics from "../pages/Statistics";
 import WritingPage from "../pages/WritingEvaluatingPage";
 import Topics from "../pages/Topics";
 import LandingPage from "../pages/Landing";
@@ -68,7 +68,7 @@ export default [
 				element: <MyWritingMain />
 			},
 			{
-				path: "writing/:writingId", // new route with dynamic parameter
+				path: "writings/:writingId", // new route with dynamic parameter
 				element: <WritingsPopulate/>
 			},
 			{
@@ -84,8 +84,12 @@ export default [
 				element: <TopicContent />
 			},
 			{
+				path: "analytics",
+				element: <Statistics />
+			},
+			{
 				path: "profile",
-				element: <Profile />,
+				element: <EditUserProfile />,
 				children: [
 
 				]

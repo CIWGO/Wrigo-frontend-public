@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 const DropdownWrapper = styled.div`
   position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 1;
+  top: 2%;
+  right: 2%;
+  z-index: 2;
 `;
 
 function YearSelector ({ selectedYear, onYearChange }) {
@@ -19,11 +19,11 @@ function YearSelector ({ selectedYear, onYearChange }) {
 	);
 
 	return (
-		<DropdownWrapper>
+		<DropdownWrapper 	>
 			<Select
 				defaultValue={selectedYear}
-				style={{ width: 80 }}
 				onChange={onYearChange}
+				style={{ width: "100%", height: "100%" }}
 			>
 				{yearOptions.map((year) => (
 					<Select.Option key={year} value={year}>

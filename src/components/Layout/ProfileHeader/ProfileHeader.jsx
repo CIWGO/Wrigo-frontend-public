@@ -1,12 +1,11 @@
-import { Card, Button } from "antd";
+import { Button } from "antd";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const StyledCard = styled(Card)`
+const StyledCard = styled.div`
 	width: 100%;
 	display: inline-block;
-	margin-bottom: 40px;
 	border-radius: 0;
 	border-color: #fff;
 	background: linear-gradient(to right, #2f71da, #7baeff);
@@ -17,11 +16,13 @@ const StyledContentContainer = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	height: 100%;
 `;
 
 const StyledUsername = styled.div`
 	color: #fff;
-	font-size: 35px;
+	font-size: 30px;
+	margin-left: 30px;
 `;
 
 const StyledButtonContainer = styled.div`
