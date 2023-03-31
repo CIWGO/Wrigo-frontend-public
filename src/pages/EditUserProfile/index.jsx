@@ -3,9 +3,11 @@ import { EditProfileLayout } from "./style";
 
 const EditUserProfile = () => {
 	return (
-		<EditProfileLayout>
-			<ProfileInfo />
-		</EditProfileLayout>
+		<div>
+			<EditProfileLayout>
+				<ProfileInfo />
+			</EditProfileLayout>
+		</div>
 	);
 };
 

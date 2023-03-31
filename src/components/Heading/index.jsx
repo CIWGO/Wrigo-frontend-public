@@ -5,7 +5,7 @@ const HeadingWrapper = styled.div`
   font-weight: ${(props) => props.theme.headingFontWeight};
   color: ${(props) => props.theme.defaultColor || "blue"};
   height: 30px;
-  margin: 0 15px;
+  margin: 0 25px;
   text-align: start;
 `;
 
