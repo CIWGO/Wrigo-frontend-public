@@ -19,6 +19,7 @@ import SubIntroCard from "../pages/WrigoInfinite/index";
 import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
+import PaymentHistory from "../pages/PaymentHistory";
 
 export default [
 	{
@@ -116,6 +117,10 @@ export default [
 			{
 				path: "payment-success",
 				element: <PaymentSuccess/>
+			},
+			{
+				path: "payment-history",
+				element: <PaymentHistory/>
 			}
 		]
 	}
