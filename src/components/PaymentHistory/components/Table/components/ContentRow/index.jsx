@@ -24,6 +24,13 @@ const ContentRow = () => {
 				<td>$9.99</td>
 				<td>$10.50</td>
 			</tr>
+			<tr>
+				<td>#123456</td>
+				<td>01/01/2023</td>
+				<td>Paid</td>
+				<td>$9.99</td>
+				<td>$10.50</td>
+			</tr>
 		</StyledTable>
 	);
 };
