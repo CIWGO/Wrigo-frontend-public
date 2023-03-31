@@ -1,59 +1,18 @@
 import { viewHistory } from "../../utils/index";
 import { useState, useEffect } from "react";
 import HeadingComponent from "../../components/Heading/index.jsx";
-import WritingCard from "../../components/WritingCard/index";
+// import WritingCard from "../../components/WritingCard/index";
 import UtilityCard from "../../components/UtilityCard/index";
-import styled, { useTheme } from "styled-components";
-import { Button } from "antd";
+import { useTheme } from "styled-components";
 import { Link } from "react-router-dom";
-import { PlusOutlined } from "@ant-design/icons";
-
-const StyledWritingHistoryPage = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: #f5f5f5;
-  align-items: flex-start;
-`;
-
-const UtilityCardsWrapper = styled(Link)`
-  margin: 8px 15px;
-  display: flex;
-  justify-content: flex-start;
-  height: 250px;
-  color: ${(props) => props.theme.primaryColor};
-`;
-
-const StyledCardContainer = styled.div`
-  && {
-    text-align: left;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-`;
-
-const StyledButton = styled(Button)`
-	height: 25px;
-	width: 100px;
-	margin-top: 5px;
-	margin-bottom: 20px;
-	color: #2f71da;
-	border-color: #2f71da;
-	background: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-right: 225px;
-	&:hover {
-		color: white;
-		border-color: none;
-	}
-`;
+import { EllipsisOutlined, PlusOutlined } from "@ant-design/icons";
+import { StyledButton, StyledWritingHistoryPage, UtilityCardsWrapper } from "./style";
+import WritingContentCard from "./WritingContentCard";
 
 const WritingHistoryPage = () => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
-	const [displayCount, setDisplayCount] = useState(8);
+	const [displayCount, setDisplayCount] = useState(14);
 
 	useEffect(() => {
 		setLoading(true);
@@ -71,7 +30,7 @@ const WritingHistoryPage = () => {
 	}, []);
 
 	const handleLoadMore = () => {
-		setDisplayCount(displayCount + 8);
+		setDisplayCount(displayCount + 10);
 	};
 
 	const {
@@ -79,35 +38,46 @@ const WritingHistoryPage = () => {
 	} = useTheme();
 
 	return (
-		<StyledWritingHistoryPage>
-			<HeadingComponent displayValue={"Writings Main"} />
+		<>
 
-			<StyledCardContainer>
-				<UtilityCardsWrapper to="evaluation">
+			<HeadingComponent displayValue={"Writings Main"} />
+			{loading ? <p>loadiing</p> : ""}
+			<StyledWritingHistoryPage>
+				<UtilityCardsWrapper to="/user/writings/evaluation">
 					<UtilityCard>
 						<PlusOutlined
 							style={{ fontSize: "60px", color: defaultColor }}
 						/>
 					</UtilityCard>
 				</UtilityCardsWrapper>
-				{data.slice(0, displayCount).map((item, index) => (
+
+				{data.slice(0, displayCount - 1).map((item, index) => (
 
 					<Link to={item.writing_id}key={index}>
-						<WritingCard
-							loading={loading}
-							id= {item.writing_id}
-							taskTopic={item.task_topic}
-							writingContent={item.writing_content}
-						/>
+						<UtilityCardsWrapper to="/user/writings">
+							<UtilityCard>
+								<WritingContentCard loading={loading}
+									id= {item.writing_id}
+									taskTopic={item.task_topic}
+									writingContent={item.writing_content}/>
+							</UtilityCard>
+						</UtilityCardsWrapper>
 					</Link>
 				))}
-			</StyledCardContainer>
-			{data.length > displayCount && (
-				<StyledButton type="primary" onClick={handleLoadMore}>
-					Load More
-				</StyledButton>
-			)}
-		</StyledWritingHistoryPage>
+
+				{data.length > displayCount && (
+					<UtilityCardsWrapper to="/user/writings">
+						<UtilityCard>
+							<StyledButton onClick={handleLoadMore}>
+								<EllipsisOutlined
+									style={{ fontSize: "60px", color: "rgb(47, 113, 218)" }}
+								/>
+							</StyledButton>
+						</UtilityCard>
+					</UtilityCardsWrapper>
+				)}
+			</StyledWritingHistoryPage>
+		</>
 	);
 };
 
