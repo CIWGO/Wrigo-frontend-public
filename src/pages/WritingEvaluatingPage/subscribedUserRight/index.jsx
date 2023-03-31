@@ -4,9 +4,8 @@ import NavBar from "./rightNavNar/index";
 const subscribedUserRight = () => {
 	return (
 		<WritingPageDiv>
-
 			<PaidRight>
-				<NavBar/>
+				<NavBar />
 			</PaidRight>
 		</WritingPageDiv>
 	);

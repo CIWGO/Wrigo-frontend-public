@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const TitleText = styled.h3`
-  color:2F71DA;
+	margin-top:30px;
+	color:rgb(55, 109, 196);
 	margin-top:30px;
 `;
 

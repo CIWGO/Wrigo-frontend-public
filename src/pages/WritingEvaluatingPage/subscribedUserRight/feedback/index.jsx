@@ -7,15 +7,16 @@ const FeedbackWrap = styled.div`
   flex-direction:column;
   text-align:left;
 `;
-const Feedback = () => {
-	const text = " A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.";
-	console.log("text1:", text);
+const FeedbackSection = () => {
+	const text = "The essay is well-structured and the ideas are clearly expressed. The essay is well-structured and the ideas are clearly expressed. The essay is well-structured and the ideas are clearly expressed.  The essay is well-structured and the ideas are clearly expressed.  The essay is well-structured and the ideas are clearly expressed. ";
+	const feedback = [7, 6.5, 7, 7, 7.5, text, text, text, text];
+	const [score, tr, cc, lr, gra, text1, text2, text3, text4] = feedback;
 	return (
 		<FeedbackWrap>
-			<FeedbackTitle title="Feedback" score="7.5" />
-			<CollapseSection tr={6.5} cc={7} lr={6.5} gra={7.5} text1={ text} text2={ text} text3={ text} text4={ text} />
+			<FeedbackTitle title="Feedback" score={ score} />
+			<CollapseSection tr={tr} cc={cc} lr={lr} gra={gra} text1={ text1} text2={ text2} text3={ text3} text4={ text4} />
 		</FeedbackWrap>
 	);
 };
 
-export default Feedback;
+export default FeedbackSection;

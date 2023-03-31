@@ -1,16 +1,14 @@
 import { Menu } from "antd";
 import React, { useState, useEffect } from "react";
-import { items } from "./items";
+import items from "./items";
 
-const NavBar = () => {
+const NavBar = ({ feedback, writings, sample }) => {
 	const [current, setCurrent] = useState("feedback");
 	const [content, setContent] = useState(items[0].component);
 
 	useEffect(() => {
-		if (items && items.length > 0) {
-			setCurrent(items[0].key);
-			setContent(items[0].component);
-		}
+		setCurrent(items[0].key);
+		setContent(items[0].component);
 	}, [items]);
 
 	const handleOnClick = (e) => {
@@ -18,9 +16,8 @@ const NavBar = () => {
 		setCurrent(e.key);
 
 		const item = items.find((i) => i.key === e.key);
-		if (item && item.component) {
-			setContent(item.component);
-		}
+		setContent(item.component);
+		console.log("comp:", content.component);
 	};
 
 	return (

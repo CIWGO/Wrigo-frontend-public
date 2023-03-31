@@ -24,4 +24,9 @@ const WritingPageDiv = styled.div`
   min-height: 100%;
   position: relative;
 `;
-export { PaidRight, WritingPageDiv };
+
+const GrammarContainer = styled.div`
+  margin-top:80px;
+  text-align:left;
+`;
+export { PaidRight, WritingPageDiv, GrammarContainer };

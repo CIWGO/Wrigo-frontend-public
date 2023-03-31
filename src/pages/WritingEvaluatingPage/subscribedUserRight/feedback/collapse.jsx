@@ -18,7 +18,6 @@ const { Panel } = Collapse;
 
 const CollapseSection = ({ tr, cc, lr, gra, text1, text2, text3, text4 }) => {
 	const { token } = theme.useToken();
-	console.log(text1);
 	const panelStyle = {
 		marginBottom: 20,
 		background: token.colorFillAlter,

@@ -1,23 +1,27 @@
-import Feedback from "../feedback/index";
 import { CommentOutlined, FileExclamationOutlined, BulbOutlined } from "@ant-design/icons";
+import FeedbackSection from "../feedback/index";
+import GrammarSection from "../grammar/index";
+import WritingSampleSection from "../writingSample/index";
 
-export const items = [
+const items = [
 	{
 		label: "Feedback",
 		key: "feedback",
 		icon: <CommentOutlined />,
-		component: <Feedback/>
+		component: <FeedbackSection />
 	},
 	{
 		label: "Grammar",
 		key: "grammar",
 		icon: <FileExclamationOutlined />,
-		component: <div>Component 2</div>
+		component: <GrammarSection />
 	},
 	{
 		label: "Writing sample",
 		key: "writing sample",
 		icon: <BulbOutlined />,
-		component: <div>Component 3</div>
+		component: <WritingSampleSection />
 	}
 ];
+
+export default items;
