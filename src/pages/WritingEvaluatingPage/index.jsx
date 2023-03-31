@@ -7,6 +7,7 @@ import RightComponent from "./right";
 import { WritingPageDiv } from "./style";
 import axios from "axios";
 import Left from "./Left";
+// import subscribedUserRight from "./subscribedUserRight";
 
 const WritingPage = () => {
 	const [topic, setTopic] = useState("");
@@ -15,7 +16,10 @@ const WritingPage = () => {
 	const [score, setScore] = useState(null);
 	const [resubmit, setResubmit] = useState(false);
 	const [preFeed, setPreFeed] = useState("");
-	const uid = "userid";
+	const uid = localStorage.getItem("uid");
+
+	// const token = localStorage.getItem("token");
+
 	const writingId = uid.substring(0, 5).toLowerCase() + topic.toLowerCase().replace(/\s+/g, "").substring(0, 16);
 	const mutation = useMutation({
 		mutationFn: (input) => {
@@ -39,6 +43,7 @@ const WritingPage = () => {
 	// const { data } = mutation;
 
 	useEffect(() => {
+		console.log(mutation.data);
 		if (mutation.data) {
 			setComment({
 				TR: mutation.data.data.feedback.TR,
