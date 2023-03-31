@@ -1,11 +1,11 @@
 import { WritingPageDiv, PaidRight } from "./style";
 import NavBar from "./rightNavNar/index";
 
-const subscribedUserRight = () => {
+const subscribedUserRight = ({ writing, topic }) => {
 	return (
 		<WritingPageDiv>
 			<PaidRight>
-				<NavBar />
+				<NavBar text={writing} topic={ topic} />
 			</PaidRight>
 		</WritingPageDiv>
 	);

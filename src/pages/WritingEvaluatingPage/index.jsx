@@ -16,7 +16,7 @@ const WritingPage = () => {
 	const [score, setScore] = useState(null);
 	const [resubmit, setResubmit] = useState(false);
 	const [preFeed, setPreFeed] = useState("");
-	const uid = "userid";
+	const uid = localStorage.getItem("uid");
 
 	// const token = localStorage.getItem("token");
 
@@ -43,6 +43,7 @@ const WritingPage = () => {
 	// const { data } = mutation;
 
 	useEffect(() => {
+		console.log(mutation.data);
 		if (mutation.data) {
 			setComment({
 				TR: mutation.data.data.feedback.TR,

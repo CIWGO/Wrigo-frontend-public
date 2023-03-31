@@ -33,17 +33,17 @@ const CollapseSection = ({ tr, cc, lr, gra, text1, text2, text3, text4 }) => {
 			expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
 			style={{ background: token.colorBgContainer }}
 		>
-			<Panel header={<SubMark>TR{tr}</SubMark>} key="1" style={panelStyle }>
+			<Panel header={<SubMark>TR {tr}</SubMark>} key="1" style={panelStyle }>
 				<SubFeedbackContainer>{text1}</SubFeedbackContainer>
 			</Panel>
 
-			<Panel header={<SubMark>CC{cc}</SubMark>} key="2" style={panelStyle }>
+			<Panel header={<SubMark>CC {cc}</SubMark>} key="2" style={panelStyle }>
 				<SubFeedbackContainer>{text2}</SubFeedbackContainer>
 			</Panel>
-			<Panel header={<SubMark>LR{lr}</SubMark>} key="3" style={panelStyle}>
+			<Panel header={<SubMark>LR {lr}</SubMark>} key="3" style={panelStyle}>
 				<SubFeedbackContainer>{text3}</SubFeedbackContainer>
 			</Panel>
-			<Panel header={<SubMark>GRA{gra}</SubMark>} key="4" style={panelStyle}>
+			<Panel header={<SubMark>GRA {gra}</SubMark>} key="4" style={panelStyle}>
 				<SubFeedbackContainer>{text4}</SubFeedbackContainer>
 			</Panel>
 		</Collapse>

@@ -7,14 +7,13 @@ const FeedbackWrap = styled.div`
   flex-direction:column;
   text-align:left;
 `;
-const FeedbackSection = () => {
-	const text = "The essay is well-structured and the ideas are clearly expressed. The essay is well-structured and the ideas are clearly expressed. The essay is well-structured and the ideas are clearly expressed.  The essay is well-structured and the ideas are clearly expressed.  The essay is well-structured and the ideas are clearly expressed. ";
-	const feedback = [7, 6.5, 7, 7, 7.5, text, text, text, text];
-	const [score, tr, cc, lr, gra, text1, text2, text3, text4] = feedback;
+const FeedbackSection = ({ text }) => {
+	const { commentTR, commentCC, commentLR, commentGRA, TR, CC, LR, GRA } = text;
+	const score = (Number(TR) + Number(CC) + Number(LR) + Number(GRA)) / 4;
 	return (
 		<FeedbackWrap>
 			<FeedbackTitle title="Feedback" score={ score} />
-			<CollapseSection tr={tr} cc={cc} lr={lr} gra={gra} text1={ text1} text2={ text2} text3={ text3} text4={ text4} />
+			<CollapseSection tr={TR} cc={CC} lr={LR} gra={GRA} text1={ commentTR} text2={ commentCC} text3={ commentLR} text4={ commentGRA} />
 		</FeedbackWrap>
 	);
 };

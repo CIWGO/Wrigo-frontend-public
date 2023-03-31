@@ -20,8 +20,7 @@ import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
 
-// tmp testing
-import SubscribedUserRight from "../pages/WritingEvaluatingPage/subscribedUserRight/index";
+// import SubscribedUserRight from "../pages/WritingEvaluatingPage/subscribedUserRight/index";
 
 export default [
 	{
@@ -76,10 +75,6 @@ export default [
 			{
 				path: "writings/evaluation",
 				element: <WritingPage />
-			},
-			{ // should be deleted soon
-				path: "writings/evaluationRight",
-				element: <SubscribedUserRight />
 			},
 			{
 				path: "topics",
