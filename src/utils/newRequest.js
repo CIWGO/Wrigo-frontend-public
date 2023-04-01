@@ -1,7 +1,8 @@
 import axios from "axios";
+import { defaultBackEndPrefix } from "../constants";
 
 const newRequest = axios.create({
-	baseURL: "http://localhost:3005"
+	baseURL: `${defaultBackEndPrefix}`
 	// withCredentials: true,
 });
 

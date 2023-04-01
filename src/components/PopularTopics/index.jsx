@@ -8,7 +8,6 @@ import {
 	IndexAndTopic,
 	MoreInfo
 } from "./style";
-import { defaultFrontEndPrefix } from "../../constants/index";
 
 const PopularTopics = (props) => {
 	return (
@@ -25,7 +24,7 @@ const PopularTopics = (props) => {
 					</IconContainer>
 				</Property>
 			))}
-			<MoreInfo href={`http://${defaultFrontEndPrefix}/users/topics`}>{"More in topics > "}</MoreInfo>
+			<MoreInfo to="/users/topics">{"More in topics > "}</MoreInfo>
 		</ContentBox>
 	);
 };

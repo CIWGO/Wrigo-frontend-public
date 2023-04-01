@@ -1,7 +1,7 @@
 import { EditOutlined } from "@ant-design/icons";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { viewHistory } from "../../../utils";
 
 const ScoreBox = styled.div`
   font-size: 1.6rem;
@@ -38,7 +38,7 @@ const Score = ({ id }) => {
 	useEffect(() => {
 		async function fetchData () {
 			try {
-				const previousFeedResponse = await axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: id, type: "feedback" });
+				const previousFeedResponse = await viewHistory({ uid, writing_id: id, type: "feedback" });
 				const previousFeed = previousFeedResponse.data;
 				const numbers = [previousFeed[0].score_TR, previousFeed[0].score_LR, previousFeed[0].score_GRA, previousFeed[0].score_CC];
 				setScore(calOverall(numbers));

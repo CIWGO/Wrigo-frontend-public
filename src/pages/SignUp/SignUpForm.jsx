@@ -1,17 +1,18 @@
 import { Form, Input, Button, notification } from "antd";
-import axios from "axios";
 import { MyForm } from "./style";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
-import { defaultFrontEndPrefix } from "../../constants/index";
+import { signupUser } from "../../utils";
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
+	const navigate = useNavigate();
 	// Think about refactor it by using redux and redux toolkit.
 	const onFinish = async (values) => {
 		try {
-			const response = await axios.post("http://localhost:3005/users/signup", values);
+			const response = await signupUser(values);
 			console.log(response.data);
 			notification.success({ message: "Sign up success" });
-			window.location.href = `http://${defaultFrontEndPrefix}/login`; // Redirect to /login page
+			navigate("/login");// Redirect to /login page
 		} catch (error) {
 			console.error(error);
 			notification.error({ message: "Sign up failed" });
