@@ -17,7 +17,9 @@ const WritingHistoryPage = () => {
 		setLoading(true);
 		const fromDate = "1970-01-01";
 		const toDate = new Date().toISOString().slice(0, 10);
-		viewHistory({ type: "writingHistory", from: fromDate, to: toDate, uid: "333" }).then((response) => {
+		const token = localStorage.getItem("token");
+		const uid = localStorage.getItem("uid");
+		viewHistory({ token, uid, type: "writingHistory", from: fromDate, to: toDate }).then((response) => {
 			if (response.status === 200) {
 				setData(response.data);
 				console.log(response.data);
