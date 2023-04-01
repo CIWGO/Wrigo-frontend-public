@@ -4,10 +4,9 @@ import styled from "styled-components";
 const StyledCard = styled(Card)`
   && {
     border-radius: 20px;
-    width: 200px;
-    height: 200px;
-    margin-right: 16px;
-    margin-bottom: 16px;
+    width: 148px;
+    height: 148px;
+    margin-top:9px;
     display: flex;
     justify-content: center;
     align-items: center;
