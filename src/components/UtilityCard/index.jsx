@@ -4,8 +4,8 @@ import styled from "styled-components";
 const StyledCard = styled(Card)`
   && {
     border-radius: 20px;
-    width: 160px;
-    height: 160px;
+    width: 148px;
+    height: 148px;
     margin-top:9px;
     display: flex;
     justify-content: center;
