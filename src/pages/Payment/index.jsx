@@ -5,13 +5,15 @@ import { defaultBackEndPrefix } from "../../constants/index";
 const STRIPE_PAYMENT_URL = `http://${defaultBackEndPrefix}/api/checkout`;
 const Payment = () => {
 	const token = localStorage.getItem("token");
-	const id = localStorage.getItem("uid");
+	const uid = localStorage.getItem("uid");
+	const username = localStorage.getItem("username");
 	const handleClick = async () => {
 		try {
 			const response = await axios.post(
 				STRIPE_PAYMENT_URL,
 				{
-					id,
+					uid,
+					username,
 					token,
 					// testing plan id that charges daily
 					planId: "price_1MqA0CJm2vMPXBBfE8jqo1ZX"

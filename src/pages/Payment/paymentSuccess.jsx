@@ -51,7 +51,7 @@ const PaymentSuccess = () => {
 					extra={[<>
 						<Button type="primary" key="home" style={{ backgroundColor: "#156ab9" }}>
 							<Link to="/user/dashboard">Back to dashboard</Link>
-						</Button>,
+						</Button>
 					</>
 						// <Button key="order" onClick={() => history.push("/orders")}>
 						//   View Order
