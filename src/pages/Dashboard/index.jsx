@@ -5,12 +5,8 @@ import PopularTopicsCard from "./popularTopics";
 const DashBoardPage = () => {
 	return (
 		<Layout>
-			<div>
-				<RecentWriting />
-			</div>
-			<div>
-				<PopularTopicsCard />
-			</div>
+			<RecentWriting />
+			<PopularTopicsCard />
 		</Layout>
 	);
 };

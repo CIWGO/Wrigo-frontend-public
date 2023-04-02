@@ -1,8 +1,6 @@
-import axios from "axios";
 import React from "react";
-import { defaultBackEndPrefix } from "../../constants/index";
+import { paymentRedirection } from "../../utils/API";
 
-const STRIPE_PAYMENT_URL = `http://${defaultBackEndPrefix}/api/checkout`;
 const Payment = () => {
 	const token = localStorage.getItem("token");
 	const uid = localStorage.getItem("uid");

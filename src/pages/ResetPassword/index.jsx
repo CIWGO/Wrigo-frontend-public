@@ -1,5 +1,4 @@
 import ResetPasswordForm from "./ResetPasswordForm";
-import { defaultFrontEndPrefix } from "../../constants/index";
 import { ResetLayout, CancelTag, Notification, ResetPassword, Logo } from "./style";
 
 const ResetPasswordPage = () => {
@@ -10,7 +9,7 @@ const ResetPasswordPage = () => {
 			<Notification>Please check your email box</Notification>
 			<ResetPasswordForm />
 
-			<CancelTag href={`http://${defaultFrontEndPrefix}/users/login`}> Cancel</CancelTag>
+			<CancelTag to="/login"> Cancel</CancelTag>
 
 			{/* </content> */}
 		</ResetLayout>

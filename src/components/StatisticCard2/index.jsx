@@ -38,7 +38,7 @@ const IELTSPieChart = () => {
 
 	const options = {
 		responsive: true,
-		cutout: "30%",
+		cutout: "45%",
 		plugins: {
 			tooltip: {
 				callbacks: {
@@ -57,7 +57,14 @@ const IELTSPieChart = () => {
 	const totalTopics = data.reduce((a, b) => a + b, 0);
 
 	return (
-		<div style={{ position: "relative" }}>
+		<div style={{
+			position: "relative",
+			alignItems: "center",
+			justifyItems: "center",
+			height: "100%",
+			width: "100%",
+			display: "grid"
+		}}>
 			<Doughnut data={chartData} options={options} />
 			<div
 				style={{
@@ -68,8 +75,16 @@ const IELTSPieChart = () => {
 					textAlign: "center"
 				}}
 			>
-				<p>Total Topics</p>
-				<h4>{totalTopics}</h4>
+				<div
+					style={{
+						position: "absolute",
+						marginTop: "52px",
+						transform: "translate(-50%, -50%)",
+						textAlign: "center"
+					}}>
+					<p style={{ margin: 0, padding: "5px" }}>Total Topics</p>
+					<p style={{ margin: 0, padding: 0 }}>{totalTopics}</p>
+				</div>
 			</div>
 		</div>
 	);

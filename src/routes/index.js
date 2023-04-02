@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 import RecentWritings from "../pages/Dashboard/recentWritings";
-import Profile from "../pages/UserProfile";
+import Statistics from "../pages/Statistics";
+import Profile from "../pages/Profile";
 import WritingPage from "../pages/WritingEvaluatingPage";
 import Topics from "../pages/Topics";
 import LandingPage from "../pages/Landing";
@@ -19,6 +20,8 @@ import SubIntroCard from "../pages/WrigoInfinite/index";
 import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
+
+// import SubscribedUserRight from "../pages/WritingEvaluatingPage/subscribedUserRight/index";
 
 export default [
 	{
@@ -68,7 +71,7 @@ export default [
 			},
 			{
 				path: "writing/:writingId", // new route with dynamic parameter
-				element: <WritingsPopulate/>
+				element: <WritingsPopulate />
 			},
 			{
 				path: "writings/evaluation",
@@ -83,11 +86,13 @@ export default [
 				element: <TopicContent />
 			},
 			{
+				path: "analytics",
+				element: <Statistics />
+			},
+			{
 				path: "profile",
 				element: <Profile />,
-				children: [
-
-				]
+				children: []
 			},
 			{
 				path: "checkout",
@@ -115,7 +120,7 @@ export default [
 			},
 			{
 				path: "payment-success",
-				element: <PaymentSuccess/>
+				element: <PaymentSuccess />
 			}
 		]
 	}
