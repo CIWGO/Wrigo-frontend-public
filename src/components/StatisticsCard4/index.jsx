@@ -9,11 +9,10 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { barChartOptions } from "./barChartOptions";
-// import { Card } from "antd";
 import styled from "styled-components";
 import YearSelector from "./YearSelector";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { writingSubmissions } from "../../utils/API";
 
 const StyledCard = styled.div`
 display:flex;
@@ -40,14 +39,10 @@ function StatisticsCard4 () {
 	const token = localStorage.getItem("token");
 
 	useEffect(() => {
-		axios({
-			method: "post",
-			url: "http://localhost:3005/api/writingSubmissions",
-			data: {
-				year: selectedYear,
-				uid,
-				token
-			}
+		writingSubmissions({
+			year: selectedYear,
+			uid,
+			token
 		})
 			.then(function (response) {
 				const rawJsonData = response.data;

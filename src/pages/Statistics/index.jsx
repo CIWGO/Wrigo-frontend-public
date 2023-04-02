@@ -1,12 +1,13 @@
 import LineChart from "../../components/Charts/LineChart/index";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
 import RadarChart from "../../components/RadarChart";
 import { Container, GridContainer, GridItem, LeftGrid, RightGrid } from "./style";
 import IELTSPieChart from "../../components/StatisticCard2";
 import HeadingComponent from "../../components/Heading";
+import { writingStatistics } from "../../utils/API";
+// import axios from "axios";
 
 const Statistics = () => {
 	const [data, setData] = useState([]);
@@ -16,13 +17,17 @@ const Statistics = () => {
 	console.log(data);
 	useEffect(() => {
 		console.log(data);
-		axios({
-			method: "post",
-			url: "http://localhost:3005/api/writingStatistics",
-			data: {
-				uid: userId,
-				token
-			}
+		// axios({
+		// 	method: "post",
+		// 	url: "http://localhost:3005/api/writingStatistics",
+		// 	data: {
+		// 		uid: userId,
+		// 		token
+		// 	}
+		// })
+		writingStatistics({
+			uid: userId,
+			token
 		})
 			.then(function (response) {
 				const data = response.data;

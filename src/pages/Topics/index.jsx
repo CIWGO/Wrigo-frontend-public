@@ -45,7 +45,9 @@ const TopicMainPage = () => {
 	const [displayCount, setDisplayCount] = useState(8);
 	useEffect(() => {
 		setLoading(true);
-		getTopic({ type: "allTopics" }).then((response) => {
+		const token = localStorage.getItem("token");
+		const uid = localStorage.getItem("uid");
+		getTopic({ token, uid, type: "allTopics" }).then((response) => {
 			if (response.status === 200) {
 				setData(response.data);
 			} else if (response.status === 500) {
