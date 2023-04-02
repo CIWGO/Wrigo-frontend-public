@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 export const WritingPageDiv = styled.div`
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700&family=Rubik:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
 font-family: 'Poppins', sans-serif;
 background-color: rgb(245, 245, 245);
 display: flex;

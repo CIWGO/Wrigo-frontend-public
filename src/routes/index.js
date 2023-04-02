@@ -21,6 +21,8 @@ import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
 
+// import SubscribedUserRight from "../pages/WritingEvaluatingPage/subscribedUserRight/index";
+
 export default [
 	{
 		path: "/",

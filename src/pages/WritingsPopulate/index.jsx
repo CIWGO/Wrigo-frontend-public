@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
 import RightComponet from "./right";
-import axios from "axios";
 import Left from "./Left";
 import { WritingPageDiv } from "../WritingEvaluatingPage/style";
+import { viewHistory } from "../../utils";
 function WritingsPopulate () {
 	const { writingId } = useParams();
 	const [content, setContent] = useState("");
@@ -21,11 +21,13 @@ function WritingsPopulate () {
 	useEffect(() => {
 		async function fetchData () {
 			try {
-				const response = await axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "writingDoc" });
+				const response = await viewHistory({ uid, writing_id: writingId, type: "writingDoc" });
+				// axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "writingDoc" });
 				setTopic(response.data.task_topic);
 				setContent(response.data.writing_content);
 
-				const previousFeedResponse = await axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
+				const previousFeedResponse = await viewHistory({ uid, writing_id: writingId, type: "feedback" });
+				// axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
 				const previousFeed = previousFeedResponse.data;
 				setPreFeed(previousFeed);
 				setComment({ TR: previousFeed[0].feedback_TR, CC: previousFeed[0].feedback_CC, GRA: previousFeed[0].feedback_GRA, LR: previousFeed[0].feedback_LR, OVR: previousFeed[0].feedback_overall });
@@ -44,7 +46,8 @@ function WritingsPopulate () {
 		},
 		onSuccess: async () => {
 			setResubmit(true);
-			const previousFeed = await axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
+			const previousFeed = await viewHistory({ uid, writing_id: writingId, type: "feedback" });
+			// axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
 			setPreFeed(previousFeed.data);
 		}
 	});
