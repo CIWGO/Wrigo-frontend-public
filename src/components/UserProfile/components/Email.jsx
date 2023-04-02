@@ -1,7 +1,9 @@
 import { useState } from "react";
 import newRequest from "../../../utils/newRequest";
+// import { Button } from "antd";
 import {
 	ButtonDefault,
+	ButtonVerify,
 	FormDefault,
 	InputDefault
 } from "./style";
@@ -34,8 +36,6 @@ const Email = (props) => {
 			} else {
 				alert("send fail other than 500");
 			}
-			console.log(response);
-			console.log(newEmail);
 		} catch (e) {
 			console.err(e.message);
 		}
@@ -100,9 +100,9 @@ const Email = (props) => {
 					</ButtonDefault>
 				</FormDefault.Item>
 			</FormDefault>
-			<ButtonDefault type="primary" htmltype="submit" onClick={changeEmailHandler}>
+			<ButtonVerify type="primary" htmltype="submit" onClick={changeEmailHandler}>
                     Verify and Change
-			</ButtonDefault> </>}
+			</ButtonVerify> </>}
 
 		</>
 	);
