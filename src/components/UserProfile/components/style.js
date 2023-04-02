@@ -7,7 +7,7 @@ export const UserProfileLayout = styled(Space)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 95vh;
   width: 100%;
 `;
 
@@ -84,4 +84,7 @@ export const InputDisabled = styled(Input)`
 
 export const ButtonDefault = styled(Button)`
   margin-left: 1.8rem;
+`;
+export const ButtonVerify = styled(Button)`
+  margin-bottom: 1.8rem;
 `;
