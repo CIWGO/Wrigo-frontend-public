@@ -1,0 +1,69 @@
+name: Frontend CD Buildand deploy to AWS S3
+
+# on:
+#   push:
+#     branches: ['main']
+#   workflow_dispatch:
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      # - main
+      - CD-2-GithubAction_Frontend
+  pull request:
+    branches: 
+      - main
+  
+
+permissions:
+ contents: read 
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 16.x
+          cache: npm
+      
+      - name: npm install and run build
+        run: |
+          npm install
+          npm run build
+                    
+      - name: Upload a Build Artifact for further deployment
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          path: ./build
+          
+  DeployToS3:
+    runs-on: ubuntu-latest
+    needs: [Build]
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+      
+    steps:
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v3
+        with:
+          path: ./build
+          
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-region: ap-southeast-2
+          role-to-assume: ${{ secrets.OICD }}
+          role-session-name: MySessionName
+          
+      - name: Copy files to S3 with the AWS CLI
+        run: |
+          aws s3 sync ./build/artifact s3://uat.wrigo.com.au
