@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Space, Card, Button, Input, Form } from "antd";
 
 export const UserProfileLayout = styled(Space)`
+  padding-top:4rem;
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
@@ -15,6 +16,7 @@ export const InformationCard = styled(Card)`
   width: 50rem;
   font-weight: 700;
   color: #1890ff;
+  margin-bottom:4rem;
 
   @media (max-width: 1100px) {
     width: 35rem;
