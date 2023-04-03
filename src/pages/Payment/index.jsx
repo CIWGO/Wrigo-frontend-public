@@ -3,11 +3,13 @@ import { paymentRedirection } from "../../utils/API";
 
 const Payment = () => {
 	const token = localStorage.getItem("token");
-	const id = localStorage.getItem("uid");
+	const uid = localStorage.getItem("uid");
+	const username = localStorage.getItem("username");
 	const handleClick = async () => {
 		try {
 			const response = await paymentRedirection({
-				id,
+				uid,
+				username,
 				token,
 				// testing plan id that charges daily
 				planId: "price_1MqA0CJm2vMPXBBfE8jqo1ZX"
