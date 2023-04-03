@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { getUser } from "../../../utils";
 import {
 	InformationCard,
 	ButtonDefault,
@@ -6,6 +8,18 @@ import {
 } from "./style";
 
 const BillingInfo = () => {
+	const [isSubscribed, setIsSubscribed] = useState(null);
+
+	const fetchIsSubscribed = async () => {
+		const username = localStorage.getItem("username");
+		const response = await getUser({ username });
+		const isSubscribed = response.data.user.isSubscribed;
+		setIsSubscribed(isSubscribed);
+	};
+
+	useEffect(() => {
+		fetchIsSubscribed();
+	}, []);
 	return (
 		<InformationCard title="Plan & Billing Information" headStyle={{ color: "#1890ff", fontWeight: 700, fontSize: "1.4rem", textAlign: "start" }}>
 			{/* plan */}
@@ -29,9 +43,10 @@ const BillingInfo = () => {
 					<InputDisabled id="since" defaultValue="21 Mar, 2023" disabled={true} suffix=" "/>
 				</FormDefault.Item>
 			</FormDefault>
-			<ButtonDefault type="default" htmlType="submit">
+			{isSubscribed && <ButtonDefault type="default" htmlType="submit">
           Cancel Subscription
-			</ButtonDefault>
+			</ButtonDefault>}
+
 		</InformationCard>
 	);
 };
