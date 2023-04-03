@@ -26,14 +26,16 @@ const RightComponet = ({ comment, score, mutation, preFeed }) => 	{
 			const avg = sum / numbers.length;
 			return Math.round(avg * 2) / 2;
 		}
-		console.log(comment.TR.length);
+		console.log(comment);
 		const categories = [
 			{ label: "TR", score: score.TR, comment: comment.TR },
 			{ label: "CC", score: score.CC, comment: comment.CC },
 			{ label: "GRA", score: score.GRA, comment: comment.GRA },
-			{ label: "LR", score: score.LR, comment: comment.LR },
-			{ label: "Overall", score: null, comment: comment.OVR }
+			{ label: "LR", score: score.LR, comment: comment.LR }
 		];
+		if (comment.OVR !== undefined) {
+			categories.push({ label: "Overall", score: null, comment: comment.OVR });
+		}
 		const handleModalCancel = () => {
 			setModalVisible(false);
 		};
@@ -50,7 +52,7 @@ const RightComponet = ({ comment, score, mutation, preFeed }) => 	{
 					</div>
 					<div className="comment">
 						<h3
-							className={`thin ${comment.toString().length > 145 ? "sliced" : ""}`}
+							className={`thin ${comment?.toString().length > 145 ? "sliced" : ""}`}
 							onClick={() => {
 								setClickedComment(comment);
 								setModalVisible(true);

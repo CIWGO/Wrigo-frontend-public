@@ -16,12 +16,13 @@ function WritingsPopulate () {
 	const [score, setScore] = useState(null);
 	const [resubmit, setResubmit] = useState(false);
 	const [preFeed, setPreFeed] = useState("");
-	const uid = "userid";
+	const token = localStorage.getItem("token");
+	const uid = localStorage.getItem("uid");
 
 	useEffect(() => {
 		async function fetchData () {
 			try {
-				const response = await viewHistory({ uid, writing_id: writingId, type: "writingDoc" });
+				const response = await viewHistory({ uid, writing_id: writingId, type: "writingDoc", token });
 				// axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "writingDoc" });
 				setTopic(response.data.task_topic);
 				setContent(response.data.writing_content);

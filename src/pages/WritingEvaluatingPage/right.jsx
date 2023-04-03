@@ -31,9 +31,11 @@ const RightComponet = ({ comment, score, mutation, preFeed }) => 	{
 			{ label: "TR", score: score.TR, comment: comment.TR },
 			{ label: "CC", score: score.CC, comment: comment.CC },
 			{ label: "GRA", score: score.GRA, comment: comment.GRA },
-			{ label: "LR", score: score.LR, comment: comment.LR },
-			{ label: "Overall", score: null, comment: comment.OVR }
+			{ label: "LR", score: score.LR, comment: comment.LR }
 		];
+		if (comment.OVR !== undefined) {
+			categories.push({ label: "Overall", score: null, comment: comment.OVR });
+		}
 		const handleModalCancel = () => {
 			setModalVisible(false);
 		};
