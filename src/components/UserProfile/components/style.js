@@ -67,7 +67,7 @@ export const InputDisabled = styled(Input)`
   width: 30rem;
   background-color:#F1F9FF;
   [type="text"][disabled] {
-    color: #1890ff;
+    color: #2F71DA;
   }
 
   @media (min-width: 1100px) {

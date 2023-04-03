@@ -11,6 +11,7 @@ import {
 const ProfileInfo = () => {
 	const [email, setEmail] = useState("");
 	const [country, setCountry] = useState("");
+	// const [userInfo, setUserInfo] = useState("");
 	const username = localStorage.getItem("username");
 	const token = localStorage.getItem("token");
 	const uid = localStorage.getItem("uid");
@@ -64,13 +65,13 @@ const ProfileInfo = () => {
 		fetchCountryData();
 	}, []);
 	return (
-		<InformationCard title="Personal Information" headStyle={{ color: "#1890ff", fontWeight: 700, fontSize: "1.4rem", textAlign: "start" }}>
+		<InformationCard title="Personal Information" headStyle={{ color: "#2F71DA", fontWeight: 700, fontSize: "1.4rem", textAlign: "start" }}>
 			{/* email */}
 			<Email emailValue={email} username={username} uid={uid}/>
 			{/* country */}
 			<FormDefault htmltype="submit">
 				<FormDefault.Item>
-					<label style={{ display: "block", textAlign: "start", color: "#1890ff" }} htmlFor="country">Country</label>
+					<label style={{ display: "block", textAlign: "start", color: "#2F71DA" }} htmlFor="country">Country</label>
 					<InputDefault id="country" autoComplete="off" placeholder={country} onChange={countryUpdateHandler}/>
 				</FormDefault.Item>
 				<FormDefault.Item>
