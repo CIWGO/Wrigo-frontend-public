@@ -31,6 +31,8 @@ export const paymentRedirection = (values) => { return newRequest.post("/api/che
 
 export const checkoutSuccess = (values) => { return newRequest.post("/api/checkoutSuccess", values); };
 
+export const getUserPaymentInfo = (values) => { return newRequest.post("/users/getUserPaymentInfo", values); };
+
 // Patch
 export const changeEmail = (values) => { return newRequest.patch("/users/changeEmail", values); };
 
