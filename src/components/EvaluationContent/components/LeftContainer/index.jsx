@@ -13,12 +13,12 @@ const StyledCard = styled(Card)`
   width: 800px;
 `;
 
-const LeftContainer = () => {
+const LeftContainer = (props) => {
 	return (
 		<StyledCard>
-			<SampleTopic />
+			<SampleTopic topicId={props.topicId}/>
 			<DividerLine />
-			<SampleWriting />
+			<SampleWriting topicId={props.topicId}/>
 		</StyledCard>
 	);
 };
