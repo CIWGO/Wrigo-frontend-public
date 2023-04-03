@@ -65,20 +65,25 @@ export const InputDefault = styled(Input)`
 
 export const InputDisabled = styled(Input)`
   width: 30rem;
+  background-color:#F1F9FF;
   [type="text"][disabled] {
     color: #1890ff;
   }
 
+  @media (min-width: 1100px) {
+    width: 38rem;
+  }
+
   @media (max-width: 1100px) {
-    width: 25rem;
+    width: 30rem;
   }
 
   @media (max-width: 768px) {
-    width: 15rem;
+    width: 20rem;
   }
 
   @media (max-width: 468px) {
-    width: 12rem;
+    width: 17rem;
   }
 `;
 
