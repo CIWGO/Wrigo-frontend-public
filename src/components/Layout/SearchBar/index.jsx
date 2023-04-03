@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Input, Modal, Card } from "antd";
 import { searchUserTopics, searchAllTopics } from "../../../utils/index";
+import { useSelector } from "react-redux";
 
 const { Search } = Input;
 
@@ -32,7 +33,7 @@ const StyledSearch = styled(Search)`
 	}
 	span.ant-input-group-addon{
 		border-radius: 6px;
-    	background-color:transparent
+		background-color:transparent
 	}
 `;
 
@@ -40,11 +41,11 @@ const SearchBox = () => {
 	const [searchInput, setSearchInput] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
 	const [visible, setVisible] = useState(false); // modal visible state
-
+	const { userId, token } = useSelector((state) => state.user);
 	const handleSearch = async () => {
 		try {
-			const userResponse = await searchUserTopics({ uid: "333", input: searchInput });
-			const allResponse = await searchAllTopics({ input: searchInput });
+			const userResponse = await searchUserTopics({ uid: userId, token, input: searchInput });
+			const allResponse = await searchAllTopics({ input: searchInput, token });
 			const userResults = userResponse.data.filter((result) => result.uid);
 			const allResults = allResponse.data.filter((result) => !result.uid);
 			const results = [...userResults, ...allResults];
