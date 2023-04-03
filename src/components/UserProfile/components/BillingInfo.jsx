@@ -1,6 +1,6 @@
 import {
 	InformationCard,
-	// ButtonDefault,
+	ButtonDefault,
 	FormDefault,
 	InputDisabled
 } from "./style";
@@ -29,9 +29,9 @@ const BillingInfo = () => {
 					<InputDisabled id="since" defaultValue="21 Mar, 2023" disabled={true} suffix=" "/>
 				</FormDefault.Item>
 			</FormDefault>
-			{/* <ButtonDefault type="default" htmlType="submit">
-          Cancel
-			</ButtonDefault> */}
+			<ButtonDefault type="default" htmlType="submit">
+          Cancel Subscription
+			</ButtonDefault>
 		</InformationCard>
 	);
 };
