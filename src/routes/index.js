@@ -82,7 +82,7 @@ export default [
 				element: <Topics />
 			},
 			{
-				path: "topics/content",
+				path: "topics/content/:topicId", // new route with dynamic parameter
 				element: <TopicContent />
 			},
 			{
