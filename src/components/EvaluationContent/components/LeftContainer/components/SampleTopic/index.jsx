@@ -16,8 +16,9 @@ const StyledDiv = styled.div`
 const SampleTopic = (props) => {
 	const [sampleTopic, setSampleTopic] = useState(["Not available"]);
 	useEffect(() => {
-		// topic_id: "29dae72e-f633-432c-a105-b0e40f562710"  (props.topicId)
-		getTopic({ type: "oneTopic", topic_id: "29dae72e-f633-432c-a105-b0e40f562710" }).then((response) => {
+		const token = localStorage.getItem("token");
+		const uid = localStorage.getItem("uid");
+		getTopic({ token, uid, type: "oneTopic", topic_id: props.topicId }).then((response) => {
 			if (response.status === 200 && response.data.singleTopic) {
 				setSampleTopic(response.data.singleTopic.topic_content);
 			} else if (response.status === 500) {

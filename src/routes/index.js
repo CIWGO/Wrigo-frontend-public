@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 import RecentWritings from "../pages/Dashboard/recentWritings";
 import Statistics from "../pages/Statistics";
+import Profile from "../pages/Profile";
 import WritingPage from "../pages/WritingEvaluatingPage";
 import Topics from "../pages/Topics";
 import LandingPage from "../pages/Landing";
@@ -20,6 +21,8 @@ import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
 import PaymentHistory from "../pages/PaymentHistory";
+
+// import SubscribedUserRight from "../pages/WritingEvaluatingPage/subscribedUserRight/index";
 
 export default [
 	{
@@ -68,8 +71,8 @@ export default [
 				element: <MyWritingMain />
 			},
 			{
-				path: "writings/:writingId", // new route with dynamic parameter
-				element: <WritingsPopulate/>
+				path: "writing/:writingId", // new route with dynamic parameter
+				element: <WritingsPopulate />
 			},
 			{
 				path: "writings/evaluation",
@@ -80,7 +83,7 @@ export default [
 				element: <Topics />
 			},
 			{
-				path: "topics/content",
+				path: "topics/content/:topicId", // new route with dynamic parameter
 				element: <TopicContent />
 			},
 			{
@@ -89,10 +92,8 @@ export default [
 			},
 			{
 				path: "profile",
-				element: <EditUserProfile />,
-				children: [
-
-				]
+				element: <Profile />,
+				children: []
 			},
 			{
 				path: "checkout",

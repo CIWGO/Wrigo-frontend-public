@@ -23,8 +23,9 @@ const StyledDiv = styled.div`
 const CommentRow = (props) => {
 	const [data, setData] = useState(["Not available"]);
 	useEffect(() => {
-		// topic_id: "29dae72e-f633-432c-a105-b0e40f562710" (props.topicID)
-		getTopic({ type: "oneTopic", topic_id: "29dae72e-f633-432c-a105-b0e40f562710" }).then((response) => {
+		const token = localStorage.getItem("token");
+		const uid = localStorage.getItem("uid");
+		getTopic({ token, uid, type: "oneTopic", topic_id: props.topicId }).then((response) => {
 			if (response.status === 200 && response.data.oneSampleWithFeedback) {
 				setData(response.data.oneSampleWithFeedback);
 			} else if (response.status === 500) {

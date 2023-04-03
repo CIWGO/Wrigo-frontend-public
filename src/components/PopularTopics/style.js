@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const ContentBox = styled.div`
   box-sizing: border-box;
@@ -53,7 +54,7 @@ export const IconContainer = styled.div`
   width: 90%;
 `;
 
-export const MoreInfo = styled.a`
+export const MoreInfo = styled(Link)`
   font-weight: bold;
   font-weight:200;
   font-weight: bold;

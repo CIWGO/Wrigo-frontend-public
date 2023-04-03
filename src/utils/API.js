@@ -23,6 +23,14 @@ export const writingDraft = (values) => { return newRequest.post("/users/writing
 
 export const viewHistory = (values) => { return newRequest.post("/users/viewHistory", values); };
 
+export const writingStatistics = (values) => { return newRequest.post("/api/writingStatistics", values); };
+
+export const writingSubmissions = (values) => { return newRequest.post("/api/writingSubmissions", values); };
+
+export const paymentRedirection = (values) => { return newRequest.post("/api/checkout", values); };
+
+export const checkoutSuccess = (values) => { return newRequest.post("/api/checkoutSuccess", values); };
+
 // Patch
 export const changeEmail = (values) => { return newRequest.patch("/users/changeEmail", values); };
 
