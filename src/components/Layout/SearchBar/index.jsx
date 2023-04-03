@@ -49,6 +49,7 @@ const SearchBox = () => {
 			const userResults = userResponse.data.filter((result) => result.uid);
 			const allResults = allResponse.data.filter((result) => !result.uid);
 			const results = [...userResults, ...allResults];
+			console.log(results.writing_id);
 			setSearchResults(results);
 			setVisible(true); // show modal when search results are ready
 		} catch (error) {
@@ -63,7 +64,9 @@ const SearchBox = () => {
 	const handleModalCancel = () => {
 		setVisible(false);
 	};
-
+	const handleCardClick = (result) => {
+		console.log(result);
+	};
 	return (
 		<>
 			<StyledSearch
@@ -86,7 +89,7 @@ const SearchBox = () => {
 					{searchResults
 						.filter((result) => result.uid) // filter results for "My Topics"
 						.map((result) => (
-							<Card key={result.id} style={{ margin: "2px" }}>
+							<Card onClick={() => handleCardClick(result)} key={result.id} style={{ margin: "2px" }}>
 								<p style={{ margin: "0px 0" }}>{result.task_topic}</p>
 							</Card>
 						))}
@@ -96,7 +99,7 @@ const SearchBox = () => {
 					{searchResults
 						.filter((result) => !result.uid) // filter results for "All Topics"
 						.map((result) => (
-							<Card key={result.id} style={{ margin: "2px" }}>
+							<Card onClick={() => handleCardClick(result)}key={result.id} style={{ margin: "2px" }}>
 								<p style={{ margin: "0px 0" }}>{result.topic_content}</p>
 							</Card>
 						))}
