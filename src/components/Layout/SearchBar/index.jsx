@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Input, Modal, Card } from "antd";
 import { searchUserTopics, searchAllTopics } from "../../../utils/index";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const { Search } = Input;
 
@@ -38,6 +39,7 @@ const StyledSearch = styled(Search)`
 `;
 
 const SearchBox = () => {
+	const navigate = useNavigate();
 	const [searchInput, setSearchInput] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
 	const [visible, setVisible] = useState(false); // modal visible state
@@ -64,9 +66,13 @@ const SearchBox = () => {
 	const handleModalCancel = () => {
 		setVisible(false);
 	};
-	const handleCardClick = (result) => {
-		console.log(result);
+
+	const handleNavigate = (url) => {
+		setVisible(false);
+		navigate(url);
+		console.log(url);
 	};
+
 	return (
 		<>
 			<StyledSearch
@@ -89,7 +95,7 @@ const SearchBox = () => {
 					{searchResults
 						.filter((result) => result.uid) // filter results for "My Topics"
 						.map((result) => (
-							<Card onClick={() => handleCardClick(result)} key={result.id} style={{ margin: "2px" }}>
+							<Card key={result.id} style={{ margin: "2px" }}>
 								<p style={{ margin: "0px 0" }}>{result.task_topic}</p>
 							</Card>
 						))}
@@ -99,7 +105,7 @@ const SearchBox = () => {
 					{searchResults
 						.filter((result) => !result.uid) // filter results for "All Topics"
 						.map((result) => (
-							<Card onClick={() => handleCardClick(result)}key={result.id} style={{ margin: "2px" }}>
+							<Card onClick={() => handleNavigate(`/user/topics/content/${result.topic_id}`)} key={result.id} style={{ margin: "2px" }}>
 								<p style={{ margin: "0px 0" }}>{result.topic_content}</p>
 							</Card>
 						))}
