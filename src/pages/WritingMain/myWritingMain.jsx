@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const WritingHistoryPage = () => {
 	const [data, setData] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [displayCount, setDisplayCount] = useState(17);
 	const newWritingId = uuidv4();
 

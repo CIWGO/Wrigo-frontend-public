@@ -31,7 +31,6 @@ const GrammarContainer = styled.div`
 `;
 
 const Button = styled.button`
-  font-family: 'Poppins';
   font-weight: 500;
   bottom: 10px;
   right: 20px;
