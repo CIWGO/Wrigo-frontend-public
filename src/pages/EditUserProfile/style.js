@@ -7,7 +7,8 @@ export const EditProfileLayout = styled(Layout)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   width: 100%;
 `;
 export const HeaderSection = styled.div`
@@ -18,7 +19,7 @@ export const HeaderSection = styled.div`
   justify-content: center;
 `;
 export const ProfileContainer = styled.div`
-  max-width: 500px;
+  min-width: 500px;
   width: 100%;
 `;
 export const Item = styled.div`

@@ -1,20 +1,18 @@
 import { Button } from "antd";
-import React, { useEffect } from "react";
+import React from "react";
 import { writingDraft } from "../../utils";
 import { ButtonContainer, InputCardBottom } from "./style";
 
 function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, resubmit, mutation, writingId, uid }) {
 	const handleSaveDraft = () => {
-		useEffect(() => {
-			const draft = { writing_id: writingId, content, topic, uid };
-			writingDraft({ draft }).then((response) => {
-				if (response.status === 200) {
-					alert("Draft saved.");
-				} else if (response.status === 500) {
-					alert("Something is wrong with network, please retry.");
-				}
-			});
-		}, []);
+		const draft = { writing_id: writingId, content, topic, uid };
+		writingDraft({ draft }).then((response) => {
+			if (response.status === 200) {
+				alert("Draft saved.");
+			} else if (response.status === 500) {
+				alert("Something is wrong with network, please retry.");
+			}
+		});
 	};
 	return (
 		<>
@@ -24,7 +22,7 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 						<div>
 							<textarea
 								value={topic}
-								onChange={(e) => setTopic(e.target.value)}
+								onChange={(e) => setTopic(e.target.value.trim().replace(/\s+/g, " "))}
 								className="topic"
 								placeholder="IELTS writing task 2 topic goes here"
 								disabled={resubmit}
@@ -34,7 +32,7 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 						<div className="flex-col">
 							<textarea
 								value={content}
-								onChange={(e) => setContent(e.target.value)}
+								onChange={(e) => setContent(e.target.value.trim().replace(/\s+/g, " "))}
 								className="content"
 								placeholder="Write here"
 							></textarea>

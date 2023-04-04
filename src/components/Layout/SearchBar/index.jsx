@@ -2,6 +2,8 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Input, Modal, Card } from "antd";
 import { searchUserTopics, searchAllTopics } from "../../../utils/index";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const { Search } = Input;
 
@@ -32,22 +34,24 @@ const StyledSearch = styled(Search)`
 	}
 	span.ant-input-group-addon{
 		border-radius: 6px;
-    	background-color:transparent
+		background-color:transparent
 	}
 `;
 
 const SearchBox = () => {
+	const navigate = useNavigate();
 	const [searchInput, setSearchInput] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
 	const [visible, setVisible] = useState(false); // modal visible state
-
+	const { userId, token } = useSelector((state) => state.user);
 	const handleSearch = async () => {
 		try {
-			const userResponse = await searchUserTopics({ uid: "333", input: searchInput });
-			const allResponse = await searchAllTopics({ input: searchInput });
+			const userResponse = await searchUserTopics({ uid: userId, token, input: searchInput });
+			const allResponse = await searchAllTopics({ input: searchInput, token });
 			const userResults = userResponse.data.filter((result) => result.uid);
 			const allResults = allResponse.data.filter((result) => !result.uid);
 			const results = [...userResults, ...allResults];
+			console.log(results.writing_id);
 			setSearchResults(results);
 			setVisible(true); // show modal when search results are ready
 		} catch (error) {
@@ -61,6 +65,12 @@ const SearchBox = () => {
 
 	const handleModalCancel = () => {
 		setVisible(false);
+	};
+
+	const handleNavigate = (url) => {
+		setVisible(false);
+		navigate(url);
+		console.log(url);
 	};
 
 	return (
@@ -85,7 +95,7 @@ const SearchBox = () => {
 					{searchResults
 						.filter((result) => result.uid) // filter results for "My Topics"
 						.map((result) => (
-							<Card key={result.id} style={{ margin: "2px" }}>
+							<Card onClick={() => handleNavigate(`/user/writing/${result.writing_id}`)} key={result.id} style={{ margin: "2px" }}>
 								<p style={{ margin: "0px 0" }}>{result.task_topic}</p>
 							</Card>
 						))}
@@ -95,7 +105,7 @@ const SearchBox = () => {
 					{searchResults
 						.filter((result) => !result.uid) // filter results for "All Topics"
 						.map((result) => (
-							<Card key={result.id} style={{ margin: "2px" }}>
+							<Card onClick={() => handleNavigate(`/user/topics/content/${result.topic_id}`)} key={result.id} style={{ margin: "2px" }}>
 								<p style={{ margin: "0px 0" }}>{result.topic_content}</p>
 							</Card>
 						))}
