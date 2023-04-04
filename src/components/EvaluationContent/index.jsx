@@ -11,13 +11,13 @@ const StyledDiv = styled.div`
 	overflow: auto;
 `;
 
-const ContentSection = () => {
+const ContentSection = (props) => {
 	return (
 		<>
 			<BackButton />
 			<StyledDiv>
-				<LeftContainer />
-				<RightContainer />
+				<LeftContainer topicId={props.topicId} />
+				<RightContainer topicId={props.topicId}/>
 			</StyledDiv>
 		</>
 	);

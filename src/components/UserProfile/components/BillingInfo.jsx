@@ -1,17 +1,19 @@
+import { useState, useEffect } from "react";
+import { cancelSubscription } from "../../../utils";
 import {
 	InformationCard,
-	// ButtonDefault,
+	ButtonDefault,
 	FormDefault,
 	InputDisabled
 } from "./style";
 import { getUserPaymentInfo } from "../../../../src/utils/API";
-import { useState, useEffect } from "react";
 
 const BillingInfo = () => {
 	const [paymentInfo, setPaymentInfo] = useState([]);
 
 	const uid = localStorage.getItem("uid");
 	const token = localStorage.getItem("token");
+	// const username = localStorage.getItem("username");
 
 	useEffect(() => {
 		getUserPaymentInfo({ uid, token })
@@ -25,6 +27,29 @@ const BillingInfo = () => {
 	}, [uid, token]);
 	const { subscriptionSince, paymentMethod, isSubscribed } = paymentInfo;
 	const dateSince = subscriptionSince ? subscriptionSince.substring(0, 10) : "";
+
+	// const fetchIsSubscribed = async () => {
+	// 	const response = await getUser({ username });
+	// 	const isSubscribed = response.data.user.isSubscribed;
+	// };
+
+	// useEffect(() => {
+	// 	fetchIsSubscribed();
+	// }, []);
+
+	const cancelSubHandler = async () => {
+		const response = await cancelSubscription({ uid });
+		if (response.status === 200) {
+			alert("Cancel successful!");
+		} else if (response.status === 500) {
+			alert("(Something went wrong)");
+		} else {
+			alert("send fail other than 500");
+		}
+		setTimeout(() => {
+			window.location.reload(false);
+		}, 2000);
+	};
 
 	return (
 		<InformationCard title="Plan & Billing Information" headStyle={{ color: "#2F71DA", fontWeight: 700, fontSize: "1.4rem", textAlign: "start" }}>
@@ -53,9 +78,10 @@ const BillingInfo = () => {
 					{/* <div>{subscriptionSince }</div> */}
 				</FormDefault.Item>
 			</FormDefault>
-			{/* <ButtonDefault type="default" htmlType="submit">
-          Cancel
-			</ButtonDefault> */}
+			{isSubscribed && <ButtonDefault type="default" onClick={cancelSubHandler} >
+          Cancel Subscription
+			</ButtonDefault>}
+
 		</InformationCard>
 	);
 };

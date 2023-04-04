@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import ContentSection from "../../components/EvaluationContent";
 import styled from "styled-components";
 
@@ -6,9 +7,10 @@ const StyledDiv = styled.div`
 `;
 
 const TopicContent = () => {
+	const { topicId } = useParams();
 	return (
 		<StyledDiv>
-			<ContentSection />
+			<ContentSection topicId={topicId}/>
 		</StyledDiv>
 	);
 };

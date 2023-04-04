@@ -43,6 +43,7 @@ const TopicMainPage = () => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [displayCount, setDisplayCount] = useState(8);
+
 	useEffect(() => {
 		setLoading(true);
 		const token = localStorage.getItem("token");
