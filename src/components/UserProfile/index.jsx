@@ -14,7 +14,6 @@ const UserProfile = () => {
 			<PersonalInfo />
 			<BillingInfo togglePayment={togglePayment} showPayment={showPayment} />
 			{ showPayment && <PaymentHistory /> }
-
 		</UserProfileLayout>
 	);
 };

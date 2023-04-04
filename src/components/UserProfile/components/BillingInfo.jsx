@@ -82,15 +82,14 @@ const BillingInfo = (props) => {
 					{/* <div>{subscriptionSince }</div> */}
 				</FormDefault.Item>
 			</FormDefault>
-			{!isSubscribed &&
-			<>
-				<ButtonDefault type="primary" onClick={showPaymentHandler} >
-					{ !props.showPayment ? "Payment History" : "Hide Payment History"}
-				</ButtonDefault>
+			<ButtonDefault type="primary" onClick={showPaymentHandler} >
+				{ !props.showPayment ? "Payment History" : "Hide Payment History"}
+			</ButtonDefault>
+			{isSubscribed &&
 				<ButtonDefault type="default" onClick={cancelSubHandler} >
           Cancel Subscription
 				</ButtonDefault>
-			</>}
+			}
 
 		</InformationCard>
 	);
