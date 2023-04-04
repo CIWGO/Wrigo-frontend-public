@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Result, Button } from "antd";
 import { Link } from "react-router-dom";
+import { checkoutSuccess } from "../../utils/API";
 
 const Container = styled.div`
   display: flex;
@@ -25,6 +26,16 @@ const Illustration = styled.div`
 `;
 
 const PaymentSuccess = () => {
+	const uid = localStorage.getItem("uid");
+	const token = localStorage.getItem("token");
+	const planId = "price_1MqA0CJm2vMPXBBfE8jqo1ZX";
+	try {
+		checkoutSuccess({ uid, token, planId });
+	} catch (err) {
+		console.log("didn't post");
+		console.log(err);
+	}
+
 	const transactionRef = "123456789";
 	return (
 		<Container>
@@ -40,7 +51,7 @@ const PaymentSuccess = () => {
 					extra={[<>
 						<Button type="primary" key="home" style={{ backgroundColor: "#156ab9" }}>
 							<Link to="/user/dashboard">Back to dashboard</Link>
-						</Button>,
+						</Button>
 					</>
 						// <Button key="order" onClick={() => history.push("/orders")}>
 						//   View Order

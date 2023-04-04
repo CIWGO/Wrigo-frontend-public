@@ -3,6 +3,7 @@ import SampleWriting from "./SampleWriting";
 import SampleScore from "./SampleScore";
 import styled from "styled-components";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const StyledCard = styled(Card)`
 	&& {
@@ -49,6 +50,7 @@ const TopicCard = (props) => {
 	const scorePlaceHolder = 0;
 	const scoreWithDecimal = scorePlaceHolder.toFixed(1);
 	const [scores, setScores] = useState([scoreWithDecimal]);
+	const navigate = useNavigate();
 
 	const scoreHandler = (data) => {
 		let finalScore = 0;
@@ -72,12 +74,13 @@ const TopicCard = (props) => {
 		setScores(finalScore);
 	};
 
-	const handleTopicClick = () => {
-		console.log(props.topicId);
+	const handleNavigate = (url) => {
+		navigate(url);
+		console.log(url);
 	};
 
 	return (
-		<StyledCard onClick={handleTopicClick}>
+		<StyledCard onClick={() => handleNavigate(`/user/topics/content/${props.topicId}`)}>
 			<Skeleton key={props.index} loading={props.loading} active>
 				<StyledCardContent>
 					<div>

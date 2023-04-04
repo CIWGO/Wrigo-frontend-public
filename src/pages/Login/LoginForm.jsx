@@ -3,11 +3,10 @@ import { notification, Row, Col } from "antd";
 import { MyForm, LoginButton } from "./style";
 import InputField from "./InputField";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
-import axios from "axios";
 import { setUserLogin, setUserInfo } from "../../slice/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { defaultFrontEndPrefix, defaultBackEndPrefix } from "../../constants/index";
+import { loginUser, sendOTPViaEmail } from "../../utils";
 
 const LoginForm = () => {
 	const navigate = useNavigate();
@@ -15,7 +14,7 @@ const LoginForm = () => {
 
 	const handleSubmit = async (values) => {
 		try {
-			const response = await axios.post(`http://${defaultBackEndPrefix}/users/login`, values);
+			const response = await loginUser(values);
 			console.log(response.data);
 			if (response.status === 200) {
 				// login success
@@ -33,7 +32,8 @@ const LoginForm = () => {
 			if (error.response.status === 401) {
 				const { uid: userId, username: userName } = error.response.data;
 
-				await axios.post(`http://${defaultBackEndPrefix}/users/sendOTP`, { uid: userId, username: userName });
+				await sendOTPViaEmail({ uid: userId, username: userName });
+				// axios.post(`${defaultBackEndPrefix}/users/sendOTP`, { uid: userId, username: userName });
 				dispatch(setUserInfo({ userId, userName }));
 				console.log("unverified email =", values);
 				navigate("/emailVerification");
@@ -46,7 +46,7 @@ const LoginForm = () => {
 	};
 
 	const signUpOnClick = () => {
-		window.location.href = `http://${defaultFrontEndPrefix}/signup`;
+		navigate("/signup");
 	};
 
 	return (
