@@ -1,7 +1,7 @@
 import React from "react";
 import { LeftOutlined } from "@ant-design/icons";
 import moment from "moment/moment";
-import { NoFeed, PreFeedbacks, RightCard } from "../WritingEvaluatingPage/style.js";
+import { BackButton, NoFeed, PreFeedbacks, RightCard } from "../WritingEvaluatingPage/style.js";
 
 const PreFeedbackCard = ({ setPrevious, preFeed }) => {
 	function calOverall (numbers) {
@@ -35,9 +35,9 @@ const PreFeedbackCard = ({ setPrevious, preFeed }) => {
 		);
 	} else {
 		return	<RightCard>
-			<button onClick={() => setPrevious(false)} className="back">
+			<BackButton onClick={() => setPrevious(false)} className="back">
 				<LeftOutlined />
-			</button>
+			</BackButton>
 			<NoFeed>no previous feedbacks yet...</NoFeed>;
 		</RightCard>;
 	}

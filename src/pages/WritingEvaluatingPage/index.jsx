@@ -14,7 +14,6 @@ const WritingPage = () => {
 	const [topic, setTopic] = useState("");
 	const [content, setContent] = useState("");
 	const [comment, setComment] = useState("");
-	const [score, setScore] = useState(null);
 	const [resubmit, setResubmit] = useState(false);
 	const [preFeed, setPreFeed] = useState("");
 	const uid = localStorage.getItem("uid");
@@ -26,7 +25,6 @@ const WritingPage = () => {
 			return newRequest.post("/api/evaluate", input);
 		},
 		onSuccess: async () => {
-			console.log(token, uid);
 			setResubmit(true);
 			const previousFeed = await axios.post(
 				"http://localhost:3005/users/viewHistory",
@@ -38,28 +36,15 @@ const WritingPage = () => {
 	});
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(e.value);
 		mutation.mutate({ writing_id: writingId, content, topic_content: topic, uid, token });
 	};
 
 	// const { data } = mutation;
 
 	useEffect(() => {
-		console.log(mutation.data);
 		if (mutation.data) {
-			setComment({
-				TR: mutation.data.data.feedback.TR,
-				CC: mutation.data.data.feedback.CC,
-				GRA: mutation.data.data.feedback.GRA,
-				LR: mutation.data.data.feedback.LR,
-				OVR: mutation.data.data.feedback.Overall
-			});
-			setScore({
-				TR: mutation.data.data.scores.TaskResponse,
-				CC: mutation.data.data.scores.CoherenceAndCohesion,
-				GRA: mutation.data.data.scores.GrammarRangeAndAccuracy,
-				LR: mutation.data.data.scores.LexicalResource
-			});
+			console.log(mutation.data);
+			setComment(mutation.data.data);
 		}
 	}, [mutation.data]);
 
@@ -76,7 +61,7 @@ const WritingPage = () => {
 
 			<Left writingId={writingId} uid={uid} handleSubmit={handleSubmit} topic={topic} setTopic={setTopic} setContent={setContent} content={content} wordCount={wordCount} resubmit={resubmit} mutation={mutation}/>
 
-			<RightComponent conmment={comment} content={content} topic={topic} score={score} mutation={mutation} preFeed={preFeed} subscribed={subscribed} />
+			<RightComponent comment={comment} content={content} topic={topic} mutation={mutation} preFeed={preFeed} subscribed={subscribed} />
 
 		</WritingPageDiv>
 	);

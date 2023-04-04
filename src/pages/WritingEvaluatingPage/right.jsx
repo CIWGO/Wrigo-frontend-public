@@ -3,9 +3,9 @@ import moment from "moment/moment";
 import { useState } from "react";
 import { Modal } from "antd";
 import { FeedbackContainer, Group, LoadingContainer, NoFeed, RightCard } from "../WritingEvaluatingPage/style";
-// import SubscribedUserRight from "./subscribedUserRight";
+import SubscribedUserRight from "./subscribedUserRight";
 import { Button } from "./subscribedUserRight/style";
-const RightComponent = ({ comment, score, mutation, preFeed, subscribed, topic, content }) => 	{
+const RightComponent = ({ comment, mutation, preFeed, subscribed, topic, content }) => 	{
 	const [previous, setPrevious] = useState(false);
 	const [modalVisible, setModalVisible] = useState(false);
 	const [clickedComment, setClickedComment] = useState("");
@@ -21,8 +21,10 @@ const RightComponent = ({ comment, score, mutation, preFeed, subscribed, topic, 
 		return <PreFeedbackCard previous={previous} setPrevious={setPrevious} preFeed={preFeed}/>;
 	}
 	console.log(subscribed);
-	if (subscribed) { console.log(topic, content); return <RightCard>{topic}</RightCard>; };
-	if (comment.TR && !subscribed) {
+	if (comment && subscribed) { console.log(topic, content, comment.premiumFeedback); return <SubscribedUserRight topic={topic} writing={content} premiumFeedback={comment.premiumFeedback} setPrevious={setPrevious} />; };
+	if (comment && !subscribed) {
+		// to fix
+		const score = comment.response.score;
 		const numbers = [score.TR, score.LR, score.GRA, score.CC];
 		function calOverall (numbers) {
 			let sum = 0;

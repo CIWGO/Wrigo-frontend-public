@@ -146,7 +146,9 @@ position: relative;
 
     width: 80%;
   }`;
-
+export const BackButton = styled.button` position: absolute;
+top:20px;
+`;
 export const RightCard = styled.div`
   position: relative;
   margin: 2rem 20px 5vh 10px;
@@ -155,8 +157,7 @@ export const RightCard = styled.div`
   width: 45%;
   min-width: 340px;
 
-  flex: 1`;
-
+  flex: 1;`;
 export const PreFeedbacks = styled.div`
   margin: 70px 50px 50px;
   display: flex;
