@@ -23,7 +23,7 @@ pipeline {
         stage('Test') {
             steps {
                 //sh 'npm run test'
-                echo 'test to be back'
+                sh 'npm run lint'
             }
         }
 
