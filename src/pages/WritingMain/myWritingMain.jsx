@@ -75,7 +75,7 @@ const WritingHistoryPage = () => {
 						</UtilityCardsWrapper>
 						{data.slice(0, displayCount - 1).map((item, index) => (
 
-							<UtilityCardsWrapper to={`/user/writings/${item.writing_id}`} key={index}>
+							<UtilityCardsWrapper to={`/user/writing/${item.writing_id}`} key={index}>
 								<UtilityCard>
 									<WritingContentCard loading={loading}
 										id= {item.writing_id}

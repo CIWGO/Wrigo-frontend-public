@@ -95,7 +95,7 @@ const SearchBox = () => {
 					{searchResults
 						.filter((result) => result.uid) // filter results for "My Topics"
 						.map((result) => (
-							<Card key={result.id} style={{ margin: "2px" }}>
+							<Card onClick={() => handleNavigate(`/user/writing/${result.writing_id}`)} key={result.id} style={{ margin: "2px" }}>
 								<p style={{ margin: "0px 0" }}>{result.task_topic}</p>
 							</Card>
 						))}
