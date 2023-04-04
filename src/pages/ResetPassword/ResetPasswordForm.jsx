@@ -1,5 +1,5 @@
 import { MyForm, ResendLayout, MyButton } from "./style";
-import { Form, Input } from "antd";
+import { Form, Input, notification } from "antd";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 import React, { useState, useEffect } from "react";
 import {
@@ -23,34 +23,43 @@ function ResetPasswordForm () {
 	const navigate = useNavigate();
 
 	// Send email to server to receive verification code
-	function handleSendEmail (event) {
+	function handleSendEmail () {
 		event.preventDefault();
 		// get user uid and email
-		getUser({ username }).then((response) => {
-			if (response.status === 201) {
-				const uid = response.data.user.uid;
-				const email = response.data.user.email;
-				setUid(uid);
-				// send email to server
-				sendOTPViaEmail({ uid, username, email })
-					.then((response) => {
-						if (response.status === 200) {
-							alert("Send email successful! Check your mailbox for the code!");
-						} else if (response.status === 500) {
-							alert("Send fail 500 (Something went wrong)");
-						} else {
-							alert("Send fail other than 500");
-						}
-					})
-					.catch((error) => {
-						console.log(error);
-					});
-				setResendDisabled(true);
-				setCountdown(60);
-			} else {
-				console.log(response.status);
-			}
-		});
+		getUser({ username })
+			.then((response) => {
+				if (response.status === 201) {
+				// const uid = response.data.user.uid;
+				// const email = response.data.user.email;
+					const { uid, email } = response.data.user;
+					setUid(uid);
+					// send email to server
+					sendOTPViaEmail({ uid, username, email })
+						.then((response) => {
+							if (response.status === 200) {
+								notification.success({ message: "Send email successful! Check your mailbox for the code!" });
+							} else if (response.status === 500) {
+								alert("Send fail 500 (Something went wrong)");
+							} else {
+								alert("Send fail other than 500");
+							}
+						})
+						.catch((error) => {
+							console.log(error);
+						});
+					setResendDisabled(true);
+					setCountdown(60);
+				} else {
+					console.log(response.status);
+				}
+			})
+			.catch((error) => {
+				if (error.response && error.response.status === 404) {
+					notification.error({ message: "Username not found. Please try again." });
+				} else {
+					notification.error({ message: "Unknown error occurred" });
+				}
+			});
 	}
 
 	// Resend email after countdown timer expires
@@ -62,8 +71,8 @@ function ResetPasswordForm () {
 		}
 	}, [countdown, resendDisabled]);
 
-	async function handleResetPassword (event) {
-		event.preventDefault();
+	async function onFinish (values) {
+		// event.preventDefault();
 		// reset password with server
 		try {
 			const response = await verifyOTP({ uid, userInput: code });
@@ -108,7 +117,9 @@ function ResetPasswordForm () {
 
 	return (
 		<div>
-			<MyForm>
+			<MyForm
+				onFinish={onFinish}
+			>
 				<Form.Item
 					name="username"
 					// label="Username"
@@ -144,7 +155,7 @@ function ResetPasswordForm () {
 							type="primary"
 							disabled={resendDisabled}
 							onClick={() => {
-								handleSendEmail(event);
+								handleSendEmail();
 								setVerified(false);
 							}}
 						>
@@ -195,11 +206,9 @@ function ResetPasswordForm () {
 			<Form.Item>
 				<MyButton
 					type="primary"
-					onClick={() => {
-						handleResetPassword(event);
-					}}
+					htmlType="submit"
 				>
-          Reset Password
+					Reset Password
 				</MyButton>
 			</Form.Item>
 		</div>

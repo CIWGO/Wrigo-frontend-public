@@ -13,7 +13,6 @@ const SignUpForm = () => {
 	const onFinish = async (values) => {
 		try {
 			const response = await signupUser(values);
-			console.log(response.data);
 
 			if (response.status === 201) {
 				// sign up success
@@ -26,13 +25,15 @@ const SignUpForm = () => {
 				localStorage.setItem("username", userName); // store the username in localStorage
 				await sendOTPViaEmail({ uid: userId, username: userName });
 				console.log("sign up success");
+				notification.success({ message: "Sign up success" });
 				navigate("/emailVerification");
 			}
-
-			notification.success({ message: "Sign up success" });
 		} catch (error) {
-			console.error(error);
-			notification.error({ message: "Sign up failed" });
+			if (error.response && error.response.status === 409) {
+				notification.error({ message: "Username is taken. Please choose another username" });
+			} else {
+				notification.error({ message: "Sign up failed" });
+			}
 		}
 	};
 
