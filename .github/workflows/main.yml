@@ -6,8 +6,8 @@ env:
 run-name: Building and deploying to AWS S3
 
 on:
-  push:
-    branches: ['main']
+#   push:
+#     branches: ['main']
   workflow_dispatch:
   
 permissions: 
