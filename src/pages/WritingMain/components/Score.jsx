@@ -24,7 +24,9 @@ const Draft = styled.div`
 `;
 
 const Score = ({ id }) => {
-	const uid = "333";
+	const uid = localStorage.getItem("uid");
+	const token = localStorage.getItem("token");
+
 	const [score, setScore] = useState("");
 	const [isDraft, setIsDraft] = useState(true);
 	function calOverall (numbers) {
@@ -38,7 +40,7 @@ const Score = ({ id }) => {
 	useEffect(() => {
 		async function fetchData () {
 			try {
-				const previousFeedResponse = await viewHistory({ uid, writing_id: id, type: "feedback" });
+				const previousFeedResponse = await viewHistory({ token, uid, writing_id: id, type: "feedback" });
 				const previousFeed = previousFeedResponse.data;
 				const numbers = [previousFeed[0].score_TR, previousFeed[0].score_LR, previousFeed[0].score_GRA, previousFeed[0].score_CC];
 				setScore(calOverall(numbers));

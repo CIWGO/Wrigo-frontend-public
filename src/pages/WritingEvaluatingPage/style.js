@@ -71,7 +71,6 @@ position: relative;
      line-height: 2.8rem;
 
       font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
       font-weight: 700;
       color: #ccccccc9;
       padding-bottom: 10px;
@@ -130,7 +129,7 @@ position: relative;
       &::placeholder {
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Rubik:wght@400;500;600&display=swap");
         font-family: "Poppins", sans-serif;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 500;
         color: #ccccccc9;
         padding-bottom: 10px;
@@ -146,9 +145,9 @@ position: relative;
       font-size: large;
 
     width: 80%;
-  }
+  }`;
 
-.right {
+export const RightCard = styled.div`
   position: relative;
   margin: 2rem 20px 5vh 10px;
   border-radius: 10px;
@@ -156,9 +155,7 @@ position: relative;
   width: 45%;
   min-width: 340px;
 
-  flex: 1;
-}
-`;
+  flex: 1`;
 
 export const PreFeedbacks = styled.div`
   margin: 70px 50px 50px;
@@ -213,7 +210,7 @@ text-align: start;
 font-weight: 700;
 margin-top: 30px;
 padding-bottom: 10px;
-font-size: 2rem;
+font-size: 1.5rem;
 font-weight: 600;
 color: #ccccccc9;
 padding-bottom: 10px;
@@ -315,7 +312,9 @@ background-color: "white";
 `;
 
 export const NoPre = styled.p`
-font-size:2rem;`;
+font-size: 1.5rem;
+font-weight: 600;
+color: #ccccccc9;`;
 
 export const InputCardBottom = styled.div`
   display: flex;

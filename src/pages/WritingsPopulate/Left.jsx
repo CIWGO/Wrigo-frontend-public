@@ -1,20 +1,18 @@
 import { Button } from "antd";
-import React, { useEffect } from "react";
+import React from "react";
 import { writingDraft } from "../../utils";
 import { ButtonContainer, InputCardBottom } from "../WritingEvaluatingPage/style";
 
 const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, resubmit, mutationFeed, writingId, uid }) => {
 	const handleSaveDraft = () => {
-		useEffect(() => {
-			const draft = { writing_id: writingId, content, topic, uid };
-			writingDraft({ draft }).then((response) => {
-				if (response.status === 200) {
-					alert("Draft saved.");
-				} else if (response.status === 500) {
-					alert("Something is wrong with network, please retry.");
-				}
-			});
-		}, []);
+		const draft = { writing_id: writingId, content, topic, uid };
+		writingDraft({ draft }).then((response) => {
+			if (response.status === 200) {
+				alert("Draft saved.");
+			} else if (response.status === 500) {
+				alert("Something is wrong with network, please retry.");
+			}
+		});
 	};
 	return (
 		<>

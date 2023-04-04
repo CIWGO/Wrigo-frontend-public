@@ -3,10 +3,10 @@ import newRequest from "../../utils/newRequest";
 import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
-import RightComponet from "./right";
 import Left from "./Left";
 import { WritingPageDiv } from "../WritingEvaluatingPage/style";
 import { viewHistory } from "../../utils";
+import RightComponent from "./right";
 function WritingsPopulate () {
 	const { writingId } = useParams();
 	const [content, setContent] = useState("");
@@ -19,6 +19,7 @@ function WritingsPopulate () {
 	const token = localStorage.getItem("token");
 	const uid = localStorage.getItem("uid");
 
+	const subscribed = true;
 	useEffect(() => {
 		async function fetchData () {
 			try {
@@ -27,7 +28,7 @@ function WritingsPopulate () {
 				setTopic(response.data.task_topic);
 				setContent(response.data.writing_content);
 
-				const previousFeedResponse = await viewHistory({ uid, writing_id: writingId, type: "feedback" });
+				const previousFeedResponse = await viewHistory({ uid, writing_id: writingId, type: "feedback", token });
 				// axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
 				const previousFeed = previousFeedResponse.data;
 				setPreFeed(previousFeed);
@@ -57,13 +58,6 @@ function WritingsPopulate () {
 		mutationFeed.mutate({ writing_id: writingId, content, topic, uid });
 	};
 
-	useEffect(() => {
-		if (mutationFeed.data) {
-			setComment({ TR: mutationFeed.data.data.feedback.TR, CC: mutationFeed.data.data.feedback.CC, GRA: mutationFeed.data.data.feedback.GRA, LR: mutationFeed.data.data.feedback.LR, OVR: mutationFeed.data.data.feedback.Overall });
-			setScore({ TR: mutationFeed.data.data.scores.TaskResponse, CC: mutationFeed.data.data.scores.CoherenceAndCohesion, GRA: mutationFeed.data.data.scores.GrammarRangeAndAccuracy, LR: mutationFeed.data.data.scores.LexicalResource });
-		}
-	}, [mutationFeed.data]);
-
 	const wordCount = content.trim().split(/\s+/).length - 1;
 
 	return (
@@ -77,9 +71,7 @@ function WritingsPopulate () {
 
 			<Left writingId={writingId} uid={uid} handleSubmit={handleSubmit} topic={topic} setTopic={setTopic} setContent={setContent} content={content} wordCount={wordCount} resubmit={resubmit} mutationFeed={mutationFeed}/>
 
-			<div className="right">
-				<RightComponet comment={comment} score={score} mutation={mutationFeed} preFeed={preFeed} />
-			</div>
+			<RightComponent conmment={comment} content={content} topic={topic} score={score} mutation={mutationFeed} preFeed={preFeed} subscribed={subscribed} />
 		</WritingPageDiv>
 	);
 }

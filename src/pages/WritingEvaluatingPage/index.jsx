@@ -7,7 +7,8 @@ import RightComponent from "./right";
 import { WritingPageDiv } from "./style";
 import axios from "axios";
 import Left from "./Left";
-// import subscribedUserRight from "./subscribedUserRight";
+import { v4 as uuidv4 } from "uuid";
+// import { getUser } from "../../utils";
 
 const WritingPage = () => {
 	const [topic, setTopic] = useState("");
@@ -17,19 +18,19 @@ const WritingPage = () => {
 	const [resubmit, setResubmit] = useState(false);
 	const [preFeed, setPreFeed] = useState("");
 	const uid = localStorage.getItem("uid");
-
-	// const token = localStorage.getItem("token");
-
-	const writingId = uid.substring(0, 5).toLowerCase() + topic.toLowerCase().replace(/\s+/g, "").substring(0, 16);
+	const token = localStorage.getItem("token");
+	const writingId = uuidv4();
+	const subscribed = true;
 	const mutation = useMutation({
 		mutationFn: (input) => {
 			return newRequest.post("/api/evaluate", input);
 		},
 		onSuccess: async () => {
+			console.log(token, uid);
 			setResubmit(true);
 			const previousFeed = await axios.post(
 				"http://localhost:3005/users/viewHistory",
-				{ uid, writing_id: writingId, type: "feedback" }
+				{ uid, writing_id: writingId, type: "feedback", token }
 			);
 			console.log(preFeed);
 			setPreFeed(previousFeed.data);
@@ -37,7 +38,8 @@ const WritingPage = () => {
 	});
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		mutation.mutate({ writing_id: writingId, content, topic, uid });
+		console.log(e.value);
+		mutation.mutate({ writing_id: writingId, content, topic_content: topic, uid, token });
 	};
 
 	// const { data } = mutation;
@@ -73,14 +75,9 @@ const WritingPage = () => {
 			</Link>
 
 			<Left writingId={writingId} uid={uid} handleSubmit={handleSubmit} topic={topic} setTopic={setTopic} setContent={setContent} content={content} wordCount={wordCount} resubmit={resubmit} mutation={mutation}/>
-			<div className="right">
-				<RightComponent
-					comment={comment}
-					score={score}
-					mutation={mutation}
-					preFeed={preFeed}
-				/>
-			</div>
+
+			<RightComponent conmment={comment} content={content} topic={topic} score={score} mutation={mutation} preFeed={preFeed} subscribed={subscribed} />
+
 		</WritingPageDiv>
 	);
 };

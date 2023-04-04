@@ -1,14 +1,13 @@
-import { WritingPageDiv, PaidRight } from "./style";
+import { Button, PaidRight } from "./style";
 import NavBar from "./rightNavNar/index";
 
-const subscribedUserRight = ({ writing, topic }) => {
+const SubscribedUserRight = ({ writing, topic, premiumFeedback, setPrevious }) => {
 	return (
-		<WritingPageDiv>
-			<PaidRight>
-				<NavBar text={writing} topic={ topic} />
-			</PaidRight>
-		</WritingPageDiv>
+		<PaidRight>
+			<NavBar text={writing} topic={ topic} premiumFeedback={premiumFeedback} />
+			<Button onClick={() => setPrevious(true)}>previous feedback</Button>
+		</PaidRight>
 	);
 };
 
-export default subscribedUserRight;
+export default SubscribedUserRight;

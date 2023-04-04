@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 const PaidRight = styled.div`
   position: relative;
-  margin: 8vh 20px 5vh 10px;
+  margin: 2rem 20px 5vh 10px;
   padding:0 3rem;
   border-radius: 10px;
   background-color: white;
-  width: 45%;
+  width: 47%;
   min-width: 200px;
   // height:100%;
   min-height: 81vh;
@@ -29,4 +29,22 @@ const GrammarContainer = styled.div`
   margin-top:80px;
   text-align:left;
 `;
-export { PaidRight, WritingPageDiv, GrammarContainer };
+
+const Button = styled.button`
+  font-family: 'Poppins';
+  font-weight: 500;
+  bottom: 10px;
+  right: 20px;
+  position: absolute;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  width: 10rem;
+  height: 33px;
+  background-color:#1677ff;
+  &:hover {
+    cursor: pointer;
+    background-color:#4096ff;
+  }`;
+export { PaidRight, WritingPageDiv, GrammarContainer, Button };

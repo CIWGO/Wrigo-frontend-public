@@ -1,7 +1,7 @@
 import React from "react";
 import { LeftOutlined } from "@ant-design/icons";
 import moment from "moment/moment";
-import { PreFeedbacks } from "./style";
+import { NoFeed, PreFeedbacks, RightCard } from "../WritingEvaluatingPage/style.js";
 
 const PreFeedbackCard = ({ setPrevious, preFeed }) => {
 	function calOverall (numbers) {
@@ -15,24 +15,31 @@ const PreFeedbackCard = ({ setPrevious, preFeed }) => {
 
 	if (preFeed.length > 0) {
 		return (
-			<PreFeedbacks>
-				{preFeed.map((item) => (
-					<div key={item.id} className="button">
-						<button onClick={() => setPrevious(false)} className="back">
-							<LeftOutlined />
-						</button>
-						<div>
-							<p className="preFeed">
+			<RightCard>
+				<PreFeedbacks>
+					{preFeed.map((item) => (
+						<div key={item.id} className="button">
+							<button onClick={() => setPrevious(false)} className="back">
+								<LeftOutlined />
+							</button>
+							<div>
+								<p className="preFeed">
                 Band: {calOverall([item.score_CC, item.score_LR, item.score_TR, item.score_GRA])} Submitted at{" "}
-								{moment(item.created_time).format("MMMM Do YYYY, h:mm a")}
-							</p>
+									{moment(item.created_time).format("MMMM Do YYYY, h:mm a")}
+								</p>
+							</div>
 						</div>
-					</div>
-				))}
-			</PreFeedbacks>
+					))}
+				</PreFeedbacks>
+			</RightCard>
 		);
 	} else {
-		return <div>no previous feedbacks found</div>;
+		return	<RightCard>
+			<button onClick={() => setPrevious(false)} className="back">
+				<LeftOutlined />
+			</button>
+			<NoFeed>no previous feedbacks yet...</NoFeed>;
+		</RightCard>;
 	}
 };
 

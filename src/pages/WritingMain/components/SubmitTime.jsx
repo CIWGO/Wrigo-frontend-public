@@ -10,7 +10,6 @@ const TimeBox = styled.div`
 `;
 
 const SubmitTime = ({ submitTime }) => {
-	console.log(submitTime);
 	return (
 		<TimeBox>{moment(submitTime).format("MMMM Do YYYY")}</TimeBox>
 	);
