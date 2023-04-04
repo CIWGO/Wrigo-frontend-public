@@ -6,8 +6,19 @@ const StyledCard = styled(Card)`
   font-weight: 900;
   font-size: 24px;
   display: flex;
-  width: 65%;
-  border-radius: 0;
+  width: 50rem; 
+
+  @media (max-width: 1100px) {
+    width: 35rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 25rem;
+  }
+
+  @media (max-width: 468px) {
+    width: 15rem;
+  }
 `;
 
 const Title = () => {
