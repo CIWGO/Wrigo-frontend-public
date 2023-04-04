@@ -174,7 +174,7 @@ export const PreFeedbacks = styled.div`
 `;
 export const TopBackButton = styled.div`
 color:rgb(47, 113, 218);
-font-size: 1.7rem;
+font-size: 15px;
 position: absolute;
 top:20px;
 left:20px;
@@ -231,7 +231,7 @@ flex-direction: column;
 justify-content: space-around;
 gap:10px;
 display: flex;
-margin: 5rem 10% 10%;
+margin: 100px 10% 10%;
 text-align: left;
 height: 66vh;
 height: min-content;
@@ -240,11 +240,10 @@ height: min-content;
   position:absolute;
   right:30px; 
   top:1rem;
-  font-size: 0.5rem;
+  font-size: 11px;
   color: #969494c9;
 }
 button {
-  font-family: 'Poppins';
   font-weight: 500;
   bottom: 10px;
   right: 20px;
@@ -268,7 +267,7 @@ p {
   color: rgb(55, 109, 196);
   font-size: 1.4rem;
   position: absolute;
-  top: 8px;
+  top: 13px;
   right: 10%;
 }
 span {
@@ -320,7 +319,7 @@ background-color: "white";
 `;
 
 export const NoPre = styled.p`
-font-size: 1.5rem;
+font-size: 20px;
 font-weight: 600;
 color: #ccccccc9;`;
 
@@ -340,6 +339,6 @@ export const InputCardBottom = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   margin-left: 10px;
-  font-size: "12px";
+  font-size: 12px;
   font-weight: 700;
 `;
