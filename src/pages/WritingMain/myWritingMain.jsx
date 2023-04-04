@@ -68,7 +68,7 @@ const WritingHistoryPage = () => {
 				: (
 					// 1 single new writing card + main writing cards(mapped) + 1 load more card//
 					<StyledWritingHistoryPage>
-						<UtilityCardsWrapper to={`/user/writings/evaluation/${newWritingId}`}>
+						<UtilityCardsWrapper to={`/user/writing/evaluation/${newWritingId}`}>
 							<UtilityCard>
 								<PlusOutlined
 									style={{ fontSize: "60px", color: defaultColor }}
@@ -77,7 +77,7 @@ const WritingHistoryPage = () => {
 						</UtilityCardsWrapper>
 						{data.slice(0, displayCount - 1).map((item, index) => (
 
-							<UtilityCardsWrapper to={`/user/writings/${item.writing_id}`} key={index}>
+							<UtilityCardsWrapper to={`/user/writing/${item.writing_id}`} key={index}>
 								<UtilityCard>
 									<WritingContentCard loading={loading}
 										id= {item.writing_id}

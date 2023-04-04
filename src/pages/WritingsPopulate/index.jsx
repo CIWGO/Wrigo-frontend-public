@@ -19,7 +19,7 @@ function WritingsPopulate () {
 	const token = localStorage.getItem("token");
 	const uid = localStorage.getItem("uid");
 
-	const subscribed = true;
+	const subscribed = false;
 	useEffect(() => {
 		async function fetchData () {
 			try {
@@ -27,13 +27,15 @@ function WritingsPopulate () {
 				// axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "writingDoc" });
 				setTopic(response.data.task_topic);
 				setContent(response.data.writing_content);
-
+				console.log(response);
 				const previousFeedResponse = await viewHistory({ uid, writing_id: writingId, type: "feedback", token });
 				// axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
 				const previousFeed = previousFeedResponse.data;
+
 				setPreFeed(previousFeed);
 				setComment({ TR: previousFeed[0].feedback_TR, CC: previousFeed[0].feedback_CC, GRA: previousFeed[0].feedback_GRA, LR: previousFeed[0].feedback_LR, OVR: previousFeed[0].feedback_overall });
 				setScore({ TR: previousFeed[0].score_TR, CC: previousFeed[0].score_CC, GRA: previousFeed[0].score_GRA, LR: previousFeed[0].score_LR });
+				console.log(comment, score);
 			} catch (error) {
 				console.log(error);
 			}
@@ -71,7 +73,7 @@ function WritingsPopulate () {
 
 			<Left writingId={writingId} uid={uid} handleSubmit={handleSubmit} topic={topic} setTopic={setTopic} setContent={setContent} content={content} wordCount={wordCount} resubmit={resubmit} mutationFeed={mutationFeed}/>
 
-			<RightComponent conmment={comment} content={content} topic={topic} score={score} mutation={mutationFeed} preFeed={preFeed} subscribed={subscribed} />
+			<RightComponent comment={comment} content={content} topic={topic} score={score} mutation={mutationFeed} preFeed={preFeed} subscribed={subscribed} />
 		</WritingPageDiv>
 	);
 }

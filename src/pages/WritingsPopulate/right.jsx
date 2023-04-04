@@ -19,11 +19,11 @@ const RightComponent = ({ comment, score, mutation, preFeed, subscribed, topic, 
 	if (previous && !mutation.loading) {
 		return <PreFeedbackCard previous={previous} setPrevious={setPrevious} preFeed={preFeed}/>;
 	}
-	console.log(subscribed);
 	// if (subscribed) return <SubscribedUserRight setPrevious= {setPrevious} topic = {topic} writing = {content} premiumFeedback/>;
 	if (subscribed) { console.log(topic, content); return <RightCard>{topic}</RightCard>; };
 
-	if (comment.TR && !subscribed) {
+	if (comment && !subscribed) {
+		console.log(comment);
 		const numbers = [score.TR, score.LR, score.GRA, score.CC];
 		function calOverall (numbers) {
 			let sum = 0;

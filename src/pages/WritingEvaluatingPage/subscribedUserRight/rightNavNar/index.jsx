@@ -49,8 +49,10 @@ const NavBar = ({ text: writing, topic, premiumFeedback }) => {
 				selectedKeys={current}
 				mode="horizontal"
 				items={items}
+				style={{ margin: "5px 10px 0" }}
+
 			/>
-			<div style={{ marginTop: "50px" }}>{content}</div>
+			<div style={{ margin: "40px 7% 40px" }}>{content}</div>
 		</>
 	);
 };

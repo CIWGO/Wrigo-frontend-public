@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 const PaidRight = styled.div`
   position: relative;
-  margin: 2rem 20px 5vh 10px;
-  padding:0 3rem;
-  border-radius: 10px;
-  background-color: white;
-  width: 47%;
-  min-width: 200px;
-  // height:100%;
-  min-height: 81vh;
-  // flex: 1;
+  margin: 2rem 20px 5vh 20px;
+    border-radius: 10px;
+    background-color: white;
+    width: 45%;
+    min-width: 340px;
+    min-height: 81vh;
+    flex: 1;
+    box-sizing: border-box;
 `;
 
 const WritingPageDiv = styled.div`
@@ -26,7 +25,8 @@ const WritingPageDiv = styled.div`
 `;
 
 const GrammarContainer = styled.div`
-  margin-top:80px;
+
+  margin:100px 7% 5vh 7%;
   text-align:left;
 `;
 
