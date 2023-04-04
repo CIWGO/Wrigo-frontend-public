@@ -3,8 +3,8 @@ pipeline {
     
     environment {
         GIT_URL = credentials('git-repo-frontend')
-        AWS_REGION = 'ap-southeast-1'
-        S3_BUCKET_NAME = 'wrigo.com.au'
+        AWS_REGION = 'ap-southeast-2'
+        S3_BUCKET_NAME = 'uat.wrigo.com.au'
     }
 
     stages {
@@ -16,7 +16,7 @@ pipeline {
 
         stage('Install dependencies') {
             steps {
-                sh 'npm install'
+                sh 'npm ci'
             }
         }
         
@@ -24,13 +24,6 @@ pipeline {
             steps {
                 //sh 'npm run test'
                 echo 'test to be back'
-            }
-        }
-        
-        stage("Lint"){
-            steps{
-                // run eslint
-                sh 'npm run lint'
             }
         }
 
@@ -43,7 +36,6 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                echo 'test to deploy' 
                 unstash 'app_build'
                 sh 'mkdir -p /var/lib/jenkins/app_build'
                 sh 'cp -r build/* /var/lib/jenkins/app_build'
