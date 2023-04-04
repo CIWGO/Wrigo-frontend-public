@@ -65,6 +65,8 @@ export const cancelSubscription = (values) => {
 	return newRequest.post("/api/stripe-webhook", values);
 };
 
+export const getPreviousFeed = (values) => { return newRequest.post("/users/viewHistory", values); };
+
 // Patch
 export const changeEmail = (values) => {
 	return newRequest.patch("/users/changeEmail", values);
