@@ -7,11 +7,13 @@ import { EllipsisOutlined, PlusOutlined } from "@ant-design/icons";
 import { StyledButton, StyledWritingHistoryPage, UtilityCardsWrapper } from "./style";
 import WritingContentCard from "./WritingContentCard";
 import { Skeleton } from "antd";
+import { v4 as uuidv4 } from "uuid";
 
 const WritingHistoryPage = () => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [displayCount, setDisplayCount] = useState(17);
+	const newWritingId = uuidv4();
 
 	useEffect(() => {
 		setLoading(true);
@@ -45,7 +47,7 @@ const WritingHistoryPage = () => {
 				? (
 			// loading skeletons...need to add animation//
 					<StyledWritingHistoryPage>
-						<UtilityCardsWrapper to="/user/writings/evaluation">
+						<UtilityCardsWrapper>
 							<UtilityCard>
 								<PlusOutlined
 									style={{ fontSize: "60px", color: defaultColor }}
@@ -66,7 +68,7 @@ const WritingHistoryPage = () => {
 				: (
 					// 1 single new writing card + main writing cards(mapped) + 1 load more card//
 					<StyledWritingHistoryPage>
-						<UtilityCardsWrapper to="/user/writings/evaluation">
+						<UtilityCardsWrapper to={`/user/writings/evaluation/${newWritingId}`}>
 							<UtilityCard>
 								<PlusOutlined
 									style={{ fontSize: "60px", color: defaultColor }}

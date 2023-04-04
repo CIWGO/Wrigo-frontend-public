@@ -1,13 +1,12 @@
 import newRequest from "../../utils/newRequest";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
 import RightComponent from "./right";
 import { WritingPageDiv } from "./style";
 import axios from "axios";
 import Left from "./Left";
-import { v4 as uuidv4 } from "uuid";
 // import { getUser } from "../../utils";
 
 const WritingPage = () => {
@@ -18,7 +17,7 @@ const WritingPage = () => {
 	const [preFeed, setPreFeed] = useState("");
 	const uid = localStorage.getItem("uid");
 	const token = localStorage.getItem("token");
-	const writingId = uuidv4();
+	const { writingId } = useParams();
 	const subscribed = true;
 	const mutation = useMutation({
 		mutationFn: (input) => {
@@ -36,6 +35,7 @@ const WritingPage = () => {
 	});
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		console.log(e.value);
 		mutation.mutate({ writing_id: writingId, content, topic_content: topic, uid, token });
 	};
 
