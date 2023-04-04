@@ -74,7 +74,7 @@ export default [
 				element: <WritingsPopulate />
 			},
 			{
-				path: "writings/evaluation",
+				path: "writing/evaluation/:writingId",
 				element: <WritingPage />
 			},
 			{

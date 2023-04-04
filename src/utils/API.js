@@ -66,6 +66,7 @@ export const cancelSubscription = (values) => {
 };
 
 export const getUserPaymentInfo = (values) => { return newRequest.post("/users/getUserPaymentInfo", values); };
+export const getPreviousFeed = (values) => { return newRequest.post("/users/viewHistory", values); };
 
 // Patch
 export const changeEmail = (values) => {
