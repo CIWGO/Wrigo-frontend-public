@@ -29,6 +29,8 @@ export const writingSubmissions = (values) => { return newRequest.post("/api/wri
 
 export const paymentRedirection = (values) => { return newRequest.post("/api/checkout", values); };
 
+export const getPreviousFeed = (values) => { return newRequest.post("/users/viewHistory", values); };
+
 // Patch
 export const changeEmail = (values) => { return newRequest.patch("/users/changeEmail", values); };
 

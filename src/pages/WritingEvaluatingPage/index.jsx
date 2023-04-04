@@ -5,8 +5,8 @@ import { useMutation } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
 import RightComponent from "./right";
 import { WritingPageDiv } from "./style";
-import axios from "axios";
 import Left from "./Left";
+import { getPreviousFeed } from "../../utils/API";
 // import { getUser } from "../../utils";
 
 const WritingPage = () => {
@@ -18,24 +18,18 @@ const WritingPage = () => {
 	const uid = localStorage.getItem("uid");
 	const token = localStorage.getItem("token");
 	const { writingId } = useParams();
-	const subscribed = true;
 	const mutation = useMutation({
 		mutationFn: (input) => {
 			return newRequest.post("/api/evaluate", input);
 		},
 		onSuccess: async () => {
-			setResubmit(true);
-			const previousFeed = await axios.post(
-				"http://localhost:3005/users/viewHistory",
-				{ uid, writing_id: writingId, type: "feedback", token }
-			);
-			console.log(preFeed);
+			setResubmit(true);	const previousFeed = await getPreviousFeed({ uid, writing_id: writingId, type: "feedback", token });
+			console.log(previousFeed);
 			setPreFeed(previousFeed.data);
 		}
 	});
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(e.value);
 		mutation.mutate({ writing_id: writingId, content, topic_content: topic, uid, token });
 	};
 
@@ -61,7 +55,7 @@ const WritingPage = () => {
 
 			<Left writingId={writingId} uid={uid} handleSubmit={handleSubmit} topic={topic} setTopic={setTopic} setContent={setContent} content={content} wordCount={wordCount} resubmit={resubmit} mutation={mutation}/>
 
-			<RightComponent comment={comment} content={content} topic={topic} mutation={mutation} preFeed={preFeed} subscribed={subscribed} />
+			<RightComponent comment={comment} content={content} topic={topic} mutation={mutation} preFeed={preFeed} />
 
 		</WritingPageDiv>
 	);

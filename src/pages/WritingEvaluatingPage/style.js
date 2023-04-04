@@ -147,7 +147,7 @@ position: relative;
     width: 80%;
   }`;
 export const BackButton = styled.button` position: absolute;
-top:20px;
+top:30px;
 `;
 export const RightCard = styled.div`
   position: relative;
@@ -172,7 +172,14 @@ export const PreFeedbacks = styled.div`
     color: rgb(40, 86, 161);
   }
 `;
+export const TopBackButton = styled.div`
+color:rgb(47, 113, 218);
+font-size: 1.7rem;
+position: absolute;
+top:20px;
+left:20px;
 
+`;
 const spin = keyframes`
   0% {
     transform: rotate(0deg);
