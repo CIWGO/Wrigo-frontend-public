@@ -61,6 +61,14 @@ jobs:
           role-to-assume: ${{ secrets.OIDC }}
           role-session-name: MySessionName
           
-      - name: Copy files to S3 with the AWS CLI
-        run: |
-          aws s3 cp ./build/artifact s3://uat.wrigo.com.au
+#       - name: Copy files to S3 with the AWS CLI
+#         run: |
+#           aws s3 cp ./build/artifact s3://uat.wrigo.com.au
+
+      - name: Upload S3
+        uses: shallwefootball/upload-s3-action@v1.3.3
+        with:
+          # aws bucket name
+          aws_bucket: uat.wrigo.com.au
+          # directory to upload
+          source_dir: build
