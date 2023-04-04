@@ -2,7 +2,7 @@ import History from "../../../components/PaymentHistory";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-	height: 100vh;
+	height: 70vh;
 `;
 
 const PaymentHistory = () => {

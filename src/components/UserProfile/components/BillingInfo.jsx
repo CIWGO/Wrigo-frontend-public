@@ -8,7 +8,7 @@ import {
 } from "./style";
 import { getUserPaymentInfo } from "../../../../src/utils/API";
 
-const BillingInfo = () => {
+const BillingInfo = (props) => {
 	const [paymentInfo, setPaymentInfo] = useState([]);
 
 	const uid = localStorage.getItem("uid");
@@ -51,6 +51,10 @@ const BillingInfo = () => {
 		}, 2000);
 	};
 
+	const showPaymentHandler = () => {
+		props.togglePayment();
+	};
+
 	return (
 		<InformationCard title="Plan & Billing Information" headStyle={{ color: "#2F71DA", fontWeight: 700, fontSize: "1.4rem", textAlign: "start" }}>
 			{/* plan */}
@@ -80,8 +84,8 @@ const BillingInfo = () => {
 			</FormDefault>
 			{!isSubscribed &&
 			<>
-				<ButtonDefault type="primary" onClick={cancelSubHandler} >
-          Payment History
+				<ButtonDefault type="primary" onClick={showPaymentHandler} >
+					{ !props.showPayment ? "Payment History" : "Hide Payment History"}
 				</ButtonDefault>
 				<ButtonDefault type="default" onClick={cancelSubHandler} >
           Cancel Subscription

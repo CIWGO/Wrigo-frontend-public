@@ -8,7 +8,7 @@ export const UserProfileLayout = styled(Space)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 95vh;
+  min-height: 100vh;
   width: 100%;
 `;
 

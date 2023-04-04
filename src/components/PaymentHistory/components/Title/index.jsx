@@ -17,7 +17,7 @@ const StyledCard = styled(Card)`
   }
 
   @media (max-width: 468px) {
-    width: 15rem;
+    width: 17rem;
   }
 `;
 
