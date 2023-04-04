@@ -12,7 +12,6 @@ import EditUserProfile from "../pages/EditUserProfile";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
 import TopicContent from "../pages/TopicContent/index";
-import ResetPasswordPage from "../pages/ResetPassword";
 import WritingsPopulate from "../pages/WritingsPopulate";
 // import PopularTopicsCard from "../pages/Dashboard/popularTopics";
 // import DashBoardPage from "../pages/Dashboard/dashboard";
@@ -21,6 +20,8 @@ import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
 import PaymentHistory from "../pages/PaymentHistory";
+import ResetPasswordEmailVerificationPage from "../pages/ResetPassword/ResetPasswordEmailVerification";
+import ResetPasswordPage from "../pages/ResetPassword/ResetPasswordPage";
 
 // import SubscribedUserRight from "../pages/WritingEvaluatingPage/subscribedUserRight/index";
 
@@ -55,6 +56,10 @@ export default [
 	},
 	{
 		path: "/resetpassword",
+		element: <ResetPasswordEmailVerificationPage />
+	},
+	{
+		path: "/resetpassword1",
 		element: <ResetPasswordPage />
 	},
 
