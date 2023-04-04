@@ -1,10 +1,5 @@
 name: Frontend CD Buildand deploy to AWS S3
 
-# on:
-#   push:
-#     branches: ['main']
-#   workflow_dispatch:
-
 on:
   workflow_dispatch:
   push:
@@ -15,6 +10,8 @@ on:
     branches: 
       - main
   
+env:
+  NODE_VERSION: '16.0'
 
 permissions:
  contents: read 
@@ -30,7 +27,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: 16.x
+          node-version: ${{ env.NODE_VERSION }}
           cache: npm
       
       - name: npm install and run build
@@ -66,4 +63,4 @@ jobs:
           
       - name: Copy files to S3 with the AWS CLI
         run: |
-          aws s3 sync ./build/artifact s3://uat.wrigo.com.au
+          aws s3 cp ./build/artifact s3://uat.wrigo.com.au
