@@ -3,7 +3,7 @@ import React from "react";
 import { writingDraft } from "../../utils";
 import { ButtonContainer, InputCardBottom } from "../WritingEvaluatingPage/style";
 
-const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, resubmit, mutationFeed, writingId, uid }) => {
+const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, resubmit, mutation, writingId, uid }) => {
 	const handleSaveDraft = () => {
 		const draft = { writing_id: writingId, content, topic, uid };
 		writingDraft({ draft }).then((response) => {
@@ -55,7 +55,7 @@ const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, r
 									<Button
 										type="primary"
 										htmlType="submit"
-										disabled={mutationFeed.isLoading}
+										disabled={mutation.isLoading}
 										style={{ marginLeft: "10px" }}
 									>
 										{resubmit ? "resubmit" : "submit"}

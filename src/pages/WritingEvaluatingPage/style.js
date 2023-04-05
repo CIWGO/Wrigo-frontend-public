@@ -150,33 +150,33 @@ export const BackButton = styled.button` position: absolute;
 top:30px;
 `;
 export const RightCard = styled.div`
-  position: relative;
-  margin: 2rem 20px 5vh 10px;
-  border-radius: 10px;
-  background-color: white;
-  width: 45%;
-  min-width: 340px;
-
-  flex: 1;`;
+   position: relative;
+  margin: 2rem 20px 5vh 15px;
+    border-radius: 10px;
+    background-color: white;
+    width: 45%;
+    min-width: 340px;
+    min-height: 81vh;
+    flex: 1;`;
 export const PreFeedbacks = styled.div`
-  margin: 70px 50px 50px;
+  margin: 70px 50px 20px;
   display: flex;
   flex-direction: column;
-  gap: auto;
-  height: 70vh;
+  gap: 0;
+  min-height:61vh;
 
   .preFeed {
     text-align: start;
     font-weight: 400;
-    font-size: large;
+    font-size: 14px;
     color: rgb(40, 86, 161);
   }
 `;
 export const TopBackButton = styled.div`
 color:rgb(47, 113, 218);
-font-size: 15px;
+font-size: 19px;
 position: absolute;
-top:20px;
+top:30px;
 left:20px;
 
 `;
@@ -205,7 +205,6 @@ export const LoadingContainer = styled.div`
     margin: 0 auto;
   }
   .loading-text {
-    font-family: "Poppins";
     font-size: 1.5rem;
     text-align: center;
     margin-top: 10px;
