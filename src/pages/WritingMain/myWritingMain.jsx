@@ -49,7 +49,7 @@ const WritingHistoryPage = () => {
 
 	return (
 		<>
-			<HeadingComponent displayValue={"Writings Main"} />
+			<HeadingComponent displayValue={"My Writings"} />
 			{loading
 				? (
 			// loading skeletons...need to add animation//
@@ -102,7 +102,7 @@ const WritingHistoryPage = () => {
 								<UtilityCard>
 									<StyledButton onClick={handleLoadMore}>
 										<EllipsisOutlined
-											style={{ fontSize: "60px", color: "rgb(47, 113, 218)" }}
+											style={{ fontSize: "60px", color: "#2f71da" }}
 										/>
 									</StyledButton>
 								</UtilityCard>
