@@ -7,16 +7,19 @@ import { EllipsisOutlined, PlusOutlined } from "@ant-design/icons";
 import { StyledButton, StyledWritingHistoryPage, UtilityCardsWrapper } from "./style";
 import WritingContentCard from "./WritingContentCard";
 import { Skeleton } from "antd";
+import { v4 as uuidv4 } from "uuid";
+import { deleteWriting } from "../../utils/API";
 
 const WritingHistoryPage = () => {
 	const [data, setData] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [displayCount, setDisplayCount] = useState(17);
+	const newWritingId = uuidv4();
 
 	useEffect(() => {
 		setLoading(true);
 		const fromDate = "1970-01-01";
-		const toDate = new Date().toISOString().slice(0, 10);
+		const toDate = "2050-01-01";
 		const token = localStorage.getItem("token");
 		const uid = localStorage.getItem("uid");
 		viewHistory({ token, uid, type: "writingHistory", from: fromDate, to: toDate }).then((response) => {
@@ -29,7 +32,13 @@ const WritingHistoryPage = () => {
 			setLoading(false);
 		});
 	}, []);
-
+	const handleDelete = async (token, uid, writingId, event) => {
+		console.log(1);
+		event.preventDefault();
+		event.stopPropagation();
+		await deleteWriting({ token, uid, writing_id: writingId });
+		window.location.reload();
+	};
 	const handleLoadMore = () => {
 		setDisplayCount(displayCount + 12);
 	};
@@ -45,7 +54,7 @@ const WritingHistoryPage = () => {
 				? (
 			// loading skeletons...need to add animation//
 					<StyledWritingHistoryPage>
-						<UtilityCardsWrapper to="/user/writings/evaluation">
+						<UtilityCardsWrapper>
 							<UtilityCard>
 								<PlusOutlined
 									style={{ fontSize: "60px", color: defaultColor }}
@@ -66,7 +75,7 @@ const WritingHistoryPage = () => {
 				: (
 					// 1 single new writing card + main writing cards(mapped) + 1 load more card//
 					<StyledWritingHistoryPage>
-						<UtilityCardsWrapper to="/user/writings/evaluation">
+						<UtilityCardsWrapper to={`/user/writing/evaluation/${newWritingId}`}>
 							<UtilityCard>
 								<PlusOutlined
 									style={{ fontSize: "60px", color: defaultColor }}
@@ -75,13 +84,15 @@ const WritingHistoryPage = () => {
 						</UtilityCardsWrapper>
 						{data.slice(0, displayCount - 1).map((item, index) => (
 
-							<UtilityCardsWrapper to={`/user/writings/${item.writing_id}`} key={index}>
+							<UtilityCardsWrapper to={`/user/writing/${item.writing_id}`} key={index}>
 								<UtilityCard>
 									<WritingContentCard loading={loading}
 										id= {item.writing_id}
 										taskTopic={item.task_topic}
 										writingContent={item.writing_content}
-										submitTime={item.submit_time}/>
+										submitTime={item.submit_time}
+										handleDelete={handleDelete}
+									/>
 								</UtilityCard>
 							</UtilityCardsWrapper>
 						))}

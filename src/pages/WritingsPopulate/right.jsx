@@ -1,23 +1,30 @@
-import PreFeedbackCard from "./preFeedbackCard";
 import moment from "moment/moment";
 import { useState } from "react";
 import { Modal } from "antd";
-import { FeedbackContainer, Group, LoadingContainer, NoFeed } from "../WritingEvaluatingPage/style";
-const RightComponet = ({ comment, score, mutation, preFeed }) => 	{
+import { FeedbackContainer, Group, LoadingContainer, NoFeed, RightCard } from "../WritingEvaluatingPage/style";
+import SubscribedUserRight from "../WritingEvaluatingPage/subscribedUserRight";
+import PreFeedbackCard from "../WritingEvaluatingPage/preFeedbackCard";
+const RightComponent = ({ comment, mutation, preFeed, subscribed, topic, content }) => 	{
 	const [previous, setPrevious] = useState(false);
 	const [modalVisible, setModalVisible] = useState(false);
 	const [clickedComment, setClickedComment] = useState("");
+	console.log(comment, subscribed);
 	if (mutation.isLoading) {
-		return <LoadingContainer>
-			<div className="loader"></div>
-			<div className="loading-text">Loading... it will take few seconds</div>
-		</LoadingContainer>;
+		return <RightCard>
+			<LoadingContainer>
+				<div className="loader"></div>
+				<div className="loading-text">Loading... it will take few seconds</div>
+			</LoadingContainer>;
+		</RightCard>;
 	}
 	if (previous && !mutation.loading) {
 		return <PreFeedbackCard previous={previous} setPrevious={setPrevious} preFeed={preFeed}/>;
 	}
-	if (comment.TR) {
-		const numbers = [score.TR, score.LR, score.GRA, score.CC];
+	if (comment && subscribed) { console.log(topic, content, comment); return <SubscribedUserRight topic={topic} writing={content} premiumFeedback={comment} setPrevious={setPrevious} />; };
+
+	if (comment && !subscribed) {
+		console.log(comment);
+		const numbers = [Number(comment.CC), Number(comment.GRA), Number(comment.LR), Number(comment.TR)];
 		function calOverall (numbers) {
 			let sum = 0;
 			for (let i = 0; i < numbers.length; i++) {
@@ -28,53 +35,61 @@ const RightComponet = ({ comment, score, mutation, preFeed }) => 	{
 		}
 		console.log(comment.TR.length);
 		const categories = [
-			{ label: "TR", score: score.TR, comment: comment.TR },
-			{ label: "CC", score: score.CC, comment: comment.CC },
-			{ label: "GRA", score: score.GRA, comment: comment.GRA },
-			{ label: "LR", score: score.LR, comment: comment.LR },
-			{ label: "Overall", score: null, comment: comment.OVR }
+			{ label: "TR", score: comment.TR, comment: comment.commentTR },
+			{ label: "CC", score: comment.CC, comment: comment.commentCC },
+			{ label: "GRA", score: comment.GRA, comment: comment.commentGRA },
+			{ label: "LR", score: comment.LR, comment: comment.commentLR }
 		];
+		if (comment.OVR !== undefined) {
+			categories.push({ label: "Overall", score: null, comment: comment.commentOVR });
+		}
 		const handleModalCancel = () => {
 			setModalVisible(false);
 		};
-		return <FeedbackContainer>
-			<p id="moment">Evaluted at {moment(Date.now()).format("MMMM Do YYYY, h:mm a")}</p>
-			<p>band<span>
-				{calOverall(numbers)}
-			</span>
-			</p>
-			{categories.map(({ label, score, comment }) => (
-				<Group key={label}>
-					<div className="scores">
-						<h3>{score ? `${label}:${score}` : label}</h3>
-					</div>
-					<div className="comment">
-						<h3
-							className={`thin ${comment.toString().length > 145 ? "sliced" : ""}`}
-							onClick={() => {
-								setClickedComment(comment);
-								setModalVisible(true);
-							}}
-						>
-							{comment.toString().length > 145
-								? comment.toString().slice(0, 145) + "..."
-								: comment} {comment.toString().length > 145 && <span>view full comment</span>}
-						</h3>
-					</div>
-				</Group>
-			))}
+		return <RightCard>
 
-			<button onClick={() => setPrevious(true)}>previous feedback</button>
-			<Modal
-				title="Comment"
-				visible={modalVisible}
-				onCancel={handleModalCancel}
-				footer={null}
-			>
-				<p>{clickedComment}</p>
-			</Modal>
-		</FeedbackContainer>;
-	}; return <NoFeed>no feed back yet...</NoFeed>;
+			<FeedbackContainer>
+				<p id="moment">Evaluted at {moment(Date.now()).format("MMMM Do YYYY, h:mm a")}</p>
+				<p>band<span>
+					{calOverall(numbers)}
+				</span>
+				</p>
+				{categories.map(({ label, score, comment }) => (
+					<Group key={label}>
+						<div className="scores">
+							<h3>{score ? `${label}:${score}` : label}</h3>
+						</div>
+						<div className="comment">
+							<h3
+								className={`thin ${comment.toString().length > 145 ? "sliced" : ""}`}
+								onClick={() => {
+									setClickedComment(comment);
+									setModalVisible(true);
+								}}
+							>
+								{comment.toString().length > 145
+									? comment.toString().slice(0, 145) + "..."
+									: comment} {comment.toString().length > 145 && <span>view full comment</span>}
+							</h3>
+						</div>
+					</Group>
+				))}
+
+				<button onClick={() => setPrevious(true)}>previous feedback</button>
+				<Modal
+					title="Comment"
+					visible={modalVisible}
+					onCancel={handleModalCancel}
+					footer={null}
+				>
+					<p>{clickedComment}</p>
+				</Modal>
+			</FeedbackContainer>;
+		</RightCard>;
+	};
+	return <RightCard>
+		<NoFeed>no feed back yet...</NoFeed>
+	</RightCard>;
 };
 
-export default RightComponet;
+export default RightComponent;

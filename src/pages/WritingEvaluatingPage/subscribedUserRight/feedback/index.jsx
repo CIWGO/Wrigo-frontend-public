@@ -9,10 +9,18 @@ const FeedbackWrap = styled.div`
 `;
 const FeedbackSection = ({ text }) => {
 	const { commentTR, commentCC, commentLR, commentGRA, TR, CC, LR, GRA } = text;
-	const score = (Number(TR) + Number(CC) + Number(LR) + Number(GRA)) / 4;
+	function calOverall (numbers) {
+		let sum = 0;
+		for (let i = 0; i < numbers.length; i++) {
+			sum += numbers[i];
+		}
+		const avg = sum / numbers.length;
+		return Math.round(avg * 2) / 2;
+	}
+	const score = [Number(TR), Number(CC), Number(LR), Number(GRA)];
 	return (
 		<FeedbackWrap>
-			<FeedbackTitle title="Feedback" score={ score} />
+			<FeedbackTitle title="Feedback" score={calOverall(score)} />
 			<CollapseSection tr={TR} cc={CC} lr={LR} gra={GRA} text1={ commentTR} text2={ commentCC} text3={ commentLR} text4={ commentGRA} />
 		</FeedbackWrap>
 	);

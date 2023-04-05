@@ -3,67 +3,74 @@ import newRequest from "../../utils/newRequest";
 import { useState, useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { LeftOutlined } from "@ant-design/icons";
-import RightComponet from "./right";
 import Left from "./Left";
 import { WritingPageDiv } from "../WritingEvaluatingPage/style";
 import { viewHistory } from "../../utils";
+import RightComponent from "./right";
 function WritingsPopulate () {
 	const { writingId } = useParams();
 	const [content, setContent] = useState("");
 	const [topic, setTopic] = useState("");
-
 	const [comment, setComment] = useState("");
-	const [score, setScore] = useState(null);
 	const [resubmit, setResubmit] = useState(false);
 	const [preFeed, setPreFeed] = useState("");
-	const uid = "userid";
+	const token = localStorage.getItem("token");
+	const uid = localStorage.getItem("uid");
+	const [subscribed, setSubscribed] = useState(null);
 
 	useEffect(() => {
 		async function fetchData () {
 			try {
-				const response = await viewHistory({ uid, writing_id: writingId, type: "writingDoc" });
-				// axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "writingDoc" });
-				setTopic(response.data.task_topic);
-				setContent(response.data.writing_content);
-
-				const previousFeedResponse = await viewHistory({ uid, writing_id: writingId, type: "feedback" });
-				// axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
+				const response = await viewHistory({ uid, writing_id: writingId, type: "writingDoc", token });
+				setTopic(response.data._doc.task_topic);
+				setContent(response.data._doc.writing_content);
+				setSubscribed(response.data.isSubscribed);
+				console.log(response, subscribed);
+				const previousFeedResponse = await viewHistory({ uid, writing_id: writingId, type: "feedback", token });
 				const previousFeed = previousFeedResponse.data;
+
 				setPreFeed(previousFeed);
-				setComment({ TR: previousFeed[0].feedback_TR, CC: previousFeed[0].feedback_CC, GRA: previousFeed[0].feedback_GRA, LR: previousFeed[0].feedback_LR, OVR: previousFeed[0].feedback_overall });
-				setScore({ TR: previousFeed[0].score_TR, CC: previousFeed[0].score_CC, GRA: previousFeed[0].score_GRA, LR: previousFeed[0].score_LR });
+				setComment({
+					CC: previousFeed[0].score_CC,
+					GRA: previousFeed[0].score_GRA,
+					LR: previousFeed[0].score_LR,
+					TR: previousFeed[0].score_TR,
+					commentCC: previousFeed[0].feedback_CC,
+					commentGRA: previousFeed[0].feedback_GRA,
+					commentLR: previousFeed[0].feedback_LR,
+					commentTR: previousFeed[0].feedback_TR,
+					commentOVR: previousFeed[0].feedback_overall ? previousFeed[0].feedback_overall : null
+				});
 			} catch (error) {
 				console.log(error);
 			}
 		}
-
 		fetchData();
 	}, []);
 
-	const mutationFeed = useMutation({
+	const mutation = useMutation({
 		mutationFn: (input) => {
 			return newRequest.post("/api/evaluate", input);
 		},
 		onSuccess: async () => {
 			setResubmit(true);
-			const previousFeed = await viewHistory({ uid, writing_id: writingId, type: "feedback" });
-			// axios.post("http://localhost:3005/users/viewHistory", { uid, writing_id: writingId, type: "feedback" });
+			const previousFeed = await viewHistory({ uid, writing_id: writingId, type: "feedback", token });
 			setPreFeed(previousFeed.data);
 		}
 	});
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		mutationFeed.mutate({ writing_id: writingId, content, topic, uid });
+		mutation.mutate({ writing_id: writingId, content, topic, uid, token });
 	};
 
-	useEffect(() => {
-		if (mutationFeed.data) {
-			setComment({ TR: mutationFeed.data.data.feedback.TR, CC: mutationFeed.data.data.feedback.CC, GRA: mutationFeed.data.data.feedback.GRA, LR: mutationFeed.data.data.feedback.LR, OVR: mutationFeed.data.data.feedback.Overall });
-			setScore({ TR: mutationFeed.data.data.scores.TaskResponse, CC: mutationFeed.data.data.scores.CoherenceAndCohesion, GRA: mutationFeed.data.data.scores.GrammarRangeAndAccuracy, LR: mutationFeed.data.data.scores.LexicalResource });
-		}
-	}, [mutationFeed.data]);
-
 	const wordCount = content.trim().split(/\s+/).length - 1;
+
+	useEffect(() => {
+		if (mutation.data) {
+			console.log(mutation.data);
+			setComment(mutation.data.data.premiumFeedback);
+		}
+	}, [mutation.data]);
 
 	return (
 		<WritingPageDiv>
@@ -74,11 +81,9 @@ function WritingsPopulate () {
 				</button>
 			</Link>
 
-			<Left writingId={writingId} uid={uid} handleSubmit={handleSubmit} topic={topic} setTopic={setTopic} setContent={setContent} content={content} wordCount={wordCount} resubmit={resubmit} mutationFeed={mutationFeed}/>
+			<Left writingId={writingId} uid={uid} handleSubmit={handleSubmit} topic={topic} setTopic={setTopic} setContent={setContent} content={content} wordCount={wordCount} resubmit={resubmit} mutation={mutation}/>
 
-			<div className="right">
-				<RightComponet comment={comment} score={score} mutation={mutationFeed} preFeed={preFeed} />
-			</div>
+			<RightComponent comment={comment} content={content} topic={topic} mutation={mutation} preFeed={preFeed} subscribed={subscribed} />
 		</WritingPageDiv>
 	);
 }

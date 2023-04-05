@@ -49,6 +49,10 @@ export const writingStatistics = (values) => {
 	return newRequest.post("/api/writingStatistics", values);
 };
 
+export const writingStatisticsPie = (values) => {
+	return newRequest.post("/api/topicCategoryCounters", values);
+};
+
 export const writingSubmissions = (values) => {
 	return newRequest.post("/api/writingSubmissions", values);
 };
@@ -62,13 +66,18 @@ export const checkoutSuccess = (values) => {
 };
 
 export const cancelSubscription = (values) => {
-	return newRequest.post("/api/stripe-webhook", values);
+	return newRequest.post("/api//cancelSubscriptionAtPeriodEnd", values);
 };
+
+export const getUserPaymentInfo = (values) => { return newRequest.post("/users/getUserPaymentInfo", values); };
+export const getPreviousFeed = (values) => { return newRequest.post("/users/viewHistory", values); };
 
 // Patch
 export const changeEmail = (values) => {
 	return newRequest.patch("/users/changeEmail", values);
 };
+// put
+export const deleteWriting = (values) => { return newRequest.put("/users/deleteWriting", values); };
 
 // example mock request
 export const requestNumber = () => {

@@ -80,7 +80,7 @@ const Email = (props) => {
 		<>
 			<FormDefault>
 				<FormDefault.Item>
-					<label style={{ display: "block", textAlign: "start", color: "#1890ff" }} htmlFor="email">Email</label>
+					<label style={{ display: "block", textAlign: "start", color: "#2F71DA" }} htmlFor="email">Email</label>
 					<InputDefault id="email" placeholder={props.emailValue} autoComplete="off" onChange={emailOnChangeHandler}/>
 				</FormDefault.Item>
 				<FormDefault.Item>
