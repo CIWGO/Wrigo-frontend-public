@@ -14,7 +14,8 @@ export const requestVerifyOTPAsync = createAsyncThunk(
 	"emailVerification/postData",
 	async (data) => {
 		const response = await verifyOTP(data);
-		return response.data.user.email_verified;
+		console.log(response);
+		return response;
 	}
 );
 export const requestEmail = createAsyncThunk(
@@ -59,7 +60,7 @@ export const emailVerificationSlice = createSlice({
 			})
 			.addCase(requestVerifyOTPAsync.fulfilled, (state, action) => {
 				state.loading = false;
-				state.email_verified = action.payload;
+				state.email_verified = action.email_verified;
 			})
 			.addCase(requestVerifyOTPAsync.rejected, (state, action) => {
 				state.loading = false;
