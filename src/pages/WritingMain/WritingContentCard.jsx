@@ -23,15 +23,20 @@ const WritingContentCard = ({
 	id,
 	taskTopic,
 	writingContent,
-	submitTime
+	submitTime,
+	handleDelete
+
 }) => {
+	const token = localStorage.getItem("token");
+	const uid = localStorage.getItem("uid");
+
 	return (
 		<>
 			<Topic taskTopic={taskTopic}/>
 			<Score id={id}/>
 			<SubmitTime submitTime={submitTime}/>
 			<IconBox>
-				<DeleteOutlined/>
+				<DeleteOutlined onClick={(event) => handleDelete(token, uid, id, event)}/>
 
 			</IconBox>
 
