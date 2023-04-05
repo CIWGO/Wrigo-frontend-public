@@ -3,33 +3,28 @@ import { MyForm } from "./style";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 import { signupUser, sendOTPViaEmail } from "../../utils";
 import { useNavigate } from "react-router-dom";
-import { setUserLogin, setUserInfo } from "../../slice/userSlice";
-import { useDispatch } from "react-redux";
-
 const SignUpForm = () => {
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
 	// Think about refactor it by using redux and redux toolkit.
 	const onFinish = async (values) => {
 		try {
 			const response = await signupUser(values);
-			console.log(response.data);
-
+			console.log(response.status);
 			if (response.status === 201) {
 				// sign up success
-				const { uid: userId, username: userName, token } = response.data;
-
-				dispatch(setUserLogin({ userId, userName, token }));
-				dispatch(setUserInfo({ userId, userName }));
-				localStorage.setItem("token", token); // store the token in localStorage
+				const { uid: userId, username: userName } = response.data;
+				console.log(response.data);
+				// store the token in localStorage
 				localStorage.setItem("uid", userId); // store the uid in localStorage
 				localStorage.setItem("username", userName); // store the username in localStorage
-				await sendOTPViaEmail({ uid: userId, username: userName });
 				console.log("sign up success");
+				notification.success({ message: "Sign up success" });
+				await sendOTPViaEmail({ uid: userId, username: userName });
 				navigate("/emailVerification");
+			} else {
+				notification.success({ message: "Account already registered" });
+				navigate("/login");
 			}
-
-			notification.success({ message: "Sign up success" });
 		} catch (error) {
 			console.error(error);
 			notification.error({ message: "Sign up failed" });
