@@ -72,6 +72,8 @@ export const getPreviousFeed = (values) => { return newRequest.post("/users/view
 export const changeEmail = (values) => {
 	return newRequest.patch("/users/changeEmail", values);
 };
+// put
+export const deleteWriting = (values) => { return newRequest.put("/users/deleteWriting", values); };
 
 // example mock request
 export const requestNumber = () => {
