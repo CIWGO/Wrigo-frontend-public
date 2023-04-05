@@ -3,11 +3,12 @@ import moment from "moment/moment";
 import { useState } from "react";
 import { Modal } from "antd";
 import { FeedbackContainer, Group, LoadingContainer, NoFeed, RightCard } from "../WritingEvaluatingPage/style";
-// import SubscribedUserRight from "../WritingEvaluatingPage/subscribedUserRight";
-const RightComponent = ({ comment, score, mutation, preFeed, subscribed, topic, content }) => 	{
+import SubscribedUserRight from "../WritingEvaluatingPage/subscribedUserRight";
+const RightComponent = ({ comment, mutation, preFeed, subscribed, topic, content }) => 	{
 	const [previous, setPrevious] = useState(false);
 	const [modalVisible, setModalVisible] = useState(false);
 	const [clickedComment, setClickedComment] = useState("");
+	console.log(comment, subscribed);
 	if (mutation.isLoading) {
 		return <RightCard>
 			<LoadingContainer>
@@ -19,12 +20,11 @@ const RightComponent = ({ comment, score, mutation, preFeed, subscribed, topic, 
 	if (previous && !mutation.loading) {
 		return <PreFeedbackCard previous={previous} setPrevious={setPrevious} preFeed={preFeed}/>;
 	}
-	// if (subscribed) return <SubscribedUserRight setPrevious= {setPrevious} topic = {topic} writing = {content} premiumFeedback/>;
-	if (subscribed) { console.log(topic, content); return <RightCard>{topic}</RightCard>; };
+	if (comment && subscribed) { console.log(topic, content, comment); return <SubscribedUserRight topic={topic} writing={content} premiumFeedback={comment} setPrevious={setPrevious} />; };
 
 	if (comment && !subscribed) {
 		console.log(comment);
-		const numbers = [score.TR, score.LR, score.GRA, score.CC];
+		const numbers = [Number(comment.CC), Number(comment.GRA), Number(comment.LR), Number(comment.TR)];
 		function calOverall (numbers) {
 			let sum = 0;
 			for (let i = 0; i < numbers.length; i++) {
@@ -35,13 +35,13 @@ const RightComponent = ({ comment, score, mutation, preFeed, subscribed, topic, 
 		}
 		console.log(comment.TR.length);
 		const categories = [
-			{ label: "TR", score: score.TR, comment: comment.TR },
-			{ label: "CC", score: score.CC, comment: comment.CC },
-			{ label: "GRA", score: score.GRA, comment: comment.GRA },
-			{ label: "LR", score: score.LR, comment: comment.LR }
+			{ label: "TR", score: comment.TR, comment: comment.commentTR },
+			{ label: "CC", score: comment.CC, comment: comment.commentCC },
+			{ label: "GRA", score: comment.GRA, comment: comment.commentGRA },
+			{ label: "LR", score: comment.LR, comment: comment.commentLR }
 		];
 		if (comment.OVR !== undefined) {
-			categories.push({ label: "Overall", score: null, comment: comment.OVR });
+			categories.push({ label: "Overall", score: null, comment: comment.commentOVR });
 		}
 		const handleModalCancel = () => {
 			setModalVisible(false);
