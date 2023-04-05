@@ -159,11 +159,11 @@ export const RightCard = styled.div`
 
   flex: 1;`;
 export const PreFeedbacks = styled.div`
-  margin: 70px 50px 50px;
+  margin: 70px 50px 20px;
   display: flex;
   flex-direction: column;
-  gap: auto;
-  height: 70vh;
+  gap: 0;
+  min-height:61vh;
 
   .preFeed {
     text-align: start;
@@ -174,9 +174,9 @@ export const PreFeedbacks = styled.div`
 `;
 export const TopBackButton = styled.div`
 color:rgb(47, 113, 218);
-font-size: 15px;
+font-size: 19px;
 position: absolute;
-top:20px;
+top:30px;
 left:20px;
 
 `;
@@ -205,7 +205,6 @@ export const LoadingContainer = styled.div`
     margin: 0 auto;
   }
   .loading-text {
-    font-family: "Poppins";
     font-size: 1.5rem;
     text-align: center;
     margin-top: 10px;

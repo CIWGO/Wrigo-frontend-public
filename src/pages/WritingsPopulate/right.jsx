@@ -1,9 +1,9 @@
-import PreFeedbackCard from "./preFeedbackCard";
 import moment from "moment/moment";
 import { useState } from "react";
 import { Modal } from "antd";
 import { FeedbackContainer, Group, LoadingContainer, NoFeed, RightCard } from "../WritingEvaluatingPage/style";
 import SubscribedUserRight from "../WritingEvaluatingPage/subscribedUserRight";
+import PreFeedbackCard from "../WritingEvaluatingPage/preFeedbackCard";
 const RightComponent = ({ comment, mutation, preFeed, subscribed, topic, content }) => 	{
 	const [previous, setPrevious] = useState(false);
 	const [modalVisible, setModalVisible] = useState(false);
