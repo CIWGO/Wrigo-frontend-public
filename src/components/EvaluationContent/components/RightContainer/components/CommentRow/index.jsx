@@ -11,7 +11,7 @@ const StyledCard = styled(Card)`
 `;
 
 const StyledDiv = styled.div`
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 32px;
   text-align: left;
