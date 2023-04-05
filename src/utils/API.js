@@ -49,6 +49,10 @@ export const writingStatistics = (values) => {
 	return newRequest.post("/api/writingStatistics", values);
 };
 
+export const writingStatisticsPie = (values) => {
+	return newRequest.post("/api/topicCategoryCounters", values);
+};
+
 export const writingSubmissions = (values) => {
 	return newRequest.post("/api/writingSubmissions", values);
 };
