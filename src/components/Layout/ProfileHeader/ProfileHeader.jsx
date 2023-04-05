@@ -55,9 +55,9 @@ const ProfileHeader = () => {
 			<StyledContentContainer>
 				<StyledUsername>@{username}</StyledUsername>
 				<StyledButtonContainer>
-					<StyledButton type="primary">
+					{/* <StyledButton type="primary">
 						<NavLink to="edit" style={{ fontSize: "12px", fontWeight: 700 }}>Edit profile</NavLink>
-					</StyledButton>
+					</StyledButton> */}
 					<StyledButton type="primary">
 						<NavLink to="wrigoinfinite" style={{ fontSize: "12px", fontWeight: 700 }}>Wrigo Infinite</NavLink>
 					</StyledButton>

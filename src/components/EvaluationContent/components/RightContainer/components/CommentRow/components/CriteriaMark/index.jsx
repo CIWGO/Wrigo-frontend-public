@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledDiv = styled.div`
   display: flex;
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 32px;
   text-align: left;

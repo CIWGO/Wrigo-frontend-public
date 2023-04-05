@@ -7,7 +7,7 @@ import styled from "styled-components";
 const IconBox = styled.button`
   position: absolute;
   right: 10px;
-  bottom: 5px;
+  bottom: 7px;
   color:#828080;
   &:hover{
     color:#000;

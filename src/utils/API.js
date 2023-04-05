@@ -62,9 +62,10 @@ export const checkoutSuccess = (values) => {
 };
 
 export const cancelSubscription = (values) => {
-	return newRequest.post("/api/stripe-webhook", values);
+	return newRequest.post("/api//cancelSubscriptionAtPeriodEnd", values);
 };
 
+export const getUserPaymentInfo = (values) => { return newRequest.post("/users/getUserPaymentInfo", values); };
 export const getPreviousFeed = (values) => { return newRequest.post("/users/viewHistory", values); };
 
 // Patch
