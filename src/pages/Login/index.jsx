@@ -8,7 +8,7 @@ const Login = () => {
 			<WelcomeBack>Welcome back</WelcomeBack>
 			<LoginForm />
 
-			<ForgotTag to="/resetpassword"> Forgot password?</ForgotTag>
+			<ForgotTag to="/resetPasswordEmailVerification"> Forgot password?</ForgotTag>
 
 			{/* </content> */}
 		</LoginLayout>
