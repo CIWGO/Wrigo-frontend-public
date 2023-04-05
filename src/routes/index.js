@@ -15,13 +15,13 @@ import TopicContent from "../pages/TopicContent/index";
 import WritingsPopulate from "../pages/WritingsPopulate";
 // import PopularTopicsCard from "../pages/Dashboard/popularTopics";
 // import DashBoardPage from "../pages/Dashboard/dashboard";
-import SubIntroCard from "../pages/WrigoInfinite/index";
 import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
 import PaymentHistory from "../pages/PaymentHistory";
 import ResetPasswordEmailVerificationPage from "../pages/ResetPassword/ResetPasswordEmailVerification";
 import ResetPasswordPage from "../pages/ResetPassword/ResetPasswordPage";
+import Infinite from "../pages/WrigoInfinite/index";
 
 // import SubscribedUserRight from "../pages/WritingEvaluatingPage/subscribedUserRight/index";
 
@@ -55,11 +55,11 @@ export default [
 		element: <EmailVerificationPage />
 	},
 	{
-		path: "/resetpassword",
+		path: "/resetPasswordEmailVerification",
 		element: <ResetPasswordEmailVerificationPage />
 	},
 	{
-		path: "/resetpassword1",
+		path: "/resetPassword",
 		element: <ResetPasswordPage />
 	},
 
@@ -117,8 +117,8 @@ export default [
 				element: <EditUserProfile />
 			},
 			{
-				path: "profile/wrigoinfinite",
-				element: <SubIntroCard />
+				path: "infinite",
+				element: <Infinite />
 			},
 			{
 				path: "topics/content",

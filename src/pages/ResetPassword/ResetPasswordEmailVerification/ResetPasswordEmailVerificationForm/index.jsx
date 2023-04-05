@@ -20,6 +20,8 @@ const ResetPasswordEmailVerificationForm = () => {
 			return;
 		}
 
+		localStorage.setItem("username", username); // store the username in localStorage
+
 		await getUser({ username })
 			.then(async (response) => {
 				if (response.status === 201) {
@@ -29,7 +31,7 @@ const ResetPasswordEmailVerificationForm = () => {
 					await sendOTPViaEmail({ uid, username })
 						.then((response) => {
 							if (response.status === 200) {
-								notification.success({ message: "Email sent successfully!" });
+								notification.success({ message: "Email sent successfully" });
 								setDisabled(true);
 							}
 						})
@@ -73,8 +75,8 @@ const ResetPasswordEmailVerificationForm = () => {
 		await verifyOTP({ uid, userInput })
 			.then((response) => {
 				if (response.status === 200) {
-					notification.success({ message: "OTP verified successfully!" });
-					navigate("/resetpassword1");
+					notification.success({ message: "Verification success" });
+					navigate("/resetPassword");
 				}
 			})
 			.catch((error) => {
