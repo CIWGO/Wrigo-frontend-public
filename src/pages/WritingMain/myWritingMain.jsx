@@ -8,17 +8,18 @@ import { StyledButton, StyledWritingHistoryPage, UtilityCardsWrapper } from "./s
 import WritingContentCard from "./WritingContentCard";
 import { Skeleton } from "antd";
 import { v4 as uuidv4 } from "uuid";
+import { deleteWriting } from "../../utils/API";
 
 const WritingHistoryPage = () => {
 	const [data, setData] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [displayCount, setDisplayCount] = useState(17);
 	const newWritingId = uuidv4();
 
 	useEffect(() => {
 		setLoading(true);
 		const fromDate = "1970-01-01";
-		const toDate = new Date().toISOString().slice(0, 10);
+		const toDate = "2050-01-01";
 		const token = localStorage.getItem("token");
 		const uid = localStorage.getItem("uid");
 		viewHistory({ token, uid, type: "writingHistory", from: fromDate, to: toDate }).then((response) => {
@@ -31,7 +32,13 @@ const WritingHistoryPage = () => {
 			setLoading(false);
 		});
 	}, []);
-
+	const handleDelete = async (token, uid, writingId, event) => {
+		console.log(1);
+		event.preventDefault();
+		event.stopPropagation();
+		await deleteWriting({ token, uid, writing_id: writingId });
+		window.location.reload();
+	};
 	const handleLoadMore = () => {
 		setDisplayCount(displayCount + 12);
 	};
@@ -83,7 +90,9 @@ const WritingHistoryPage = () => {
 										id= {item.writing_id}
 										taskTopic={item.task_topic}
 										writingContent={item.writing_content}
-										submitTime={item.submit_time}/>
+										submitTime={item.submit_time}
+										handleDelete={handleDelete}
+									/>
 								</UtilityCard>
 							</UtilityCardsWrapper>
 						))}

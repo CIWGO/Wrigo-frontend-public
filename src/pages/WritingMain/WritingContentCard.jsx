@@ -7,7 +7,7 @@ import styled from "styled-components";
 const IconBox = styled.button`
   position: absolute;
   right: 10px;
-  bottom: 5px;
+  bottom: 7px;
   color:#828080;
   &:hover{
     color:#000;
@@ -23,15 +23,20 @@ const WritingContentCard = ({
 	id,
 	taskTopic,
 	writingContent,
-	submitTime
+	submitTime,
+	handleDelete
+
 }) => {
+	const token = localStorage.getItem("token");
+	const uid = localStorage.getItem("uid");
+
 	return (
 		<>
 			<Topic taskTopic={taskTopic}/>
 			<Score id={id}/>
 			<SubmitTime submitTime={submitTime}/>
 			<IconBox>
-				<DeleteOutlined/>
+				<DeleteOutlined onClick={(event) => handleDelete(token, uid, id, event)}/>
 
 			</IconBox>
 

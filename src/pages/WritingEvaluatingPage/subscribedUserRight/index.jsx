@@ -1,12 +1,13 @@
-import { Button, PaidRight } from "./style";
+import { Button } from "./style";
 import NavBar from "./rightNavNar/index";
+import { RightCard } from "../style";
 
 const SubscribedUserRight = ({ writing, topic, premiumFeedback, setPrevious }) => {
 	return (
-		<PaidRight>
+		<RightCard>
 			<NavBar text={writing} topic={topic} premiumFeedback={premiumFeedback} />
 			<Button onClick={() => setPrevious(true)}>previous feedback</Button>
-		</PaidRight>
+		</RightCard>
 	);
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input } from "antd";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 import {
@@ -19,6 +19,15 @@ import { useNavigate } from "react-router-dom";
 function EmailVerifyForm ({ uid, username }) {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const [countdown, setCountdown] = useState(60);
+	const [resendDisabled, setResendDisabled] = useState(false);
+	useEffect(() => {
+		if (countdown > 0 && resendDisabled) {
+			setTimeout(() => setCountdown(countdown - 1), 1000);
+		} else {
+			setResendDisabled(false);
+		}
+	}, [countdown, resendDisabled]);
 	const onFinish = async (values) => {
 		try {
 			const response = await dispatch(
@@ -27,18 +36,18 @@ function EmailVerifyForm ({ uid, username }) {
 					userInput: values.VerificationCode
 				})
 			);
-			if (response.payload === true) {
-				console.log("success:", username);
+			if (response.payload.data.message === "OTP verified successfully") {
 				await dispatch(
 					updateEmailVerification({
 						username,
 						uid,
-						OTPcode: values.VerificationCode
+						OTPcode: values.VerificationCode,
+						email_verified: "true"
 					})
 				);
 				navigate("/login");
 			} else {
-				console.log("Failed:", response);
+				console.log("failed", response);
 			}
 		} catch (error) {
 			console.log("Failed:", error);
@@ -46,7 +55,7 @@ function EmailVerifyForm ({ uid, username }) {
 	};
 
 	const onFinishFailed = (errorInfo) => {
-		console.log("Failed:", errorInfo);
+		console.log("Failed123:", errorInfo);
 	};
 
 	const onResend = () => {
@@ -64,6 +73,9 @@ function EmailVerifyForm ({ uid, username }) {
 			.catch((error) => {
 				console.log(error);
 			});
+		setResendDisabled(true);
+		setCountdown(60);
+		console.log(countdown, resendDisabled);
 	};
 
 	return (
@@ -88,8 +100,8 @@ function EmailVerifyForm ({ uid, username }) {
 					</Form.Item>
 
 					<Form.Item>
-						<MyButton type="primary" onClick={onResend}>
-							Resend
+						<MyButton type="primary" disabled={resendDisabled} onClick={onResend}>
+							Resend {resendDisabled ? `(${countdown})` : null}
 						</MyButton>
 					</Form.Item>
 				</ResendLayout>

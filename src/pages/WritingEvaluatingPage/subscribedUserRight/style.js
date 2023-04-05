@@ -1,17 +1,5 @@
 import styled from "styled-components";
 
-const PaidRight = styled.div`
-  position: relative;
-  margin: 2rem 20px 5vh 20px;
-    border-radius: 10px;
-    background-color: white;
-    width: 45%;
-    min-width: 340px;
-    min-height: 81vh;
-    flex: 1;
-    box-sizing: border-box;
-`;
-
 const WritingPageDiv = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
   font-family: 'Poppins', sans-serif;
@@ -31,7 +19,6 @@ const GrammarContainer = styled.div`
 `;
 
 const Button = styled.button`
-  font-family: 'Poppins';
   font-weight: 500;
   bottom: 10px;
   right: 20px;
@@ -47,4 +34,4 @@ const Button = styled.button`
     cursor: pointer;
     background-color:#4096ff;
   }`;
-export { PaidRight, WritingPageDiv, GrammarContainer, Button };
+export { WritingPageDiv, GrammarContainer, Button };
