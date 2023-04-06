@@ -3,20 +3,27 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
 import RadarChart from "../../components/RadarChart";
-import { Container, GridContainer, GridItem, LeftGrid, RightGrid } from "./style";
+import {
+	Container,
+	GridContainer,
+	GridItem,
+	LeftGrid,
+	RightGrid
+} from "./style";
 import IELTSPieChart from "../../components/StatisticCard2";
 import HeadingComponent from "../../components/Heading";
-import { writingStatistics } from "../../utils/API";
+import { writingStatistics, writingStatisticsPie } from "../../utils/API";
 // import axios from "axios";
 
 const Statistics = () => {
 	const [data, setData] = useState([]);
+	const [PieData, setPieData] = useState([]);
 	const { userId, token } = useSelector((state) => state.user);
 	// const uid = localStorage.getItem("uid");
 	// const token = localStorage.getItem("token");
-	console.log(data);
+	// console.log(data);
 	useEffect(() => {
-		console.log(data);
+		// console.log(PieData);
 		// axios({
 		// 	method: "post",
 		// 	url: "http://localhost:3005/api/writingStatistics",
@@ -36,6 +43,18 @@ const Statistics = () => {
 			.catch(function (error) {
 				console.error("Error:", error);
 			});
+		writingStatisticsPie({
+			uid: userId,
+			token
+		})
+			.then(function (response) {
+				const PieData = response.data;
+				setPieData(Object.values(PieData.categoryCounts));
+				// setPieData(PieData);
+			})
+			.catch(function (error) {
+				console.error("Error:", error);
+			});
 	}, [userId, token]);
 
 	const lineChartData = Object.values(data).slice(0, 5);
@@ -44,17 +63,21 @@ const Statistics = () => {
 	return (
 		<div>
 			<HeadingComponent displayValue={"Analytics"} />
-			<Container >
-				<GridContainer >
-					<LeftGrid >
-						<GridItem><StatisticCard4 /></GridItem>
-						<GridItem >
-							{data && <LineChart marks={lineChartData} />}
+			<Container>
+				<GridContainer>
+					<LeftGrid>
+						<GridItem>
+							<StatisticCard4 />
 						</GridItem>
+						<GridItem>{data && <LineChart marks={lineChartData} />}</GridItem>
 					</LeftGrid>
-					<RightGrid >
-						<GridItem ><RadarChart radarData={radarData} /></GridItem>
-						<GridItem><IELTSPieChart /></GridItem>
+					<RightGrid>
+						<GridItem>
+							<RadarChart radarData={radarData} />
+						</GridItem>
+						<GridItem>
+							<IELTSPieChart pieData={PieData} />
+						</GridItem>
 					</RightGrid>
 				</GridContainer>
 			</Container>

@@ -21,6 +21,7 @@ const PageLayout = () => {
 
 	// Determine if the current route is /user/profile
 	const isProfileRoute = location.pathname.includes("/user/profile");
+	const isInfiniteRoute = location.pathname.includes("/user/infinite");
 
 	const {
 		background
@@ -43,20 +44,20 @@ const PageLayout = () => {
 				>
 					{/* Conditionally render the search bar or some texts */}
 					{isProfileRoute
-						? (
-							<ProfileHeader/>
-						)
-						: (
-							<div
-								style={{
-									display: "flex",
-									alignItems: "center",
-									padding: "0 10px"
-								}}
-							>
-								<SearchBar />
-							</div>
-						)}
+						? (<ProfileHeader/>)
+						: isInfiniteRoute
+							? ""
+							: (
+								<div
+									style={{
+										display: "flex",
+										alignItems: "center",
+										padding: "0 10px"
+									}}
+								>
+									<SearchBar />
+								</div>
+							)}
 
 				</Header>
 

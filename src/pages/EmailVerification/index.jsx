@@ -4,14 +4,16 @@ import {
 	updateEmailVerification,
 	requestEmail
 } from "../../slice/emailVerificationSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const EmailVerificationPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const { userId, userName } = useSelector((state) => state.user);
+	// const { userId, userName } = useSelector((state) => state.user);
+	const userId = localStorage.getItem("uid");
+	const userName = localStorage.getItem("username");
 	const onFinish = async (values) => {
 		await dispatch(
 			requestEmail({
