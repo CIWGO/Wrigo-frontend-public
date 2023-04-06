@@ -24,7 +24,7 @@ const LoginForm = () => {
 				localStorage.setItem("token", token); // store the token in localStorage
 				localStorage.setItem("uid", userId); // store the uid in localStorage
 				localStorage.setItem("username", userName); // store the username in localStorage
-				console.log("login success");
+				notification.success({ message: "Login success" });
 				navigate("/user/dashboard");
 			}
 		} catch (error) {
@@ -32,14 +32,20 @@ const LoginForm = () => {
 			if (error.response.status === 401) {
 				const { uid: userId, username: userName } = error.response.data;
 
-				await sendOTPViaEmail({ uid: userId, username: userName });
+				await sendOTPViaEmail({ uid: userId, username: userName })
+					.then(() => {
+						notification.success({ message: "Verification email sent" });
+					})
+					.catch((error) => {
+						const errorMessage = error.response.data.error;
+						notification.error({ message: `${errorMessage}` });
+					});
 				// axios.post(`${defaultBackEndPrefix}/users/sendOTP`, { uid: userId, username: userName });
 				dispatch(setUserInfo({ userId, userName }));
 				console.log("unverified email =", values);
 				navigate("/emailVerification");
 			} else {
 				const errorMessage = error.response.data.error;
-
 				notification.error({ message: `${errorMessage}` });
 			}
 		}

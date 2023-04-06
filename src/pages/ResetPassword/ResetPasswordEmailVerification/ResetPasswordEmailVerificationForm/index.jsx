@@ -139,7 +139,7 @@ const ResetPasswordEmailVerificationForm = () => {
 								onClick={onSend}
 								disabled={disabled}
 							>
-								{disabled ? `Resend (${timeLeft}s)` : "Send"}
+								{disabled ? `Resend (${timeLeft})` : "Send"}
 							</SendButton>
 						</Space>
 					</Col>

@@ -13,12 +13,12 @@ const PageLayout = () => {
 	const [selectedTab, setSelectedTab] = useState(
 		window.location.pathname?.split("/")[2]
 	);
-	const isDesktopOrLaptop = useMediaQuery({ minWidth: 992 });
 
 	useEffect(() => {
 		setSelectedTab(window.location.pathname?.split("/")[2]);
 	}, [location]);
 
+	const isDesktopOrLaptop = useMediaQuery({ minWidth: 992 });
 	// Determine if the current route is /user/profile
 	const isProfileRoute = location.pathname.includes("/user/profile");
 	const isInfiniteRoute = location.pathname.includes("/user/infinite");

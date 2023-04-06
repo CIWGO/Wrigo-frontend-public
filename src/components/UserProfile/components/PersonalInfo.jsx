@@ -7,6 +7,7 @@ import {
 	FormDefault,
 	InputDefault
 } from "./style";
+import { notification } from "antd";
 
 const ProfileInfo = () => {
 	const [email, setEmail] = useState("");
@@ -56,10 +57,22 @@ const ProfileInfo = () => {
 	};
 	const countrySubmitHandler = async (e) => {
 		e.preventDefault();
-		const response = await newRequest.put("/users/userprofile", {
+		const response = await newRequest.put("/users/userProfile", {
 			uid,
 			token,
 			country
+		}).then((response) => {
+			if (response.status === 200) {
+				notification.success({ message: "Country changed successfully" });
+			}
+		}).catch((error) => {
+			if (error.response && error.response.status === 404) {
+				notification.error({ message: "User not found" });
+			} else {
+				notification.error({
+					message: "Unknown error occurred"
+				});
+			}
 		});
 		console.log(response);
 		setTimeout(() => {
@@ -68,7 +81,7 @@ const ProfileInfo = () => {
 	};
 
 	const studyUpdateHandler = (e) => {
-		setCountry(e.target.value);
+		setStudyField(e.target.value);
 	};
 	const studySubmitHandler = async (e) => {
 		e.preventDefault();
@@ -120,26 +133,28 @@ const ProfileInfo = () => {
 				</FormDefault.Item>
 			</FormDefault>
 
+			{/* gender */}
 			<FormDefault htmltype="submit">
 				<FormDefault.Item>
-					<label style={{ display: "block", textAlign: "start", color: "#2F71DA" }} htmlFor="country">Gender</label>
-					<InputDefault id="country" autoComplete="off" placeholder={gender} onChange={genderUpdateHandler}/>
+					<label style={{ display: "block", textAlign: "start", color: "#2F71DA" }} htmlFor="gender">Gender</label>
+					<InputDefault id="gender" autoComplete="off" placeholder={gender} onChange={genderUpdateHandler}/>
 				</FormDefault.Item>
 				<FormDefault.Item>
 					<ButtonDefault type="primary" onClick={genderSubmitHandler}>
-          Change
+      Change
 					</ButtonDefault>
 				</FormDefault.Item>
 			</FormDefault>
 
+			{/* study field */}
 			<FormDefault htmltype="submit">
 				<FormDefault.Item>
-					<label style={{ display: "block", textAlign: "start", color: "#2F71DA" }} htmlFor="country">Study Field</label>
-					<InputDefault id="country" autoComplete="off" placeholder={studyField} onChange={studyUpdateHandler}/>
+					<label style={{ display: "block", textAlign: "start", color: "#2F71DA" }} htmlFor="studyField">Study Field</label>
+					<InputDefault id="studyField" autoComplete="off" placeholder={studyField} onChange={studyUpdateHandler}/>
 				</FormDefault.Item>
 				<FormDefault.Item>
 					<ButtonDefault type="primary" onClick={studySubmitHandler}>
-          Change
+      Change
 					</ButtonDefault>
 				</FormDefault.Item>
 			</FormDefault>

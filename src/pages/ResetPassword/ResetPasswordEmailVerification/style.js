@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Form, Layout, Button } from "antd";
+import { Link } from "react-router-dom";
 
 const PageLayout = styled.div`
 margin-top:20px;
@@ -66,4 +67,10 @@ width:300px;
 justify-content:space-between;
 `;
 
-export { VerifyButton, SendButton, CheckMessage, MyForm, PageLayout, ResendLayout, SignUpLayout, VerifyMessage, Logo };
+const CancelTag = styled(Link)`
+text-align:center;
+text-decoration:underline;
+color: #2F71DA;
+`;
+
+export { VerifyButton, SendButton, CheckMessage, MyForm, PageLayout, ResendLayout, SignUpLayout, VerifyMessage, Logo, CancelTag };

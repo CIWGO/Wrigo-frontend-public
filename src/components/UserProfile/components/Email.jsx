@@ -7,6 +7,7 @@ import {
 	FormDefault,
 	InputDefault
 } from "./style";
+import { notification } from "antd";
 
 const Email = (props) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,7 @@ const Email = (props) => {
 	const sendCodeHandler = async (e) => {
 		e.preventDefault();
 		if (!newEmail) {
-			alert("Please enter a valid email address");
+			notification.error({ message: "Please enter a valid email address" });
 			return;
 		}
 		try {
@@ -30,11 +31,11 @@ const Email = (props) => {
 				newEmail
 			});
 			if (response.status === 200) {
-				alert("send email successful! Check your new mailbox for the code!");
+				notification.success({ message: "Email sent successfully! Check your new mailbox for the code." });
 			} else if (response.status === 500) {
-				alert("send fail 500 (Something went wrong)");
+				notification.error({ message: "send fail 500 (Something went wrong)" });
 			} else {
-				alert("send fail other than 500");
+				notification.error({ message: "send fail other than 500" });
 			}
 		} catch (e) {
 			console.err(e.message);
@@ -53,7 +54,7 @@ const Email = (props) => {
 	const changeEmailHandler = async (e) => {
 		e.preventDefault();
 		if (!code) {
-			alert("Please enter a valid code");
+			notification.error({ message: "Please enter a valid code" });
 			return;
 		}
 		try {
@@ -63,11 +64,11 @@ const Email = (props) => {
 				newEmail
 			});
 			if (response.status === 200) {
-				alert("Change email successful!");
+				notification.success({ message: "Change email successful!" });
 			} else if (response.status === 500) {
-				alert("send fail 500 (Something went wrong)");
+				notification.error({ message: "send fail 500 (Something went wrong)" });
 			} else {
-				alert("send fail other than 500");
+				notification.error({ message: "send fail other than 500" });
 			}
 			setTimeout(() => {
 				window.location.reload(false);
