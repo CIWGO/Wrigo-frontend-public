@@ -33,7 +33,6 @@ const LoginForm = () => {
 				const { uid: userId, username: userName } = error.response.data;
 
 				await sendOTPViaEmail({ uid: userId, username: userName });
-				// axios.post(`${defaultBackEndPrefix}/users/sendOTP`, { uid: userId, username: userName });
 				dispatch(setUserInfo({ userId, userName }));
 				console.log("unverified email =", values);
 				navigate("/emailVerification");
@@ -64,12 +63,12 @@ const LoginForm = () => {
 			<Row justify="space-between">
 				<Col>
 					<LoginButton type="primary" onClick={signUpOnClick}>
-        Sign up
+						Sign up
 					</LoginButton>
 				</Col>
 				<Col>
 					<LoginButton type="default" htmlType="submit">
-        Login
+						Login
 					</LoginButton>
 				</Col>
 			</Row>
