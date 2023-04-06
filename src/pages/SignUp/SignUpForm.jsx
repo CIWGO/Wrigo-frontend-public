@@ -3,6 +3,7 @@ import { MyForm } from "./style";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 import { signupUser, sendOTPViaEmail } from "../../utils";
 import { useNavigate } from "react-router-dom";
+
 const SignUpForm = () => {
 	const navigate = useNavigate();
 	// Think about refactor it by using redux and redux toolkit.
@@ -13,19 +14,13 @@ const SignUpForm = () => {
 			if (response.status === 201) {
 				// sign up success
 				const { uid: userId, username: userName } = response.data;
-				console.log(response.data);
 				// store the token in localStorage
 				localStorage.setItem("uid", userId); // store the uid in localStorage
 				localStorage.setItem("username", userName); // store the username in localStorage
-				console.log("sign up success");
+
 				notification.success({ message: "Sign up success" });
 				await sendOTPViaEmail({ uid: userId, username: userName });
-				console.log("sign up success");
-				notification.success({ message: "Sign up success" });
 				navigate("/emailVerification");
-			} else {
-				notification.success({ message: "Account already registered" });
-				navigate("/login");
 			}
 		} catch (error) {
 			if (error.response && error.response.status === 409) {

@@ -32,7 +32,14 @@ const LoginForm = () => {
 			if (error.response.status === 401) {
 				const { uid: userId, username: userName } = error.response.data;
 
-				await sendOTPViaEmail({ uid: userId, username: userName });
+				await sendOTPViaEmail({ uid: userId, username: userName })
+					.then(() => {
+						notification.success({ message: "Verification email sent" });
+					})
+					.catch((error) => {
+						const errorMessage = error.response.data.error;
+						notification.error({ message: `${errorMessage}` });
+					});
 				// axios.post(`${defaultBackEndPrefix}/users/sendOTP`, { uid: userId, username: userName });
 				dispatch(setUserInfo({ userId, userName }));
 				console.log("unverified email =", values);
