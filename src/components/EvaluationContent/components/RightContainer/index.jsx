@@ -12,11 +12,11 @@ const StyledCard = styled(Card)`
   margin-right: 70px;
 	width: 830px;
 `;
-const RightContainer = () => {
+const RightContainer = (props) => {
 	return (
 		<StyledCard>
-			<ScoreIcon />
-			<CommentRow />
+			<ScoreIcon topicId={props.topicId} />
+			<CommentRow topicId={props.topicId} />
 		</StyledCard>
 	);
 };
