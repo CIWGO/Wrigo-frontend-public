@@ -36,6 +36,8 @@ const LoginForm = () => {
 				// axios.post(`${defaultBackEndPrefix}/users/sendOTP`, { uid: userId, username: userName });
 				dispatch(setUserInfo({ userId, userName }));
 				console.log("unverified email =", values);
+				localStorage.setItem("uid", userId); // store the uid in localStorage
+				localStorage.setItem("username", userName);
 				navigate("/emailVerification");
 			} else {
 				const errorMessage = error.response.data.error;
