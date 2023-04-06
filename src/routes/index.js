@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
-// import RecentWritings from "../pages/Dashboard/recentWritings";
-import Profile from "../pages/UserProfile";
+import RecentWritings from "../pages/Dashboard/recentWritings";
+import Statistics from "../pages/Statistics";
+import Profile from "../pages/Profile";
 import WritingPage from "../pages/WritingEvaluatingPage";
 import Topics from "../pages/Topics";
 import LandingPage from "../pages/Landing";
@@ -11,15 +12,18 @@ import EditUserProfile from "../pages/EditUserProfile";
 import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
 import TopicContent from "../pages/TopicContent/index";
-import ResetPasswordPage from "../pages/ResetPassword";
 import WritingsPopulate from "../pages/WritingsPopulate";
 // import PopularTopicsCard from "../pages/Dashboard/popularTopics";
 // import DashBoardPage from "../pages/Dashboard/dashboard";
-import SubIntroCard from "../pages/WrigoInfinite/index";
 import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
-import DashBoardPage from "../pages/Dashboard/index";
+import PaymentHistory from "../pages/PaymentHistory";
+import ResetPasswordEmailVerificationPage from "../pages/ResetPassword/ResetPasswordEmailVerification";
+import ResetPasswordPage from "../pages/ResetPassword/ResetPasswordPage";
+import Infinite from "../pages/WrigoInfinite/index";
+
+// import SubscribedUserRight from "../pages/WritingEvaluatingPage/subscribedUserRight/index";
 
 export default [
 	{
@@ -51,7 +55,11 @@ export default [
 		element: <EmailVerificationPage />
 	},
 	{
-		path: "/resetpassword",
+		path: "/resetPasswordEmailVerification",
+		element: <ResetPasswordEmailVerificationPage />
+	},
+	{
+		path: "/resetPassword",
 		element: <ResetPasswordPage />
 	},
 
@@ -61,7 +69,7 @@ export default [
 		children: [
 			{
 				path: "dashboard",
-				element: <DashBoardPage />
+				element: <RecentWritings />
 			},
 			{
 				path: "writings",
@@ -69,10 +77,10 @@ export default [
 			},
 			{
 				path: "writing/:writingId", // new route with dynamic parameter
-				element: <WritingsPopulate/>
+				element: <WritingsPopulate />
 			},
 			{
-				path: "writings/evaluation",
+				path: "writing/evaluation/:writingId",
 				element: <WritingPage />
 			},
 			{
@@ -80,15 +88,17 @@ export default [
 				element: <Topics />
 			},
 			{
-				path: "topics/content",
+				path: "topics/content/:topicId", // new route with dynamic parameter
 				element: <TopicContent />
+			},
+			{
+				path: "analytics",
+				element: <Statistics />
 			},
 			{
 				path: "profile",
 				element: <Profile />,
-				children: [
-
-				]
+				children: []
 			},
 			{
 				path: "checkout",
@@ -107,8 +117,8 @@ export default [
 				element: <EditUserProfile />
 			},
 			{
-				path: "profile/wrigoinfinite",
-				element: <SubIntroCard />
+				path: "infinite",
+				element: <Infinite />
 			},
 			{
 				path: "topics/content",
@@ -117,6 +127,10 @@ export default [
 			{
 				path: "payment-success",
 				element: <PaymentSuccess/>
+			},
+			{
+				path: "payment-history",
+				element: <PaymentHistory/>
 			}
 		]
 	}

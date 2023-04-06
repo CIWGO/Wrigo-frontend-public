@@ -3,7 +3,9 @@ import {
 	FormOutlined,
 	FileTextOutlined,
 	LogoutOutlined,
-	UserOutlined
+	UserOutlined,
+	PieChartOutlined,
+	CrownOutlined
 } from "@ant-design/icons";
 import { Layout, Menu, Modal } from "antd";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -91,9 +93,23 @@ export default function SideBar (props) {
 					>
 						<NavLink to="topics">Topics</NavLink>
 					</Menu.Item>
+					<Menu.Item
+						key="analytics"
+						icon={<PieChartOutlined />}
+						style={{ textAlign: "left" }}
+					>
+						<NavLink to="analytics">Analytics</NavLink>
+					</Menu.Item>
 				</Menu.ItemGroup>
-
 				<Menu.ItemGroup style={{ flex: "1" }}>
+					<Menu.Item
+						key="infinite"
+						icon={<CrownOutlined style={{ color: "#2F71DA" }}/>}
+						style={{ textAlign: "left" }}
+					>
+						<NavLink to="infinite" style={{ color: "#2F71DA" }}>WRIGO Infinite</NavLink>
+					</Menu.Item>
+
 					<Menu.Item
 						key="profile"
 						icon={<UserOutlined />}

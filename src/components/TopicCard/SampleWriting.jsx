@@ -26,8 +26,10 @@ const StyledSampleWriting = styled.div`
 
 const SampleWriting = (props) => {
 	const [sampleWriting, setSampleWriting] = useState(["Not available"]);
+	const token = localStorage.getItem("token");
+	const uid = localStorage.getItem("uid");
 	useEffect(() => {
-		getTopic({ type: "oneTopic", topic_id: props.topicId }).then((response) => {
+		getTopic({ token, uid, type: "oneTopic", topic_id: props.topicId }).then((response) => {
 			if (response.status === 200 && response.data.oneSampleWithFeedback.sampleWriting_content) {
 				setSampleWriting(response.data.oneSampleWithFeedback.sampleWriting_content);
 				props.onTopicDataChange(response.data.oneSampleWithFeedback);

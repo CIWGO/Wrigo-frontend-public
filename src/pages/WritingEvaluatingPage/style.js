@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 export const WritingPageDiv = styled.div`
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700&family=Rubik:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
 font-family: 'Poppins', sans-serif;
 background-color: rgb(245, 245, 245);
 display: flex;
@@ -17,7 +17,7 @@ position: relative;
     width: max-content;
     border: none;
     position: absolute;
-    top: 1.5rem;
+    top: 0;
     left: 15px;
     font-size: 1.4rem;
     font-weight: 560;
@@ -31,11 +31,11 @@ position: relative;
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 8vh 10px 5vh 20px;
+    margin: 2rem 10px 5vh 20px;
     border-radius: 10px;
     background-color: white;
     width: 45%;
-    min-width: 200px;
+    min-width: 340px;
     height: 81vh;
     flex: 1;
     .topic {
@@ -52,7 +52,7 @@ position: relative;
     resize:none;
     border: none;
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
+    font-size: .8rem;
     line-height: 1.5rem;
     border: none;
 
@@ -71,7 +71,6 @@ position: relative;
      line-height: 2.8rem;
 
       font-family: 'Poppins', sans-serif;
-      font-size: 2rem;
       font-weight: 700;
       color: #ccccccc9;
       padding-bottom: 10px;
@@ -130,7 +129,7 @@ position: relative;
       &::placeholder {
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Rubik:wght@400;500;600&display=swap");
         font-family: "Poppins", sans-serif;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 500;
         color: #ccccccc9;
         padding-bottom: 10px;
@@ -146,35 +145,41 @@ position: relative;
       font-size: large;
 
     width: 80%;
-  }
-
-.right {
-  position: relative;
-  margin: 8vh 20px 5vh 10px;
-  border-radius: 10px;
-  background-color: white;
-  width: 45%;
-  min-width: 200px;
-  height: 81vh;
-  flex: 1;
-}
+  }`;
+export const BackButton = styled.button` position: absolute;
+top:30px;
 `;
-
+export const RightCard = styled.div`
+   position: relative;
+  margin: 2rem 20px 5vh 15px;
+    border-radius: 10px;
+    background-color: white;
+    width: 45%;
+    min-width: 340px;
+    min-height: 81vh;
+    flex: 1;`;
 export const PreFeedbacks = styled.div`
-  margin: 70px 50px 50px;
+  margin: 70px 50px 20px;
   display: flex;
   flex-direction: column;
-  gap: auto;
-  height: 70vh;
+  gap: 0;
+  min-height:61vh;
 
   .preFeed {
     text-align: start;
     font-weight: 400;
-    font-size: large;
+    font-size: 14px;
     color: rgb(40, 86, 161);
   }
 `;
+export const TopBackButton = styled.div`
+color:rgb(47, 113, 218);
+font-size: 19px;
+position: absolute;
+top:30px;
+left:20px;
 
+`;
 const spin = keyframes`
   0% {
     transform: rotate(0deg);
@@ -200,7 +205,6 @@ export const LoadingContainer = styled.div`
     margin: 0 auto;
   }
   .loading-text {
-    font-family: "Poppins";
     font-size: 1.5rem;
     text-align: center;
     margin-top: 10px;
@@ -213,7 +217,7 @@ text-align: start;
 font-weight: 700;
 margin-top: 30px;
 padding-bottom: 10px;
-font-size: 2rem;
+font-size: 1.5rem;
 font-weight: 600;
 color: #ccccccc9;
 padding-bottom: 10px;
@@ -224,33 +228,35 @@ text-decoration: underline;
 export const FeedbackContainer = styled.div`
 flex-direction: column;
 justify-content: space-around;
+gap:10px;
 display: flex;
-margin: 15% 10% 10%;
+margin: 100px 10% 10%;
 text-align: left;
 height: 66vh;
+height: min-content;
+
 #moment {
-  position: absolute;
-  left: 10%;
-  top: 10%;
-  font-size: 0.8rem;
+  position:absolute;
+  right:30px; 
+  top:1rem;
+  font-size: 11px;
   color: #969494c9;
 }
 button {
-  font-family: 'Poppins';
   font-weight: 500;
   bottom: 10px;
   right: 20px;
   position: absolute;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   color: white;
   padding: 5px;
   width: 10rem;
-  height: min-content;
-  background-color: rgb(47, 113, 218);
+  height: 33px;
+  background-color:#1677ff;
   &:hover {
     cursor: pointer;
-    background-color: rgb(36, 78, 144);
+    background-color:#4096ff;
   }
 }
 &::-webkit-scrollbar {
@@ -260,7 +266,7 @@ p {
   color: rgb(55, 109, 196);
   font-size: 1.4rem;
   position: absolute;
-  top: 8px;
+  top: 13px;
   right: 10%;
 }
 span {
@@ -272,14 +278,25 @@ span {
 
 export const Group = styled.div`
 height: min-content;
+font-size: .7rem;
 h3 {
   margin: 0;
+}
+span{
+  font-size:.7rem;
+  color:#777;
+  font-weight: 400;
 }
 .thin {
   font-weight: 400;
 }
+.sliced{
+  &:hover{
+    cursor: pointer;
+  }
+}
 .scores {
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 400;
   color: rgb(55, 109, 196);
 }
@@ -301,22 +318,26 @@ background-color: "white";
 `;
 
 export const NoPre = styled.p`
-font-size:2rem;`;
+font-size: 20px;
+font-weight: 600;
+color: #ccccccc9;`;
 
 export const InputCardBottom = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  /* width: 100%; */
   justify-content: space-between;
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-top: 25px;
-  margin-bottom: 50px;
+  position:absolute;
+  left:20px;
+  bottom:10px ;
+  right:10px;
+  
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   margin-left: 10px;
-  font-size: "12px";
+  font-size: 12px;
   font-weight: 700;
 `;

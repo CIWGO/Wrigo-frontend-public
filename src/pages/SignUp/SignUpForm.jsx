@@ -1,17 +1,30 @@
 import { Form, Input, Button, notification } from "antd";
-import axios from "axios";
 import { MyForm } from "./style";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
-import { defaultFrontEndPrefix } from "../../constants/index";
-
+import { signupUser, sendOTPViaEmail } from "../../utils";
+import { useNavigate } from "react-router-dom";
 const SignUpForm = () => {
+	const navigate = useNavigate();
 	// Think about refactor it by using redux and redux toolkit.
 	const onFinish = async (values) => {
 		try {
-			const response = await axios.post("http://localhost:3005/users/signup", values);
-			console.log(response.data);
-			notification.success({ message: "Sign up success" });
-			window.location.href = `http://${defaultFrontEndPrefix}/login`; // Redirect to /login page
+			const response = await signupUser(values);
+			console.log(response.status);
+			if (response.status === 201) {
+				// sign up success
+				const { uid: userId, username: userName } = response.data;
+				console.log(response.data);
+				// store the token in localStorage
+				localStorage.setItem("uid", userId); // store the uid in localStorage
+				localStorage.setItem("username", userName); // store the username in localStorage
+				console.log("sign up success");
+				notification.success({ message: "Sign up success" });
+				await sendOTPViaEmail({ uid: userId, username: userName });
+				navigate("/emailVerification");
+			} else {
+				notification.success({ message: "Account already registered" });
+				navigate("/login");
+			}
 		} catch (error) {
 			console.error(error);
 			notification.error({ message: "Sign up failed" });

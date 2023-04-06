@@ -11,14 +11,14 @@ const StyledDiv = styled.div`
 `;
 
 const Band = styled.div`
-	font-size: 24px;
+	font-size: 22px;
 	color: #2F71DA;
 	align-self: end; 
   font-weight: 700;
 `;
 
 const Score = styled.div`
-	font-size: 62px;
+	font-size: 35px;
 	color: #2F71DA;
 	line-height: 1;
 	font-weight: 700;
@@ -49,8 +49,9 @@ const ScoreIcon = (props) => {
 	};
 
 	useEffect(() => {
-		// topic_id: "29dae72e-f633-432c-a105-b0e40f562710" (props.topicID)
-		getTopic({ type: "oneTopic", topic_id: "29dae72e-f633-432c-a105-b0e40f562710" }).then((response) => {
+		const token = localStorage.getItem("token");
+		const uid = localStorage.getItem("uid");
+		getTopic({ token, uid, type: "oneTopic", topic_id: props.topicId }).then((response) => {
 			if (response.status === 200 && response.data.oneSampleWithFeedback) {
 				scoreHandler(response.data.oneSampleWithFeedback);
 			} else if (response.status === 500) {

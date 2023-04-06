@@ -1,19 +1,28 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
-import { Chart, ArcElement, Tooltip, Legend, DoughnutController } from "chart.js";
+import {
+	Chart,
+	ArcElement,
+	Tooltip,
+	Legend,
+	DoughnutController
+} from "chart.js";
 
 // Register the required elements and plugins
 Chart.register(ArcElement, Tooltip, Legend, DoughnutController);
 
-const IELTSPieChart = () => {
-	const data = [20, 10, 25, 50, 12];
+const IELTSPieChart = (props) => {
+	// const data = Object.values(pieData.pieData.categoryCounts);
+	const { pieData } = props;
+	// const data = [2, 0, 0, 0, 0];
+	const data = pieData;
 	const chartData = {
 		labels: [
 			"Opinion (Agree or Disagree)",
 			"Discussion (Discuss both views)",
 			"Problem and Solution",
-			"Advantages and Disadvantages",
-			"Two-part Question"
+			"Direct Question",
+			"Advantage and Disadvantage"
 		],
 		datasets: [
 			{
@@ -38,7 +47,7 @@ const IELTSPieChart = () => {
 
 	const options = {
 		responsive: true,
-		cutout: "30%",
+		cutout: "45%",
 		plugins: {
 			tooltip: {
 				callbacks: {
@@ -57,7 +66,16 @@ const IELTSPieChart = () => {
 	const totalTopics = data.reduce((a, b) => a + b, 0);
 
 	return (
-		<div style={{ position: "relative" }}>
+		<div
+			style={{
+				position: "relative",
+				alignItems: "center",
+				justifyItems: "center",
+				height: "100%",
+				width: "100%",
+				display: "grid"
+			}}
+		>
 			<Doughnut data={chartData} options={options} />
 			<div
 				style={{
@@ -68,8 +86,17 @@ const IELTSPieChart = () => {
 					textAlign: "center"
 				}}
 			>
-				<p>Total Topics</p>
-				<h4>{totalTopics}</h4>
+				<div
+					style={{
+						position: "absolute",
+						marginTop: "55px",
+						transform: "translate(-50%, -50%)",
+						textAlign: "center"
+					}}
+				>
+					<p style={{ margin: 0, padding: "5px" }}>Total Topics</p>
+					<p style={{ margin: 0, padding: 0 }}>{totalTopics}</p>
+				</div>
 			</div>
 		</div>
 	);

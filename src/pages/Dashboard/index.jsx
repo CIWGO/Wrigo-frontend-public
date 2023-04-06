@@ -35,20 +35,36 @@ const DashBoardPage = () => {
 	console.log(writings);
 
 	return (
-		<Background>
+		<>
+			<Background>
 
-			<RecentWritingBox>
-				<RecentWriting />
-			</RecentWritingBox>
+				<RecentWritingBox>
+					<RecentWriting />
+				</RecentWritingBox>
 
-			<BottomRow>
-				<PopularTopicsCard />
+				<BottomRow>
+					<PopularTopicsCard />
 
-				<LineChartDiv>
-					{data && <LineChart marks={lineChartData} />}
-				</LineChartDiv>
-			</BottomRow>
-		</Background>
+					<LineChartDiv>
+						{data && <LineChart marks={lineChartData} />}
+					</LineChartDiv>
+				</BottomRow>
+			</Background>
+
+			{/* <Layout>
+				<div>
+					<RecentWriting />
+				</div>
+				<div>
+					<PopularTopicsCard />
+				</div>
+			</Layout>
+
+		// <Layout>
+		// 	<RecentWriting />
+		// 	<PopularTopicsCard />
+		// </Layout> */}
+		</>
 	);
 };
 export default DashBoardPage;

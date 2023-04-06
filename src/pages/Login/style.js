@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Form, Layout, Button } from "antd";
+import { Link } from "react-router-dom";
 
 const MyForm = styled(Form)`
   width: 300px;
@@ -15,7 +16,7 @@ const LoginLayout = styled(Layout)`
   height: 100vh;
 `;
 
-const ForgotTag = styled.a`
+const ForgotTag = styled(Link)`
   margin-top:1.5rem;
   text-align:center;
   text-decoration:underline;

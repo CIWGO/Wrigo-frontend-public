@@ -1,3 +1,3 @@
-export const defaultBackEndPrefix = "localhost:3005";
+export const defaultBackEndPrefix = "http://localhost:3005";
 
-export const defaultFrontEndPrefix = "localhost:3000";
+export const defaultFrontEndPrefix = "http://localhost:3000";
