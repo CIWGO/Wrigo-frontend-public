@@ -6,7 +6,7 @@ const SubscribedUserRight = ({ writing, topic, premiumFeedback, setPrevious }) =
 	return (
 		<RightCard>
 			<NavBar text={writing} topic={topic} premiumFeedback={premiumFeedback} />
-			<Button onClick={() => setPrevious(true)}>previous feedback</Button>
+			<Button onClick={() => setPrevious(true)}>Previous feedback</Button>
 		</RightCard>
 	);
 };

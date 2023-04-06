@@ -52,7 +52,7 @@ const NavBar = ({ text: writing, topic, premiumFeedback }) => {
 				style={{ margin: "5px 10px 0" }}
 
 			/>
-			<div style={{ margin: "40px 7% 40px" }}>{content}</div>
+			<div style={{ margin: "10px 3% 40px" }}>{content}</div>
 		</>
 	);
 };
