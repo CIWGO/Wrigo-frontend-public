@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, notification } from "antd";
 import React from "react";
 import { writingDraft } from "../../utils";
 import { ButtonContainer, InputCardBottom } from "./style";
@@ -8,9 +8,9 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 		const draft = { writing_id: writingId, content, topic, uid };
 		writingDraft({ draft }).then((response) => {
 			if (response.status === 200) {
-				alert("Draft saved.");
+				notification.success({ message: "Draft saved." });
 			} else if (response.status === 500) {
-				alert("Something is wrong with network, please retry.");
+				notification.error({ message: "Unknown error occurred" });
 			}
 		});
 	};
@@ -70,9 +70,8 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 					</form>
 				</div>
 			</div>
-
 		</>
 	);
-}
+};
 
 export default Left;
