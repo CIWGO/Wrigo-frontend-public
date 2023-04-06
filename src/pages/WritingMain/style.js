@@ -6,19 +6,20 @@ export const StyledWritingHistoryPage = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  margin: 0 10px 0 20px;
+  margin-left: 20px;
+  margin-top: 20px;
   flex-wrap: wrap;
 `;
 
 export const UtilityCardsWrapper = styled(Link)`
-  margin: 6px 7px;
-  display: flex;
-  justify-content: flex-start;
+  display: inline-block;
+  justify-content: left;
   color: ${(props) => props.theme.primaryColor};
+  
 `;
 
 export const StyledButton = styled(Button)`
 	height: 25px;
-  border:none;
+  border: none;
 	width: 100px;
 `;
