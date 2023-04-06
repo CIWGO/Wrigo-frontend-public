@@ -7,10 +7,7 @@ const Login = () => {
 			<Logo>WRIGO</Logo>
 			<WelcomeBack>Welcome back</WelcomeBack>
 			<LoginForm />
-
 			<ForgotTag to="/resetPasswordEmailVerification"> Forgot password?</ForgotTag>
-
-			{/* </content> */}
 		</LoginLayout>
 
 	);

@@ -74,7 +74,7 @@ const ResetPasswordForm = () => {
 
 				<Form.Item>
 					<Button type="primary" htmlType="submit">
-					Reset
+					Reset password
 					</Button>
 				</Form.Item>
 			</MyForm>

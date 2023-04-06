@@ -53,7 +53,7 @@ const ProfileInfo = () => {
 	};
 	const countrySubmitHandler = async (e) => {
 		e.preventDefault();
-		await newRequest.put("/users/userProfile", {
+		await newRequest.put("/users/userprofile", {
 			uid,
 			token,
 			country
