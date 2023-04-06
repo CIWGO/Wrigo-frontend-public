@@ -48,16 +48,12 @@ const ProfileInfo = () => {
 		}
 	};
 
-	console.log(gender);
-	console.log(country);
-	console.log(studyField);
-
 	const countryUpdateHandler = (e) => {
 		setCountry(e.target.value);
 	};
 	const countrySubmitHandler = async (e) => {
 		e.preventDefault();
-		const response = await newRequest.put("/users/userProfile", {
+		await newRequest.put("/users/userprofile", {
 			uid,
 			token,
 			country
@@ -74,7 +70,6 @@ const ProfileInfo = () => {
 				});
 			}
 		});
-		console.log(response);
 		setTimeout(() => {
 			window.location.reload(false);
 		}, 2000);
@@ -88,7 +83,19 @@ const ProfileInfo = () => {
 		const response = await newRequest.put("/users/userprofile", {
 			uid,
 			token,
-			studyField
+			study_field: studyField
+		}).then((response) => {
+			if (response.status === 200) {
+				notification.success({ message: "Study field changed successfully" });
+			}
+		}).catch((error) => {
+			if (error.response && error.response.status === 404) {
+				notification.error({ message: "User not found" });
+			} else {
+				notification.error({
+					message: "Unknown error occurred"
+				});
+			}
 		});
 		console.log(response);
 		setTimeout(() => {
@@ -101,12 +108,25 @@ const ProfileInfo = () => {
 	};
 	const genderSubmitHandler = async (e) => {
 		e.preventDefault();
-		const response = await newRequest.put("/users/userprofile", {
-			uid,
-			token,
-			gender
-		});
-		console.log(response);
+		try {
+			const response = await newRequest.put("/users/userprofile", {
+				uid,
+				token,
+				gender
+			});
+			if (response.status === 200) {
+				notification.success({ message: "Gender changed successfully" });
+			}
+		} catch (error) {
+			if (error.response && error.response.status === 404) {
+				notification.error({ message: "User not found" });
+			} else {
+				notification.error({
+					message: "Unknown error occurred"
+				});
+			}
+		}
+
 		setTimeout(() => {
 			window.location.reload(false);
 		}, 2000);

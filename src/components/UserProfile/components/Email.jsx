@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import newRequest from "../../../utils/newRequest";
 // import { Button } from "antd";
 import {
@@ -12,6 +12,8 @@ import { notification } from "antd";
 const Email = (props) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [newEmail, setNewEmail] = useState("");
+	const [disabled, setDisabled] = useState(false);
+	const [timeLeft, setTimeLeft] = useState(60);
 	const [code, setCode] = useState("");
 	const openHandler = (e) => {
 		e.preventDefault();
@@ -32,6 +34,7 @@ const Email = (props) => {
 			});
 			if (response.status === 200) {
 				notification.success({ message: "Email sent successfully! Check your new mailbox for the code." });
+				setDisabled(true);
 			} else if (response.status === 500) {
 				notification.error({ message: "send fail 500 (Something went wrong)" });
 			} else {
@@ -77,6 +80,24 @@ const Email = (props) => {
 			console.err(e.message);
 		}
 	};
+
+	useEffect(() => {
+		let timer;
+		if (disabled) {
+			timer = setInterval(() => {
+				setTimeLeft((prevTimeLeft) => {
+					if (prevTimeLeft === 1) {
+						setDisabled(false);
+						clearInterval(timer);
+						return 60;
+					}
+					return prevTimeLeft - 1;
+				});
+			}, 1000);
+		}
+		return () => clearInterval(timer);
+	}, [disabled]);
+
 	return (
 		<>
 			<FormDefault>
@@ -96,8 +117,8 @@ const Email = (props) => {
 					<InputDefault id="code" placeholder="Verification Code" autoComplete="off" onChange={codeOnChangeHandler} />
 				</FormDefault.Item>
 				<FormDefault.Item>
-					<ButtonDefault type="primary" onClick={sendCodeHandler}>
-                    &nbsp;&nbsp;Send&nbsp;&nbsp;
+					<ButtonDefault type="primary" onClick={sendCodeHandler} disabled={disabled}>
+						{disabled ? `Resend (${timeLeft})` : "Send"}
 					</ButtonDefault>
 				</FormDefault.Item>
 			</FormDefault>
