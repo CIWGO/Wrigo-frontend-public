@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledScore = styled.div`
 	color: #2f71da;
-	padding-left: 55px;
+	padding-left: 70px;
 	font-size: 30px;
 `;
 

@@ -49,7 +49,7 @@ const WritingPage = () => {
 			<Link to={"/user/writings"}>
 				<button className="back">
 					<LeftOutlined />
-					Go Back
+					Back
 				</button>
 			</Link>
 

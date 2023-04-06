@@ -6,8 +6,8 @@ import { DeleteOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 const IconBox = styled.button`
   position: absolute;
-  right: 10px;
-  bottom: 7px;
+  right: 12px;
+  bottom: 10px;
   color:#828080;
   &:hover{
     color:#000;

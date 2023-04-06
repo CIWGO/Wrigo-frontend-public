@@ -5,11 +5,13 @@ import { EllipsisOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 const UtilityCardsWrapper = styled(Link)`
-  margin: 8px 15px;
+  margin-left: 20px;
+  margin-top: 20px;
   display: flex;
   justify-content: flex-start;
   height: 250px;
 `;
+
 const RecentWritings = (props) => {
 	return (
 		<div style={{ height: "100svh" }}>
