@@ -14,63 +14,64 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 			}
 		});
 	};
-
 	return (
-		<div className="left">
-			<div>
-				<form onSubmit={handleSubmit} className="form">
-					<div>
-						<textarea
-							value={topic}
-							onChange={(e) => setTopic(e.target.value.trim().replace(/\s+/g, " "))}
-							className="topic"
-							placeholder="IELTS writing task 2 topic goes here"
-							disabled={resubmit}
-						></textarea>
-					</div>
-					<hr />
-					<div className="flex-col">
-						<textarea
-							value={content}
-							onChange={(e) => setContent(e.target.value.trim().replace(/\s+/g, " "))}
-							className="content"
-							placeholder="Write here"
-						></textarea>
-						<InputCardBottom>
-							<div className="wordCount">
-								{wordCount} words
-							</div>
-							<ButtonContainer style={
-								{
-									position: "relative"
-								}
-							}>
-								<Button
-									type="primary"
-									style={{
-										borderColor: "rgb(47, 113, 218)",
-										background: "none",
-										color: "rgb(47, 113, 218)"
-									}}
-									onClick={handleSaveDraft}
-								>
-										save draft
-								</Button>
-								<Button
-									type="primary"
-									htmlType="submit"
-									disabled={mutation.isLoading}
-									style={{ marginLeft: "10px" }}
-								>
-									{resubmit ? "resubmit" : "submit"}
-								</Button>
-							</ButtonContainer>
-						</InputCardBottom>
-					</div>
-				</form>
+		<>
+			<div className="left">
+				<div>
+					<form onSubmit={handleSubmit} className="form">
+						<div>
+							<textarea
+								value={topic}
+								onChange={(e) => setTopic(e.target.value.trim().replace(/\s+/g, " "))}
+								className="topic"
+								placeholder="Writing topic"
+								disabled={resubmit}
+							></textarea>
+						</div>
+						<hr />
+						<div className="flex-col">
+							<textarea
+								value={content}
+								onChange={(e) => setContent(e.target.value.trim().replace(/\s+/g, " "))}
+								className="content"
+								placeholder="Writing content"
+							></textarea>
+							<InputCardBottom>
+								<div className="wordCount">
+									{wordCount} words
+								</div>
+								<ButtonContainer style={
+									{
+										position: "relative"
+									}
+								}>
+									<Button
+										type="primary"
+										style={{
+											borderColor: "rgb(47, 113, 218)",
+											background: "none",
+											color: "rgb(47, 113, 218)"
+										}}
+										onClick={handleSaveDraft}
+									>
+										Save draft
+									</Button>
+									<Button
+										type="primary"
+										htmlType="submit"
+										disabled={mutation.isLoading}
+										style={{ marginLeft: "10px" }}
+									>
+										{resubmit ? "Resubmit" : "Submit"}
+									</Button>
+								</ButtonContainer>
+							</InputCardBottom>
+						</div>
+					</form>
+				</div>
 			</div>
-		</div>
+		</>
 	);
-}
+};
 
 export default Left;
