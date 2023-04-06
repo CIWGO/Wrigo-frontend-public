@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles";
 
-function SubIntroCard () {
+function Infinite () {
 	return (
 		<div style={styles.container}>
 			<header style={styles.header}>
@@ -52,4 +52,4 @@ function SubIntroCard () {
 	);
 }
 
-export default SubIntroCard;
+export default Infinite;
