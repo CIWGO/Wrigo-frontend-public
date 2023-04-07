@@ -1,13 +1,21 @@
-import Layout from "../../components/Layout";
 import RecentWriting from "./recentWritings";
 import PopularTopicsCard from "./popularTopics";
+import { Background, BottomRow } from "./style";
+import Trend from "./trend";
 
 const DashBoardPage = () => {
 	return (
-		<Layout>
+		<Background>
+
 			<RecentWriting />
-			<PopularTopicsCard />
-		</Layout>
+
+			<BottomRow>
+
+				<PopularTopicsCard />
+				<Trend/>
+			</BottomRow>
+
+		</Background>
 	);
 };
 export default DashBoardPage;

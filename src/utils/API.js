@@ -69,6 +69,8 @@ export const cancelSubscription = (values) => {
 	return newRequest.post("/api//cancelSubscriptionAtPeriodEnd", values);
 };
 
+export const viewAllWritingHistory = (values) => { return newRequest.post("/user/viewAllWritingHistory", values); };
+
 export const getUserPaymentInfo = (values) => { return newRequest.post("/users/getUserPaymentInfo", values); };
 export const getPreviousFeed = (values) => { return newRequest.post("/users/viewHistory", values); };
 
