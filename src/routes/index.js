@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import RecentWritings from "../pages/Dashboard/recentWritings";
+// import RecentWritings from "../pages/Dashboard/recentWritings";
 import Statistics from "../pages/Statistics";
 import Profile from "../pages/Profile";
 import WritingPage from "../pages/WritingEvaluatingPage";
@@ -14,7 +14,7 @@ import EmailVerificationPage from "../pages/EmailVerification";
 import TopicContent from "../pages/TopicContent/index";
 import WritingsPopulate from "../pages/WritingsPopulate";
 // import PopularTopicsCard from "../pages/Dashboard/popularTopics";
-// import DashBoardPage from "../pages/Dashboard/dashboard";
+import DashBoardPage from "../pages/Dashboard/index";
 import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
 import PaymentSuccess from "../pages/Payment/paymentSuccess";
@@ -69,7 +69,7 @@ export default [
 		children: [
 			{
 				path: "dashboard",
-				element: <RecentWritings />
+				element: <DashBoardPage />
 			},
 			{
 				path: "writings",

@@ -2,15 +2,16 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const ContentBox = styled.div`
+  margin-top:10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 10px 30px;
   // position: absolute;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 10px;
 `;
 
 export const Property = styled.div`

@@ -13,7 +13,10 @@ const TextBox = styled.div`
   `;
 const Topic = ({ taskTopic }) => {
 	return (
-		<TextBox>{taskTopic.slice(0, 100)}...</TextBox>
+		<TextBox>
+			{/* {taskTopic.slice(0, 100)}... */}
+			{taskTopic ? (taskTopic.length > 100 ? `${taskTopic.slice(0, 100)}...` : taskTopic) : ""}
+		</TextBox>
 	);
 };
 

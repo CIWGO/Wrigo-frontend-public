@@ -41,9 +41,9 @@ export const writingDraft = (values) => {
 	return newRequest.post("/users/writingDraft", values);
 };
 
-export const viewAllWritingHistory = (values) => { return newRequest.post("/user/viewAllWritingHistory", values); };
-
-export const viewHistory = (values) => { return newRequest.post("/users/viewHistory", values); };
+export const viewHistory = (values) => {
+	return newRequest.post("/users/viewHistory", values);
+};
 
 export const writingStatistics = (values) => {
 	return newRequest.post("/api/writingStatistics", values);
@@ -68,6 +68,8 @@ export const checkoutSuccess = (values) => {
 export const cancelSubscription = (values) => {
 	return newRequest.post("/api//cancelSubscriptionAtPeriodEnd", values);
 };
+
+export const viewAllWritingHistory = (values) => { return newRequest.post("/user/viewAllWritingHistory", values); };
 
 export const getUserPaymentInfo = (values) => { return newRequest.post("/users/getUserPaymentInfo", values); };
 export const getPreviousFeed = (values) => { return newRequest.post("/users/viewHistory", values); };

@@ -25,7 +25,6 @@ const WritingHistoryPage = () => {
 		viewHistory({ token, uid, type: "writingHistory", from: fromDate, to: toDate }).then((response) => {
 			if (response.status === 200) {
 				setData(response.data);
-				console.log(response.data);
 			} else if (response.status === 500) {
 				alert("Something is wrong with network, please retry.");
 			}
