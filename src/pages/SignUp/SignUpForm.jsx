@@ -17,7 +17,6 @@ const SignUpForm = () => {
 				// store the token in localStorage
 				localStorage.setItem("uid", userId); // store the uid in localStorage
 				localStorage.setItem("username", userName); // store the username in localStorage
-				console.log("sign up success");
 				notification.success({ message: "Sign up success" });
 				await sendOTPViaEmail({ uid: userId, username: userName });
 				navigate("/emailVerification");

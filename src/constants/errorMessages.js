@@ -5,5 +5,7 @@ export const ERROR_MESSAGES = {
 	password: "Please input your password!",
 	passwordConfirm: "Please confirm your password!",
 	passwordMatch: "These two passwords that you entered do not match!",
-	verificationCode: "The Verification code entered is incorrect or expired"
+	noVerificationCode: "Please input your verification code",
+	verificationCodeError: "The Verification code entered is incorrect or expired",
+	pleaseTryLater: "Something went wrong, please try later, thanks!"
 };

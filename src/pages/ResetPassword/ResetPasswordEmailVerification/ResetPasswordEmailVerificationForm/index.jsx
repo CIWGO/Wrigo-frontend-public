@@ -81,7 +81,7 @@ const ResetPasswordEmailVerificationForm = () => {
 			})
 			.catch((error) => {
 				if (error.response && error.response.status === 401) {
-					notification.error({ message: ERROR_MESSAGES.verificationCode });
+					notification.error({ message: ERROR_MESSAGES.verificationCodeError });
 				} else {
 					notification.error({
 						message: "Unknown error when verifying OTP"
@@ -139,7 +139,7 @@ const ResetPasswordEmailVerificationForm = () => {
 								onClick={onSend}
 								disabled={disabled}
 							>
-								{disabled ? `Resend (${timeLeft}s)` : "Send"}
+								{disabled ? `Resend (${timeLeft})` : "Send"}
 							</SendButton>
 						</Space>
 					</Col>
