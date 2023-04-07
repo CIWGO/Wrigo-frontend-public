@@ -14,20 +14,21 @@ const WritingPageDiv = styled.div`
 
 const GrammarContainer = styled.div`
 
-  margin:100px 7% 5vh 7%;
+  /* margin:100px 7% 5vh 7%; */
+  padding: 20px;
   text-align:left;
 `;
 
 const Button = styled.button`
   font-weight: 500;
-  bottom: 10px;
-  right: 20px;
+  bottom: 20px;
+  right: 30px;
   position: absolute;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   color: white;
   padding: 5px;
-  width: 10rem;
+  width: 10em;
   height: 33px;
   background-color:#1677ff;
   &:hover {

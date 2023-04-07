@@ -49,7 +49,7 @@ const WritingHistoryPage = () => {
 
 	return (
 		<>
-			<HeadingComponent displayValue={"Writings Main"} />
+			<HeadingComponent displayValue={"My Writings"} />
 			{loading
 				? (
 			// loading skeletons...need to add animation//
@@ -75,7 +75,7 @@ const WritingHistoryPage = () => {
 				: (
 					// 1 single new writing card + main writing cards(mapped) + 1 load more card//
 					<StyledWritingHistoryPage>
-						<UtilityCardsWrapper to={`/user/writing/evaluation/${newWritingId}`}>
+						<UtilityCardsWrapper to={`/user/writings/evaluation/${newWritingId}`}>
 							<UtilityCard>
 								<PlusOutlined
 									style={{ fontSize: "60px", color: defaultColor }}
@@ -84,7 +84,7 @@ const WritingHistoryPage = () => {
 						</UtilityCardsWrapper>
 						{data.slice(0, displayCount - 1).map((item, index) => (
 
-							<UtilityCardsWrapper to={`/user/writing/${item.writing_id}`} key={index}>
+							<UtilityCardsWrapper to={`/user/writings/${item.writing_id}`} key={index}>
 								<UtilityCard>
 									<WritingContentCard loading={loading}
 										id= {item.writing_id}
@@ -102,7 +102,7 @@ const WritingHistoryPage = () => {
 								<UtilityCard>
 									<StyledButton onClick={handleLoadMore}>
 										<EllipsisOutlined
-											style={{ fontSize: "60px", color: "rgb(47, 113, 218)" }}
+											style={{ fontSize: "60px", color: "#2f71da" }}
 										/>
 									</StyledButton>
 								</UtilityCard>

@@ -23,6 +23,7 @@ const Mark = styled.span`
 
 const Band = styled.span`
 	font-size:"24px";
+	margin-right: 5px;
 	color:rgb(55, 109, 196);
 	display: inline-block;
 `;

@@ -67,20 +67,14 @@ function EmailVerifyForm ({ uid, username }) {
 		sendOTPViaEmail({ uid, username })
 			.then((response) => {
 				if (response.status === 200) {
-					console.log("Success:", response.status);
-					alert("send email successful! Check your mailbox for the code!");
-				} else if (response.status === 500) {
-					alert("send fail 500 (Something went wrong)");
-				} else {
-					alert("send fail other than 500");
+					notification.success({ message: "Email sent successfully! Check your mailbox for the code." });
 				}
 			})
-			.catch((error) => {
-				console.log(error);
+			.catch(() => {
+				notification.error({ message: "Unknown error occurred" });
 			});
 		setResendDisabled(true);
 		setCountdown(60);
-		console.log(countdown, resendDisabled);
 	};
 
 	return (

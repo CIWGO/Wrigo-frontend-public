@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import newRequest from "../../../utils/newRequest";
 // import { Button } from "antd";
 import {
@@ -7,10 +7,13 @@ import {
 	FormDefault,
 	InputDefault
 } from "./style";
+import { notification } from "antd";
 
 const Email = (props) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [newEmail, setNewEmail] = useState("");
+	const [disabled, setDisabled] = useState(false);
+	const [timeLeft, setTimeLeft] = useState(60);
 	const [code, setCode] = useState("");
 	const openHandler = (e) => {
 		e.preventDefault();
@@ -20,7 +23,7 @@ const Email = (props) => {
 	const sendCodeHandler = async (e) => {
 		e.preventDefault();
 		if (!newEmail) {
-			alert("Please enter a valid email address");
+			notification.error({ message: "Please enter a valid email address" });
 			return;
 		}
 		try {
@@ -30,11 +33,12 @@ const Email = (props) => {
 				newEmail
 			});
 			if (response.status === 200) {
-				alert("send email successful! Check your new mailbox for the code!");
+				notification.success({ message: "Email sent successfully! Check your new mailbox for the code." });
+				setDisabled(true);
 			} else if (response.status === 500) {
-				alert("send fail 500 (Something went wrong)");
+				notification.error({ message: "send fail 500 (Something went wrong)" });
 			} else {
-				alert("send fail other than 500");
+				notification.error({ message: "send fail other than 500" });
 			}
 		} catch (e) {
 			console.err(e.message);
@@ -53,7 +57,7 @@ const Email = (props) => {
 	const changeEmailHandler = async (e) => {
 		e.preventDefault();
 		if (!code) {
-			alert("Please enter a valid code");
+			notification.error({ message: "Please enter a valid code" });
 			return;
 		}
 		try {
@@ -63,11 +67,11 @@ const Email = (props) => {
 				newEmail
 			});
 			if (response.status === 200) {
-				alert("Change email successful!");
+				notification.success({ message: "Change email successful!" });
 			} else if (response.status === 500) {
-				alert("send fail 500 (Something went wrong)");
+				notification.error({ message: "send fail 500 (Something went wrong)" });
 			} else {
-				alert("send fail other than 500");
+				notification.error({ message: "send fail other than 500" });
 			}
 			setTimeout(() => {
 				window.location.reload(false);
@@ -76,6 +80,24 @@ const Email = (props) => {
 			console.err(e.message);
 		}
 	};
+
+	useEffect(() => {
+		let timer;
+		if (disabled) {
+			timer = setInterval(() => {
+				setTimeLeft((prevTimeLeft) => {
+					if (prevTimeLeft === 1) {
+						setDisabled(false);
+						clearInterval(timer);
+						return 60;
+					}
+					return prevTimeLeft - 1;
+				});
+			}, 1000);
+		}
+		return () => clearInterval(timer);
+	}, [disabled]);
+
 	return (
 		<>
 			<FormDefault>
@@ -95,8 +117,8 @@ const Email = (props) => {
 					<InputDefault id="code" placeholder="Verification Code" autoComplete="off" onChange={codeOnChangeHandler} />
 				</FormDefault.Item>
 				<FormDefault.Item>
-					<ButtonDefault type="primary" onClick={sendCodeHandler}>
-                    &nbsp;&nbsp;Send&nbsp;&nbsp;
+					<ButtonDefault type="primary" onClick={sendCodeHandler} disabled={disabled}>
+						{disabled ? `Resend (${timeLeft})` : "Send"}
 					</ButtonDefault>
 				</FormDefault.Item>
 			</FormDefault>

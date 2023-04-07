@@ -4,23 +4,24 @@ import styled from "styled-components";
 import { viewHistory } from "../../../utils";
 
 const ScoreBox = styled.div`
-  font-size: 30px;
-  font-weight: 400;
-  color: rgb(55, 109, 196);
-  position:absolute;
-  bottom: 14px;
-  left:12px;
-  `;
+	font-size: 30px;
+	font-weight: 400;
+	color: #2f71da;
+	position: absolute;
+	bottom: 25px;
+	left: 22px;
+`;
+
 const Draft = styled.div`
-   font-size: 20px;
-  font-weight: 200;
-  color: rgb(55, 109, 196);
-	&:hover{
-  color:rgb(27, 53, 95)
+	font-size: 20px;
+	font-weight: 200;
+	color: #2f71da;
+	&:hover {
+		color: rgb(27, 53, 95);
 	}
-  position:absolute;
-  bottom: 18px;
-  left:12px;
+	position: absolute;
+	bottom: 28px;
+	left: 22px;
 `;
 
 const Score = ({ id }) => {
@@ -40,11 +41,23 @@ const Score = ({ id }) => {
 	useEffect(() => {
 		async function fetchData () {
 			try {
-				const previousFeedResponse = await viewHistory({ token, uid, writing_id: id, type: "feedback" });
+				const previousFeedResponse = await viewHistory({
+					token,
+					uid,
+					writing_id: id,
+					type: "feedback"
+				});
 				const previousFeed = previousFeedResponse.data;
-				const numbers = [previousFeed[0].score_TR, previousFeed[0].score_LR, previousFeed[0].score_GRA, previousFeed[0].score_CC];
+				const numbers = [
+					previousFeed[0].score_TR,
+					previousFeed[0].score_LR,
+					previousFeed[0].score_GRA,
+					previousFeed[0].score_CC
+				];
 				setScore(calOverall(numbers));
-				if (previousFeed) { setIsDraft(false); }
+				if (previousFeed) {
+					setIsDraft(false);
+				}
 			} catch (error) {
 				console.log(error);
 			}
@@ -54,7 +67,15 @@ const Score = ({ id }) => {
 	}, []);
 	return (
 		<>
-			{isDraft ? <Draft><EditOutlined /></Draft> : <ScoreBox>{score}</ScoreBox>}
+			{isDraft
+				? (
+					<Draft>
+						<EditOutlined />
+					</Draft>
+				)
+				: (
+					<ScoreBox>{score}</ScoreBox>
+				)}
 		</>
 	);
 };

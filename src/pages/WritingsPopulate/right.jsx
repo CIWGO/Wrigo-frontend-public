@@ -49,7 +49,7 @@ const RightComponent = ({ comment, mutation, preFeed, subscribed, topic, content
 		return <RightCard>
 
 			<FeedbackContainer>
-				<p id="moment">Evaluted at {moment(Date.now()).format("MMMM Do YYYY, h:mm a")}</p>
+				<p id="moment">Evaluated on {moment(Date.now()).format("MMMM Do YYYY, h:mm a")}</p>
 				<p>band<span>
 					{calOverall(numbers)}
 				</span>

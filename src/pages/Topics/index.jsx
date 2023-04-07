@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { topicActions } from "../../slice/topicSlice";
 import { getTopic } from "../../utils/index";
 import { useState, useEffect } from "react";
 import TopicCard from "../../components/TopicCard/index";
@@ -43,6 +45,7 @@ const TopicMainPage = () => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [displayCount, setDisplayCount] = useState(8);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		setLoading(true);
@@ -51,6 +54,7 @@ const TopicMainPage = () => {
 		getTopic({ token, uid, type: "allTopics" }).then((response) => {
 			if (response.status === 200) {
 				setData(response.data);
+				dispatch(topicActions.saveTopicData(response.data));
 			} else if (response.status === 500) {
 				alert("Something is wrong with network, please retry.");
 			}

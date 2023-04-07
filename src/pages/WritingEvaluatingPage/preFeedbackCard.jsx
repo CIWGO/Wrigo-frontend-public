@@ -17,7 +17,7 @@ const PreFeedbackCard = ({ setPrevious, preFeed }) => {
 		return (
 			<RightCard>
 				<TopBackButton>
-					<LeftOutlined onClick={() => setPrevious(false)} className="back" />
+					<LeftOutlined onClick={() => setPrevious(false)} className="back" />Back
 				</TopBackButton>
 				<PreFeedbacks>
 					{preFeed.map((item) => (

@@ -23,24 +23,24 @@ const LoginTag = styled(Link)`
 `;
 
 const CreateAccount = styled.h2`
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
 
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight:700;
-  font-size:30px;
+  font-size: 25px;
   color: #2F71DA;
   margin-bottom: 15px;
   text-align:center;
 `;
 
 const Logo = styled.h1`
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
-  font-family: 'Noto Sans', sans-serif;
-  font-weight:800;
-  font-size:48px;
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 54px;
   color: #2F71DA;
-  text-align:center;
-  margin-bottom:30px;
+  text-align: center;
+  margin-bottom: 30px;
 `;
 
 export { MyForm, SignUpLayout, LoginTag, CreateAccount, Logo };
