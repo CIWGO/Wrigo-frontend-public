@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Form, Input, notification, Row, Space } from "antd";
 import { VerifyButton, MyForm, PageLayout, SendButton } from "./style";
-import { changeEmail, sendOTPViaEmail, verifyOTP } from "../../utils/index";
+import { changeEmail, sendOTPViaEmail } from "../../utils/index";
 import { useNavigate } from "react-router-dom";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 
@@ -51,35 +51,27 @@ function EmailChangeForm () {
 		return () => clearInterval(timer);
 	}, [disabled]);
 
-	const onFinish = async () => {
-		const userInput = form.getFieldValue("userInput");
+	const onFinish = async (values) => {
 		const uid = localStorage.getItem("uid");
+		const { userInput, newEmail } = values;
 
-		await verifyOTP({ uid, userInput })
-			.then(async (response) => {
+		await changeEmail({ uid, userInput, newEmail })
+			.then((response) => {
 				if (response.status === 200) {
-					notification.success({ message: "Verification success" });
-					const newEmail = form.getFieldValue("newEmail");
-					// change email
-					await changeEmail({ uid, newEmail })
-						.then((response) => {
-							if (response.status === 200) {
-								notification.success({ message: "Email changed successfully" });
-							}
-						}).catch(() => {
-
-						});
+					notification.success({ message: "Email set successfully" });
 					navigate("/login");
 				}
 			})
 			.catch((error) => {
-				if (error.response && error.response.status === 401) {
-					notification.error({ message: ERROR_MESSAGES.verificationCodeError });
+				let errorMessage;
+				if (error.response && error.response.data && error.response.data.error) {
+					errorMessage = error.response.data.error;
+				} else if (error.response && error.response.status === 401) {
+					errorMessage = "Invalid or expired verification code";
 				} else {
-					notification.error({
-						message: "Unknown error when verifying OTP"
-					});
+					errorMessage = error.message || "Unknown error occurred";
 				}
+				notification.error({ message: `${errorMessage}` });
 			});
 	};
 
