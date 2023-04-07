@@ -20,6 +20,7 @@ function EmailVerifyForm ({ uid, username }) {
 	const dispatch = useDispatch();
 	const [countdown, setCountdown] = useState(60);
 	const [resendDisabled, setResendDisabled] = useState(false);
+
 	useEffect(() => {
 		if (countdown > 0 && resendDisabled) {
 			setTimeout(() => setCountdown(countdown - 1), 1000);
@@ -27,6 +28,7 @@ function EmailVerifyForm ({ uid, username }) {
 			setResendDisabled(false);
 		}
 	}, [countdown, resendDisabled]);
+
 	const onFinish = async (values) => {
 		await verifyOTP({
 			uid,
