@@ -32,11 +32,9 @@ ChartJS.register(
 	Legend
 );
 
-function StatisticsCard4 () {
+function StatisticsCard4 ({ uid, token }) {
 	const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 	const [chartData, setChartData] = useState();
-	const uid = localStorage.getItem("uid");
-	const token = localStorage.getItem("token");
 
 	useEffect(() => {
 		writingSubmissions({
