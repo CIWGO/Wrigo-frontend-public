@@ -64,8 +64,8 @@ const PageLayout = () => {
 				<Content
 					style={{
 						margin: "0",
-						minHeight: "90vh",
-						backgroundColor: "grey"
+						minHeight: "90vh"
+						// backgroundColor: "grey"
 					}}
 				>
 					<div
