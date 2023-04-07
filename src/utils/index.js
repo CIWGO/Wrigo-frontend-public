@@ -11,7 +11,9 @@ import {
 	writingDraft,
 	searchUserTopics,
 	searchAllTopics,
-	cancelSubscription
+	cancelSubscription,
+	writingStatistics,
+	viewAllWritingHistory
 } from "./API";
 
 export {
@@ -27,5 +29,7 @@ export {
 	writingDraft,
 	searchUserTopics,
 	searchAllTopics,
-	cancelSubscription
+	cancelSubscription,
+	writingStatistics,
+	viewAllWritingHistory
 };

@@ -5,7 +5,7 @@ import { changeEmail, sendOTPViaEmail, verifyOTP } from "../../utils/index";
 import { useNavigate } from "react-router-dom";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 
-function EmailChangeForm() {
+function EmailChangeForm () {
 	const [form] = Form.useForm();
 	const [disabled, setDisabled] = useState(false);
 	const [timeLeft, setTimeLeft] = useState(60);
