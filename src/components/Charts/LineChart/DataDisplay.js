@@ -15,40 +15,40 @@ const DisplayData = (props) => {
 			{
 				label: "Overall Mark",
 				data: mean,
-				borderColor: "rgb(239, 92, 92)",
-				backgroundColor: "rgba(239, 92, 92,0.5)",
+				borderColor: "#FF6384",
+				backgroundColor: "#FF6384",
 				borderWidth: 2,
 				pointRadius: 2
 			},
 			{
 				label: "Task Response",
 				data: ts,
-				borderColor: "#B2DF8A",
-				backgroundColor: "rgba(178, 223, 138,0.5)",
+				borderColor: "#36A2EB",
+				backgroundColor: "#36A2EB",
 				borderWidth: 2,
 				pointRadius: 2
 			},
 			{
 				label: "Coherence and Cohesion",
 				data: cc,
-				borderColor: "#9747FF",
-				backgroundColor: "rgba(151, 71, 255,0.5)",
+				borderColor: "#FFCE56",
+				backgroundColor: "#FFCE56",
 				borderWidth: 2,
 				pointRadius: 2
 			},
 			{
 				label: "Lexical Resource (Vocabulary)",
 				data: lr,
-				borderColor: "rgb(47, 113, 218)",
-				backgroundColor: "rgba(47, 113, 218,0.5)",
+				borderColor: "#4BC0C0",
+				backgroundColor: "#4BC0C0",
 				borderWidth: 2,
 				pointRadius: 2
 			},
 			{
 				label: "Grammatical Range & Accuracy",
 				data: gra,
-				borderColor: "rgb(239, 163, 92)",
-				backgroundColor: "rgba(239, 163, 92,0.5)",
+				borderColor: "#9966FF",
+				backgroundColor: "#9966FF",
 				borderWidth: 2,
 				pointRadius: 2
 			}
