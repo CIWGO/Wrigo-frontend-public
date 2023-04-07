@@ -2,10 +2,10 @@ import styled, { keyframes } from "styled-components";
 export const WritingPageDiv = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
 font-family: 'Poppins', sans-serif;
-background-color: rgb(245, 245, 245);
+background-color: #F5F5F5;
 display: flex;
 flex-wrap: wrap;
-
+padding: 20px;
 justify-content: space-between;
 width: 100%;
 height: max-content;
@@ -19,8 +19,7 @@ position: relative;
     position: absolute;
     top: 0;
     left: 15px;
-    font-size: 1.4rem;
-    font-weight: 560;
+    font-size: 20px;
     font-family: "Poppins", sans-serif;
     :hover {
       cursor: pointer;
@@ -31,51 +30,57 @@ position: relative;
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 2rem 10px 5vh 20px;
-    border-radius: 10px;
+    margin-top: 40px;
+    border-radius: 20px;
     background-color: white;
     width: 45%;
     min-width: 340px;
-    height: 81vh;
+    height: 80svh;
     flex: 1;
     .topic {
       // styles for the textarea
-
       // disable the textarea if resubmit is true
       &[disabled] {
-        background-color: #f2f2f2;
-        color: #999;
+        background-color: rgba(230, 244, 255);
+        width: 80%;
+        border-radius: 20px;
+        padding: 20px;
+        color: #000000;
+        font-size: 14px;
+        font-weight: 700;
         cursor: not-allowed;
       }
     }
     textarea {
-    resize:none;
+    resize: none;
     border: none;
     font-family: 'Poppins', sans-serif;
-    font-size: .8rem;
-    line-height: 1.5rem;
+    font-size: 14px;
+    line-height: 30px;
     border: none;
+    padding: 20px;
 
     &::-webkit-scrollbar {
       width: 4px;
     }
 
     &::-webkit-scrollbar-track {
-      background-color: #f1f1f1;
+      background-color: #F2F2F2;
+      border-radius: 20px;
     }
 
     &::-webkit-scrollbar-thumb {
       background-color: rgba(162, 162, 181, 0.828);
+      border-radius: 20px;
     }
     &::placeholder {
-     line-height: 2.8rem;
-
+      line-height: 30px;
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
-      color: #ccccccc9;
+      font-size: 20px;
+      color: #CCCCCC;
       padding-bottom: 10px;
-      text-underline-position: under;
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     &:focus {
@@ -83,12 +88,11 @@ position: relative;
       border: 1 px solid rgb(18, 13, 13);
     }
 
-
     width: 80%;
   }
 
   &:disabled {
-    background-color: #ccc;
+    background-color: #CCCCCC;
     /* change the background color */
     color: #666;
     /* change the text color */
@@ -111,7 +115,7 @@ position: relative;
   .content {
     margin: 25px auto 10px;
     width: 80%;
-    height: 46vh;
+    height: 45vh;
     // overflow-y: hidden;
 
   }
@@ -131,10 +135,9 @@ position: relative;
         font-family: "Poppins", sans-serif;
         font-size: 1.5rem;
         font-weight: 500;
-        color: #ccccccc9;
+        color: #CCCCCC;
         padding-bottom: 10px;
-        text-underline-position: under;
-        text-decoration: underline;
+        text-decoration: none;
       }
 
       &:focus {
@@ -146,38 +149,45 @@ position: relative;
 
     width: 80%;
   }`;
-export const BackButton = styled.button` position: absolute;
-top:30px;
+
+export const BackButton = styled.button` 
+  position: absolute;
+  top: 30px;
 `;
+
 export const RightCard = styled.div`
-   position: relative;
-  margin: 2rem 20px 5vh 15px;
-    border-radius: 10px;
+    position: relative;
+    margin-top: 40px;
+    margin-left: 20px;
+    border-radius: 20px;
     background-color: white;
     width: 45%;
     min-width: 340px;
-    min-height: 81vh;
-    flex: 1;`;
+    min-height: 80svh;
+    flex: 1;
+    padding: 20px;
+`;
+
 export const PreFeedbacks = styled.div`
-  margin: 70px 50px 20px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   gap: 0;
-  min-height:61vh;
+  min-height:60vh;
 
   .preFeed {
     text-align: start;
-    font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     color: rgb(40, 86, 161);
   }
 `;
+
 export const TopBackButton = styled.div`
 color:rgb(47, 113, 218);
-font-size: 19px;
+font-size: 20px;
 position: absolute;
-top:30px;
-left:20px;
+top: 30px;
+left: 30px;
 
 `;
 const spin = keyframes`
@@ -205,53 +215,53 @@ export const LoadingContainer = styled.div`
     margin: 0 auto;
   }
   .loading-text {
-    font-size: 1.5rem;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
     text-align: center;
     margin-top: 10px;
   }
 `;
 
 export const NoFeed = styled.div`
-margin-left: 8%;
-text-align: start;
-font-weight: 700;
-margin-top: 30px;
-padding-bottom: 10px;
-font-size: 1.5rem;
-font-weight: 600;
-color: #ccccccc9;
-padding-bottom: 10px;
-text-underline-position: under;
-text-decoration: underline;
+  margin-left: 5%;
+  text-align: start;
+  font-weight: 700;
+  margin-top: 32px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #CCCCCC;
+  text-decoration: none;
 `;
 
 export const FeedbackContainer = styled.div`
 flex-direction: column;
 justify-content: space-around;
-gap:10px;
+gap: 30px;
 display: flex;
 margin: 100px 10% 10%;
 text-align: left;
+line-height: 20px;
 height: 66vh;
 height: min-content;
 
 #moment {
   position:absolute;
-  right:30px; 
-  top:1rem;
-  font-size: 11px;
+  left: 50px; 
+  top: 43px;
+  font-size: 12px;
   color: #969494c9;
 }
 button {
   font-weight: 500;
-  bottom: 10px;
-  right: 20px;
+  bottom: 20px;
+  right: 30px;
   position: absolute;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   color: white;
   padding: 5px;
-  width: 10rem;
+  width: 10em;
   height: 33px;
   background-color:#1677ff;
   &:hover {
@@ -270,9 +280,10 @@ p {
   right: 10%;
 }
 span {
-  color: gb(55, 109, 196);
-  font-size: 4rem;
+  color: #2F71DA;
+  font-size: 60px;
   font-weight: bold;
+  margin-left: 5px;
 }
 `;
 
@@ -326,12 +337,11 @@ export const InputCardBottom = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* width: 100%; */
   justify-content: space-between;
   position:absolute;
-  left:20px;
-  bottom:10px ;
-  right:10px;
+  left: 30px;
+  bottom: 20px;
+  right: 30px;
   
 `;
 

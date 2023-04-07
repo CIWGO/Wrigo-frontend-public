@@ -1,4 +1,4 @@
-import { Button } from "antd";
+import { Button, notification } from "antd";
 import React from "react";
 import { writingDraft } from "../../utils";
 import { ButtonContainer, InputCardBottom } from "./style";
@@ -8,9 +8,9 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 		const draft = { writing_id: writingId, content, topic, uid };
 		writingDraft({ draft }).then((response) => {
 			if (response.status === 200) {
-				alert("Draft saved.");
+				notification.success({ message: "Draft saved." });
 			} else if (response.status === 500) {
-				alert("Something is wrong with network, please retry.");
+				notification.error({ message: "Unknown error occurred" });
 			}
 		});
 	};
@@ -24,7 +24,7 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 								value={topic}
 								onChange={(e) => setTopic(e.target.value.trim().replace(/\s+/g, " "))}
 								className="topic"
-								placeholder="IELTS writing task 2 topic goes here"
+								placeholder="Writing topic"
 								disabled={resubmit}
 							></textarea>
 						</div>
@@ -34,7 +34,7 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 								value={content}
 								onChange={(e) => setContent(e.target.value.trim().replace(/\s+/g, " "))}
 								className="content"
-								placeholder="Write here"
+								placeholder="Writing content"
 							></textarea>
 							<InputCardBottom>
 								<div className="wordCount">
@@ -54,7 +54,7 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 										}}
 										onClick={handleSaveDraft}
 									>
-										save draft
+										Save draft
 									</Button>
 									<Button
 										type="primary"
@@ -62,7 +62,7 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 										disabled={mutation.isLoading}
 										style={{ marginLeft: "10px" }}
 									>
-										{resubmit ? "resubmit" : "submit"}
+										{resubmit ? "Resubmit" : "Submit"}
 									</Button>
 								</ButtonContainer>
 							</InputCardBottom>
@@ -70,9 +70,8 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 					</form>
 				</div>
 			</div>
-
 		</>
 	);
-}
+};
 
 export default Left;

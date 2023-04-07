@@ -1,5 +1,5 @@
 import ResetPasswordEmailVerificationForm from "./ResetPasswordEmailVerificationForm";
-import { SignUpLayout, VerifyMessage, Logo, CheckMessage } from "./style";
+import { SignUpLayout, VerifyMessage, Logo, CheckMessage, CancelTag } from "./style";
 
 const ResetPasswordEmailVerificationPage = () => {
 	return (
@@ -8,6 +8,7 @@ const ResetPasswordEmailVerificationPage = () => {
 			<VerifyMessage>Verify your email</VerifyMessage>
 			<CheckMessage>Please check your inbox</CheckMessage>
 			<ResetPasswordEmailVerificationForm/>
+			<CancelTag to="/login"> Cancel</CancelTag>
 		</SignUpLayout>
 	);
 };

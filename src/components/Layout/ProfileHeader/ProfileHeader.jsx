@@ -1,6 +1,4 @@
-import { Button } from "antd";
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
@@ -25,22 +23,6 @@ const StyledUsername = styled.div`
 	margin-left: 30px;
 `;
 
-const StyledButtonContainer = styled.div`
-	display: flex;
-	padding-top: 13px;
-`;
-
-const StyledButton = styled(Button)`
-	height: 25px;
-	width: 100px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-left: 10px;
-	border-color: #fff;
-	background: none;
-`;
-
 const ProfileHeader = () => {
 	const [username, setUsername] = useState([]);
 	useEffect(() => {
@@ -54,14 +36,6 @@ const ProfileHeader = () => {
 		<StyledCard>
 			<StyledContentContainer>
 				<StyledUsername>@{username}</StyledUsername>
-				<StyledButtonContainer>
-					{/* <StyledButton type="primary">
-						<NavLink to="edit" style={{ fontSize: "12px", fontWeight: 700 }}>Edit profile</NavLink>
-					</StyledButton> */}
-					<StyledButton type="primary">
-						<NavLink to="wrigoinfinite" style={{ fontSize: "12px", fontWeight: 700 }}>Wrigo Infinite</NavLink>
-					</StyledButton>
-				</StyledButtonContainer>
 			</StyledContentContainer>
 		</StyledCard>
 	);

@@ -6,7 +6,7 @@ import {
 } from "../../slice/emailVerificationSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import React from "react";
 const EmailVerificationPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -14,6 +14,7 @@ const EmailVerificationPage = () => {
 	// const { userId, userName } = useSelector((state) => state.user);
 	const userId = localStorage.getItem("uid");
 	const userName = localStorage.getItem("username");
+	console.log(userId, userName);
 	const onFinish = async (values) => {
 		await dispatch(
 			requestEmail({

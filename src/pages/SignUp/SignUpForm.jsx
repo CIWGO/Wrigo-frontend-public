@@ -3,31 +3,30 @@ import { MyForm } from "./style";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 import { signupUser, sendOTPViaEmail } from "../../utils";
 import { useNavigate } from "react-router-dom";
+
 const SignUpForm = () => {
 	const navigate = useNavigate();
 	// Think about refactor it by using redux and redux toolkit.
 	const onFinish = async (values) => {
 		try {
 			const response = await signupUser(values);
-			console.log(response.status);
+
 			if (response.status === 201) {
 				// sign up success
 				const { uid: userId, username: userName } = response.data;
-				console.log(response.data);
 				// store the token in localStorage
 				localStorage.setItem("uid", userId); // store the uid in localStorage
 				localStorage.setItem("username", userName); // store the username in localStorage
-				console.log("sign up success");
 				notification.success({ message: "Sign up success" });
 				await sendOTPViaEmail({ uid: userId, username: userName });
 				navigate("/emailVerification");
-			} else {
-				notification.success({ message: "Account already registered" });
-				navigate("/login");
 			}
 		} catch (error) {
-			console.error(error);
-			notification.error({ message: "Sign up failed" });
+			if (error.response && error.response.status === 409) {
+				notification.error({ message: "Username is taken. Please choose another username" });
+			} else {
+				notification.error({ message: "Sign up failed" });
+			}
 		}
 	};
 

@@ -1,6 +1,6 @@
 import LineChart from "../../components/Charts/LineChart/index";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import StatisticCard4 from "../../components/StatisticsCard4";
 import RadarChart from "../../components/RadarChart";
 import {
@@ -18,10 +18,11 @@ import { writingStatistics, writingStatisticsPie } from "../../utils/API";
 const Statistics = () => {
 	const [data, setData] = useState([]);
 	const [PieData, setPieData] = useState([]);
-	const { userId, token } = useSelector((state) => state.user);
-	// const uid = localStorage.getItem("uid");
-	// const token = localStorage.getItem("token");
-	// console.log(data);
+
+	// const { userId, token } = useSelector((state) => state.user);
+	const userId = localStorage.getItem("uid");
+	const token = localStorage.getItem("token");
+
 	useEffect(() => {
 		// console.log(PieData);
 		// axios({
@@ -43,6 +44,7 @@ const Statistics = () => {
 			.catch(function (error) {
 				console.error("Error:", error);
 			});
+
 		writingStatisticsPie({
 			uid: userId,
 			token
@@ -67,7 +69,7 @@ const Statistics = () => {
 				<GridContainer>
 					<LeftGrid>
 						<GridItem>
-							<StatisticCard4 />
+							<StatisticCard4 uid={ userId} token={ token} />
 						</GridItem>
 						<GridItem>{data && <LineChart marks={lineChartData} />}</GridItem>
 					</LeftGrid>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input } from "antd";
+import { Form, Input, notification } from "antd";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 import {
 	VerifyButton,
@@ -10,10 +10,9 @@ import {
 } from "./style";
 import { useDispatch } from "react-redux";
 import {
-	requestVerifyOTPAsync,
 	updateEmailVerification
 } from "../../slice/emailVerificationSlice";
-import { sendOTPViaEmail } from "../../utils/index";
+import { sendOTPViaEmail, verifyOTP } from "../../utils/index";
 import { useNavigate } from "react-router-dom";
 
 function EmailVerifyForm ({ uid, username }) {
@@ -29,32 +28,38 @@ function EmailVerifyForm ({ uid, username }) {
 		}
 	}, [countdown, resendDisabled]);
 	const onFinish = async (values) => {
-		try {
-			const response = await dispatch(
-				requestVerifyOTPAsync({
-					uid,
-					userInput: values.VerificationCode
-				})
-			);
-			if (response.payload.data.message === "OTP verified successfully") {
-				await dispatch(
-					updateEmailVerification({
-						username,
-						uid,
-						OTPcode: values.VerificationCode,
-						email_verified: "true"
-					})
-				);
-				navigate("/login");
-			} else {
-				console.log("failed", response);
-			}
-		} catch (error) {
-			console.log("Failed:", error);
-		}
+		await verifyOTP({
+			uid,
+			userInput: values.VerificationCode
+		})
+			.then((response) => {
+				if (response.status === 200) {
+					dispatch(
+						updateEmailVerification({
+							username,
+							uid,
+							OTPcode: values.VerificationCode,
+							email_verified: "true"
+						})
+					);
+					console.log(response);
+					navigate("/login");
+				}
+				console.log(response);
+			})
+			.catch((error) => {
+				if (error.response && error.response.status === 401) {
+					console.log(error.response);
+					notification.error({ message: ERROR_MESSAGES.verificationCodeError });
+				} else {
+					notification.error({
+						message: "Unknown error when verifying OTP"
+					});
+				}
+			});
 	};
-
 	const onFinishFailed = (errorInfo) => {
+		notification.error({ message: ERROR_MESSAGES.noVerificationCode });
 		console.log("Failed123:", errorInfo);
 	};
 
@@ -62,20 +67,14 @@ function EmailVerifyForm ({ uid, username }) {
 		sendOTPViaEmail({ uid, username })
 			.then((response) => {
 				if (response.status === 200) {
-					console.log("Success:", response.status);
-					alert("send email successful! Check your mailbox for the code!");
-				} else if (response.status === 500) {
-					alert("send fail 500 (Something went wrong)");
-				} else {
-					alert("send fail other than 500");
+					notification.success({ message: "Email sent successfully! Check your mailbox for the code." });
 				}
 			})
-			.catch((error) => {
-				console.log(error);
+			.catch(() => {
+				notification.error({ message: "Unknown error occurred" });
 			});
 		setResendDisabled(true);
 		setCountdown(60);
-		console.log(countdown, resendDisabled);
 	};
 
 	return (
@@ -92,9 +91,10 @@ function EmailVerifyForm ({ uid, username }) {
 						rules={[
 							{
 								required: true,
-								message: ERROR_MESSAGES.verificationCode
+								message: ERROR_MESSAGES.noVerificationCode
 							}
 						]}
+						style={{ marginRight: "5%" }}
 					>
 						<Input placeholder="Verification Code" />
 					</Form.Item>
