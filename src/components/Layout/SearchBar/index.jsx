@@ -1,13 +1,15 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { Input, Modal, Card } from "antd";
+// import { Modal, Card, Select } from "antd";
+import { Select } from "antd";
+
 import { searchUserTopics, searchAllTopics } from "../../../utils/index";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-const { Search } = Input;
+// const { Search } = Input;
 
-const StyledSearch = styled(Search)`
+const StyledSearch = styled(Select)`
   margin-left: 10px;
   width: 41vw;
   &:hover{
@@ -42,55 +44,95 @@ const StyledSearch = styled(Search)`
 
 	font-family: 'Poppins', sans-serif;
     font-size: 14px;
-  	}
+}
 `;
 
 const SearchBox = () => {
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 	const [searchInput, setSearchInput] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
-	const [visible, setVisible] = useState(false); // modal visible state
+	// const [visible, setVisible] = useState(false); // modal visible state
+	// const [setVisible] = useState(false); // modal visible state
+	// const handleSearch = (newValue) => {
+	//   if (newValue) {
+	//     fetch(newValue, setData);
+	//   } else {
+	//     setData([]);
+	//   }
+	// };
 	const { userId, token } = useSelector((state) => state.user);
-	const handleSearch = async () => {
+	const handleSearch = async (searchInput) => {
 		try {
 			const userResponse = await searchUserTopics({ uid: userId, token, input: searchInput });
 			const allResponse = await searchAllTopics({ input: searchInput, token });
 			const userResults = userResponse.data.filter((result) => result.uid);
 			const allResults = allResponse.data.filter((result) => !result.uid);
 			const results = [...userResults, ...allResults];
-			console.log(results.writing_id);
+			// setVisible(true);
+			// show modal when search results are ready
 			setSearchResults(results);
-			setVisible(true); // show modal when search results are ready
+			console.log(searchInput);
+
+			console.log(searchResults);
 		} catch (error) {
 			console.error(error);
 		}
 	};
 
 	const handleInputChange = (e) => {
+		console.log(e.target.value);
 		setSearchInput(e.target.value);
 	};
+	const myTopics = searchResults.filter((result) => result.uid).map((result) => ({
+		value: result.writing_id,
+		label: result.task_topic,
+		key: result.writing_id
+	}));
 
-	const handleModalCancel = () => {
-		setVisible(false);
-	};
+	const allTopics = (searchResults || []).filter((result) => !result.uid).map((result) => ({
+		value: result.topic_id,
+		label: result.topic_content,
+		key: result.topic_id
+	}));
+	console.log(myTopics, allTopics);
+	// const handleModalCancel = () => {
+	// 	setVisible(false);
+	// };
 
-	const handleNavigate = (url) => {
-		setVisible(false);
-		navigate(url);
-		console.log(url);
-	};
+	// const handleNavigate = (url) => {
+	// 	setVisible(false);
+	// 	navigate(url);
+	// 	console.log(url);
+	// };
 
 	return (
 		<>
 			<StyledSearch
+				showSearch
 				type="text"
 				value={searchInput}
 				onChange={handleInputChange}
 				onSearch={handleSearch}
 				placeholder="Search topic"
+				defaultActiveFirstOption={false}
+				showArrow={false}
+				filterOption={false}
+				notFoundContent={"null"}
+				options={[
+					{
+						label: "My Topics",
+						value: "My Topics",
+						options: myTopics
+					},
+					{
+						label: "All Topics",
+						value: "All Topics",
+						options: allTopics
+					}
+				]}
 			/>
 
-			<Modal
+			{/* <Modal
 				visible={visible}
 				onCancel={handleModalCancel}
 				width="80%"
@@ -117,7 +159,7 @@ const SearchBox = () => {
 							</Card>
 						))}
 				</div>
-			</Modal>
+			</Modal> */}
 		</>
 	);
 };
