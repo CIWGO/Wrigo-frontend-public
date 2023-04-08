@@ -17,6 +17,8 @@ const GrammarContainer = styled.div`
   /* margin:100px 7% 5vh 7%; */
   padding: 20px;
   text-align:left;
+  white-space: pre-wrap;
+  line-height: 20px;
 `;
 
 const Button = styled.button`

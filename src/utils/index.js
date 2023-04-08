@@ -13,6 +13,7 @@ import {
 	searchAllTopics,
 	cancelSubscription,
 	writingStatistics,
+	premSampleWriting,
 	viewAllWritingHistory
 } from "./API";
 
@@ -31,5 +32,6 @@ export {
 	searchAllTopics,
 	cancelSubscription,
 	writingStatistics,
+	premSampleWriting,
 	viewAllWritingHistory
 };
