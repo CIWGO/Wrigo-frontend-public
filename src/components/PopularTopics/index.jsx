@@ -53,7 +53,7 @@ const PopularTopics = (props) => {
 					</IconContainer>
 				</Property>
 			))}
-			<MoreInfo to="/users/topics">{"More topics > "}</MoreInfo>
+			<MoreInfo to="/user/topics">{"More topics > "}</MoreInfo>
 		</ContentBox>
 	);
 };
