@@ -51,17 +51,15 @@ export const TopicContent = styled.div`
 
 export const IconContainer = styled.div`
   display: grid;
-  width: 90%;
-  grid-template-columns: 70% auto;
-  gap: 20px;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: flex-start;
   color: #2F71DA;
   margin-top: 5px;
-  justify-content: flex-start;
 `;
 
 export const IconsWrapper = styled.div`
   display: flex;
-  justify-content: flex-start;
   gap: 20px;
 `;
 
@@ -69,7 +67,6 @@ export const Icon = styled.div`
   display: flex;
   align-items: center;
   margin-right: 5px;
-
 `;
 
 export const MoreInfo = styled(Link)`

@@ -11,7 +11,7 @@ import {
 	MoreInfo
 } from "./style";
 import { useNavigate } from "react-router-dom";
-import { WarningOutlined, FireOutlined } from "@ant-design/icons";
+import { WarningOutlined, CloudUploadOutlined } from "@ant-design/icons";
 import { Tooltip } from "antd";
 
 const PopularTopics = (props) => {
@@ -34,12 +34,14 @@ const PopularTopics = (props) => {
 					</IndexAndTopic>
 					<IconContainer>
 						<div></div>
+						<div></div>
+						<div></div>
 						<IconsWrapper>
 							<Tooltip
 								title={`${topic.popularity} writings uploaded by all users`}
 							>
 								<Icon>
-									<FireOutlined style={{ marginRight: "5px" }} />
+									<CloudUploadOutlined style={{ marginRight: "5px" }} />
 									{topic.popularity}
 								</Icon>
 							</Tooltip>
