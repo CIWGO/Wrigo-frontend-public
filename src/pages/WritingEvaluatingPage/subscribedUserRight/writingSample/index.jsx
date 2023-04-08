@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { premSampleWriting } from "../../../../utils";
 import styled, { keyframes } from "styled-components";
 import { RedoOutlined } from "@ant-design/icons";
+import { notification } from "antd";
 
 const Loading = styled.div`
 	width: 100%;
@@ -82,7 +83,7 @@ const WritingSampleSection = (props) => {
 			setData(response.data.content);
 			localStorage.setItem("userWritingSampleData", response.data.content);
 		} else if (response.status === 500) {
-			alert("Something is wrong with network, please retry.");
+			notification.error({ message: "Please retry. " });
 		}
 		setLoading(false);
 		setHasRunOnce(true);
