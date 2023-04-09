@@ -33,7 +33,7 @@ import { Link } from "react-router-dom";
 // `;
 
 export const SignUpTag = styled(Link)`
-  color: white;
+  color: #2F71D5;
   text-decoration: none;
 
   &:hover {
@@ -42,7 +42,7 @@ export const SignUpTag = styled(Link)`
 `;
 
 export const LoginTag = styled(Link)`
-  color: white;
+  color: #2F71D5;
   text-decoration: none;
 
   &:hover {
@@ -74,11 +74,11 @@ export const Navbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #2f71da;
+  // background-color: #2f71da;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 `;
 
 export const NavMenu = styled.ul`
@@ -97,7 +97,7 @@ export const NavMenuItem = styled.li`
 `;
 
 export const NavLink = styled.a`
-  color: white;
+  color: #2F71D5;
   text-decoration: none;
 
   &:hover {
@@ -106,14 +106,14 @@ export const NavLink = styled.a`
 `;
 
 export const Header = styled.header`
-  background-color: #2f71da;
+  // background-color: #2f71da;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: red;
   padding: 1rem;
 `;
 
@@ -143,9 +143,27 @@ export const Section = styled.section`
 `;
 
 export const H1 = styled.h1`
-  color: #ffffff;
+  margin-top:60px;
+  font-size:60px;
+  // color: #2F71D5;
+  // color: white;
+  background: linear-gradient(to right, #65A0FF, #7574E0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom:0;
+  // text-shadow: 4px 4px 4px rgba(117, 116, 224, 0.35);
 `;
-
+export const SubTitle = styled.h2`
+  font-size:40px;
+  // color: #2F71D5;
+  // color: #AACBFF;
+  background: linear-gradient(to right, #7574E0, #0C1640);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom:0;
+  margin-top:10px;
+  // text-shadow: 4px 4px 4px rgba(117, 116, 224, 0.65);
+`;
 export const H2 = styled.h2`
   color: #2f71da;
 `;
