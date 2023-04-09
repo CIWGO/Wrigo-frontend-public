@@ -7,6 +7,8 @@ import Left from "./Left";
 import { WritingPageDiv } from "../WritingEvaluatingPage/style";
 import { viewHistory } from "../../utils";
 import RightComponent from "./right";
+// import { notification } from "antd";
+
 function WritingsPopulate () {
 	const { writingId } = useParams();
 	const [content, setContent] = useState("");

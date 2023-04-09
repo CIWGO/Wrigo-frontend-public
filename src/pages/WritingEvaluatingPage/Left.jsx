@@ -1,28 +1,82 @@
 import { Button, notification } from "antd";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { writingDraft } from "../../utils";
 import { ButtonContainer, InputCardBottom } from "./style";
 
-function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, resubmit, mutation, writingId, uid }) {
+function Left ({
+	handleSubmit,
+	topic,
+	setTopic,
+	setContent,
+	content,
+	wordCount,
+	resubmit,
+	mutation,
+	writingId,
+	uid
+}) {
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+		if (topic.trim() === "" || content.trim() === "") {
+			notification.error({ message: "Both topic and content must be filled in before submitting." });
+			return;
+		}
+		handleSubmit(e);
+	};
+
 	const handleSaveDraft = () => {
-		const draft = { writing_id: writingId, content, topic, uid };
+		if (topic.trim() === "" || content.trim() === "") {
+			notification.error({ message: "Both topic and content must be filled in before saving." });
+			return;
+		}
+
+		const token = localStorage.getItem("token");
+		const draft = { writing_id: writingId, content, topic, uid, token };
 		writingDraft({ draft }).then((response) => {
 			if (response.status === 200) {
 				notification.success({ message: "Draft saved." });
 			} else if (response.status === 500) {
-				notification.error({ message: "Unknown error occurred" });
+				notification.error({ message: "Failed to save draft, please retry. " });
 			}
 		});
 	};
+
+	const topicRef = useRef(null);
+	const contentRef = useRef(null);
+
+	const [height, setHeight] = useState(0);
+
+	useEffect(() => {
+		const updateHeight = () => {
+			topicRef.current.style.height = "auto";
+			contentRef.current.style.height = "auto";
+
+			const topicHeight = topicRef.current.scrollHeight;
+			const contentHeight = contentRef.current.scrollHeight;
+			const totalHeight = topicHeight + contentHeight + 150;
+
+			topicRef.current.style.height = `${topicHeight}px`;
+			contentRef.current.style.height = `${contentHeight}px`;
+
+			setHeight(totalHeight);
+		};
+
+		updateHeight();
+	}, [topic, content]);
+
 	return (
 		<>
-			<div className="left">
+			<div
+				className="left"
+				style={{ minHeight: height === 0 ? "100%" : `${height}px` }}
+			>
 				<div>
-					<form onSubmit={handleSubmit} className="form">
+					<form onSubmit={handleFormSubmit} className="form">
 						<div>
 							<textarea
 								value={topic}
-								onChange={(e) => setTopic(e.target.value.trim().replace(/\s+/g, " "))}
+								ref={topicRef}
+								onChange={(e) => setTopic(e.target.value)}
 								className="topic"
 								placeholder="Writing topic"
 								disabled={resubmit}
@@ -32,19 +86,18 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 						<div className="flex-col">
 							<textarea
 								value={content}
-								onChange={(e) => setContent(e.target.value.trim().replace(/\s+/g, " "))}
+								ref={contentRef}
+								onChange={(e) => setContent(e.target.value)}
 								className="content"
 								placeholder="Writing content"
 							></textarea>
 							<InputCardBottom>
-								<div className="wordCount">
-									{wordCount} words
-								</div>
-								<ButtonContainer style={
-									{
+								<div className="wordCount">{wordCount} words</div>
+								<ButtonContainer
+									style={{
 										position: "relative"
-									}
-								}>
+									}}
+								>
 									<Button
 										type="primary"
 										style={{
@@ -72,6 +125,6 @@ function Left ({ handleSubmit, topic, setTopic, setContent, content, wordCount, 
 			</div>
 		</>
 	);
-};
+}
 
 export default Left;
