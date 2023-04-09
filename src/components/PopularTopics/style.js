@@ -39,8 +39,7 @@ export const Index = styled.div`
 `;
 
 export const TopicContent = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
-
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');  
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   display: inline;
@@ -70,8 +69,7 @@ export const Icon = styled.div`
 `;
 
 export const MoreInfo = styled(Link)`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
-
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
   font-family: 'Poppins', sans-serif;
   color: #2F71DA;
   font-weight: 700;

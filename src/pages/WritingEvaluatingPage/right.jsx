@@ -5,7 +5,9 @@ import { Modal } from "antd";
 import {
 	FeedbackContainer,
 	Group,
+	Loading,
 	LoadingContainer,
+	LoadingText,
 	NoFeed,
 	RightCard
 } from "../WritingEvaluatingPage/style";
@@ -18,10 +20,12 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 	if (mutation.isLoading) {
 		return (
 			<RightCard>
-				<LoadingContainer>
-					<div className="loader"></div>
-					<div className="loading-text">Evaluating your writing...</div>
-				</LoadingContainer>
+				<Loading>
+					<LoadingContainer>
+						<div className="loader"></div>
+						<LoadingText>Evaluating your writing...</LoadingText>
+					</LoadingContainer>
+				</Loading>
 			</RightCard>
 		);
 	}
@@ -129,7 +133,7 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 	}
 	return (
 		<RightCard>
-			<NoFeed>no feed back yet...</NoFeed>
+			<NoFeed>Please submit your writing for evaluation. </NoFeed>
 		</RightCard>
 	);
 };
