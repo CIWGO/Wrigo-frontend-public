@@ -70,7 +70,10 @@ export const TextContainer = styled.div`
 `;
 export const Header = styled.div`
   font-size: 2.4rem;
-  color: #1581e5;
+  //   color: #1581e5;
+  background: linear-gradient(to right, #65a0ff, #7574e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 700;
   margin-bottom: 1.8rem;
 
@@ -82,7 +85,10 @@ export const Header = styled.div`
 export const Description = styled.div`
   text-align: center;
   font-size: 1.2rem;
-  color: #5db1ff;
+  //   color: #5db1ff;
+  background: linear-gradient(to right, #65a0ff, #7574e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 400;
 
   @media (max-width: 577px) {
