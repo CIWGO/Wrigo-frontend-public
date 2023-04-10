@@ -65,7 +65,7 @@ const RecentWritings = (props) => {
 				return (
 					card.writing_id !== deletedCardId && (
 						<Link key={card.id} to={`/user/writings/${card.writing_id}`}>
-							<UtilityCardWrap key={card.id} >
+							<UtilityCardWrap key={card.id}>
 								<UtilityCard >
 									<WritingContentCard
 
@@ -82,8 +82,10 @@ const RecentWritings = (props) => {
 				);
 			} else if (index === cardCount) {
 				return (
-					<Link key={card.id} to={"/user/writings"}>
-						<UtilityCardWrap key={card.id}>
+					<Link key={card.id} to={"/user/writings"} >
+						<UtilityCardWrap
+							key={card.id}
+						>
 							<UtilityCard>
 								<EllipsisOutlined
 									style={{ fontSize: "60px", color: props.theme.defaultColor }}
@@ -109,11 +111,13 @@ const RecentWritings = (props) => {
 					)
 					: data.length === 0
 						? (
-							<UtilityCard>
-								<EllipsisOutlined
-									style={{ fontSize: "60px", color: props.theme.defaultColor }}
-								/>
-							</UtilityCard>
+							<Link to={"/user/writings"}>
+								<UtilityCard>
+									<EllipsisOutlined
+										style={{ fontSize: "60px", color: props.theme.defaultColor }}
+									/>
+								</UtilityCard>
+							</Link>
 						)
 						: (
 							renderCards()
