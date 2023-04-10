@@ -124,11 +124,11 @@ const SearchBox = () => {
 				notFoundContent={"null"}
 				options={[
 					{
-						label: "My Topics",
+						label: "My Writings",
 						options: myTopics
 					},
 					{
-						label: "All Topics",
+						label: "Topics Samples",
 
 						options: allTopics
 					}
