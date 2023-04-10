@@ -53,7 +53,7 @@ h1{    font-size: 20px;
 
 const SearchBox = () => {
 	const navigate = useNavigate();
-	const [searchInput, setSearchInput] = useState(undefined);
+	const [searchInput, setSearchInput] = useState(null);
 	const [searchResults, setSearchResults] = useState([]);
 	// const [visible, setVisible] = useState(false); // modal visible state
 	// const [setVisible] = useState(false); // modal visible state
@@ -88,6 +88,7 @@ const SearchBox = () => {
 		} else if (options.key[1] === "2") {
 			handleNavigate(`/user/topics/content/${value}`);
 		}
+		setSearchInput(null);
 		// 打印 value 值到控制台
 	};
 	// const onSelect = () => {
@@ -115,7 +116,6 @@ const SearchBox = () => {
 
 	const handleNavigate = (url) => {
 		navigate(url);
-		setSearchInput(undefined);
 	};
 
 	return (
@@ -129,6 +129,7 @@ const SearchBox = () => {
 				onSearch={handleSearch}
 				placeholder="Search topic"
 				defaultActiveFirstOption={false}
+				onClear={(placeholder) => { placeholder = "Search topic"; }}
 				showArrow={false}
 				filterOption={false}
 				notFoundContent={"null"}
