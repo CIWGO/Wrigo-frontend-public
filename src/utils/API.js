@@ -57,6 +57,10 @@ export const writingSubmissions = (values) => {
 	return newRequest.post("/api/writingSubmissions", values);
 };
 
+export const premSampleWriting = (values) => {
+	return newRequest.post("/api/premSample", values);
+};
+
 export const paymentRedirection = (values) => {
 	return newRequest.post("/api/checkout", values);
 };
@@ -68,6 +72,8 @@ export const checkoutSuccess = (values) => {
 export const cancelSubscription = (values) => {
 	return newRequest.post("/api//cancelSubscriptionAtPeriodEnd", values);
 };
+
+export const viewAllWritingHistory = (values) => { return newRequest.post("/user/viewAllWritingHistory", values); };
 
 export const getUserPaymentInfo = (values) => { return newRequest.post("/users/getUserPaymentInfo", values); };
 export const getPreviousFeed = (values) => { return newRequest.post("/users/viewHistory", values); };

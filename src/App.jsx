@@ -8,8 +8,7 @@ const theme = {
 	headingSize: "20px",
 	defaultColor: "#2F71DA",
 	headingFontWeight: "700",
-
-	fontFamily: "Noto Sans",
+	fontFamily: "Poppins",
 	background: "#F5F5F5"
 };
 // npm run lint -- --fix

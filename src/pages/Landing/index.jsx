@@ -15,6 +15,7 @@ import {
 	Section,
 	H1,
 	H2,
+	SubTitle,
 	Footer,
 	Navbar,
 	NavMenu,
@@ -40,37 +41,56 @@ import {
 const LandingPage = () => {
 	return (
 		<AppContainer>
-			<Navbar>
-				<NavMenu>
-					<NavMenuItem>
-						<NavLink href="#home">Home</NavLink>
-					</NavMenuItem>
-					<NavMenuItem>
-						<NavLink href="#features">Features</NavLink>
-					</NavMenuItem>
-					<NavMenuItem>
-						<NavLink href="#pricing">Pricing</NavLink>
-					</NavMenuItem>
-					<NavMenuItem>
-						<NavLink href="#about">About</NavLink>
-					</NavMenuItem>
-				</NavMenu>
-				<NavMenu>
-					<NavMenuItem>
-						<SignUpTag to="/signup">Sign up</SignUpTag>
-					</NavMenuItem>
-					<NavMenuItem>
-						<LoginTag to="/login">Log in</LoginTag>
-					</NavMenuItem>
-				</NavMenu>
-			</Navbar>
-			<Header>
-				<H1>Welcome to Wrigo: Your Ultimate IELTS Writing Partner</H1>
-				<Spline scene="https://prod.spline.design/7sj-ddVrAKY5Um1o/scene.splinecode" />
-			</Header>
+
+			{/* <div style={{ width: "100 %", height: "100%" }}>
+				<Header>
+					<H1>Welcome to Wrigo: Your Ultimate IELTS Writing Partner</H1>
+				</Header>
+				<Spline scene="https://prod.spline.design/2402yDMIzA267Ci0/scene.splinecode" />
+			</div> */}
+			<div style={{ position: "relative", width: "100%", minHeight: "100vh", overflow: "hidden" }}>
+				<Spline
+					scene="https://prod.spline.design/2402yDMIzA267Ci0/scene.splinecode"
+					spline-resize="maxWidth: 1024, maxHeight: 768"
+					style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+				/>
+				<Navbar>
+					<NavMenu>
+						<NavMenuItem>
+							<NavLink href="#home">Home</NavLink>
+						</NavMenuItem>
+						<NavMenuItem>
+							<NavLink href="#features">Features</NavLink>
+						</NavMenuItem>
+						<NavMenuItem>
+							<NavLink href="#pricing">Pricing</NavLink>
+						</NavMenuItem>
+						<NavMenuItem>
+							<NavLink href="#about">About</NavLink>
+						</NavMenuItem>
+					</NavMenu>
+					<NavMenu>
+						<NavMenuItem>
+							<SignUpTag to="/signup">Sign up</SignUpTag>
+						</NavMenuItem>
+						<NavMenuItem>
+							<LoginTag to="/login">Log in</LoginTag>
+						</NavMenuItem>
+					</NavMenu>
+				</Navbar>
+				<div style={{ position: "relative", zIndex: 1 }}>
+					<Header>
+						<H1>Wrigo</H1>
+						<SubTitle>Unlock the full potential <br />
+  with your IELTS Writing Partner
+						</SubTitle>
+					</Header>
+				</div>
+			</div>
+
 			<Main>
 				<Section id="features">
-					<p>
+					<Header>
 						Revolutionize your IELTS writing preparation with Wrigo, the
 						cutting-edge web app powered by OpenAI services. Our platform
 						utilizes ChatGPT to automatically grade your written English
@@ -78,7 +98,7 @@ const LandingPage = () => {
 						preparation for IELTS assessments. At Wrigo, our mission is to
 						transform the language assessment landscape, ensuring every
 						individual can realize their full language learning potential.
-					</p>
+					</Header>
 					<H2>Features</H2>
 					<Feature>
 						<FeatureTitle>Free User Benefits</FeatureTitle>

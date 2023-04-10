@@ -18,6 +18,20 @@ const IconBox = styled.button`
   border-radius: 7px;
   cursor:pointer;
 `;
+
+const CardWrap = styled.div`
+
+	border-radius: 20px;
+	width: 148px;
+	height: 148px;
+	margin-top:9px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+
+
+`;
 const WritingContentCard = ({
 	loading,
 	id,
@@ -31,7 +45,7 @@ const WritingContentCard = ({
 	const uid = localStorage.getItem("uid");
 
 	return (
-		<>
+		<CardWrap>
 			<Topic taskTopic={taskTopic}/>
 			<Score id={id}/>
 			<SubmitTime submitTime={submitTime}/>
@@ -40,7 +54,7 @@ const WritingContentCard = ({
 
 			</IconBox>
 
-		</>
+		</CardWrap>
 	);
 };
 

@@ -24,7 +24,7 @@ const ForgotTag = styled(Link)`
 `;
 
 const WelcomeBack = styled.h2`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
   font-family: 'Poppins', sans-serif;
   font-weight:700;
@@ -35,7 +35,7 @@ const WelcomeBack = styled.h2`
 `;
 
 const Logo = styled.h1`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 54px;

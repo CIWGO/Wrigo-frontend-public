@@ -2,15 +2,15 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const ContentBox = styled.div`
+  margin-top:10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  position: absolute;
+  padding: 25px 40px;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 20px;
 `;
 
 export const Property = styled.div`
@@ -28,36 +28,52 @@ export const IndexAndTopic = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   gap: 5px;
+  cursor: pointer;
 `;
 
-export const Index = styled.span`
-  color: blue;
+export const Index = styled.div`
+  color: #2F71DA;
   font-weight: bold;
-  padding-right: 10px;
+  padding-right: 5px;
+  padding-top: 1px
 `;
 
-export const TopicContent = styled.span`
-  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap");
-  font-family: "Noto Sans", sans-serif;
+export const TopicContent = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');  
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   display: inline;
+  line-height: 20px;
   margin: 0;
   text-align: left;
 `;
 
 export const IconContainer = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: flex-start;
+  color: #2F71DA;
+  margin-top: 5px;
+`;
+
+export const IconsWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+
+export const Icon = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
-  color: blue;
-  margin-top: 5px;
-  justify-content: flex-end;
-  width: 90%;
+  margin-right: 5px;
 `;
 
 export const MoreInfo = styled(Link)`
-  font-weight: bold;
-  font-weight:200;
-  font-weight: bold;
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+  font-family: 'Poppins', sans-serif;
+  color: #2F71DA;
+  font-weight: 700;
   text-align: left;
   width: 100%;
+  margin-bottom: 5px;
 `;

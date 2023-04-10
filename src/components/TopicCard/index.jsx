@@ -76,7 +76,6 @@ const TopicCard = (props) => {
 
 	const handleNavigate = (url) => {
 		navigate(url);
-		console.log(url);
 	};
 
 	return (

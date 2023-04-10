@@ -1,23 +1,25 @@
-import HeadingComponent from "../../components/Heading/index.jsx";
 import PopularTopics from "../../components/PopularTopics/index.jsx";
 import React, { useState, useEffect } from "react";
 import newRequest from "../../utils/newRequest";
-import { PopularTopicContainer } from "./style";
+import { PopularTopicContainer, Title } from "./style";
 
 const PopularTopicsCard = () => {
 	const [topics, setTopics] = useState([]);
+	const token = localStorage.getItem("token");
 
 	const fetchPopularTopics = async () => {
 		try {
 			const result = await newRequest.post("/users/getTopic", {
-				type: "getPopularTopics"
+				type: "getPopularTopics", token
 			});
 			const extractedTopics = result.data.popularTopics;
 			const topics = extractedTopics.map((topic, index) => {
 				return {
 					index,
+					topicId: topic.topic_id,
 					topic_content: topic.topic_content,
-					popularity: topic.popularity
+					popularity: topic.popularity,
+					difficulty: topic.topic_difficulty
 				};
 			});
 
@@ -31,7 +33,7 @@ const PopularTopicsCard = () => {
 
 	useEffect(() => {
 		const fetchTopics = async () => {
-			const fetchedTopics = await fetchPopularTopics();
+			const fetchedTopics = await fetchPopularTopics(token);
 			setTopics(fetchedTopics);
 		};
 		fetchTopics();
@@ -39,7 +41,7 @@ const PopularTopicsCard = () => {
 
 	return (
 		<PopularTopicContainer>
-			<HeadingComponent displayValue={"Popular Topics"} />
+			<Title>Popular Topics</Title>
 			<PopularTopics topics={topics} />
 		</PopularTopicContainer>
 	);

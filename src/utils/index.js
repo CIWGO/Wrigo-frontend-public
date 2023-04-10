@@ -11,7 +11,10 @@ import {
 	writingDraft,
 	searchUserTopics,
 	searchAllTopics,
-	cancelSubscription
+	cancelSubscription,
+	writingStatistics,
+	premSampleWriting,
+	viewAllWritingHistory
 } from "./API";
 
 export {
@@ -27,5 +30,8 @@ export {
 	writingDraft,
 	searchUserTopics,
 	searchAllTopics,
-	cancelSubscription
+	cancelSubscription,
+	writingStatistics,
+	premSampleWriting,
+	viewAllWritingHistory
 };

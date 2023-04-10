@@ -14,6 +14,7 @@ const WritingHistoryPage = () => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [displayCount, setDisplayCount] = useState(17);
+	const [deletedCardId, setDeletedCardId] = useState(null);
 	const newWritingId = uuidv4();
 
 	useEffect(() => {
@@ -25,7 +26,6 @@ const WritingHistoryPage = () => {
 		viewHistory({ token, uid, type: "writingHistory", from: fromDate, to: toDate }).then((response) => {
 			if (response.status === 200) {
 				setData(response.data);
-				console.log(response.data);
 			} else if (response.status === 500) {
 				alert("Something is wrong with network, please retry.");
 			}
@@ -33,11 +33,9 @@ const WritingHistoryPage = () => {
 		});
 	}, []);
 	const handleDelete = async (token, uid, writingId, event) => {
-		console.log(1);
 		event.preventDefault();
 		event.stopPropagation();
-		await deleteWriting({ token, uid, writing_id: writingId });
-		window.location.reload();
+		setDeletedCardId(writingId); deleteWriting({ token, uid, writing_id: writingId });
 	};
 	const handleLoadMore = () => {
 		setDisplayCount(displayCount + 12);
@@ -83,18 +81,19 @@ const WritingHistoryPage = () => {
 							</UtilityCard>
 						</UtilityCardsWrapper>
 						{data.slice(0, displayCount - 1).map((item, index) => (
-
-							<UtilityCardsWrapper to={`/user/writings/${item.writing_id}`} key={index}>
-								<UtilityCard>
-									<WritingContentCard loading={loading}
-										id= {item.writing_id}
-										taskTopic={item.task_topic}
-										writingContent={item.writing_content}
-										submitTime={item.submit_time}
-										handleDelete={handleDelete}
-									/>
-								</UtilityCard>
-							</UtilityCardsWrapper>
+							item.writing_id !== deletedCardId && (
+								<UtilityCardsWrapper to={`/user/writings/${item.writing_id}`} key={index}>
+									<UtilityCard>
+										<WritingContentCard loading={loading}
+											id={item.writing_id}
+											taskTopic={item.task_topic}
+											writingContent={item.writing_content}
+											submitTime={item.submit_time}
+											handleDelete={handleDelete}
+										/>
+									</UtilityCard>
+								</UtilityCardsWrapper>
+							)
 						))}
 
 						{data.length > displayCount && (

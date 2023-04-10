@@ -1,56 +1,110 @@
-import { Button } from "antd";
-import React from "react";
+import { Button, notification } from "antd";
+import React, { useEffect, useRef, useState } from "react";
 import { writingDraft } from "../../utils";
-import { ButtonContainer, InputCardBottom } from "../WritingEvaluatingPage/style";
+import {
+	ButtonContainer,
+	InputCardBottom
+} from "../WritingEvaluatingPage/style";
 
-const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, resubmit, mutation, writingId, uid }) => {
+const Left = ({
+	handleSubmit,
+	topic,
+	setTopic,
+	setContent,
+	content,
+	wordCount,
+	resubmit,
+	mutation,
+	writingId,
+	uid
+}) => {
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+		if (topic.trim() === "" || content.trim() === "") {
+			notification.error({ message: "Both topic and content must be filled in before submitting." });
+			return;
+		}
+		handleSubmit(e);
+	};
+
 	const handleSaveDraft = () => {
-		const draft = { writing_id: writingId, content, topic, uid };
+		if (topic.trim() === "" || content.trim() === "") {
+			notification.error({ message: "Both topic and content must be filled in before saving." });
+			return;
+		}
+
+		const token = localStorage.getItem("token");
+		const draft = { writing_id: writingId, content, topic, uid, token };
 		writingDraft({ draft }).then((response) => {
+			console.log("Response: ", response);
 			if (response.status === 200) {
-				alert("Draft saved.");
-			} else if (response.status === 500) {
-				alert("Something is wrong with network, please retry.");
+				notification.success({ message: "Draft saved." });
+			} else if (response.status === 401) {
+				notification.error({ message: "Failed to save draft, please retry. " });
 			}
 		});
 	};
+
+	const topicRef = useRef(null);
+	const contentRef = useRef(null);
+
+	const [height, setHeight] = useState(0);
+
+	useEffect(() => {
+		const updateHeight = () => {
+			topicRef.current.style.height = "auto";
+			contentRef.current.style.height = "auto";
+
+			const topicHeight = topicRef.current.scrollHeight;
+			const contentHeight = contentRef.current.scrollHeight;
+			const totalHeight = topicHeight + contentHeight + 200;
+
+			topicRef.current.style.height = `${topicHeight}px`;
+			contentRef.current.style.height = `${contentHeight}px`;
+
+			setHeight(totalHeight);
+		};
+
+		updateHeight();
+	}, [topic, content]);
+
 	return (
 		<>
-			<div className="left">
+			<div className="left" style={{ minHeight: height === 0 ? "100%" : `${height}px` }}>
 				<div>
-					<form onSubmit={handleSubmit} className="form">
+					<form onSubmit={handleFormSubmit} className="form">
 						<div>
 							<textarea
+								ref={topicRef}
 								value={topic}
 								onChange={(e) => setTopic(e.target.value)}
 								className="topic"
-								placeholder="Loding your topic..."
-								disabled= {true}
+								placeholder="Loading your topic..."
+								disabled={true}
 							></textarea>
 						</div>
 						<hr />
 						<div className="flex-col">
 							<textarea
+								ref={contentRef}
 								value={content}
 								onChange={(e) => setContent(e.target.value)}
 								className="content"
-								placeholder="Loding the content..."
+								placeholder="Loading the content..."
 							></textarea>
 							<InputCardBottom>
-								<div className="wordCount">
-									{wordCount} words
-								</div>
+								<div className="wordCount">{wordCount} words</div>
 								<ButtonContainer>
 									<Button
 										type="primary"
 										style={{
-											borderColor: "#204f9a",
+											borderColor: "#2f71da",
 											background: "none",
-											color: "#2254a5"
+											color: "#2f71da"
 										}}
 										onClick={handleSaveDraft}
 									>
-										save draft
+										Save draft
 									</Button>
 									<Button
 										type="primary"
@@ -58,7 +112,7 @@ const Left = ({ handleSubmit, topic, setTopic, setContent, content, wordCount, r
 										disabled={mutation.isLoading}
 										style={{ marginLeft: "10px" }}
 									>
-										{resubmit ? "resubmit" : "submit"}
+										{resubmit ? "Resubmit" : "Submit"}
 									</Button>
 								</ButtonContainer>
 							</InputCardBottom>
