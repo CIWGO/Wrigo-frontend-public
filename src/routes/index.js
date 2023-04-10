@@ -27,6 +27,10 @@ import Infinite from "../pages/WrigoInfinite/index";
 
 export default [
 	{
+		path: "/*",
+		element: <h1>Page not found</h1>
+	},
+	{
 		path: "/",
 		element: <Navigate to="/landing" />
 	},

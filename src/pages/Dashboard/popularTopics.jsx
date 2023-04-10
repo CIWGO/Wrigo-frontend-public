@@ -16,8 +16,10 @@ const PopularTopicsCard = () => {
 			const topics = extractedTopics.map((topic, index) => {
 				return {
 					index,
+					topicId: topic.topic_id,
 					topic_content: topic.topic_content,
-					popularity: topic.popularity
+					popularity: topic.popularity,
+					difficulty: topic.topic_difficulty
 				};
 			});
 

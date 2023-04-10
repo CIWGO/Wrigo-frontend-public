@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const WritingPageDiv = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
   font-family: 'Poppins', sans-serif;
   background-color: rgb(245, 245, 245);
   display: flex;
@@ -17,6 +17,8 @@ const GrammarContainer = styled.div`
   /* margin:100px 7% 5vh 7%; */
   padding: 20px;
   text-align:left;
+  white-space: pre-wrap;
+  line-height: 20px;
 `;
 
 const Button = styled.button`

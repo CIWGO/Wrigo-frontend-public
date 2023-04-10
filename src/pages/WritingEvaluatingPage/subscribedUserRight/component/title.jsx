@@ -3,7 +3,6 @@ import styled from "styled-components";
 const TitleText = styled.h3`
 	margin-top:30px;
 	color:rgb(55, 109, 196);
-	margin-top:30px;
 `;
 
 const FeedbackTitleDiv = styled.div`

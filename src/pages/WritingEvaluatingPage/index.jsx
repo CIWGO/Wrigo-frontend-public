@@ -7,7 +7,7 @@ import RightComponent from "./right";
 import { WritingPageDiv } from "./style";
 import Left from "./Left";
 import { getPreviousFeed } from "../../utils/API";
-// import { getUser } from "../../utils";
+// import { notification } from "antd";
 
 const WritingPage = () => {
 	const [topic, setTopic] = useState("");

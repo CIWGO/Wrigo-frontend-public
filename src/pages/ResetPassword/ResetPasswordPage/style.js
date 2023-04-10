@@ -35,9 +35,9 @@ const SignUpLayout = styled(Layout)`
 `;
 
 const Logo = styled.h1`
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight:800;
   font-size:48px;
   color: #2F71DA;
@@ -45,8 +45,8 @@ const Logo = styled.h1`
 `;
 
 const Message = styled.h3`
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
-font-family: 'Noto Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+font-family: 'Poppins', sans-serif;
 color: #2F71DA;
 font-size:20px;
 font-weight:600;`;

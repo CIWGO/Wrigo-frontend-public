@@ -57,6 +57,10 @@ export const writingSubmissions = (values) => {
 	return newRequest.post("/api/writingSubmissions", values);
 };
 
+export const premSampleWriting = (values) => {
+	return newRequest.post("/api/premSample", values);
+};
+
 export const paymentRedirection = (values) => {
 	return newRequest.post("/api/checkout", values);
 };
