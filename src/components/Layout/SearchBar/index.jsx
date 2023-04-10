@@ -53,7 +53,7 @@ h1{    font-size: 20px;
 
 const SearchBox = () => {
 	// const navigate = useNavigate();
-	const [searchInput, setSearchInput] = useState("");
+	const [searchInput, setSearchInput] = useState(undefined);
 	const [searchResults, setSearchResults] = useState([]);
 	// const [visible, setVisible] = useState(false); // modal visible state
 	// const [setVisible] = useState(false); // modal visible state
@@ -111,7 +111,6 @@ const SearchBox = () => {
 
 	return (
 		<>
-			<h1 style={{ color: "#2F71DA" }}>Search</h1>
 			<StyledSearch
 				showSearch
 				type="text"
