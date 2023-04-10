@@ -1,5 +1,5 @@
 import React from "react";
-import { CardFree, CardPremium, CardsContainer, Container, Description, Header, Section, TextContainer } from "./style";
+import { ButtonContainer, CardBodyHeader, CardBodyPrice, CardDescriptionHeader, CardDescriptionText, CardFree, CardFreeBody, CardPremium, CardsContainer, Container, DefaultButton, Description, Header, Section, TextContainer, CardPreBody, PreCardBodyHeader, PreCardBodyPrice, PreCardDescriptionHeader, PreCardDescriptionText } from "./style";
 // import styles from "./styles";
 
 function Infinite () {
@@ -15,8 +15,38 @@ function Infinite () {
 					navigating through the exam preparation.</Description>
 				</TextContainer>
 				<CardsContainer>
-					<CardFree></CardFree>
-					<CardPremium></CardPremium>
+					<CardFree>
+						<CardFreeBody>
+							<CardBodyHeader>Free</CardBodyHeader>
+							<CardBodyPrice><span style={{ fontSize: "3.6rem", color: "#5db1ff" }}>$</span><span style={{ fontSize: "3.6rem", color: "#5db1ff" }}>0</span>/ Month</CardBodyPrice>
+
+							<CardDescriptionHeader>Features:</CardDescriptionHeader>
+							<CardDescriptionText>- 3 Evaluations / Month</CardDescriptionText>
+							<CardDescriptionText>- 2 Sample writings / Month</CardDescriptionText>
+							<CardDescriptionText>- 3 Grammar correction / Month</CardDescriptionText>
+							<CardDescriptionText><s>- Holistic feedback for submissions</s></CardDescriptionText>
+							<CardDescriptionText><s>- Writing argument suggestion</s></CardDescriptionText>
+
+						</CardFreeBody>
+
+					</CardFree>
+					<CardPremium>
+						<CardPreBody>
+							<PreCardBodyHeader>Infinite</PreCardBodyHeader>
+							<PreCardBodyPrice><span style={{ fontSize: "3.6rem", color: "#9dd0ff" }}>$9.99</span>/ Month</PreCardBodyPrice>
+
+							<PreCardDescriptionHeader>Features:</PreCardDescriptionHeader>
+							<PreCardDescriptionText>- Unlimited Evaluations</PreCardDescriptionText>
+							<PreCardDescriptionText>- Unlimited writings</PreCardDescriptionText>
+							<PreCardDescriptionText>- Unlimited Grammar correctionh</PreCardDescriptionText>
+							<PreCardDescriptionText>- Holistic feedback for submissions</PreCardDescriptionText>
+							<PreCardDescriptionText>- Writing argument suggestion</PreCardDescriptionText>
+
+						</CardPreBody>
+						<ButtonContainer>
+							<DefaultButton>Subscribe Now</DefaultButton>
+						</ButtonContainer>
+					</CardPremium>
 				</CardsContainer>
 			</Container>
 		</Section>
