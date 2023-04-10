@@ -6,6 +6,7 @@ import { viewHistory } from "../../utils/index";
 import WritingContentCard from "../WritingMain/WritingContentCard";
 import UtilityCard from "../../components/UtilityCard/index";
 import { Title, UtilityCardWrap, UtilityCardsWrapper, RecentDiv } from "./style";
+import { deleteWriting } from "../../utils/API";
 
 const RecentWritings = (props) => {
 	const [data, setData] = useState([]);
@@ -14,6 +15,7 @@ const RecentWritings = (props) => {
 	const cardWidth = 215;
 	const [divWidth, setDivWidth] = useState(null);
 	const recentDivRef = useRef(null);
+	const [deletedCardId, setDeletedCardId] = useState(null);
 
 	useEffect(() => {
 		if (recentDivRef.current) {
@@ -51,27 +53,32 @@ const RecentWritings = (props) => {
 			setLoading(false);
 		});
 	}, []);
-
+	const handleDelete = async (token, uid, writingId, event) => {
+		console.log(1);
+		event.preventDefault();
+		event.stopPropagation();
+		setDeletedCardId(writingId); deleteWriting({ token, uid, writing_id: writingId });
+	};
 	const renderCards = () => {
 		return data.map((card, index) => {
 			if (index < cardCount) {
 				return (
-					<Link key={card.id} to={`/user/writing/${card.writing_id}`}>
-						<UtilityCardWrap key={card.id} >
-							<UtilityCard >
-								<WritingContentCard
+					card.writing_id !== deletedCardId && (
+						<Link key={card.id} to={`/user/writings/${card.writing_id}`}>
+							<UtilityCardWrap key={card.id} >
+								<UtilityCard >
+									<WritingContentCard
 
-									loading={card.loading}
-									id={card.id}
-									taskTopic={card.task_topic}
-									writingContent={card.writingContent}
-									submitTime={card.submit_time}
-									han
-									dleDelete={card.handleDelete}
-								/>
-							</UtilityCard>
-						</UtilityCardWrap>
-					</Link>
+										loading={card.loading}
+										id={card.writing_id}
+										taskTopic={card.task_topic}
+										writingContent={card.writingContent}
+										submitTime={card.submit_time}
+										handleDelete={handleDelete}
+									/>
+								</UtilityCard>
+							</UtilityCardWrap>
+						</Link>)
 				);
 			} else if (index === cardCount) {
 				return (
