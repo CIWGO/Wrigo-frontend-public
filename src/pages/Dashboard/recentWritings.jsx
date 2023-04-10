@@ -1,7 +1,7 @@
 import { withTheme } from "styled-components";
 import { EllipsisOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { viewHistory } from "../../utils/index";
 import WritingContentCard from "../WritingMain/WritingContentCard";
 import UtilityCard from "../../components/UtilityCard/index";
@@ -11,7 +11,16 @@ const RecentWritings = (props) => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-	const cardWidth = 168;
+	const cardWidth = 215;
+	const [divWidth, setDivWidth] = useState(null);
+	const recentDivRef = useRef(null);
+
+	useEffect(() => {
+		if (recentDivRef.current) {
+			const width = recentDivRef.current.offsetWidth;
+			setDivWidth(width);
+		}
+	}, [screenWidth]);
 
 	useEffect(() => {
 		function handleResize () {
@@ -24,12 +33,8 @@ const RecentWritings = (props) => {
 			window.removeEventListener("resize", handleResize);
 		};
 	}, [screenWidth]);
-	let cardCount = 0;
-	if (screenWidth >= 1000) {
-		cardCount = Math.floor((screenWidth - 255) / cardWidth) - 1;
-	} else {
-		cardCount = Math.floor((screenWidth - 105) / cardWidth) - 1;
-	}
+
+	const cardCount = Math.floor(divWidth / cardWidth) - 1;
 
 	useEffect(() => {
 		setLoading(true);
@@ -87,7 +92,7 @@ const RecentWritings = (props) => {
 	};
 
 	return (
-		<RecentDiv>
+		<RecentDiv ref={recentDivRef}>
 			<Title>Recent Writings</Title>
 			<UtilityCardsWrapper>
 

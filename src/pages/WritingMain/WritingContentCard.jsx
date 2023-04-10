@@ -43,7 +43,6 @@ const WritingContentCard = ({
 	handleDelete
 
 }) => {
-	console.log("++++++++", id);
 	const token = localStorage.getItem("token");
 	const uid = localStorage.getItem("uid");
 
