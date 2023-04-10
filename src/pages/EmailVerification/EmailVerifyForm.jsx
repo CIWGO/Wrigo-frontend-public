@@ -44,25 +44,20 @@ function EmailVerifyForm ({ uid, username }) {
 							email_verified: "true"
 						})
 					);
-					console.log(response);
+					notification.success({ message: "Email set successfully" });
 					navigate("/login");
 				}
-				console.log(response);
 			})
 			.catch((error) => {
 				if (error.response && error.response.status === 401) {
-					console.log(error.response);
 					notification.error({ message: ERROR_MESSAGES.verificationCodeError });
 				} else {
-					notification.error({
-						message: "Unknown error when verifying OTP"
-					});
+					notification.error({ message: "Unknown error when verifying OTP" });
 				}
 			});
 	};
 	const onFinishFailed = (errorInfo) => {
 		notification.error({ message: ERROR_MESSAGES.noVerificationCode });
-		console.log("Failed123:", errorInfo);
 	};
 
 	const onResend = () => {

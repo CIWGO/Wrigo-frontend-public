@@ -92,6 +92,10 @@ function EmailChangeForm () {
 									required: true,
 									message: ERROR_MESSAGES.email,
 									whitespace: true
+								},
+								{
+									type: "email",
+									message: ERROR_MESSAGES.emailFormat
 								}
 							]}
 						>
