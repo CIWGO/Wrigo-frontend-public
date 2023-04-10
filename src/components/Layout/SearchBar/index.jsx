@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
 
 // const { Search } = Input;
-
 const StyledSearch = styled(Select)`
   margin-left: 10px;
   width: 41vw;
@@ -45,6 +44,11 @@ const StyledSearch = styled(Select)`
 	font-family: 'Poppins', sans-serif;
     font-size: 14px;
 }
+h1{    font-size: 20px;
+	font-weight: 700;
+	color: rgb(47, 113, 218);
+	height: 30px;
+	text-align: start;}
 `;
 
 const SearchBox = () => {
@@ -107,6 +111,7 @@ const SearchBox = () => {
 
 	return (
 		<>
+			<h1 style={{ color: "#2F71DA" }}>Search</h1>
 			<StyledSearch
 				showSearch
 				type="text"
@@ -121,12 +126,11 @@ const SearchBox = () => {
 				options={[
 					{
 						label: "My Topics",
-						value: "My Topics",
 						options: myTopics
 					},
 					{
 						label: "All Topics",
-						value: "All Topics",
+
 						options: allTopics
 					}
 				]}
