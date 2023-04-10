@@ -129,7 +129,10 @@ export const CardFreeBody = styled.div`
 `;
 export const CardBodyHeader = styled.div`
   font-size: 2.4rem;
-  color: #5db1ff;
+  //   color: #5db1ff;
+  background: linear-gradient(to right, #65a0ff, #7574e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 500;
   margin-bottom: 1.6rem;
 
@@ -140,7 +143,10 @@ export const CardBodyHeader = styled.div`
 `;
 export const CardBodyPrice = styled.div`
   font-size: 1rem;
-  color: #cccccc;
+  //   color: #cccccc;
+  background: linear-gradient(to right, #65a0ff, #7574e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 500;
   margin-bottom: 1.6rem;
 
@@ -152,7 +158,10 @@ export const CardBodyPrice = styled.div`
 
 export const CardDescriptionHeader = styled.div`
   font-size: 1.2rem;
-  color: #96a0b0;
+  //   color: #96a0b0;
+  background: linear-gradient(to right, #65a0ff, #7574e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 700;
   margin-bottom: 1rem;
 
