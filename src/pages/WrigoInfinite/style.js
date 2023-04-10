@@ -99,7 +99,29 @@ export const CardPremium = styled.div`
   background: #0046b8;
   box-shadow: 10px 10px 15px #bebebe, -5px -5px 15px #fcfcfc,
     0px 0px 10px #9dd0ff inset;
+  position: relative;
+  overflow: hidden;
+
+  :before {
+    content: "Premium";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: -55px;
+    top: 20px;
+    width: 200px;
+    height: 40px;
+    color: #0046b8;
+    font-weight: 800;
+    font-size: 1rem;
+    background-color: #9dd0ff;
+    transform: rotate(45deg);
+  }
 `;
+// export const PremiumTag = styled.div`
+
+// `;
 
 export const CardPreBody = styled.div`
   padding: 10px 10px 10px 10px;
