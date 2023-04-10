@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const PopularTopicContainer = styled.div`
   // position: relevant;
@@ -15,8 +14,8 @@ const Background = styled.div`
   flex-direction: column;
   min-height: calc(100vh - 80px);
   height: auto;
-  padding: 0 20px 0px 20px;
-  background-color: #f2f2f2;
+  padding: 0 20px 20px 20px;
+  background-color: #f5f5f5;
 `;
 
 const RecentWritingBox = styled.div`
@@ -57,8 +56,8 @@ const LineChartBackground = styled.div`
   background-color: #fff;
   align-items: center;
   justify-content: center;
-  border-radius:10px;
-  height:586px;
+  border-radius:20px;
+  height:75svh;
 `;
 
 const Title = styled.div`
@@ -73,15 +72,16 @@ const UtilityCardWrap = styled.div`
   padding-right:10px;
 `;
 
-const UtilityCardsWrapper = styled(Link)`
+const UtilityCardsWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   color: ${(props) => props.theme.primaryColor};
+  margin-top: 20px;
 `;
 
 const RecentDiv = styled.div`
 	display:flex;
-	align-item:left;
+	align-items:left;
 	flex-direction: column;
 `;
 

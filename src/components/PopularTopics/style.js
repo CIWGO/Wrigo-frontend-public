@@ -6,11 +6,12 @@ export const ContentBox = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   padding: 25px 40px;
   background: #ffffff;
   border-radius: 20px;
+  height: 75svh;
 `;
 
 export const Property = styled.div`

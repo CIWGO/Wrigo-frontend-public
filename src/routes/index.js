@@ -66,6 +66,10 @@ export default [
 		path: "/resetPassword",
 		element: <ResetPasswordPage />
 	},
+	{
+		path: "/paymentSuccess",
+		element: <PaymentSuccess />
+	},
 
 	{
 		path: "/user",
@@ -107,10 +111,6 @@ export default [
 			{
 				path: "checkout",
 				element: <Payment />
-			},
-			{
-				path: "paymentSuccess",
-				element: <PaymentSuccess />
 			},
 			{
 				path: "topics/content",
