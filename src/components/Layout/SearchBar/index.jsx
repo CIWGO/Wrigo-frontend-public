@@ -5,7 +5,7 @@ import { Select } from "antd";
 
 import { searchUserTopics, searchAllTopics } from "../../../utils/index";
 import { useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // const { Search } = Input;
 const StyledSearch = styled(Select)`
@@ -52,7 +52,7 @@ h1{    font-size: 20px;
 `;
 
 const SearchBox = () => {
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 	const [searchInput, setSearchInput] = useState(undefined);
 	const [searchResults, setSearchResults] = useState([]);
 	// const [visible, setVisible] = useState(false); // modal visible state
@@ -76,43 +76,53 @@ const SearchBox = () => {
 			// show modal when search results are ready
 			setSearchResults(results);
 			console.log(searchInput);
-
 			console.log(searchResults);
 		} catch (error) {
 			console.error(error);
 		}
 	};
-
-	const handleInputChange = (e) => {
-		console.log(e.target.value);
-		setSearchInput(e.target.value);
+	const handleSelect = (value, options) => {
+		console.log(options);
+		if (options.key[1] === "1") {
+			handleNavigate(`/user/writings/${value}`);
+		} else if (options.key[1] === "2") {
+			handleNavigate(`/user/topics/content/${value}`);
+		}
+		// 打印 value 值到控制台
+	};
+	// const onSelect = () => {
+	// 	 handleNavigate(`/user/writing/${result.writing_id}`)
+	// }
+	const handleInputChange = (value) => {
+		console.log(value);
+		setSearchInput(value);
 	};
 	const myTopics = searchResults.filter((result) => result.uid).map((result) => ({
 		value: result.writing_id,
 		label: result.task_topic,
-		key: result.writing_id
+		key: [result.writing_id, "1"]
 	}));
 
 	const allTopics = (searchResults || []).filter((result) => !result.uid).map((result) => ({
 		value: result.topic_id,
 		label: result.topic_content,
-		key: result.topic_id
+		key: [result.topic_id, "2"]
 	}));
 	console.log(myTopics, allTopics);
 	// const handleModalCancel = () => {
 	// 	setVisible(false);
 	// };
 
-	// const handleNavigate = (url) => {
-	// 	setVisible(false);
-	// 	navigate(url);
-	// 	console.log(url);
-	// };
+	const handleNavigate = (url) => {
+		navigate(url);
+		setSearchInput(undefined);
+	};
 
 	return (
 		<>
 			<StyledSearch
 				showSearch
+				// searchValue={searchInput}
 				type="text"
 				value={searchInput}
 				onChange={handleInputChange}
@@ -122,6 +132,7 @@ const SearchBox = () => {
 				showArrow={false}
 				filterOption={false}
 				notFoundContent={"null"}
+				onSelect={handleSelect}
 				options={[
 					{
 						label: "My Writings",
@@ -129,7 +140,6 @@ const SearchBox = () => {
 					},
 					{
 						label: "Topics Samples",
-
 						options: allTopics
 					}
 				]}
