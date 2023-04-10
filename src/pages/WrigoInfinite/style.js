@@ -4,14 +4,20 @@ import { Button, Space } from "antd";
 export const Section = styled(Space)`
   display: flex;
   justify-content: center;
+  align-items: start;
+  margin-top: 30px;
   width: 100%;
-  height: 95vh;
+  height: 100%;
   background: rgb(47, 113, 218);
   background: linear-gradient(
     355deg,
     rgba(99, 154, 241, 1) 0%,
     rgba(245, 245, 245, 1) 85%
   );
+
+  @media (max-width: 577px) {
+    margin-top: 0px;
+  }
 `;
 export const Container = styled.div`
   display: flex;
@@ -23,6 +29,32 @@ export const Container = styled.div`
   border-radius: 30px;
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@100;400;500;600&display=swap");
   font-family: "Poppins", sans-serif;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-height: 922px) {
+    height: 85vh;
+  }
+  @media (max-height: 823px) {
+    height: 100vh;
+  }
+  @media (max-width: 1500px) {
+    width: 56rem;
+  }
+
+  @media (max-width: 1100px) {
+    width: 47rem;
+  }
+
+  @media (max-width: 818px) {
+    width: 30rem;
+  }
+
+  @media (max-width: 577px) {
+    width: 18rem;
+  }
 `;
 export const TextContainer = styled.div`
   display: flex;
@@ -30,12 +62,21 @@ export const TextContainer = styled.div`
   flex-direction: column;
   width: 70%;
   margin-top: 30px; //TODO:
+  margin-bottom: 4.8rem;
+
+  @media (max-width: 1100px) {
+    margin-bottom: 2.8rem;
+  }
 `;
 export const Header = styled.div`
   font-size: 2.4rem;
   color: #1581e5;
   font-weight: 700;
   margin-bottom: 1.8rem;
+
+  @media (max-width: 577px) {
+    font-size: 2.2rem;
+  }
 `;
 
 export const Description = styled.div`
@@ -43,7 +84,10 @@ export const Description = styled.div`
   font-size: 1.2rem;
   color: #5db1ff;
   font-weight: 400;
-  margin-bottom: 4.8rem;
+
+  @media (max-width: 577px) {
+    font-size: 0.8rem;
+  }
 `;
 export const CardsContainer = styled.div`
   display: flex;
@@ -51,6 +95,12 @@ export const CardsContainer = styled.div`
   align-items: center;
   gap: 4rem; //TODO:
   margin-bottom: 1.8rem;
+  width: 100%;
+  flex-wrap: wrap;
+
+  @media (max-width: 1100px) {
+    gap: 1rem;
+  }
 `;
 export const CardFree = styled.div`
   width: 330px; //TODO:
@@ -59,6 +109,11 @@ export const CardFree = styled.div`
   background: #e9edf2;
   box-shadow: 10px 10px 15px #bebebe, -5px -5px 15px #fcfcfc,
     0px 0px 10px #9dd0ff inset;
+
+  @media (max-width: 577px) {
+    width: 270px;
+    height: 370px;
+  }
 `;
 export const CardFreeBody = styled.div`
   padding: 10px 10px 10px 10px;
@@ -71,12 +126,22 @@ export const CardBodyHeader = styled.div`
   color: #5db1ff;
   font-weight: 500;
   margin-bottom: 1.6rem;
+
+  @media (max-width: 577px) {
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
+  }
 `;
 export const CardBodyPrice = styled.div`
   font-size: 1rem;
   color: #cccccc;
   font-weight: 500;
   margin-bottom: 1.6rem;
+
+  @media (max-width: 577px) {
+    font-size: 0.8rem;
+    margin-bottom: 1.4rem;
+  }
 `;
 
 export const CardDescriptionHeader = styled.div`
@@ -84,12 +149,22 @@ export const CardDescriptionHeader = styled.div`
   color: #96a0b0;
   font-weight: 700;
   margin-bottom: 1rem;
+
+  @media (max-width: 577px) {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
 `;
 export const CardDescriptionText = styled.div`
   font-size: 1.2rem;
   color: #96a0b0;
   font-weight: 400;
   margin-bottom: 1rem;
+
+  @media (max-width: 577px) {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
 `;
 
 export const CardPremium = styled.div`
@@ -118,6 +193,11 @@ export const CardPremium = styled.div`
     background-color: #9dd0ff;
     transform: rotate(45deg);
   }
+
+  @media (max-width: 577px) {
+    width: 270px;
+    height: 370px;
+  }
 `;
 // export const PremiumTag = styled.div`
 
@@ -134,12 +214,22 @@ export const PreCardBodyHeader = styled.div`
   color: #e1ebfc;
   font-weight: 500;
   margin-bottom: 1.2rem;
+
+  @media (max-width: 577px) {
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
+  }
 `;
 export const PreCardBodyPrice = styled.div`
   font-size: 1rem;
   color: #cccccc;
   font-weight: 500;
   margin-bottom: 1.2rem;
+
+  @media (max-width: 577px) {
+    font-size: 0.8rem;
+    margin-bottom: 1.4rem;
+  }
 `;
 
 export const PreCardDescriptionHeader = styled.div`
@@ -147,6 +237,11 @@ export const PreCardDescriptionHeader = styled.div`
   color: #9dd0ff;
   font-weight: 700;
   margin-bottom: 1rem;
+
+  @media (max-width: 577px) {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
 `;
 export const PreCardDescriptionText = styled.div`
   font-size: 1.2rem;
@@ -155,6 +250,11 @@ export const PreCardDescriptionText = styled.div`
   margin-bottom: 1rem;
   &:last-child {
     margin-bottom: 0rem;
+  }
+
+  @media (max-width: 577px) {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
   }
 `;
 export const ButtonContainer = styled.div`
