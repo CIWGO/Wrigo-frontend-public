@@ -22,13 +22,14 @@ import PaymentHistory from "../pages/PaymentHistory";
 import ResetPasswordEmailVerificationPage from "../pages/ResetPassword/ResetPasswordEmailVerification";
 import ResetPasswordPage from "../pages/ResetPassword/ResetPasswordPage";
 import Infinite from "../pages/WrigoInfinite/index";
+import PageNotFound from "../pages/PageNotFound";
 
 // import SubscribedUserRight from "../pages/WritingEvaluatingPage/subscribedUserRight/index";
 
 export default [
 	{
 		path: "/*",
-		element: <h1>Page not found</h1>
+		element: <PageNotFound/>
 	},
 	{
 		path: "/",
