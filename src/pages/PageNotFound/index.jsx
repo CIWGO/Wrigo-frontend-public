@@ -1,3 +1,4 @@
+import { QuestionOutlined } from "@ant-design/icons";
 import { Button, Result } from "antd";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -32,7 +33,7 @@ const PageNotFound = () => {
 		<Container>
 			<Card>
 				<Result
-					status="error"
+					icon={<QuestionOutlined style={{ color: "#2F71DA" }}/>}
 					title="Page Not Found"
 					subTitle="Sorry, the page you visited does not exist."
 					extra={[
