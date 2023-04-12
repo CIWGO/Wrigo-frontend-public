@@ -18,7 +18,7 @@ const styles = {
 	},
 	title: {
 		color: "#2f71da",
-		fontFamily: "Poppins",
+		fontFamily: "Roboto",
 		fontSize: "3.6rem",
 		fontWeight: 700,
 		lineHeight: "65px",
@@ -27,7 +27,7 @@ const styles = {
 		marginTop: 0
 	},
 	subtitle: {
-		fontFamily: "Poppins",
+		fontFamily: "Roboto",
 		fontSize: "1.8rem",
 		fontWeight: 700,
 		lineHeight: "2.4rem",
