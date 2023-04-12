@@ -2,16 +2,21 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const ContentBox = styled.div`
-  margin-top:10px;
+  margin-top: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   padding: 25px 40px;
   background: #ffffff;
   border-radius: 20px;
-  height: 75svh;
+  height: 70vh;
+  overflow: scroll;
+
+  @media (max-width: 768px) {
+    padding: 25px 20px;
+  }
 `;
 
 export const Property = styled.div`
@@ -52,10 +57,20 @@ export const TopicContent = styled.div`
 export const IconContainer = styled.div`
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: flex-start;
   color: #2F71DA;
   margin-top: 5px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
 `;
 
 export const IconsWrapper = styled.div`
