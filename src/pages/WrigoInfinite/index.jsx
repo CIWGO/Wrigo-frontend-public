@@ -34,7 +34,7 @@ function Infinite () {
 					<CardPremium>
 						<CardPreBody>
 							<PreCardBodyHeader>Infinite</PreCardBodyHeader>
-							<PreCardBodyPrice><span style={{ fontSize: "3.6rem", color: "#9dd0ff" }}>$9.99</span>/ Month</PreCardBodyPrice>
+							<PreCardBodyPrice><span style={{ fontSize: "3.6rem", color: "#d7ecff" }}>$9.99</span>/ Month</PreCardBodyPrice>
 
 							<PreCardDescriptionHeader>Features:</PreCardDescriptionHeader>
 							<PreCardDescriptionText><Tick /> Unlimited Evaluations</PreCardDescriptionText>
