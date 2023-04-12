@@ -27,8 +27,8 @@ export const Container = styled.div`
   height: 75vh; //TODO:
   background-color: rgba(255, 255, 255, 0.61);
   border-radius: 30px;
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200,300;500;700;900&family=Rubik:wght@100;400;500;600&display=swap");
-  font-family: "Poppins", sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+  font-family: "Roboto", sans-serif;
   overflow-y: scroll;
   ::-webkit-scrollbar {
     display: none;
@@ -113,8 +113,7 @@ export const CardFree = styled.div`
   height: 430px; //TODO:
   border-radius: 30px;
   background: #e9edf2;
-  box-shadow: 10px 10px 15px #bebebe, -5px -5px 15px #fcfcfc,
-    0px 0px 10px #9dd0ff inset;
+  box-shadow: 1px 1px 10px #bebebe, -1px -1px 10px #fcfcfc;
 
   @media (max-width: 577px) {
     width: 270px;
@@ -122,7 +121,7 @@ export const CardFree = styled.div`
   }
 `;
 export const CardFreeBody = styled.div`
-  padding: 10px 10px 10px 10px;
+  padding: 25px 10px 10px 30px;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -134,7 +133,7 @@ export const CardBodyHeader = styled.div`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 500;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.2rem;
 
   @media (max-width: 577px) {
     font-size: 1.8rem;
@@ -148,7 +147,7 @@ export const CardBodyPrice = styled.div`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 500;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1rem;
 
   @media (max-width: 577px) {
     font-size: 0.8rem;
@@ -171,10 +170,13 @@ export const CardDescriptionHeader = styled.div`
   }
 `;
 export const CardDescriptionText = styled.div`
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
   color: #96a0b0;
   font-weight: 400;
-  margin-bottom: 1rem;
+  margin-bottom: 4px;
 
   @media (max-width: 577px) {
     font-size: 0.9rem;
@@ -186,9 +188,8 @@ export const CardPremium = styled.div`
   width: 330px; //TODO:
   height: 430px; //TODO:
   border-radius: 30px;
-  background: #0046b8;
-  box-shadow: 10px 10px 15px #bebebe, -5px -5px 15px #fcfcfc,
-    0px 0px 10px #9dd0ff inset;
+  background: #326ac6;
+  box-shadow: 1px 1px 10px #bebebe, -2px -2px 10px #fcfcfc;
   position: relative;
   overflow: hidden;
 
@@ -202,7 +203,7 @@ export const CardPremium = styled.div`
     top: 20px;
     width: 200px;
     height: 40px;
-    color: #0046b8;
+    color: #326ac6;
     font-weight: 800;
     font-size: 1rem;
     background-color: #9dd0ff;
@@ -219,7 +220,7 @@ export const CardPremium = styled.div`
 // `;
 
 export const CardPreBody = styled.div`
-  padding: 10px 10px 10px 10px;
+  padding: 25px 10px 10px 25px;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -249,7 +250,7 @@ export const PreCardBodyPrice = styled.div`
 
 export const PreCardDescriptionHeader = styled.div`
   font-size: 1.2rem;
-  color: #9dd0ff;
+  color: #d7ecff;
   font-weight: 700;
   margin-bottom: 1rem;
 
@@ -259,12 +260,15 @@ export const PreCardDescriptionHeader = styled.div`
   }
 `;
 export const PreCardDescriptionText = styled.div`
-  font-size: 1.2rem;
-  color: #9dd0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #d7ecff;
   font-weight: 400;
-  margin-bottom: 1rem;
+  margin-bottom: 4px;
   &:last-child {
-    margin-bottom: 0rem;
+    margin-bottom: 4px;
   }
 
   @media (max-width: 577px) {

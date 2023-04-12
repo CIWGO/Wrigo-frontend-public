@@ -47,8 +47,8 @@ const LoadingContainer = styled.div`
 
 const LoadingText = styled.div`
 	font-size: 20px;
-	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700;900&family=Rubik:wght@400;500;600&display=swap");
-	font-family: "Poppins", sans-serif;
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+	font-family: "Roboto", sans-serif;
 	font-weight: 500;
 	text-align: center;
 `;
