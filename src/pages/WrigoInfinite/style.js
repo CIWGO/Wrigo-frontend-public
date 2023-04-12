@@ -27,8 +27,7 @@ export const Container = styled.div`
   height: 75vh; //TODO:
   background-color: rgba(255, 255, 255, 0.61);
   border-radius: 30px;
-  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-  font-family: "Poppins", sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
   font-family: "Roboto", sans-serif;
   overflow-y: scroll;
   ::-webkit-scrollbar {
