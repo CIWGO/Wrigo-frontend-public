@@ -21,22 +21,21 @@ import {
 	NavMenu,
 	NavMenuItem,
 	NavLink,
-	SectionList,
-	Feature,
-	FeatureTitle,
-	FeatureDescription,
 	TeamSection,
 	TeamTitle,
 	TeamList,
 	TeamMember,
 	PriceSection,
-	PriceCard,
-	PriceTitle,
-	PriceValue,
-	PriceFeatures,
 	SignUpTag,
-	LoginTag
+	LoginTag,
+	BodySection, CardsContainer, FeatureHeader, FeaturesTitle, PriceText, PriceTitle
 } from "./style.js";
+import PriceCards from "./components/PriceCards.jsx";
+import FeatureCards from "./components/FeatureCard.jsx";
+import FeatureDots from "./components/FeatureDots.jsx";
+// import FeatureCards from "./components/FeatureCard.jsx";
+// import FeatureDots from "./components/FeatureDots.jsx";
+// import PriceCards from "./components/PriceCards.jsx";
 
 const LandingPage = () => {
 	return (
@@ -89,8 +88,11 @@ const LandingPage = () => {
 			</div>
 
 			<Main>
-				<Section id="features">
-					<Header>
+				<BodySection id="features">
+					<FeaturesTitle>
+						What we actually do
+					</FeaturesTitle>
+					<FeatureHeader>
 						Revolutionize your IELTS writing preparation with Wrigo, the
 						cutting-edge web app powered by OpenAI services. Our platform
 						utilizes ChatGPT to automatically grade your written English
@@ -98,97 +100,28 @@ const LandingPage = () => {
 						preparation for IELTS assessments. At Wrigo, our mission is to
 						transform the language assessment landscape, ensuring every
 						individual can realize their full language learning potential.
-					</Header>
-					<H2>Features</H2>
-					<Feature>
-						<FeatureTitle>Free User Benefits</FeatureTitle>
-						<SectionList>
-							<li>
-								<FeatureDescription>
-									IELTS Writing Grading: Receive accurate and objective grading
-									for your IELTS writing tasks, helping you understand your
-									current level and areas of improvement.
-								</FeatureDescription>
-							</li>
-							<li>
-								<FeatureDescription>
-									Evaluation and Feedback: Get feedback based on official IELTS
-									criteria, tailored to your specific needs.
-								</FeatureDescription>
-							</li>
-							<li>
-								<FeatureDescription>
-									Writing Performance Analytics: Monitor your progress over
-									time, track your improvements, and stay focused on your IELTS
-									writing goals.
-								</FeatureDescription>
-							</li>
-						</SectionList>
-					</Feature>
-					<Feature>
-						<FeatureTitle>Wrigo Infinite Benefits</FeatureTitle>
-						<p>
-							Unlock the full potential of Wrigo with our Infinite subscription,
-							offering an unparalleled IELTS writing experience.
-						</p>
-						<SectionList>
-							<li>
-								<FeatureDescription>
-									Detailed Feedback: Dive deeper into each IELTS writing
-									criteria with specific content analysis from your submitted
-									tasks.
-								</FeatureDescription>
-							</li>
-							<li>
-								<FeatureDescription>
-									Grammar Fix: Sharpen your grammar skills with expert guidance
-									and personalized recommendations.
-								</FeatureDescription>
-							</li>
-							<li>
-								<FeatureDescription>
-									Writing Reasoning and Supporting Example Suggestions: Receive
-									tailored suggestions based on the relevant IELTS writing
-									topic, helping you build stronger arguments and present
-									clearer ideas.
-								</FeatureDescription>
-							</li>
-						</SectionList>
-					</Feature>
-				</Section>
-				<Section id="pricing">
-					<H2>Price Comparison</H2>
+					</FeatureHeader>
+					<CardsContainer>
+						<FeatureCards/>
+						<FeatureDots/>
+
+					</CardsContainer>
+				</BodySection>
+				<BodySection id="pricing" style={{ background: "linear-gradient(to bottom right, #d7d7f991, #f2f2f6, #d9e6fd)", width: "100%", minHeight: "100vh" }} >
+					<PriceTitle>Price Comparison</PriceTitle>
 					<PriceSection>
-						<PriceCard>
-							<PriceTitle>Free User</PriceTitle>
-							<PriceValue>$0.00</PriceValue>
-							<PriceFeatures>
-								<li>IELTS Writing Grading</li>
-								<li>Evaluation and Feedback</li>
-								<li>Writing Performance Analytics</li>
-							</PriceFeatures>
-						</PriceCard>
-						<PriceCard>
-							<PriceTitle>Wrigo Infinite</PriceTitle>
-							<PriceValue>$9.99</PriceValue>
-							<PriceFeatures>
-								<li>All Free User Features</li>
-								<li>Detailed Feedback on Criteria</li>
-								<li>Grammar Fix</li>
-								<li>Writing Reasoning and Suggestions</li>
-							</PriceFeatures>
-						</PriceCard>
+						<PriceCards/>
 					</PriceSection>
-				</Section>
-				<Section>
-					<H2>Join Wrigo Today and Transform Your IELTS Writing Preparation</H2>
-					<p>
+					<H2 style={{ fontSize: "20px", fontWeight: 500 }}>Join Wrigo Today and Transform Your IELTS Writing Preparation</H2>
+					<PriceText>
 						Let us empower your IELTS writing journey with our innovative
 						approach, designed to help you achieve test-ready status and
 						demonstrate your true capabilities. Experience the difference that a
 						commitment to inclusivity, accessibility, and cutting-edge
 						technology can make in your IELTS writing preparation.
-					</p>
+					</PriceText>
+				</BodySection>
+				<Section>
 				</Section>
 				<Section id="about">
 					<H2>About</H2>
