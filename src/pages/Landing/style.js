@@ -1,5 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Dot1Image from "./assets/Ellipse1.png";
+import Dot2Image from "./assets/Polygon2.png";
+import Dot3Image from "./assets/Ellipse3.png";
+import Dot4Image from "./assets/Ellipse4.png";
+import Dot5Image from "./assets/Polygon5.png";
+import Dot6Image from "./assets/Ellipse6.png";
 
 // export const Nav = styled.nav`
 //   position: absolute;
@@ -120,7 +126,6 @@ export const Header = styled.header`
 
 export const Main = styled.main`
   flex: 1;
-  padding: 1rem;
 `;
 
 export const Feature = styled.div`
@@ -180,21 +185,6 @@ export const PriceSection = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const PriceCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #1c57a7;
-  padding: 1rem;
-  margin: 1rem;
-  width: 250px;
-`;
-
-export const PriceTitle = styled.h3`
-  color: #2f71da;
-  margin-bottom: 0.5rem;
-`;
-
 export const PriceValue = styled.p`
   font-size: 1.5rem;
   font-weight: bold;
@@ -240,3 +230,192 @@ export const Footer = styled.footer`
   text-align: center;
   padding: 1rem;
 `;
+
+export const BodySection = styled.section`
+position: relative;
+  padding-top:29px;
+  padding-bottom: 19px;
+  background-color:white;
+  position: relative; width: 100%; min-Height: 120vh; overflow: hidden; 
+`;
+export const FeatureCard = styled.div`
+height:270px;
+width:280px;
+margin:20px 0px;
+border-radius: 15px;
+background-color: transparent;
+box-shadow: 0px 0px 70px rgb(220,220,267) ;
+`;
+export const FeaturesTitle = styled.h1`
+font-size: 30px;
+font-weight: 500;
+color:rgb(47, 115, 218);
+`;
+export const PriceTitle = styled.h1`
+font-size: 30px;
+font-weight: 500;
+color:rgb(47, 115, 218);
+`;
+export const PriceText = styled.div`margin:0 auto; max-width:600px;`;
+
+export const CardsContainer = styled.div`
+margin:40px 60px 80px;
+display: flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:space-around;
+align-items: center;
+`;
+export const FeatureHeader = styled.div`
+  min-height: 10vh;
+  text-align: center;
+  justify-content: center;
+  letter-spacing:1px;
+  font-size: calc(8px + 2vmin);
+  color:rgb(47, 113, 218);
+  padding: .7rem;
+  margin:0 50px;
+`;
+
+export const FeatureContainer = styled.div`margin-bottom:30px;`;
+export const CardContent = styled.div`
+margin:15% 13%;
+display: flex;
+flex-direction: column;
+justify-content:space-around;
+`;
+
+export const Icon = styled.div`
+text-align:left;
+overflow: visible;`;
+
+export const CardHeading = styled.div`
+font-size:15px;
+text-align: left;
+margin-top: 6px;
+color:rgb(47, 113, 218);`;
+
+export const Carddetail = styled.div`
+font-size:13px;
+text-align: left;
+margin-top: 10px;`;
+
+export const Dot1 = styled.div`
+position: absolute; 
+bottom:30px;
+height: 300px;
+width: 300px;
+background-size:cover;
+background-image:url(${Dot1Image});`;
+export const Dot2 = styled.div`
+position: absolute; 
+left:20px;
+top:20%;
+height: 600px;
+width: 600px;
+background-size:cover;
+background-image:url(${Dot2Image});`;
+export const Dot3 = styled.div`
+position: absolute; 
+right:10px;
+height: 300px;
+width: 300px;
+background-size:cover;
+background-image:url(${Dot3Image});`;
+export const Dot4 = styled.div`
+position: absolute; 
+left:30%;
+height: 300px;
+width: 300px;
+background-size:cover;
+background-image:url(${Dot4Image});`;
+export const Dot5 = styled.div`
+position: absolute; 
+bottom:70%;
+height: 300px;
+width: 300px;
+background-size:cover;
+background-image:url(${Dot5Image});`;
+export const Dot6 = styled.div`
+position: absolute; 
+bottom:40%;
+height: 300px;
+width: 300px;
+background-size:cover;
+background-image:url(${Dot6Image});`;
+
+export const PriceCard = styled.div`
+width:260px;
+height:370px;
+background-color: white;
+border-radius:13px;
+position: relative;
+box-shadow:6px 6px 15px #999;
+
+/* border:2px solid rgb(47, 113, 218); */
+`;
+
+export const PriceCardsContainer = styled.div`
+margin:20px 40px;
+ display: flex;
+ flex-wrap: wrap;
+ gap:50px;
+`;
+
+export const Top = styled.div`
+display: flex;
+flex-direction: column;
+align-items:start;
+height:35%;width:85%;
+margin:35px auto 0px;`;
+export const Line = styled.div`
+height:1.3px;width:83%;
+margin:0 auto;
+background-color:lightgrey;
+position:absolute;
+left:20px;
+top:42%;`;
+export const Middle = styled.div`
+align-items:start;
+height:36%;width:85%;
+margin:10px auto;`;
+export const Bottom = styled.div`
+height:15%;width:75%;
+margin:10px auto;`;
+
+export const SVGBox = styled.div`
+font-size: 15px;
+`;
+export const TextGroup = styled.div`
+font-size:14px;
+span{
+  font-size: 40px;
+  font-weight: 500;
+}`;
+
+export const PriceDetail = styled.div`
+align-items: center;
+font-size: 12px;
+margin-bottom: 15px;
+display: flex;
+svg{
+  margin-right: 5px;
+}
+`;
+
+export const SignUpButton = styled.button`
+color:rgb(47, 113, 218) ;
+font-size: 16px;
+font-weight: 400;
+letter-spacing:1px;
+border-radius:10px;
+height: 37px;
+background-color: white;
+width:85%;
+border:1px solid rgb(47, 113, 218);
+&:hover{
+  color:white;
+    background: linear-gradient(to right, rgba(127, 79, 254, .3) 0%, rgba(1, 79, 254, .3) 100%);
+border: none;
+
+}`;
