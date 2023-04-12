@@ -22,7 +22,7 @@ const BackButton = () => {
 		<Link to={"/user/topics"}>
 			<StyledButton>
 				<LeftOutlined />
-        Go Back
+        Back
 			</StyledButton>
 		</Link>
 	);

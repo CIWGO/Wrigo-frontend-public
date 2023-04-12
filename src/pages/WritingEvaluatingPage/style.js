@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 export const WritingPageDiv = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-  font-family: 'Poppins', sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+  font-family: 'Roboto', sans-serif;
   background-color: #F5F5F5;
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +21,7 @@ export const WritingPageDiv = styled.div`
     top: 0;
     left: 15px;
     font-size: 20px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Roboto", sans-serif;
     :hover {
       cursor: pointer;
     }
@@ -52,7 +52,7 @@ export const WritingPageDiv = styled.div`
     textarea {
     resize: none;
     border: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 25px;
     border: none;
@@ -73,7 +73,7 @@ export const WritingPageDiv = styled.div`
     }
     &::placeholder {
       line-height: 30px;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-weight: 700;
       font-size: 20px;
       color: #CCCCCC;
@@ -129,9 +129,9 @@ export const WritingPageDiv = styled.div`
       border: none;
 
       &::placeholder {
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Rubik:wght@400;500;600&display=swap");
-        font-family: "Poppins", sans-serif;
-        font-size: 1.5rem;
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+        font-family: "Roboto", sans-serif;
+        font-size: 20px;
         font-weight: 500;
         color: #CCCCCC;
         padding-bottom: 10px;
@@ -228,8 +228,8 @@ export const LoadingContainer = styled.div`
 
 export const LoadingText = styled.div`
 	font-size: 20px;
-	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700;900&family=Rubik:wght@400;500;600&display=swap");
-	font-family: "Poppins", sans-serif;
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+	font-family: "Roboto", sans-serif;
 	font-weight: 500;
 	text-align: center;
 `;
@@ -249,9 +249,11 @@ export const NoFeed = styled.div`
 export const FeedbackContainer = styled.div`
 flex-direction: column;
 justify-content: space-around;
-gap: 30px;
+gap: 40px;
 display: flex;
-margin: 100px 10% 10%;
+margin-top: 20%;
+margin-left: 8%;
+margin-right: 8%;
 text-align: left;
 line-height: 20px;
 height: 66vh;
@@ -259,8 +261,9 @@ height: min-content;
 
 #moment {
   position:absolute;
-  left: 50px; 
-  top: 43px;
+  left: 10%; 
+  top: 40px;
+  font-family: "Roboto", sans-serif;
   font-size: 12px;
   color: #969494c9;
 }
@@ -286,31 +289,37 @@ button {
 }
 p {
   color: rgb(55, 109, 196);
-  font-size: 1.4rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
   position: absolute;
-  top: 13px;
-  right: 10%;
+  top: 50px;
+  right: 12%;
 }
 span {
   color: #2F71DA;
+  font-family: "Roboto", sans-serif;
   font-size: 60px;
-  font-weight: bold;
-  margin-left: 5px;
+  font-weight: 500;
+  margin-left: 10px;
 }
 `;
 
 export const Group = styled.div`
 height: min-content;
-font-size: .7rem;
+font-family: "Roboto", sans-serif;
+font-size: 14px;
+line-height: 25px;
 h3 {
-  margin: 0;
+  font-family: "Roboto", sans-serif;
+  
 }
 span{
-  font-size:.7rem;
+  font-size: 12px;
   color:#777;
   font-weight: 400;
 }
 .thin {
+  margin-top: 10px;
   font-weight: 400;
 }
 .sliced{
@@ -319,25 +328,25 @@ span{
   }
 }
 .scores {
-  font-size: 1rem;
+  font-size: 18px;
   font-weight: 400;
-  color: rgb(55, 109, 196);
+  color: #2F71DA;
 }
 `;
 
 export const Draft = styled.div`
-font-family: "Poppins";
-font-weight: 500;
-bottom: "10px";
-right: "20px";
-position: "absolute";
-border: "none";
-border-radius: "10px";
-color: "rgb(47, 113, 218)";
-padding: "5px";
-width: "6rem";
-height: "min-content";
-background-color: "white";
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  bottom: "10px";
+  right: "20px";
+  position: "absolute";
+  border: "none";
+  border-radius: "10px";
+  color: "rgb(47, 113, 218)";
+  padding: "5px";
+  width: "6rem";
+  height: "min-content";
+  background-color: "white";
 `;
 
 export const NoPre = styled.p`
