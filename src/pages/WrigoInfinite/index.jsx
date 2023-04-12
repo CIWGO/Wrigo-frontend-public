@@ -1,5 +1,5 @@
-import React from "react";
-import { paymentRedirection } from "../../utils/API";
+import { useEffect, useState } from "react";
+import { paymentRedirection, getUser } from "../../utils/API";
 import { ButtonContainer, CardBodyHeader, CardBodyPrice, CardDescriptionHeader, CardDescriptionText, CardFree, CardFreeBody, CardPremium, CardsContainer, Container, DefaultButton, Description, Header, Section, TextContainer, CardPreBody, PreCardBodyHeader, PreCardBodyPrice, PreCardDescriptionHeader, PreCardDescriptionText } from "./style";
 // import styles from "./styles";
 import { ReactComponent as Tick } from "./Checkbox.svg";
@@ -8,6 +8,23 @@ function Infinite () {
 	const token = localStorage.getItem("token");
 	const uid = localStorage.getItem("uid");
 	const username = localStorage.getItem("username");
+	const [isSubscribed, setIsSubscribed] = useState(null);
+
+	const fetchIsSubscribed = async () => {
+		try {
+			const response = await getUser({ username });
+			const isSubscribed = response.data.user.isSubscribed;
+			setIsSubscribed(isSubscribed);
+		} catch (error) {
+			console.log("wrong");
+			console.error(error);
+		}
+	};
+
+	useEffect(() => {
+		fetchIsSubscribed();
+	}, [uid, token]);
+
 	const handleClick = async () => {
 		try {
 			const response = await paymentRedirection({
@@ -74,7 +91,7 @@ function Infinite () {
 
 						</CardPreBody>
 						<ButtonContainer>
-							<DefaultButton onClick={handleClick}>Subscribe Now</DefaultButton>
+							{ !isSubscribed ? <DefaultButton onClick={handleClick}>Subscribe Now</DefaultButton> : <DefaultButton disabled style={{ color: "#fff" }} >Already subscribed</DefaultButton>}
 						</ButtonContainer>
 					</CardPremium>
 				</CardsContainer>
