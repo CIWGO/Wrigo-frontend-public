@@ -1,6 +1,7 @@
 import React from "react";
 import { ButtonContainer, CardBodyHeader, CardBodyPrice, CardDescriptionHeader, CardDescriptionText, CardFree, CardFreeBody, CardPremium, CardsContainer, Container, DefaultButton, Description, Header, Section, TextContainer, CardPreBody, PreCardBodyHeader, PreCardBodyPrice, PreCardDescriptionHeader, PreCardDescriptionText } from "./style";
 // import styles from "./styles";
+import { ReactComponent as Tick } from "./Checkbox.svg";
 
 function Infinite () {
 	return (
@@ -21,11 +22,11 @@ function Infinite () {
 							<CardBodyPrice><span style={{ fontSize: "3.6rem", color: "#5db1ff" }}>$</span><span style={{ fontSize: "3.6rem", color: "#5db1ff" }}>0</span>/ Month</CardBodyPrice>
 
 							<CardDescriptionHeader>Features:</CardDescriptionHeader>
-							<CardDescriptionText>- 3 Evaluations / Month</CardDescriptionText>
-							<CardDescriptionText>- 2 Sample writings / Month</CardDescriptionText>
-							<CardDescriptionText>- 3 Grammar correction / Month</CardDescriptionText>
-							<CardDescriptionText><s>- Holistic feedback for submissions</s></CardDescriptionText>
-							<CardDescriptionText><s>- Writing argument suggestion</s></CardDescriptionText>
+							<CardDescriptionText><Tick /> 3 Evaluations / Month</CardDescriptionText>
+							<CardDescriptionText><Tick /> 2 Sample writings / Month</CardDescriptionText>
+							<CardDescriptionText><Tick /> 3 Grammar correction / Month</CardDescriptionText>
+							{/* <CardDescriptionText><s><Tick /> Holistic feedback for submissions</s></CardDescriptionText>
+							<CardDescriptionText><s><Tick /> Writing argument suggestion</s></CardDescriptionText> */}
 
 						</CardFreeBody>
 
@@ -36,11 +37,11 @@ function Infinite () {
 							<PreCardBodyPrice><span style={{ fontSize: "3.6rem", color: "#9dd0ff" }}>$9.99</span>/ Month</PreCardBodyPrice>
 
 							<PreCardDescriptionHeader>Features:</PreCardDescriptionHeader>
-							<PreCardDescriptionText>- Unlimited Evaluations</PreCardDescriptionText>
-							<PreCardDescriptionText>- Unlimited writings</PreCardDescriptionText>
-							<PreCardDescriptionText>- Unlimited Grammar correctionh</PreCardDescriptionText>
-							<PreCardDescriptionText>- Holistic feedback for submissions</PreCardDescriptionText>
-							<PreCardDescriptionText>- Writing argument suggestion</PreCardDescriptionText>
+							<PreCardDescriptionText><Tick /> Unlimited Evaluations</PreCardDescriptionText>
+							<PreCardDescriptionText><Tick /> Unlimited writings</PreCardDescriptionText>
+							<PreCardDescriptionText><Tick /> Unlimited Grammar correctionh</PreCardDescriptionText>
+							<PreCardDescriptionText><Tick /> Holistic feedback for submissions</PreCardDescriptionText>
+							<PreCardDescriptionText><Tick /> Writing argument suggestion</PreCardDescriptionText>
 
 						</CardPreBody>
 						<ButtonContainer>
