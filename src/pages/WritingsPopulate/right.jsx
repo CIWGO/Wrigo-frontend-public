@@ -1,6 +1,5 @@
 import moment from "moment/moment";
 import { useState } from "react";
-import { Modal } from "antd";
 import {
 	FeedbackContainer,
 	Group,
@@ -21,9 +20,6 @@ const RightComponent = ({
 	content
 }) => {
 	const [previous, setPrevious] = useState(false);
-	const [modalVisible, setModalVisible] = useState(false);
-	const [clickedComment, setClickedComment] = useState("");
-	console.log(comment, subscribed);
 	if (mutation.isLoading) {
 		return (
 			<RightCard>
@@ -48,7 +44,6 @@ const RightComponent = ({
 	}
 
 	if (comment && subscribed) {
-		console.log(topic, content, comment);
 		return (
 			<SubscribedUserRight
 				topic={topic}
@@ -60,7 +55,6 @@ const RightComponent = ({
 	}
 
 	if (comment && !subscribed) {
-		console.log(comment);
 		const numbers = [
 			Number(comment.CC),
 			Number(comment.GRA),
@@ -89,9 +83,6 @@ const RightComponent = ({
 				comment: comment.commentOVR
 			});
 		}
-		const handleModalCancel = () => {
-			setModalVisible(false);
-		};
 		return (
 			<RightCard>
 				<FeedbackContainer>
@@ -108,34 +99,14 @@ const RightComponent = ({
 							</div>
 							<div className="comment">
 								<h3
-									className={`thin ${
-										comment.toString().length > 145 ? "sliced" : ""
-									}`}
-									onClick={() => {
-										setClickedComment(comment);
-										setModalVisible(true);
-									}}
-								>
-									{comment.toString().length > 145
-										? comment.toString().slice(0, 145) + "..."
-										: comment}{" "}
-									{comment.toString().length > 145 && (
-										<span>view full comment</span>
-									)}
+									className="thin">
+									{comment}
 								</h3>
 							</div>
 						</Group>
 					))}
 
 					<button onClick={() => setPrevious(true)}>previous feedback</button>
-					<Modal
-						title="Comment"
-						visible={modalVisible}
-						onCancel={handleModalCancel}
-						footer={null}
-					>
-						<p>{clickedComment}</p>
-					</Modal>
 				</FeedbackContainer>
 			</RightCard>
 		);

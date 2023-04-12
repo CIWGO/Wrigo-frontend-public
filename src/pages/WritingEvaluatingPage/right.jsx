@@ -1,7 +1,6 @@
 import PreFeedbackCard from "./preFeedbackCard";
 import moment from "moment/moment";
 import { useState } from "react";
-import { Modal } from "antd";
 import {
 	FeedbackContainer,
 	Group,
@@ -15,8 +14,6 @@ import SubscribedUserRight from "./subscribedUserRight";
 import { Button } from "./subscribedUserRight/style";
 const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 	const [previous, setPrevious] = useState(false);
-	const [modalVisible, setModalVisible] = useState(false);
-	const [clickedComment, setClickedComment] = useState("");
 	if (mutation.isLoading) {
 		return (
 			<RightCard>
@@ -80,9 +77,6 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 				comment: commentDetails.Overall
 			});
 		}
-		const handleModalCancel = () => {
-			setModalVisible(false);
-		};
 		return (
 			<RightCard>
 				<FeedbackContainer>
@@ -98,35 +92,11 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 								<h3>{score ? `${label}:${score}` : label}</h3>
 							</div>
 							<div className="comment">
-								<h3
-									className={`thin ${
-										comment.toString().length > 145 ? "sliced" : ""
-									}`}
-									onClick={() => {
-										setClickedComment(comment);
-										setModalVisible(true);
-									}}
-								>
-									{comment.toString().length > 145
-										? comment.toString().slice(0, 145) + "..."
-										: comment}{" "}
-									{comment.toString().length > 145 && (
-										<span>view full comment</span>
-									)}
-								</h3>
+								<h3	className="thin">{comment}</h3>
 							</div>
 						</Group>
 					))}
-
 					<Button onClick={() => setPrevious(true)}>previous feedback</Button>
-					<Modal
-						title="Comment"
-						visible={modalVisible}
-						onCancel={handleModalCancel}
-						footer={null}
-					>
-						<p>{clickedComment}</p>
-					</Modal>
 				</FeedbackContainer>
 			</RightCard>
 		);
