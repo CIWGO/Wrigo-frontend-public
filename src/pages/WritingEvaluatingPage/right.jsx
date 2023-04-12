@@ -65,10 +65,10 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 			return Math.round(avg * 2) / 2;
 		}
 		const categories = [
-			{ label: "Task Response", score: comment.TR, comment: comment.commentTR },
-			{ label: "Coherence and Cohesion", score: comment.CC, comment: comment.commentCC },
-			{ label: "Lexical Resource", score: comment.LR, comment: comment.commentLR },
-			{ label: "Grammar Range and Accuracy", score: comment.GRA, comment: comment.commentGRA }
+			{ label: "Task Response", score: score.TaskResponse, comment: commentDetails.TR },
+			{ label: "Coherence and Cohesion", score: score.CoherenceAndCohesion, comment: commentDetails.CC },
+			{ label: "Lexical Resource", score: score.LexicalResource, comment: commentDetails.LR },
+			{ label: "Grammar Range and Accuracy", score: score.GrammarRangeAndAccuracy, comment: commentDetails.GRA }
 		];
 		if (commentDetails.Overall !== undefined) {
 			categories.push({
