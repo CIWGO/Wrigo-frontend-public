@@ -66,9 +66,9 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 		}
 		const categories = [
 			{ label: "Task Response", score: score.TaskResponse, comment: commentDetails.TR },
-			{ label: "Coherence and Cohesion", score: score.CC, comment: commentDetails.CC },
-			{ label: "Lexical Resource", score: score.LR, comment: commentDetails.LR },
-			{ label: "Grammar Accuracy", score: score.GRA, comment: commentDetails.GRA }
+			{ label: "Coherence and Cohesion", score: score.CoherenceAndCohesion, comment: commentDetails.CC },
+			{ label: "Lexical Resource", score: score.LexicalResource, comment: commentDetails.LR },
+			{ label: "Grammar Range and Accuracy", score: score.GrammarRangeAndAccuracy, comment: commentDetails.GRA }
 		];
 		if (commentDetails.Overall !== undefined) {
 			categories.push({
@@ -89,7 +89,7 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 					{categories.map(({ label, score, comment }) => (
 						<Group key={label}>
 							<div className="scores">
-								<h3>{score ? `${label}:${score}` : label}</h3>
+								<h3>{score ? `${label}: ${score}` : label}</h3>
 							</div>
 							<div className="comment">
 								<h3	className="thin">{comment}</h3>
