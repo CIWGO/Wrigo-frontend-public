@@ -42,13 +42,10 @@ export const WritingPageDiv = styled.div`
       // styles for the textarea
       // disable the textarea if resubmit is true
       &[disabled] {
-        background-color: rgba(230, 244, 255);
-        width: 80%;
-        border-radius: 20px;
-        padding: 20px;
+        background-color: #ffffff;
         color: #000000;
-        font-size: 14px;
-        font-weight: 700;
+        font-size: 18px;
+        font-weight: 500;
         cursor: not-allowed;
       }
     }
@@ -56,8 +53,8 @@ export const WritingPageDiv = styled.div`
     resize: none;
     border: none;
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    line-height: 30px;
+    font-size: 16px;
+    line-height: 25px;
     border: none;
     padding: 20px;
 
@@ -124,7 +121,7 @@ export const WritingPageDiv = styled.div`
     hr {
       border: 1px solid rgb(47, 113, 218);
       height: 0;
-      width: 90%;
+      width: 80%;
       margin: auto;
     }
 
