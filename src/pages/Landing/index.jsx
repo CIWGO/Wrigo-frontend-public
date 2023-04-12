@@ -49,7 +49,7 @@ const LandingPage = () => {
 			</div> */}
 			<div style={{ position: "relative", width: "100%", minHeight: "100vh", overflow: "hidden" }}>
 				<Spline
-					scene="https://prod.spline.design/2402yDMIzA267Ci0/scene.splinecode"
+					scene="https://prod.spline.design/X77p9eQPZldGbZLZ/scene.splinecode"
 					spline-resize="maxWidth: 1024, maxHeight: 768"
 					style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
 				/>

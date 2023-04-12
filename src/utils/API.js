@@ -78,6 +78,10 @@ export const viewAllWritingHistory = (values) => { return newRequest.post("/user
 export const getUserPaymentInfo = (values) => { return newRequest.post("/users/getUserPaymentInfo", values); };
 export const getPreviousFeed = (values) => { return newRequest.post("/users/viewHistory", values); };
 
+export const grammarFix = (values) => {
+	return newRequest.post("/api/grammarFix", values);
+};
+
 // Patch
 export const changeEmail = (values) => {
 	return newRequest.patch("/users/changeEmail", values);
