@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.001" height="28.001" viewBox="0 0 28.001 28.001">
+  <g id="Checkbox_stand_alone_selected_emph_" data-name="Checkbox (stand alone selected emph)" opacity="0.397">
+    <g id="Checkbox_Focus_Ring" data-name="Checkbox Focus Ring" transform="translate(4 4)">
+      <g id="Custom_Box" data-name="Custom Box" transform="translate(-4 -4)" fill="rgba(0,0,0,0)" stroke="#378ef0" stroke-width="2" opacity="0">
+        <rect width="27.804" height="27.804" rx="5" stroke="none"/>
+        <rect x="1" y="1" width="25.804" height="25.804" rx="4" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_117" data-name="Group 117" transform="translate(4 4)">
+      <path id="Box" d="M2.829,0H16.975A2.829,2.829,0,0,1,19.8,2.829V16.975A2.829,2.829,0,0,1,16.975,19.8H2.829A2.829,2.829,0,0,1,0,16.975V2.829A2.829,2.829,0,0,1,2.829,0Z" fill="#1473e6"/>
+      <g id="Checkmark" transform="translate(2 2)">
+        <path id="Frame" d="M0,0H16V16H0Z" fill="#1473e6" opacity="0"/>
+        <path id="Shape" d="M5.983,15a1.637,1.637,0,0,1-1.311-.673L.865,9.084A1.818,1.818,0,0,1,.6,7.329,1.68,1.68,0,0,1,1.931,6.236a1.63,1.63,0,0,1,1.556.7l2.5,3.48,6.53-8.724a1.63,1.63,0,0,1,1.556-.7A1.68,1.68,0,0,1,15.4,2.085a1.818,1.818,0,0,1-.267,1.755L7.295,14.328A1.637,1.637,0,0,1,5.983,15Z" transform="translate(0 0)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

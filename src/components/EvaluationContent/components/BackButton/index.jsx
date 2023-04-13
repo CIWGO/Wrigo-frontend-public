@@ -12,7 +12,7 @@ const StyledButton = styled.button`
   left: 228px;
   font-size: 1.4rem;
   font-weight: 560;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   :hover {
     cursor: pointer;
   }
@@ -22,7 +22,7 @@ const BackButton = () => {
 		<Link to={"/user/topics"}>
 			<StyledButton>
 				<LeftOutlined />
-        Go Back
+        Back
 			</StyledButton>
 		</Link>
 	);
