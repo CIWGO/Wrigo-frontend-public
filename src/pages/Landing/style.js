@@ -265,12 +265,12 @@ export const FeatureCardWrap = styled.div`
 `;
 
 export const FeaturesTitle = styled.h1`
-font-size: 30px;
+font-size: 32px;
 font-weight: 700;
 color:rgb(47, 115, 218);
 `;
 export const PriceTitle = styled.h1`
-font-size: 30px;
+font-size: 32px;
 font-weight: 700;
 color:rgb(47, 115, 218);
 margin-top:50px;
