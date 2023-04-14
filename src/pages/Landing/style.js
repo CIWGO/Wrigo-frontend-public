@@ -172,6 +172,7 @@ export const SubTitle = styled.h2`
 `;
 export const H2 = styled.h2`
   color: #2f71da;
+  margin-top:30px;
 `;
 
 export const SectionList = styled.ul`
@@ -236,7 +237,10 @@ position: relative;
   padding-top:29px;
   padding-bottom: 19px;
   background-color:white;
-  position: relative; width: 100%; min-Height: 120vh; overflow: hidden; 
+  position: relative; 
+  width: 100%; 
+  height:auto; 
+  overflow: hidden; 
 `;
 
 export const FeatureCard = styled.div`
@@ -254,7 +258,7 @@ align-items: center;
 `;
 
 export const FeatureCardWrap = styled.div`
-  padding:50px 0 80px 0;
+  padding:80px 0 100px 0;
   width:100%;
   align-items: center;
   background-color:#F7F7F7;
@@ -262,15 +266,23 @@ export const FeatureCardWrap = styled.div`
 
 export const FeaturesTitle = styled.h1`
 font-size: 30px;
-font-weight: 500;
+font-weight: 700;
 color:rgb(47, 115, 218);
 `;
 export const PriceTitle = styled.h1`
 font-size: 30px;
-font-weight: 500;
+font-weight: 700;
 color:rgb(47, 115, 218);
+margin-top:50px;
 `;
-export const PriceText = styled.div`margin:0 auto; max-width:600px;`;
+export const PriceText = styled.div`
+  margin:0 auto;
+  max-width:600px;
+  text-align: left;
+  font-size:16px;
+  line-height:22px;
+  margin-bottom:60px;
+`;
 
 export const CardsContainer = styled.div`
 
@@ -283,6 +295,9 @@ align-items: center;
 width:80%;
 @media (min-width: 1400px) {
     width: 1200px;
+}
+@media (max-width: 550px) {
+  width: 100%;
 }
 
 `;
@@ -372,15 +387,12 @@ background-size:cover;
 background-image:url(${Dot6Image});`;
 
 export const PriceCard = styled.div`
-width:260px;
-height:370px;
+width:270px;
+height:400px;
 background-color: white;
 border-radius:13px;
 position: relative;
-//blue border or shadow?
-box-shadow:6px 6px 15px #999;
-
-/* border:2px solid rgb(47, 113, 218); */
+border:0.5px solid rgb(47, 113, 218); 
 `;
 
 export const PriceCardsContainer = styled.div`
@@ -396,23 +408,30 @@ flex-direction: column;
 align-items:start;
 height:35%;width:85%;
 margin:35px auto 0px;`;
+
 export const Line = styled.div`
-height:1.3px;width:83%;
+height:1px;width:83%;
 margin:0 auto;
 background-color:lightgrey;
 position:absolute;
 left:20px;
 top:42%;`;
+
 export const Middle = styled.div`
 align-items:start;
 height:36%;width:85%;
 margin:10px auto;`;
+
 export const Bottom = styled.div`
-height:15%;width:75%;
-margin:10px auto;`;
+  height:15%;
+  width:75%;
+  margin:auto;
+  algin-items:center;
+`;
 
 export const SVGBox = styled.div`
 font-size: 15px;
+margin-bottom:20px;
 `;
 export const TextGroup = styled.div`
 font-size:14px;

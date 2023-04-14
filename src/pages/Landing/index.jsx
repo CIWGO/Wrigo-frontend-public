@@ -25,16 +25,12 @@ import {
 	TeamTitle,
 	TeamList,
 	TeamMember,
-	PriceSection,
 	SignUpTag,
-	LoginTag,
-	BodySection, PriceText, PriceTitle
+	LoginTag
 } from "./style.js";
-import PriceCards from "./components/PriceCards.jsx";
+
 import FeatureSection from "./components/FeatureSection.jsx";
-// import FeatureCards from "./components/FeatureCard.jsx";
-// import FeatureDots from "./components/FeatureDots.jsx";
-// import PriceCards from "./components/PriceCards.jsx";
+import PriceWrap from "./components/PriceSection.jsx";
 
 const LandingPage = () => {
 	return (
@@ -89,21 +85,8 @@ const LandingPage = () => {
 			<Main>
 
 				<FeatureSection/>
+				<PriceWrap/>
 
-				<BodySection id="pricing" style={{ background: "linear-gradient(to bottom right, #d7d7f991, #f2f2f6, #d9e6fd)", width: "100%", minHeight: "100vh" }} >
-					<PriceTitle>Price Comparison</PriceTitle>
-					<PriceSection>
-						<PriceCards/>
-					</PriceSection>
-					<H2 style={{ fontSize: "20px", fontWeight: 500 }}>Join Wrigo Today and Transform Your IELTS Writing Preparation</H2>
-					<PriceText>
-						Let us empower your IELTS writing journey with our innovative
-						approach, designed to help you achieve test-ready status and
-						demonstrate your true capabilities. Experience the difference that a
-						commitment to inclusivity, accessibility, and cutting-edge
-						technology can make in your IELTS writing preparation.
-					</PriceText>
-				</BodySection>
 				<Section>
 				</Section>
 				<Section id="about">
