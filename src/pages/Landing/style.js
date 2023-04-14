@@ -238,18 +238,28 @@ position: relative;
   background-color:white;
   position: relative; width: 100%; min-Height: 120vh; overflow: hidden; 
 `;
+
 export const FeatureCard = styled.div`
 position:relative;
 height:270px;
 width:270px;
-@media (min-width: 1000px) {
-    width: 23.3vw;
-  height:23.3vw; }/* width when screen is wider than 1000px */
+@media (min-width: 1200px) {
+    width: 300px;
+  height:300px; }/* width when screen is wider than 1000px */
 margin:20px 0px;
 border-radius: 15px;
 background-color: transparent;
-box-shadow: 0px 0px 70px rgb(220,220,267) ;
+box-shadow: 0px 0px 70px rgb(220, 220, 267, 0.5);
+align-items: center;
 `;
+
+export const FeatureCardWrap = styled.div`
+  padding:50px 0 80px 0;
+  width:100%;
+  align-items: center;
+  background-color:#F7F7F7;
+`;
+
 export const FeaturesTitle = styled.h1`
 font-size: 30px;
 font-weight: 500;
@@ -263,19 +273,25 @@ color:rgb(47, 115, 218);
 export const PriceText = styled.div`margin:0 auto; max-width:600px;`;
 
 export const CardsContainer = styled.div`
-margin:40px 60px 80px;
+
+margin:auto;
 display: flex;
 gap:20px;
 flex-wrap:wrap;
 justify-content:space-around;
 align-items: center;
+width:80%;
+@media (min-width: 1400px) {
+    width: 1200px;
+}
+
 `;
 export const FeatureHeader = styled.div`
   min-height: 10vh;
-  text-align: center;
+  text-align: left;
   justify-content: center;
-  letter-spacing:1px;
-  font-size: calc(8px + 2vmin);
+  line-height:25px;
+  font-size: 18px;
   color:rgb(47, 113, 218);
   padding: .7rem;
   margin:0 50px;
@@ -291,18 +307,25 @@ justify-content:space-around;
 
 export const Icon = styled.div`
 text-align:left;
-overflow: visible;`;
+overflow: visible;
+img {
+  width: 24px; /* Adjust the width as desired */
+}
+`;
 
 export const CardHeading = styled.div`
-font-size:15px;
+font-size:16px;
+font-weight:600;
 text-align: left;
+line-height:22px;
 margin-top: 6px;
 color:rgb(47, 113, 218);`;
 
 export const Carddetail = styled.div`
-font-size:12px;
+font-size:14px;
+line-height:20px;
 text-align: left;
-margin-top: 10px;`;
+margin-top: 15px;`;
 
 export const Dot1 = styled.div`
 position: absolute; 
@@ -424,3 +447,10 @@ border:1px solid rgb(47, 113, 218);
 border: none;
 
 }`;
+
+export const FeatureDiv = styled.div`
+  // width:80%;
+  // @media (min-width: 1400px) {
+  //     width: 1200px;
+  // }
+`;

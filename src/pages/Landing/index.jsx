@@ -28,10 +28,10 @@ import {
 	PriceSection,
 	SignUpTag,
 	LoginTag,
-	BodySection, CardsContainer, FeatureHeader, FeaturesTitle, PriceText, PriceTitle
+	BodySection, PriceText, PriceTitle
 } from "./style.js";
 import PriceCards from "./components/PriceCards.jsx";
-import FeatureCards from "./components/FeatureCard.jsx";
+import FeatureSection from "./components/FeatureSection.jsx";
 // import FeatureCards from "./components/FeatureCard.jsx";
 // import FeatureDots from "./components/FeatureDots.jsx";
 // import PriceCards from "./components/PriceCards.jsx";
@@ -87,24 +87,9 @@ const LandingPage = () => {
 			</div>
 
 			<Main>
-				<BodySection id="features">
-					<FeaturesTitle>
-						What we actually do
-					</FeaturesTitle>
-					<FeatureHeader>
-						Revolutionize your IELTS writing preparation with Wrigo, the
-						cutting-edge web app powered by OpenAI services. Our platform
-						utilizes ChatGPT to automatically grade your written English
-						language tasks, providing personalized feedback that enhances your
-						preparation for IELTS assessments. At Wrigo, our mission is to
-						transform the language assessment landscape, ensuring every
-						individual can realize their full language learning potential.
-					</FeatureHeader>
-					<CardsContainer>
-						<FeatureCards/>
 
-					</CardsContainer>
-				</BodySection>
+				<FeatureSection/>
+
 				<BodySection id="pricing" style={{ background: "linear-gradient(to bottom right, #d7d7f991, #f2f2f6, #d9e6fd)", width: "100%", minHeight: "100vh" }} >
 					<PriceTitle>Price Comparison</PriceTitle>
 					<PriceSection>
