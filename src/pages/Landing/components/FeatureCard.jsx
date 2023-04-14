@@ -1,5 +1,5 @@
 import React from "react";
-import { CardContent, CardHeading, Carddetail, FeatureCard, Icon } from "../style";
+import { CardContent, CardHeading, Carddetail, Dot1, Dot2, Dot3, Dot4, Dot5, Dot6, FeatureCard, Icon } from "../style";
 import SVG1 from "../assets/icon1.svg";
 import SVG2 from "../assets/icon2.svg";
 import SVG3 from "../assets/icon3.svg";
@@ -19,6 +19,7 @@ const FeatureCards = () => {
 grading for your IELTS writing tasks,
 helping you understand your current
 level and areas of improvement.</Carddetail>
+					<Dot1/>
 				</CardContent>
 
 			</FeatureCard>
@@ -31,7 +32,7 @@ level and areas of improvement.</Carddetail>
 track your improvements, and stay
 focused on your IELTS writing goals.
 
-					</Carddetail>
+					</Carddetail><Dot2/>
 				</CardContent>
 
 			</FeatureCard>
@@ -44,7 +45,7 @@ focused on your IELTS writing goals.
 criteria, tailored to your specific
 needs. Dive deeper into each IELTS
 writing criteria with specific content
-analysis from your submitted tasks.</Carddetail>
+analysis from your submitted tasks.</Carddetail><Dot3/>
 				</CardContent>
 
 			</FeatureCard>
@@ -56,7 +57,7 @@ analysis from your submitted tasks.</Carddetail>
 					<CardHeading>Grammar Fix</CardHeading>
 					<Carddetail>Sharpen your grammar skills with
 expert guidance and personalized
-recommendations</Carddetail>
+recommendations</Carddetail><Dot4/>
 				</CardContent>
 
 			</FeatureCard>
@@ -71,7 +72,7 @@ Suggestions</CardHeading>
 on the relevant IELTS writing topic,
 helping you build stronger
 arguments and present clearer
-ideas.</Carddetail>
+ideas.</Carddetail><Dot5/>
 				</CardContent>
 
 			</FeatureCard>
@@ -81,7 +82,7 @@ ideas.</Carddetail>
 
 					</Icon>
 					<CardHeading>Popular topic</CardHeading>
-					<Carddetail>-</Carddetail>
+					<Carddetail>-</Carddetail><Dot6/>
 				</CardContent>
 
 			</FeatureCard>

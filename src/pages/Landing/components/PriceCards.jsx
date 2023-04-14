@@ -85,8 +85,10 @@ IELTS Writing Grading</PriceDetail><PriceDetail><svg xmlns="http://www.w3.org/20
 						</g>
 					</g>
 				</svg>Writing Performance Analytics</PriceDetail></Middle>
-				<Bottom><Link to = "/signup">
-					<SignUpButton>sign up today</SignUpButton> </Link>
+				<Bottom>
+					<Link to="/signup">
+						<SignUpButton>sign up today</SignUpButton>
+					</Link>
 				</Bottom>
 			</PriceCard>
 			<PriceCard>
