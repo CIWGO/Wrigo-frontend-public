@@ -14,7 +14,8 @@ import {
 	cancelSubscription,
 	writingStatistics,
 	premSampleWriting,
-	viewAllWritingHistory
+	viewAllWritingHistory,
+	grammarFix
 } from "./API";
 
 export {
@@ -33,5 +34,6 @@ export {
 	cancelSubscription,
 	writingStatistics,
 	premSampleWriting,
-	viewAllWritingHistory
+	viewAllWritingHistory,
+	grammarFix
 };
