@@ -10,8 +10,8 @@ const StyledButton = styled.button`
   position: absolute;
   top: 5rem;
   left: 228px;
-  font-size: 1.4rem;
-  font-weight: 560;
+  font-size: 20px;
+  font-weight: 400;
   font-family: "Roboto", sans-serif;
   :hover {
     cursor: pointer;

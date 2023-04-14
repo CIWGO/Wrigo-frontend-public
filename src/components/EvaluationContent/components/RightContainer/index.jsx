@@ -6,11 +6,18 @@ import { Card } from "antd";
 const StyledCard = styled(Card)`
   background: white;
   border-radius: 20px;
-  margin-left: 30px;
-  margin-top: 76px;
+  margin-left: 20px;
+  margin-top: 60px;
   margin-bottom: 25px;
-  margin-right: 70px;
+  margin-right: 20px;
 	width: 830px;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	@media (max-width: 580px) {
+		padding-left: 0;
+		padding-right: 0;
+	  }
 `;
 const RightContainer = (props) => {
 	return (

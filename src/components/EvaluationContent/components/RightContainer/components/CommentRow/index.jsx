@@ -35,13 +35,13 @@ const CommentRow = (props) => {
 	}, []);
 	return (
 		<StyledCard>
-			<CriteriaMark criteria="TR" scores={data.sampleScore_TR} />
+			<CriteriaMark criteria="Task Response:" scores={data.sampleScore_TR} />
 			<Comment content={data.sampleFeedback_TR} />
-			<CriteriaMark criteria = "CC" scores={data.sampleScore_CC} />
+			<CriteriaMark criteria = "Coherence and Cohesion:" scores={data.sampleScore_CC} />
 			<Comment content={data.sampleFeedback_CC} />
-			<CriteriaMark criteria = "LR" scores={data.sampleScore_LR}/>
+			<CriteriaMark criteria = "Lexical Resource:" scores={data.sampleScore_LR}/>
 			<Comment content={data.sampleFeedback_LR} />
-			<CriteriaMark criteria = "GRA" scores={data.sampleScore_GRA} />
+			<CriteriaMark criteria = "Grammar Rance and Accuracy" scores={data.sampleScore_GRA} />
 			<Comment content={data.sampleFeedback_GRA} />
 			<StyledDiv>
 				Overall

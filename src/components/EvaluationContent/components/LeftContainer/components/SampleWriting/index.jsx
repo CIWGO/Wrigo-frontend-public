@@ -3,15 +3,19 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-  margin-top: 67px;
-  margin-right: 30px;
-  margin-bottom: 0px;
-  margin-left: 31px;
+margin: 50px auto 87px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+font-family: "Roboto", sans-serif;
+//   margin-top: 67px;
+//   margin-right: 30px;
+//   margin-bottom: 0px;
+//   margin-left: 31px;
   font-size: 16px;
-  font-weight: 400;
+//   font-weight: 400;
   line-height: 23px;
   text-align: left;
   color: #000000;
+  padding-left: 10px;
 `;
 
 const SampleWriting = (props) => {
