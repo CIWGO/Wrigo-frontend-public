@@ -253,7 +253,7 @@ width:270px;
 margin:20px 0px;
 border-radius: 15px;
 background-color: transparent;
-box-shadow: 0px 0px 70px rgb(220, 220, 267, 0.5);
+box-shadow: 0px 0px 70px rgb(220, 220, 267, 0.7);
 align-items: center;
 `;
 
