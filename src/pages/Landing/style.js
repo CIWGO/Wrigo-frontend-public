@@ -239,8 +239,12 @@ position: relative;
   position: relative; width: 100%; min-Height: 120vh; overflow: hidden; 
 `;
 export const FeatureCard = styled.div`
+position:relative;
 height:270px;
-width:280px;
+width:270px;
+@media (min-width: 1000px) {
+    width: 23.3vw;
+  height:23.3vw; }/* width when screen is wider than 1000px */
 margin:20px 0px;
 border-radius: 15px;
 background-color: transparent;
@@ -296,7 +300,7 @@ margin-top: 6px;
 color:rgb(47, 113, 218);`;
 
 export const Carddetail = styled.div`
-font-size:13px;
+font-size:12px;
 text-align: left;
 margin-top: 10px;`;
 
@@ -311,8 +315,8 @@ export const Dot2 = styled.div`
 position: absolute; 
 left:20px;
 top:20%;
-height: 600px;
-width: 600px;
+height: 300px;
+width: 300px;
 background-size:cover;
 background-image:url(${Dot2Image});`;
 export const Dot3 = styled.div`
@@ -324,21 +328,21 @@ background-size:cover;
 background-image:url(${Dot3Image});`;
 export const Dot4 = styled.div`
 position: absolute; 
-left:30%;
+left:20%;
 height: 300px;
 width: 300px;
 background-size:cover;
 background-image:url(${Dot4Image});`;
 export const Dot5 = styled.div`
 position: absolute; 
-bottom:70%;
+bottom:20%;
 height: 300px;
 width: 300px;
 background-size:cover;
 background-image:url(${Dot5Image});`;
 export const Dot6 = styled.div`
 position: absolute; 
-bottom:40%;
+bottom:20%;
 height: 300px;
 width: 300px;
 background-size:cover;
@@ -350,6 +354,7 @@ height:370px;
 background-color: white;
 border-radius:13px;
 position: relative;
+//blue border or shadow?
 box-shadow:6px 6px 15px #999;
 
 /* border:2px solid rgb(47, 113, 218); */

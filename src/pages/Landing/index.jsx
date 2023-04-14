@@ -32,7 +32,6 @@ import {
 } from "./style.js";
 import PriceCards from "./components/PriceCards.jsx";
 import FeatureCards from "./components/FeatureCard.jsx";
-import FeatureDots from "./components/FeatureDots.jsx";
 // import FeatureCards from "./components/FeatureCard.jsx";
 // import FeatureDots from "./components/FeatureDots.jsx";
 // import PriceCards from "./components/PriceCards.jsx";
@@ -103,7 +102,6 @@ const LandingPage = () => {
 					</FeatureHeader>
 					<CardsContainer>
 						<FeatureCards/>
-						<FeatureDots/>
 
 					</CardsContainer>
 				</BodySection>
