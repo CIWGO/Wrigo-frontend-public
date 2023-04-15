@@ -92,6 +92,7 @@ function WritingsPopulate () {
 			console.log("PRE:", mutation.data);
 			setComment(mutation.data.data.premiumFeedback);
 		}
+		if (mutation.data && mutation.data.status !== 200) notification.error({ message: "Evaluator is busy, please retry." });
 	}, [mutation.data]);
 
 	return (

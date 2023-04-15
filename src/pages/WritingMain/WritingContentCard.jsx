@@ -49,8 +49,8 @@ const WritingContentCard = ({
 			<Topic taskTopic={taskTopic}/>
 			<Score id={id}/>
 			<SubmitTime submitTime={submitTime}/>
-			<IconBox>
-				<DeleteOutlined onClick={(event) => handleDelete(token, uid, id, event)}/>
+			<IconBox onClick={(event) => handleDelete(token, uid, id, event)}>
+				<DeleteOutlined />
 
 			</IconBox>
 
