@@ -87,7 +87,7 @@ function WritingsPopulate () {
 	const wordCount = content.trim().split(/\s+/).length - 1;
 
 	useEffect(() => {
-		if (mutation.data && mutation.data.data.isSubscribed) {
+		if (mutation.data && mutation.data.data && mutation.data.data.isSubscribed) {
 			setSubscribed(true);
 			console.log("PRE:", mutation.data);
 			setComment(mutation.data.data.premiumFeedback);

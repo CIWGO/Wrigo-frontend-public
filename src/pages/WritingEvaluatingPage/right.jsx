@@ -48,6 +48,7 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 		);
 	}
 	if (comment && !comment.isSubscribed) {
+		console.log(comment.response);
 		const score = comment.response.scores;
 		const numbers = [
 			score.TaskResponse,

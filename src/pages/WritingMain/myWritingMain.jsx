@@ -14,7 +14,7 @@ const WritingHistoryPage = () => {
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [displayCount, setDisplayCount] = useState(17);
-	const [deletedCardId, setDeletedCardId] = useState(null);
+	const [deletedCardId, setDeletedCardId] = useState([]);
 	const newWritingId = uuidv4();
 
 	useEffect(() => {
@@ -35,7 +35,7 @@ const WritingHistoryPage = () => {
 	const handleDelete = async (token, uid, writingId, event) => {
 		event.preventDefault();
 		event.stopPropagation();
-		setDeletedCardId(writingId); deleteWriting({ token, uid, writing_id: writingId });
+		setDeletedCardId([...deletedCardId, writingId]); deleteWriting({ token, uid, writing_id: writingId });
 	};
 	const handleLoadMore = () => {
 		setDisplayCount(displayCount + 12);
@@ -81,7 +81,7 @@ const WritingHistoryPage = () => {
 							</UtilityCard>
 						</UtilityCardsWrapper>
 						{data.slice(0, displayCount - 1).map((item, index) => (
-							item.writing_id !== deletedCardId && (
+							!deletedCardId.includes(item.writing_id) && (
 								<UtilityCardsWrapper to={`/user/writings/${item.writing_id}`} key={index}>
 									<UtilityCard>
 										<WritingContentCard loading={loading}

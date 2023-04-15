@@ -42,11 +42,12 @@ const WritingPage = () => {
 	};
 
 	useEffect(() => {
-		if (mutation.data) {
+		if (mutation.data && mutation.data.data) {
 			console.log(mutation.data);
 			setComment(mutation.data.data);
 		}
 		if (mutation.data && mutation.data.status !== 200) notification.error({ message: "Evaluator is busy, please retry." });
+		if (mutation.data && !mutation.data.data) notification.error({ message: "Evaluator is busy, please retry." });
 	}, [mutation.data]);
 
 	const wordCount = content.trim().split(/\s+/).length - 1;
