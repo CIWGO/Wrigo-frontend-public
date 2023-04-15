@@ -146,6 +146,8 @@ export const FeatureDescription = styled.p`
 
 export const Section = styled.section`
   margin-bottom: 1.5rem;
+  background-color:#f7ebf7;
+  position: relative; width: 100%; min-Height: 100vh; overflow: hidden 
 `;
 
 export const H1 = styled.h1`
@@ -199,16 +201,38 @@ export const PriceFeatures = styled.ul`
   text-align: center;
 `;
 
+export const AboutTitle = styled.h1`
+  font-size: 30px;
+  font-weight: 500;
+  color:rgb(47, 115, 218);
+  padding-top: 1.5rem;
+`;
+
+export const AboutSection = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+margin-bottom: 1rem;
+`;
+
+export const IconTeam = styled.img`
+  width: 18px;
+  height: 18px;
+  padding-right: 0.5rem;
+`;
+
 export const TeamSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 1rem;
+  padding: 5rem;
 `;
 
 export const TeamTitle = styled.h3`
   color: #2f71da;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 `;
 
 export const TeamList = styled.ul`
@@ -217,12 +241,13 @@ export const TeamList = styled.ul`
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
 `;
 
 export const TeamMember = styled.li`
   margin: 0.5rem;
-  text-align: center;
+  text-align: left;
 `;
 
 export const Footer = styled.footer`

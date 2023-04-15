@@ -14,16 +14,18 @@ import {
 	Main,
 	Section,
 	H1,
-	H2,
 	SubTitle,
 	Footer,
 	Navbar,
 	NavMenu,
 	NavMenuItem,
 	NavLink,
+	AboutTitle,
+	AboutSection,
 	TeamSection,
 	TeamTitle,
 	TeamList,
+	IconTeam,
 	TeamMember,
 	SignUpTag,
 	LoginTag
@@ -32,21 +34,58 @@ import {
 import FeatureSection from "./components/FeatureSection.jsx";
 import PriceWrap from "./components/PriceSection.jsx";
 
+import DevIcon from "./assets/developer.png";
+import DevopsIcon from "./assets/devops.png";
+import TechIcon from "./assets/support.png";
+
 const LandingPage = () => {
+	const developers = [
+		"Hai Yang (Leo)",
+		"Zihan Zhou",
+		"Eric Li",
+		"Shuchen Wu",
+		"Amber Xu",
+		"Albert Yu",
+		"Renee Zheng",
+		"Chang Liu",
+		"Yinghe Zhou",
+		"Zizhen Luo",
+		"Lucas Lin"
+	];
+	const devops = [
+		"Jerry Hu",
+		"Gary Xiong",
+		"Zhongxian Shen",
+		"Zixin Wang",
+		"Lawrence Li",
+		"Joe Jia"
+	];
 	return (
 		<AppContainer>
-
 			{/* <div style={{ width: "100 %", height: "100%" }}>
 				<Header>
 					<H1>Welcome to Wrigo: Your Ultimate IELTS Writing Partner</H1>
 				</Header>
 				<Spline scene="https://prod.spline.design/2402yDMIzA267Ci0/scene.splinecode" />
 			</div> */}
-			<div style={{ position: "relative", width: "100%", minHeight: "100vh", overflow: "hidden" }}>
+			<div
+				style={{
+					position: "relative",
+					width: "100%",
+					minHeight: "100vh",
+					overflow: "hidden"
+				}}
+			>
 				<Spline
 					scene="https://prod.spline.design/X77p9eQPZldGbZLZ/scene.splinecode"
 					spline-resize="maxWidth: 1024, maxHeight: 768"
-					style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+					style={{
+						position: "absolute",
+						top: 0,
+						left: 0,
+						width: "100%",
+						height: "100%"
+					}}
 				/>
 				<Navbar>
 					<NavMenu>
@@ -75,46 +114,17 @@ const LandingPage = () => {
 				<div style={{ position: "relative", zIndex: 1 }}>
 					<Header>
 						<H1>Wrigo</H1>
-						<SubTitle>Unlock the full potential <br />
-  with your IELTS Writing Partner
+						<SubTitle>
+              Unlock the full potential <br />
+              with your IELTS Writing Partner
 						</SubTitle>
 					</Header>
 				</div>
 			</div>
 
 			<Main>
-
-				<FeatureSection/>
-				<PriceWrap/>
-
-				<Section>
-				</Section>
-				<Section id="about">
-					<H2>About</H2>
-					<TeamSection>
-						<TeamTitle>Tech Consultants</TeamTitle>
-						<TeamList>
-							<TeamMember>Tech Consultant 1</TeamMember>
-							<TeamMember>Tech Consultant 2</TeamMember>
-						</TeamList>
-					</TeamSection>
-					<TeamSection>
-						<TeamTitle>Development Team</TeamTitle>
-						<TeamList>
-							{Array.from({ length: 10 }, (_, i) => (
-								<TeamMember key={i}>Full-stack Engineer {i + 1}</TeamMember>
-							))}
-						</TeamList>
-					</TeamSection>
-					<TeamSection>
-						<TeamTitle>DevOps Team</TeamTitle>
-						<TeamList>
-							{Array.from({ length: 6 }, (_, i) => (
-								<TeamMember key={i}>DevOps Engineer {i + 1}</TeamMember>
-							))}
-						</TeamList>
-					</TeamSection>
-				</Section>
+				<FeatureSection />
+				<PriceWrap />
 			</Main>
 			<Footer>
 				<p>&copy; {new Date().getFullYear()} Wrigo. All rights reserved.</p>
@@ -122,5 +132,44 @@ const LandingPage = () => {
 		</AppContainer>
 	);
 };
-
+<Section id="about">
+	<AboutTitle>About the team</AboutTitle>
+	<AboutSection>
+		<TeamSection>
+			<TeamTitle>Tech Consultants</TeamTitle>
+			<TeamList>
+				<TeamMember>
+					<IconTeam src={TechIcon} alt="Tech" />
+          Jason Haixin
+				</TeamMember>
+				<TeamMember>
+					<IconTeam src={TechIcon} alt="Tech" />
+          Genesis
+				</TeamMember>
+			</TeamList>
+		</TeamSection>
+		<TeamSection>
+			<TeamTitle>Development Team</TeamTitle>
+			<TeamList>
+				{developers.map((developer, index) => (
+					<TeamMember key={index}>
+						<IconTeam src={DevIcon} alt="Developer" />
+						{developer}
+					</TeamMember>
+				))}
+			</TeamList>
+		</TeamSection>
+		<TeamSection>
+			<TeamTitle>DevOps Team</TeamTitle>
+			<TeamList>
+				{devops.map((devops, index) => (
+					<TeamMember key={index}>
+						<IconTeam src={DevopsIcon} alt="Devops" />
+						{devops}
+					</TeamMember>
+				))}
+			</TeamList>
+		</TeamSection>
+	</AboutSection>
+</Section>;
 export default LandingPage;
