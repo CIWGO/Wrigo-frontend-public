@@ -2,7 +2,7 @@ import { CardsContainer, FeatureHeader, FeaturesTitle, FeatureCardWrap } from ".
 import FeatureCards from "./FeatureCard.jsx";
 const FeatureSection = () => {
 	return (
-		<FeatureCardWrap>
+		<FeatureCardWrap >
 			<CardsContainer>
 				<FeaturesTitle>
 						What we actually do

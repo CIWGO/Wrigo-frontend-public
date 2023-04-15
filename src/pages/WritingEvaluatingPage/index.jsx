@@ -7,6 +7,7 @@ import RightComponent from "./right";
 import { WritingPageDiv } from "./style";
 import Left from "./Left";
 import { getPreviousFeed } from "../../utils/API";
+import { notification } from "antd";
 // import { notification } from "antd";
 
 const WritingPage = () => {
@@ -22,6 +23,7 @@ const WritingPage = () => {
 		mutationFn: (input) => {
 			return newRequest.post("/api/evaluate", input);
 		},
+		onError: () => {	notification.error({ message: "Evaluator is busy, please retry." }); },
 		onSuccess: async () => {
 			setResubmit(true);	const previousFeed = await getPreviousFeed({ uid, writing_id: writingId, type: "feedback", token });
 			console.log(previousFeed);
@@ -32,8 +34,6 @@ const WritingPage = () => {
 		e.preventDefault();
 		mutation.mutate({ writing_id: writingId, content, topic_content: topic, uid, token });
 	};
-
-	// const { data } = mutation;
 
 	useEffect(() => {
 		if (mutation.data) {

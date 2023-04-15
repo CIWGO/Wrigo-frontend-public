@@ -84,7 +84,7 @@ const LandingPage = () => {
 
 			<Main>
 
-				<FeatureSection/>
+				<FeatureSection />
 				<PriceWrap/>
 
 				<Section>
