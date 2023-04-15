@@ -126,50 +126,50 @@ const LandingPage = () => {
 				<FeatureSection />
 				<PriceWrap />
 			</Main>
+			<Section id="about">
+				<AboutTitle>About the team</AboutTitle>
+				<AboutSection>
+					<TeamSection>
+						<TeamTitle>Tech Consultants</TeamTitle>
+						<TeamList>
+							<TeamMember>
+								<IconTeam src={TechIcon} alt="Tech" />
+          Jason Haixin
+							</TeamMember>
+							<TeamMember>
+								<IconTeam src={TechIcon} alt="Tech" />
+          Genesis
+							</TeamMember>
+						</TeamList>
+					</TeamSection>
+					<TeamSection>
+						<TeamTitle>Development Team</TeamTitle>
+						<TeamList>
+							{developers.map((developer, index) => (
+								<TeamMember key={index}>
+									<IconTeam src={DevIcon} alt="Developer" />
+									{developer}
+								</TeamMember>
+							))}
+						</TeamList>
+					</TeamSection>
+					<TeamSection>
+						<TeamTitle>DevOps Team</TeamTitle>
+						<TeamList>
+							{devops.map((devops, index) => (
+								<TeamMember key={index}>
+									<IconTeam src={DevopsIcon} alt="Devops" />
+									{devops}
+								</TeamMember>
+							))}
+						</TeamList>
+					</TeamSection>
+				</AboutSection>
+			</Section>;
 			<Footer>
 				<p>&copy; {new Date().getFullYear()} Wrigo. All rights reserved.</p>
 			</Footer>
 		</AppContainer>
 	);
 };
-<Section id="about">
-	<AboutTitle>About the team</AboutTitle>
-	<AboutSection>
-		<TeamSection>
-			<TeamTitle>Tech Consultants</TeamTitle>
-			<TeamList>
-				<TeamMember>
-					<IconTeam src={TechIcon} alt="Tech" />
-          Jason Haixin
-				</TeamMember>
-				<TeamMember>
-					<IconTeam src={TechIcon} alt="Tech" />
-          Genesis
-				</TeamMember>
-			</TeamList>
-		</TeamSection>
-		<TeamSection>
-			<TeamTitle>Development Team</TeamTitle>
-			<TeamList>
-				{developers.map((developer, index) => (
-					<TeamMember key={index}>
-						<IconTeam src={DevIcon} alt="Developer" />
-						{developer}
-					</TeamMember>
-				))}
-			</TeamList>
-		</TeamSection>
-		<TeamSection>
-			<TeamTitle>DevOps Team</TeamTitle>
-			<TeamList>
-				{devops.map((devops, index) => (
-					<TeamMember key={index}>
-						<IconTeam src={DevopsIcon} alt="Devops" />
-						{devops}
-					</TeamMember>
-				))}
-			</TeamList>
-		</TeamSection>
-	</AboutSection>
-</Section>;
 export default LandingPage;
