@@ -172,6 +172,7 @@ export const SubTitle = styled.h2`
 `;
 export const H2 = styled.h2`
   color: #2f71da;
+  margin-top:30px;
 `;
 
 export const SectionList = styled.ul`
@@ -236,42 +237,76 @@ position: relative;
   padding-top:29px;
   padding-bottom: 19px;
   background-color:white;
-  position: relative; width: 100%; min-Height: 120vh; overflow: hidden; 
+  position: relative; 
+  width: 100%; 
+  height:auto; 
+  overflow: hidden; 
 `;
+
 export const FeatureCard = styled.div`
+position:relative;
 height:270px;
-width:280px;
+width:270px;
+@media (min-width: 1200px) {
+    width: 300px;
+  height:300px; }/* width when screen is wider than 1000px */
 margin:20px 0px;
 border-radius: 15px;
 background-color: transparent;
-box-shadow: 0px 0px 70px rgb(220,220,267) ;
+box-shadow: 0px 0px 70px rgb(220, 220, 267, 0.7);
+align-items: center;
 `;
+
+export const FeatureCardWrap = styled.div`
+  padding:80px 0 100px 0;
+  width:100%;
+  align-items: center;
+  background-color:#F7F7F7;
+`;
+
 export const FeaturesTitle = styled.h1`
-font-size: 30px;
-font-weight: 500;
+font-size: 32px;
+font-weight: 700;
 color:rgb(47, 115, 218);
 `;
 export const PriceTitle = styled.h1`
-font-size: 30px;
-font-weight: 500;
+font-size: 32px;
+font-weight: 700;
 color:rgb(47, 115, 218);
+margin-top:50px;
 `;
-export const PriceText = styled.div`margin:0 auto; max-width:600px;`;
+export const PriceText = styled.div`
+  margin:0 auto;
+  max-width:600px;
+  text-align: left;
+  font-size:16px;
+  line-height:22px;
+  margin-bottom:60px;
+`;
 
 export const CardsContainer = styled.div`
-margin:40px 60px 80px;
+
+margin:auto;
 display: flex;
 gap:20px;
 flex-wrap:wrap;
 justify-content:space-around;
 align-items: center;
+width:80%;
+@media (min-width: 1400px) {
+    width: 1200px;
+}
+@media (max-width: 550px) {
+  width: 100%;
+}
+
 `;
 export const FeatureHeader = styled.div`
   min-height: 10vh;
-  text-align: center;
+  text-align: left;
   justify-content: center;
-  letter-spacing:1px;
-  font-size: calc(8px + 2vmin);
+  line-height:25px;
+  font-size: 18px;
   color:rgb(47, 113, 218);
   padding: .7rem;
   margin:0 50px;
@@ -287,18 +322,25 @@ justify-content:space-around;
 
 export const Icon = styled.div`
 text-align:left;
-overflow: visible;`;
+overflow: visible;
+img {
+  width: 24px; /* Adjust the width as desired */
+}
+`;
 
 export const CardHeading = styled.div`
-font-size:15px;
+font-size:16px;
+font-weight:600;
 text-align: left;
+line-height:22px;
 margin-top: 6px;
 color:rgb(47, 113, 218);`;
 
 export const Carddetail = styled.div`
-font-size:13px;
+font-size:14px;
+line-height:20px;
 text-align: left;
-margin-top: 10px;`;
+margin-top: 15px;`;
 
 export const Dot1 = styled.div`
 position: absolute; 
@@ -311,8 +353,8 @@ export const Dot2 = styled.div`
 position: absolute; 
 left:20px;
 top:20%;
-height: 600px;
-width: 600px;
+height: 300px;
+width: 300px;
 background-size:cover;
 background-image:url(${Dot2Image});`;
 export const Dot3 = styled.div`
@@ -324,35 +366,33 @@ background-size:cover;
 background-image:url(${Dot3Image});`;
 export const Dot4 = styled.div`
 position: absolute; 
-left:30%;
+left:20%;
 height: 300px;
 width: 300px;
 background-size:cover;
 background-image:url(${Dot4Image});`;
 export const Dot5 = styled.div`
 position: absolute; 
-bottom:70%;
+bottom:20%;
 height: 300px;
 width: 300px;
 background-size:cover;
 background-image:url(${Dot5Image});`;
 export const Dot6 = styled.div`
 position: absolute; 
-bottom:40%;
+bottom:20%;
 height: 300px;
 width: 300px;
 background-size:cover;
 background-image:url(${Dot6Image});`;
 
 export const PriceCard = styled.div`
-width:260px;
-height:370px;
+width:270px;
+height:400px;
 background-color: white;
 border-radius:13px;
 position: relative;
-box-shadow:6px 6px 15px #999;
-
-/* border:2px solid rgb(47, 113, 218); */
+border:0.5px solid rgb(47, 113, 218); 
 `;
 
 export const PriceCardsContainer = styled.div`
@@ -368,23 +408,30 @@ flex-direction: column;
 align-items:start;
 height:35%;width:85%;
 margin:35px auto 0px;`;
+
 export const Line = styled.div`
-height:1.3px;width:83%;
+height:1px;width:83%;
 margin:0 auto;
 background-color:lightgrey;
 position:absolute;
 left:20px;
 top:42%;`;
+
 export const Middle = styled.div`
 align-items:start;
 height:36%;width:85%;
 margin:10px auto;`;
+
 export const Bottom = styled.div`
-height:15%;width:75%;
-margin:10px auto;`;
+  height:15%;
+  width:75%;
+  margin:auto;
+  algin-items:center;
+`;
 
 export const SVGBox = styled.div`
 font-size: 15px;
+margin-bottom:20px;
 `;
 export const TextGroup = styled.div`
 font-size:14px;
@@ -419,3 +466,10 @@ border:1px solid rgb(47, 113, 218);
 border: none;
 
 }`;
+
+export const FeatureDiv = styled.div`
+  // width:80%;
+  // @media (min-width: 1400px) {
+  //     width: 1200px;
+  // }
+`;
