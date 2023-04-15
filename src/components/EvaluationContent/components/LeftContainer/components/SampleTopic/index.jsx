@@ -12,7 +12,7 @@ margin: 30px auto 55px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 18px;
-  line-height: 27.24px;
+  line-height: 25px;
   text-align: left;
   padding-left: 10px;
 //   padding-right: 20px;

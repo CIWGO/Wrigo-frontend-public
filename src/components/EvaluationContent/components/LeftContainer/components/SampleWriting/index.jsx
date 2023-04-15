@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-margin: 50px auto 87px;
+margin: 30px auto 87px;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 font-family: "Roboto", sans-serif;
 //   margin-top: 67px;
