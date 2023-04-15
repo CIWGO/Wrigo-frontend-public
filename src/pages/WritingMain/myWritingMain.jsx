@@ -6,7 +6,6 @@ import { useTheme } from "styled-components";
 import { EllipsisOutlined, PlusOutlined } from "@ant-design/icons";
 import { StyledButton, StyledWritingHistoryPage, UtilityCardsWrapper } from "./style";
 import WritingContentCard from "./WritingContentCard";
-import { Skeleton } from "antd";
 import { v4 as uuidv4 } from "uuid";
 import { deleteWriting } from "../../utils/API";
 
@@ -49,27 +48,7 @@ const WritingHistoryPage = () => {
 		<>
 			<HeadingComponent displayValue={"My Writings"} />
 			{loading
-				? (
-			// loading skeletons...need to add animation//
-					<StyledWritingHistoryPage>
-						<UtilityCardsWrapper>
-							<UtilityCard>
-								<PlusOutlined
-									style={{ fontSize: "60px", color: defaultColor }}
-								/>
-							</UtilityCard>
-						</UtilityCardsWrapper>
-						{Array(17)
-							.fill()
-							.map((_, index) => (
-								<UtilityCardsWrapper key={index} >
-									<UtilityCard>
-										<Skeleton active />
-									</UtilityCard>
-								</UtilityCardsWrapper>
-							))}
-					</StyledWritingHistoryPage>
-				)
+				? ""
 				: (
 					// 1 single new writing card + main writing cards(mapped) + 1 load more card//
 					<StyledWritingHistoryPage>
