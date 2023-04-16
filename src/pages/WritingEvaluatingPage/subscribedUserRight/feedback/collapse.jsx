@@ -7,6 +7,7 @@ const SubMark = styled.div`
   color: rgb(55, 109, 196);
   font-size:16px;
   font-weight:700;
+  white-space: pre-wrap;
 `;
 
 const SubFeedbackContainer = styled.p`
