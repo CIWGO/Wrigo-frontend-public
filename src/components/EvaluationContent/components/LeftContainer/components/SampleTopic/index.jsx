@@ -1,6 +1,7 @@
 import { getTopic } from "../../../../../../utils";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import { Skeleton } from "antd";
 
 const StyledDiv = styled.div`
 margin: 30px auto 55px;
@@ -20,12 +21,17 @@ margin: 30px auto 55px;
 
 const SampleTopic = (props) => {
 	const [sampleTopic, setSampleTopic] = useState(["Not available"]);
+	const [loading, setLoading] = useState(true);
+
 	useEffect(() => {
+		setLoading(true);
+
 		const token = localStorage.getItem("token");
 		const uid = localStorage.getItem("uid");
 		getTopic({ token, uid, type: "oneTopic", topic_id: props.topicId }).then((response) => {
 			if (response.status === 200 && response.data.singleTopic) {
 				setSampleTopic(response.data.singleTopic.topic_content);
+				setLoading(false);
 			} else if (response.status === 500) {
 				alert("Something is wrong network, please retry.");
 			}
@@ -33,7 +39,10 @@ const SampleTopic = (props) => {
 	}, []);
 	return (
 		<StyledDiv>
-			{sampleTopic}
+			{ loading && <><Skeleton active/></> }
+			{ !loading && <>
+				{sampleTopic}
+			</>}
 		</StyledDiv>
 	);
 };
