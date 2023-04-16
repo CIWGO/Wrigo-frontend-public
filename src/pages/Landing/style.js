@@ -149,7 +149,7 @@ export const Section = styled.section`
   position: relative; 
   width: 100%; 
   min-Height: 80vh; 
-  overflow: hidden 
+  overflow: hidden;
 `;
 
 export const H1 = styled.h1`
@@ -214,7 +214,7 @@ export const AboutSection = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
-align-items: center;
+align-items: stretch;
 margin-bottom: 1rem;
 `;
 
@@ -230,7 +230,7 @@ export const TeamSection = styled.div`
   align-items: center;
   margin-bottom: 1rem;
   padding: 5rem;
-  width: 100%;
+  height: 100%;
 `;
 
 export const DevSection = styled.div`
