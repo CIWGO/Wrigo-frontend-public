@@ -7,43 +7,12 @@ import Dot4Image from "./assets/Ellipse4.png";
 import Dot5Image from "./assets/Polygon5.png";
 import Dot6Image from "./assets/Ellipse6.png";
 
-// export const Nav = styled.nav`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100vw;
-//   min-height: 30px;
-//   background: #2f71da;
-// `;
-
-// export const NavContainer = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 0 3%;
-// `;
-
-// export const Logo = styled.div`
-//   color: #fff;
-//   font-weight: 800;
-//   font-size: 3rem;
-//   padding: 1% 3%;
-// `;
-
-// export const NavItems = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   padding: 1% 3%;
-//   justify-content: space-between;
-//   align-items: center;
-// `;
-
 export const SignUpTag = styled(Link)`
   color: #2F71D5;
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 `;
 
@@ -52,7 +21,7 @@ export const LoginTag = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 `;
 
@@ -78,14 +47,16 @@ export const AppContainer = styled.div`
 
 export const Navbar = styled.nav`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 1rem;
-  // background-color: #2f71da;
+  background: rgba(241, 240, 255, 0.8);
+  backdrop-filter: blur(15.7px);
+  -webkit-backdrop-filter: blur(15.7px);
   position: sticky;
   top: 0;
   z-index: 1000;
-  // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 `;
 
 export const NavMenu = styled.ul`
@@ -95,7 +66,17 @@ export const NavMenu = styled.ul`
   padding: 0;
 `;
 
+export const Logo = styled.img`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 8rem;
+`;
+
 export const NavMenuItem = styled.li`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   margin-right: 1rem;
 
   &:last-child {
@@ -108,7 +89,7 @@ export const NavLink = styled.a`
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 `;
 
@@ -203,11 +184,19 @@ export const PriceFeatures = styled.ul`
   text-align: center;
 `;
 
+export const About = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
 export const AboutTitle = styled.h1`
-  font-size: 30px;
-  font-weight: 500;
+  font-size: 32px;
+  font-weight: 700;
   color:rgb(47, 115, 218);
-  padding-top: 3rem;
+  margin-top: 90px;
 `;
 
 export const AboutSection = styled.div`
@@ -215,22 +204,22 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 align-items: stretch;
-margin-bottom: 1rem;
+margin-bottom: 20px;
 `;
 
 export const IconTeam = styled.img`
   width: 18px;
   height: 18px;
-  padding-right: 0.5rem;
+  padding-right: 8px;
 `;
 
 export const TeamSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
-  padding: 5rem;
+  padding: 50px;
   height: 100%;
+  margin-left: 60px;
 `;
 
 export const DevSection = styled.div`
@@ -241,7 +230,7 @@ align-items: left;
 
 export const TeamTitle = styled.h3`
   color: #2f71da;
-  margin-bottom: 1.5rem;
+  margin-bottom: 25px;
 `;
 
 export const TeamList = styled.ul`
@@ -256,13 +245,13 @@ export const TeamList = styled.ul`
 `;
 
 export const TeamMember = styled.li`
-  margin: 0.5rem;
+  margin: 8px;
   text-align: left;
 `;
 
 export const Footer = styled.footer`
-  background-color: rgba(91, 159, 252, 0.39);
-  color: rgba(91, 139, 252, 0.98);
+  background-color: rgba(218, 230, 253);
+  color: #2F71DA;
   text-align: center;
   padding: 1rem;
 `;
@@ -308,12 +297,12 @@ export const PriceTitle = styled.h1`
 font-size: 32px;
 font-weight: 700;
 color:rgb(47, 115, 218);
-margin-top:50px;
+margin-top: 70px;
 `;
 export const PriceText = styled.div`
   margin:0 auto;
   max-width:600px;
-  text-align: left;
+  text-align: justify;
   font-size:16px;
   line-height:22px;
   margin-bottom:60px;
@@ -338,7 +327,7 @@ width:80%;
 `;
 export const FeatureHeader = styled.div`
   min-height: 10vh;
-  text-align: left;
+  text-align: justify;
   justify-content: center;
   line-height:25px;
   font-size: 18px;
@@ -431,10 +420,10 @@ border:0.5px solid rgb(47, 113, 218);
 `;
 
 export const PriceCardsContainer = styled.div`
-margin:20px 40px;
- display: flex;
- flex-wrap: wrap;
- gap:50px;
+  margin: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap:50px;
 `;
 
 export const Top = styled.div`

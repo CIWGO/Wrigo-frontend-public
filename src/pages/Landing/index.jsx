@@ -1,12 +1,3 @@
-// import {
-// 	SignUpTag,
-// 	LoginTag,
-// 	Logo,
-// 	Nav,
-// 	NavContainer,
-// 	NavItems,
-// 	Title
-// } from "./style";
 import Spline from "@splinetool/react-spline";
 import {
 	AppContainer,
@@ -15,6 +6,7 @@ import {
 	H1,
 	SubTitle,
 	Footer,
+	Logo,
 	Navbar,
 	NavMenu,
 	NavMenuItem,
@@ -26,16 +18,43 @@ import {
 import FeatureSection from "./components/FeatureSection.jsx";
 import PriceWrap from "./components/PriceSection.jsx";
 import AboutCard from "./components/AboutCard.jsx";
+import logo from "./assets/logo+name.svg";
 
 const LandingPage = () => {
 	return (
 		<AppContainer>
-			{/* <div style={{ width: "100 %", height: "100%" }}>
-				<Header>
-					<H1>Welcome to Wrigo: Your Ultimate IELTS Writing Partner</H1>
-				</Header>
-				<Spline scene="https://prod.spline.design/2402yDMIzA267Ci0/scene.splinecode" />
-			</div> */}
+			<Navbar>
+				<NavMenu>
+					<Logo src={logo} />
+				</NavMenu>
+				<NavMenu>
+					<NavMenuItem>
+						<NavLink
+							href="#hom
+						e"
+						>
+							Home
+						</NavLink>
+					</NavMenuItem>
+					<NavMenuItem>
+						<NavLink href="#features">Features</NavLink>
+					</NavMenuItem>
+					<NavMenuItem>
+						<NavLink href="#pricing">Pricing</NavLink>
+					</NavMenuItem>
+					<NavMenuItem>
+						<NavLink href="#about">About</NavLink>
+					</NavMenuItem>
+				</NavMenu>
+				<NavMenu>
+					<NavMenuItem>
+						<SignUpTag to="/signup">Sign up</SignUpTag>
+					</NavMenuItem>
+					<NavMenuItem>
+						<LoginTag to="/login">Log in</LoginTag>
+					</NavMenuItem>
+				</NavMenu>
+			</Navbar>
 			<div
 				style={{
 					position: "relative",
@@ -55,45 +74,21 @@ const LandingPage = () => {
 						height: "100%"
 					}}
 				/>
-				<Navbar>
-					<NavMenu>
-						<NavMenuItem>
-							<NavLink href="#home">Home</NavLink>
-						</NavMenuItem>
-						<NavMenuItem>
-							<NavLink href="#features">Features</NavLink>
-						</NavMenuItem>
-						<NavMenuItem>
-							<NavLink href="#pricing">Pricing</NavLink>
-						</NavMenuItem>
-						<NavMenuItem>
-							<NavLink href="#about">About</NavLink>
-						</NavMenuItem>
-					</NavMenu>
-					<NavMenu>
-						<NavMenuItem>
-							<SignUpTag to="/signup">Sign up</SignUpTag>
-						</NavMenuItem>
-						<NavMenuItem>
-							<LoginTag to="/login">Log in</LoginTag>
-						</NavMenuItem>
-					</NavMenu>
-				</Navbar>
 				<div style={{ position: "relative", zIndex: 1 }}>
 					<Header>
 						<H1>Wrigo</H1>
 						<SubTitle>
-              Unlock the full potential <br />
-              with your IELTS Writing Partner
+							Unlock the full potential <br />
+							with your IELTS Writing Partner
 						</SubTitle>
 					</Header>
 				</div>
 			</div>
 
 			<Main>
-				<FeatureSection/>
+				<FeatureSection />
 				<PriceWrap />
-				<AboutCard/>
+				<AboutCard />
 			</Main>
 			<Footer>
 				<p>&copy; {new Date().getFullYear()} Wrigo. All rights reserved.</p>
