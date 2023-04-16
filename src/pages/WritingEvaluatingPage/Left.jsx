@@ -32,7 +32,7 @@ function Left ({
 
 		const token = localStorage.getItem("token");
 		const draft = { writing_id: writingId, content, topic, uid, token };
-		writingDraft({ draft }).then((response) => {
+		writingDraft(draft).then((response) => {
 			if (response.status === 200) {
 				notification.success({ message: "Draft saved." });
 			} else if (response.status === 500) {
