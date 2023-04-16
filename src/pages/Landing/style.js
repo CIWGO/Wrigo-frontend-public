@@ -145,9 +145,11 @@ export const FeatureDescription = styled.p`
 `;
 
 export const Section = styled.section`
-  margin-bottom: 1.5rem;
   background-color:#f7ebf7;
-  position: relative; width: 100%; min-Height: 100vh; overflow: hidden 
+  position: relative; 
+  width: 100%; 
+  min-Height: 80vh; 
+  overflow: hidden 
 `;
 
 export const H1 = styled.h1`
@@ -205,7 +207,7 @@ export const AboutTitle = styled.h1`
   font-size: 30px;
   font-weight: 500;
   color:rgb(47, 115, 218);
-  padding-top: 1.5rem;
+  padding-top: 3rem;
 `;
 
 export const AboutSection = styled.div`

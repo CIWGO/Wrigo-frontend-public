@@ -12,7 +12,6 @@ import {
 	AppContainer,
 	Header,
 	Main,
-	Section,
 	H1,
 	SubTitle,
 	Footer,
@@ -20,46 +19,15 @@ import {
 	NavMenu,
 	NavMenuItem,
 	NavLink,
-	AboutTitle,
-	AboutSection,
-	TeamSection,
-	TeamTitle,
-	TeamList,
-	IconTeam,
-	TeamMember,
 	SignUpTag,
 	LoginTag
 } from "./style.js";
 
 import FeatureSection from "./components/FeatureSection.jsx";
 import PriceWrap from "./components/PriceSection.jsx";
-
-import DevIcon from "./assets/developer.png";
-import DevopsIcon from "./assets/devops.png";
-import TechIcon from "./assets/support.png";
+import AboutCard from "./components/AboutCard.jsx";
 
 const LandingPage = () => {
-	const developers = [
-		"Hai Yang (Leo)",
-		"Zihan Zhou",
-		"Eric Li",
-		"Shuchen Wu",
-		"Amber Xu",
-		"Albert Yu",
-		"Renee Zheng",
-		"Chang Liu",
-		"Yinghe Zhou",
-		"Zizhen Luo",
-		"Lucas Lin"
-	];
-	const devops = [
-		"Jerry Hu",
-		"Gary Xiong",
-		"Zhongxian Shen",
-		"Zixin Wang",
-		"Lawrence Li",
-		"Joe Jia"
-	];
 	return (
 		<AppContainer>
 			{/* <div style={{ width: "100 %", height: "100%" }}>
@@ -125,46 +93,7 @@ const LandingPage = () => {
 			<Main>
 				<FeatureSection/>
 				<PriceWrap />
-				<Section id="about">
-					<AboutTitle>About the team</AboutTitle>
-					<AboutSection>
-						<TeamSection>
-							<TeamTitle>Tech Consultants</TeamTitle>
-							<TeamList>
-								<TeamMember>
-									<IconTeam src={TechIcon} alt="Tech" />
-          Jason Haixin
-								</TeamMember>
-								<TeamMember>
-									<IconTeam src={TechIcon} alt="Tech" />
-          Genesis
-								</TeamMember>
-							</TeamList>
-						</TeamSection>
-						<TeamSection>
-							<TeamTitle>Development Team</TeamTitle>
-							<TeamList>
-								{developers.map((developer, index) => (
-									<TeamMember key={index}>
-										<IconTeam src={DevIcon} alt="Developer" />
-										{developer}
-									</TeamMember>
-								))}
-							</TeamList>
-						</TeamSection>
-						<TeamSection>
-							<TeamTitle>DevOps Team</TeamTitle>
-							<TeamList>
-								{devops.map((devops, index) => (
-									<TeamMember key={index}>
-										<IconTeam src={DevopsIcon} alt="Devops" />
-										{devops}
-									</TeamMember>
-								))}
-							</TeamList>
-						</TeamSection>
-					</AboutSection>
-				</Section>;
+				<AboutCard/>
 			</Main>
 			<Footer>
 				<p>&copy; {new Date().getFullYear()} Wrigo. All rights reserved.</p>
