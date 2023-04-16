@@ -3,15 +3,27 @@ import DevopsIcon from "../assets/devops.png";
 import TechIcon from "../assets/support.png";
 import Business from "../assets/business.png";
 import React from "react";
-import { Section, AboutTitle, AboutSection, TeamSection, TeamTitle, TeamList, TeamMember, IconTeam } from "../style";
+import {
+	Section,
+	AboutTitle,
+	AboutSection,
+	TeamSection,
+	TeamTitle,
+	TeamList,
+	TeamMember,
+	IconTeam,
+	DevSection
+} from "../style";
 
 const AboutCard = () => {
-	const developers = [
+	const developers1 = [
 		"Hai Yang (Leo)",
 		"Zihan Zhou",
 		"Eric Li",
 		"Shuchen Wu",
-		"Amber Xu",
+		"Amber Xu"
+	];
+	const developers2 = [
 		"Albert Yu",
 		"Renee Zheng",
 		"Chang Liu",
@@ -36,25 +48,35 @@ const AboutCard = () => {
 					<TeamList>
 						<TeamMember>
 							<IconTeam src={TechIcon} alt="Tech" />
-          Jason Haixin
+              Jason Haixin
 						</TeamMember>
 						<TeamTitle>Business Analysis</TeamTitle>
 						<TeamMember>
 							<IconTeam src={Business} alt="Business" />
-          Genesis
+              Genesis
 						</TeamMember>
 					</TeamList>
 				</TeamSection>
 				<TeamSection>
 					<TeamTitle>Full Stack Engineers Team</TeamTitle>
-					<TeamList>
-						{developers.map((developer, index) => (
-							<TeamMember key={index}>
-								<IconTeam src={DevIcon} alt="Developer" />
-								{developer}
-							</TeamMember>
-						))}
-					</TeamList>
+					<DevSection>
+						<TeamList>
+							{developers1.map((developer, index) => (
+								<TeamMember key={index}>
+									<IconTeam src={DevIcon} alt="Developer" />
+									{developer}
+								</TeamMember>
+							))}
+						</TeamList>
+						<TeamList>
+							{developers2.map((developer, index) => (
+								<TeamMember key={index}>
+									<IconTeam src={DevIcon} alt="Developer" />
+									{developer}
+								</TeamMember>
+							))}
+						</TeamList>
+					</DevSection>
 				</TeamSection>
 				<TeamSection>
 					<TeamTitle>DevOps Engineers Team</TeamTitle>

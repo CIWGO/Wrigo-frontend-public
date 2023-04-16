@@ -230,6 +230,13 @@ export const TeamSection = styled.div`
   align-items: center;
   margin-bottom: 1rem;
   padding: 5rem;
+  width: 100%;
+`;
+
+export const DevSection = styled.div`
+display: flex;
+flex-direction: row;
+align-items: left;
 `;
 
 export const TeamTitle = styled.h3`
@@ -245,6 +252,7 @@ export const TeamList = styled.ul`
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
+  height: 50%
 `;
 
 export const TeamMember = styled.li`
