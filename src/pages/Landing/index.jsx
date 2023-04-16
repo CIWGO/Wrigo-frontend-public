@@ -123,49 +123,49 @@ const LandingPage = () => {
 			</div>
 
 			<Main>
-				<FeatureSection />
+				<FeatureSection/>
 				<PriceWrap />
-			</Main>
-			<Section id="about">
-				<AboutTitle>About the team</AboutTitle>
-				<AboutSection>
-					<TeamSection>
-						<TeamTitle>Tech Consultants</TeamTitle>
-						<TeamList>
-							<TeamMember>
-								<IconTeam src={TechIcon} alt="Tech" />
+				<Section id="about">
+					<AboutTitle>About the team</AboutTitle>
+					<AboutSection>
+						<TeamSection>
+							<TeamTitle>Tech Consultants</TeamTitle>
+							<TeamList>
+								<TeamMember>
+									<IconTeam src={TechIcon} alt="Tech" />
           Jason Haixin
-							</TeamMember>
-							<TeamMember>
-								<IconTeam src={TechIcon} alt="Tech" />
+								</TeamMember>
+								<TeamMember>
+									<IconTeam src={TechIcon} alt="Tech" />
           Genesis
-							</TeamMember>
-						</TeamList>
-					</TeamSection>
-					<TeamSection>
-						<TeamTitle>Development Team</TeamTitle>
-						<TeamList>
-							{developers.map((developer, index) => (
-								<TeamMember key={index}>
-									<IconTeam src={DevIcon} alt="Developer" />
-									{developer}
 								</TeamMember>
-							))}
-						</TeamList>
-					</TeamSection>
-					<TeamSection>
-						<TeamTitle>DevOps Team</TeamTitle>
-						<TeamList>
-							{devops.map((devops, index) => (
-								<TeamMember key={index}>
-									<IconTeam src={DevopsIcon} alt="Devops" />
-									{devops}
-								</TeamMember>
-							))}
-						</TeamList>
-					</TeamSection>
-				</AboutSection>
-			</Section>;
+							</TeamList>
+						</TeamSection>
+						<TeamSection>
+							<TeamTitle>Development Team</TeamTitle>
+							<TeamList>
+								{developers.map((developer, index) => (
+									<TeamMember key={index}>
+										<IconTeam src={DevIcon} alt="Developer" />
+										{developer}
+									</TeamMember>
+								))}
+							</TeamList>
+						</TeamSection>
+						<TeamSection>
+							<TeamTitle>DevOps Team</TeamTitle>
+							<TeamList>
+								{devops.map((devops, index) => (
+									<TeamMember key={index}>
+										<IconTeam src={DevopsIcon} alt="Devops" />
+										{devops}
+									</TeamMember>
+								))}
+							</TeamList>
+						</TeamSection>
+					</AboutSection>
+				</Section>;
+			</Main>
 			<Footer>
 				<p>&copy; {new Date().getFullYear()} Wrigo. All rights reserved.</p>
 			</Footer>
