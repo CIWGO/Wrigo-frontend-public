@@ -14,6 +14,7 @@ font-family: "Roboto", sans-serif;
   font-size: 16px;
 //   font-weight: 400;
   line-height: 23px;
+  white-space: pre-wrap;
   text-align: left;
   color: #000000;
   padding-left: 10px;

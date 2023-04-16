@@ -255,6 +255,7 @@ export const FeedbackContainer = styled.div`
   margin-right: 8%;
   text-align: left;
   line-height: 20px;
+  white-space: pre-wrap;
   height: 66vh;
   height: min-content;
 

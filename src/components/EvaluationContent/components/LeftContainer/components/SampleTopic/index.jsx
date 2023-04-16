@@ -11,7 +11,7 @@ margin: 30px auto 55px;
 //   margin-bottom: 87px;
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
   font-family: "Roboto", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 18px;
   line-height: 25px;
   text-align: left;
