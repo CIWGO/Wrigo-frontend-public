@@ -3,9 +3,32 @@ import { topicActions } from "../../slice/topicSlice";
 import { getTopic } from "../../utils/index";
 import { useState, useEffect } from "react";
 import TopicCard from "../../components/TopicCard/index";
-import { Button } from "antd";
+// import { Button } from "antd";
 import styled from "styled-components";
 import HeadingComponent from "../../components/Heading";
+import { Card } from "antd";
+import { EllipsisOutlined } from "@ant-design/icons";
+// import { Card, Skeleton } from "antd";
+
+const StyledCard = styled(Card)`
+	&&{
+		border-radius: 20px;
+		width: 250px;
+		height: 350px;
+		margin-right: 16px;
+		margin-bottom: 16px;
+		display: inline-block;
+		justify-content: center;
+    align-items: center;
+		padding: 0px;
+
+		
+	}
+	&&:hover {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+	}
+`;
 
 const StyledTopicPage = styled.div`
 	display: flex;
@@ -22,22 +45,12 @@ const StyledCardContainer = styled.div`
 		padding-right: 20px;
 	}
 `;
-
-const StyledButton = styled(Button)`
-	height: 25px;
-	width: 100px;
-	margin-top: 5px;
-	margin-bottom: 20px;
-	color: #2f71da;
-	border-color: #2f71da;
-	background: none;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-right: 225px;
-	&:hover {
-		color: white;
-		border-color: none;
+const LoadCard = styled.div`
+	&& {
+		justify-self: center;
+		text-align: center;
+		padding-top: 0px;
+		margin:0px;
 	}
 `;
 
@@ -71,7 +84,7 @@ const TopicMainPage = () => {
 			<HeadingComponent displayValue={"Topics & Writing Samples"} />
 			<StyledTopicPage>
 				<StyledCardContainer>
-					{data.slice(0, displayCount).map((item, index) => (
+					{data.slice(0, displayCount - 1).map((item, index) => (
 						<TopicCard
 							loading={loading}
 							key={index}
@@ -79,12 +92,16 @@ const TopicMainPage = () => {
 							topicId={item.topic_id}
 						/>
 					))}
+					{data.length > displayCount && (
+						<StyledCard onClick={handleLoadMore}>
+							<LoadCard>
+								<EllipsisOutlined
+									style={{ fontSize: "60px", color: "#2f71da", height: "100%" }}
+								/>
+							</LoadCard>
+						</StyledCard>
+					)}
 				</StyledCardContainer>
-				{data.length > displayCount && (
-					<StyledButton type="primary" onClick={handleLoadMore}>
-					Load More
-					</StyledButton>
-				)}
 			</StyledTopicPage>
 		</div>
 	);
