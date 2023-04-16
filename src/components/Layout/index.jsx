@@ -38,7 +38,7 @@ const PageLayout = () => {
 					style={{
 						padding: 0,
 						background,
-						display: isInfiniteRoute ? "none" : "flex",
+						display: "flex",
 						height: "80px"
 					}}
 				>
