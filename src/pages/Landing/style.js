@@ -261,8 +261,8 @@ export const TeamMember = styled.li`
 `;
 
 export const Footer = styled.footer`
-  background-color: #2f71da;
-  color: white;
+  background-color: rgba(91, 159, 252, 0.39);
+  color: rgba(91, 139, 252, 0.98);
   text-align: center;
   padding: 1rem;
 `;
