@@ -10,26 +10,6 @@ import { Card } from "antd";
 import { EllipsisOutlined } from "@ant-design/icons";
 // import { Card, Skeleton } from "antd";
 
-const StyledCard = styled(Card)`
-	&&{
-		border-radius: 20px;
-		width: 250px;
-		height: 350px;
-		margin-right: 16px;
-		margin-bottom: 16px;
-		display: inline-block;
-		justify-content: center;
-    align-items: center;
-		padding: 0px;
-
-		
-	}
-	&&:hover {
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		cursor: pointer;
-	}
-`;
-
 const StyledTopicPage = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -39,18 +19,40 @@ const StyledTopicPage = styled.div`
 
 const StyledCardContainer = styled.div`
 	&& {
-		text-align: left;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
 		padding-top: 20px;
 		padding-left: 20px;
 		padding-right: 20px;
 	}
 `;
+
+const StyledCard = styled(Card)`
+	&&{
+		border-radius: 20px;
+		width: 250px;
+		height: 350px;
+		margin-right: 16px;
+		margin-bottom: 16px;
+		display: inline-flex;
+    	justify-content: center;
+    	align-items: center;
+	
+	}
+	&&:hover {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+	}
+`;
+
 const LoadCard = styled.div`
 	&& {
-		justify-self: center;
-		text-align: center;
-		padding-top: 0px;
-		margin:0px;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
 	}
 `;
 
@@ -96,7 +98,7 @@ const TopicMainPage = () => {
 						<StyledCard onClick={handleLoadMore}>
 							<LoadCard>
 								<EllipsisOutlined
-									style={{ fontSize: "60px", color: "#2f71da", height: "100%" }}
+									style={{ fontSize: "60px", color: "#2f71da" }}
 								/>
 							</LoadCard>
 						</StyledCard>
