@@ -88,6 +88,13 @@ const ResetPasswordEmailVerificationForm = () => {
 					});
 				}
 			});
+		// if (isVerified === true) {
+		// 	navigate("/resetPassword");
+		// } else {
+		// 	notification.error({
+		// 		message: "Non verified"
+		// 	});
+		// };
 	};
 
 	return (
