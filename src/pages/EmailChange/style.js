@@ -34,13 +34,11 @@ const SignUpLayout = styled(Layout)`
   height: 100vh;
 `;
 
-const Logo = styled.h1`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-  font-family: 'Roboto', sans-serif;
-  font-weight:800;
-  font-size:48px;
-  color: #2F71DA;
-  text-align:center;
+const Logo = styled.img`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 12rem;
 `;
 
 const CheckMessage = styled.h3`
