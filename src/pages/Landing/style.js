@@ -205,11 +205,12 @@ export const AboutTitle = styled.h1`
 `;
 
 export const AboutSection = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: stretch;
-margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 20px;
 `;
 
 export const IconTeam = styled.img`
@@ -225,6 +226,10 @@ export const TeamSection = styled.div`
   padding: 50px;
   height: 100%;
   width: 30rem;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 30px;
+  }
 `;
 
 export const DevSection = styled.div`
