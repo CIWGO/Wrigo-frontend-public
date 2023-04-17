@@ -18,7 +18,7 @@ import {
 import FeatureSection from "./components/FeatureSection.jsx";
 import PriceWrap from "./components/PriceSection.jsx";
 import AboutCard from "./components/AboutCard.jsx";
-import logo from "./assets/logo+name.svg";
+import logo from "./assets/logoName.svg";
 
 const LandingPage = () => {
 	return (

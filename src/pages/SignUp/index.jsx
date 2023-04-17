@@ -1,6 +1,6 @@
 import SignUpForm from "./SignUpForm";
 import { SignUpLayout, LoginTag, CreateAccount, Logo } from "./style";
-import logo from "../Landing/assets/logo+name.svg";
+import logo from "../Landing/assets/logoName.svg";
 
 const SignUpPage = () => {
 	return (

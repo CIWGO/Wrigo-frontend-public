@@ -6,7 +6,7 @@ import {
 } from "../../slice/emailVerificationSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import logo from "../Landing/assets/logo+name.svg";
+import logo from "../Landing/assets/logoName.svg";
 
 const EmailVerificationPage = () => {
 	const navigate = useNavigate();

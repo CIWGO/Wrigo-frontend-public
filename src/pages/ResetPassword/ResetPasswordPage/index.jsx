@@ -1,6 +1,6 @@
 import ResetPasswordForm from "./ResetPasswordForm";
 import { Logo, SignUpLayout, Message, CancelTag } from "./style";
-import logo from "../../Landing/assets/logo+name.svg";
+import logo from "../../Landing/assets/logoName.svg";
 
 const ResetPasswordPage = () => {
 	return (
