@@ -62,5 +62,8 @@ jobs:
           role-session-name: MySessionName
           
       - name: Copy files to S3 with the AWS CLI
-        run: |
-          aws s3 cp ./build/artifact s3://uat.wrigo.com.au --recursive
+        run: aws s3 sync ./build/artifact s3://pro-wrigo.com.au --recursive
+        
+      - name: CLoudfront invalidation
+        run: aws cloudfront create-invalidation --distribution-id E16HL5QI63D7NM --paths "/*"
+        
