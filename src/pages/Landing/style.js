@@ -224,7 +224,7 @@ export const TeamSection = styled.div`
   align-items: center;
   padding: 50px;
   height: 100%;
-  margin-left: 60px;
+  width: 30rem;
 `;
 
 export const DevSection = styled.div`
@@ -240,7 +240,7 @@ export const TeamTitle = styled.h3`
 
 export const TeamList = styled.ul`
   list-style-type: none;
-  padding: 0;
+  padding: 15px;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
@@ -252,6 +252,11 @@ export const TeamList = styled.ul`
 export const TeamMember = styled.li`
   margin: 8px;
   text-align: left;
+`;
+
+export const TeamMemberName = styled.a`
+  text-decoration: none;
+  color: inherit;
 `;
 
 export const Footer = styled.footer`
@@ -308,8 +313,9 @@ export const PriceText = styled.div`
   margin:0 auto;
   max-width:600px;
   text-align: justify;
-  font-size:16px;
-  line-height:22px;
+  font-family: 'Roboto', sans-serif;
+  font-size:14px;
+  line-height:20px;
   margin-bottom:60px;
 `;
 
@@ -480,14 +486,15 @@ svg{
 `;
 
 export const SignUpButton = styled.button`
-color:rgb(47, 113, 218) ;
+color:rgb(47, 113, 218);
+margin-top: 12px;
 font-size: 16px;
 font-weight: 400;
-letter-spacing:1px;
-border-radius:10px;
-height: 37px;
+letter-spacing: 1px;
+border-radius: 10px;
+height: 30px;
 background-color: white;
-width:85%;
+width:60%;
 border:1px solid rgb(47, 113, 218);
 &:hover{
   color:white;
@@ -495,10 +502,3 @@ border:1px solid rgb(47, 113, 218);
 border: none;
 
 }`;
-
-export const FeatureDiv = styled.div`
-  // width:80%;
-  // @media (min-width: 1400px) {
-  //     width: 1200px;
-  // }
-`;

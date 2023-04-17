@@ -30,8 +30,7 @@ const LandingPage = () => {
 				<NavMenu>
 					<NavMenuItem>
 						<NavLink
-							href="#hom
-						e"
+							href="#home"
 						>
 							Home
 						</NavLink>
@@ -75,7 +74,7 @@ const LandingPage = () => {
 					}}
 				/>
 				<div style={{ position: "relative", zIndex: 1 }}>
-					<Header>
+					<Header id ="home">
 						<H1>Wrigo</H1>
 						<SubTitle>
 							Unlock the full potential <br />

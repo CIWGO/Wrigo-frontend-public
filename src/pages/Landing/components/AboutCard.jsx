@@ -12,61 +12,83 @@ import {
 	TeamTitle,
 	TeamList,
 	TeamMember,
+	TeamMemberName,
 	IconTeam,
 	DevSection
 } from "../style";
+import { Tooltip } from "antd";
 
 const AboutCard = () => {
 	const developers1 = [
-		"Hai (Leo) Yang",
-		"Zihan Zhou",
-		"Eric Li",
-		"Shuchen Wu",
-		"Amber Xu"
+		{ name: "Hai (Leo) Yang", url: "https://www.linkedin.com/in/haiy/" },
+		{ name: "Zihan Zhou", url: "https://www.linkedin.com/in/zihan-zhou-au/" },
+		{ name: "Eric Li", url: "www.linkedIn.com/in/Longfei-eric-li/" },
+		{ name: "Shuchen Wu", url: "https://www.linkedin.com/in/shuchen-wu/" },
+		{ name: "Rongnan (Amber) Xu", url: "https://www.linkedin.com/in/rongnan-xu-657712211/" }
 	];
 	const developers2 = [
-		"Albert Yu",
-		"Renee Zheng",
-		"Chang Liu",
-		"Yinghe Zhou",
-		"Zizhen Luo",
-		"Lucas Lin"
+		{ name: "Zhiqiang (Albert) Yu ", url: "https://www.linkedin.com/in/albert-zhiqiang-yu/" },
+		{ name: "Renee Zheng", url: "https://www.linkedin.com/in/renee-zheng-98604a264/" },
+		{ name: "Chang Liu", url: "https://www.linkedin.com/in/changl19/" },
+		{ name: "Yinghe Zhou", url: "https://www.linkedin.com/in/yinghe-zhou-a04970175/" },
+		{ name: "Zizhen Luo", url: "https://www.linkedin.com/in/zizhen-luo/" },
+		{ name: "Lucas Lin", url: "https://www.linkedin.com/in/lucas-d-lin/" }
 	];
 	const devops = [
-		"Jerry Hu",
-		"Gary Xiong",
-		"Zhongxian Shen",
-		"Zixin Wang",
-		"Lawrence Li",
-		"Joe Jia"
+		{ name: "Gary Xiong", url: "https://www.linkedin.com/in/gary-xiong-846a67266/" },
+		{ name: "Joe Jia", url: "https://www.linkedin.com/in/joe-jia/" },
+		{ name: "Yu (Jerry) Hu", url: "http://linkedin.com/in/yu-jerry-hu-684916123" },
+		{ name: "Zhongxian Shen", url: "https://www.linkedin.com/" },
+		{ name: "Zixin Wang", url: "https://www.linkedin.com/in/zixin-wang-463a56161/" },
+		{ name: "Lawrence Li", url: "https://www.linkedin.com/" }
 	];
 	return (
 		<Section id="about">
 			<About>
-				<AboutTitle>About the team</AboutTitle>
+				<AboutTitle>About the Team</AboutTitle>
 				<AboutSection>
 					<TeamSection>
-						<TeamTitle>Tech Consultants</TeamTitle>
+						<TeamTitle>Tech Consultant</TeamTitle>
 						<TeamList>
 							<TeamMember>
 								<IconTeam src={TechIcon} alt="Tech" />
-								Jason Haixin
+								<Tooltip title="Checkout Linkedin">
+									<TeamMemberName
+										href="https://www.linkedin.com/in/haixin-zhang/"
+										target="_blank"
+										rel="noreferrer"
+									>
+									Haixin (Jason) Zhang
+									</TeamMemberName>
+								</Tooltip>
 							</TeamMember>
-							<TeamTitle>Business Analysis</TeamTitle>
+							<TeamTitle>Business Analyst</TeamTitle>
 							<TeamMember>
 								<IconTeam src={Business} alt="Business" />
-								Genesis
+								<Tooltip title="Checkout Linkedin">
+									<TeamMemberName
+										href="https://www.linkedin.com/in/yuchushang1107/"
+										target="_blank"
+										rel="noreferrer"
+									>
+									Genesis Shang
+									</TeamMemberName>
+								</Tooltip>
 							</TeamMember>
 						</TeamList>
 					</TeamSection>
 					<TeamSection>
-						<TeamTitle>Full Stack Engineers Team</TeamTitle>
+						<TeamTitle>Full Stack Engineers</TeamTitle>
 						<DevSection>
 							<TeamList>
 								{developers1.map((developer, index) => (
 									<TeamMember key={index}>
 										<IconTeam src={DevIcon} alt="Developer" />
-										{developer}
+										<Tooltip title="Checkout Linkedin">
+											<TeamMemberName href={developer.url} target="_blank" rel="noreferrer">
+												{developer.name}
+											</TeamMemberName>
+										</Tooltip>
 									</TeamMember>
 								))}
 							</TeamList>
@@ -74,19 +96,27 @@ const AboutCard = () => {
 								{developers2.map((developer, index) => (
 									<TeamMember key={index}>
 										<IconTeam src={DevIcon} alt="Developer" />
-										{developer}
+										<Tooltip title="Checkout Linkedin">
+											<TeamMemberName href={developer.url} target="_blank" rel="noreferrer">
+												{developer.name}
+											</TeamMemberName>
+										</Tooltip>
 									</TeamMember>
 								))}
 							</TeamList>
 						</DevSection>
 					</TeamSection>
 					<TeamSection>
-						<TeamTitle>DevOps Engineers Team</TeamTitle>
+						<TeamTitle>DevOps Engineers</TeamTitle>
 						<TeamList>
 							{devops.map((devops, index) => (
 								<TeamMember key={index}>
 									<IconTeam src={DevopsIcon} alt="Devops" />
-									{devops}
+									<Tooltip title="Checkout Linkedin">
+										<TeamMemberName href={devops.url} target="_blank" rel="noreferrer">
+											{devops.name}
+										</TeamMemberName>
+									</Tooltip>
 								</TeamMember>
 							))}
 						</TeamList>
