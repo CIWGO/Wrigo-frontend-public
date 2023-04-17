@@ -4,11 +4,9 @@ on:
   workflow_dispatch:
   push:
     branches: 
-      # - main
-      - CD-2-GithubAction_Frontend
-  pull_request:
-    branches: 
-      - main
+    - CD-2-GithubAction_Frontend
+    - main
+
   
 env:
   NODE_VERSION: '16.0'
