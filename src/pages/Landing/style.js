@@ -125,6 +125,11 @@ export const FeatureDescription = styled.p`
   text-align: center;
 `;
 
+export const Remark = styled.div`
+  font-size: 10px;
+  margin-top: 10px;
+`;
+
 export const Section = styled.section`
   background-color:#f7ebf7;
   position: relative; 
