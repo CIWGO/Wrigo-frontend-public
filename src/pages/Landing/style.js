@@ -377,10 +377,17 @@ margin-top: 6px;
 color:rgb(47, 113, 218);`;
 
 export const Carddetail = styled.div`
-font-size:14px;
-line-height:20px;
+font-size: 14px;
+font-family: 'Roboto', sans-serif;
+line-height: 20px;
 text-align: left;
-margin-top: 15px;`;
+margin-top: 10px;
+
+@media (max-width: 1200px) {
+  font-size: 12px;
+  line-height: 16px;
+  }
+`;
 
 export const Dot1 = styled.div`
 position: absolute; 
