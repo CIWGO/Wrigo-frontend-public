@@ -423,7 +423,7 @@ background-image:url(${Dot6Image});`;
 
 export const PriceCard = styled.div`
 width:270px;
-height:400px;
+height:425px;
 background-color: white;
 border-radius:13px;
 position: relative;
@@ -477,7 +477,9 @@ span{
 
 export const PriceDetail = styled.div`
 align-items: center;
+font-family: 'Roboto', sans-serif;
 font-size: 12px;
+font-weight: 400;
 margin-bottom: 15px;
 display: flex;
 svg{
