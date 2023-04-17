@@ -44,12 +44,13 @@ const PaymentSuccess = () => {
 			<Card>
 				<Result
 					status="success"
-					title="Payment successful"
-					extra={[<>
-						<Button type="primary" key="home" style={{ backgroundColor: "#2F71DA" }}>
-							<Link to="/user/dashboard">Back to dashboard</Link>
-						</Button>
-					</>
+					title="Payment success"
+					extra={[
+						<>
+							<Button type="primary" key="home" style={{ backgroundColor: "#2F71DA" }}>
+								<Link to="/user/dashboard">Back Home</Link>
+							</Button>
+						</>
 						// <Button key="order" onClick={() => history.push("/orders")}>
 						//   View Order
 						// </Button>
