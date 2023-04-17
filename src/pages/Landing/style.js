@@ -235,12 +235,12 @@ align-items: left;
 
 export const TeamTitle = styled.h3`
   color: #2f71da;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 `;
 
 export const TeamList = styled.ul`
   list-style-type: none;
-  padding: 15px;
+  padding: 5px;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
