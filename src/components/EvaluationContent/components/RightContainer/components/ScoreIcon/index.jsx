@@ -11,17 +11,21 @@ const StyledDiv = styled.div`
 `;
 
 const Band = styled.div`
-	font-size: 22px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+font-family: "Roboto", sans-serif;
+	font-size: 20px;
 	color: #2F71DA;
 	align-self: end; 
-  font-weight: 700;
+  font-weight: 400;
 `;
 
 const Score = styled.div`
-	font-size: 35px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+font-family: "Roboto", sans-serif;
+	font-size: 60px;
 	color: #2F71DA;
 	line-height: 1;
-	font-weight: 700;
+	font-weight: 500;
 `;
 
 const ScoreIcon = (props) => {

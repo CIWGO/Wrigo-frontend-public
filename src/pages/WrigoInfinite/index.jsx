@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { paymentRedirection, getUser } from "../../utils/API";
-import { ButtonContainer, CardBodyHeader, CardBodyPrice, CardDescriptionHeader, CardDescriptionText, CardFree, CardFreeBody, CardPremium, CardsContainer, Container, DefaultButton, Description, Header, Section, TextContainer, CardPreBody, PreCardBodyHeader, PreCardBodyPrice, PreCardDescriptionHeader, PreCardDescriptionText } from "./style";
+import { ButtonContainer, CardBodyHeader, CardBodyPrice, CardDescriptionHeader, CardDescriptionText, CardFree, CardFreeBody, CardPremium, CardsContainer, Container, DefaultButton, Description, Header, Section, TextContainer, CardPreBody, PreCardBodyHeader, PreCardBodyPrice, PreCardDescriptionHeader, PreCardDescriptionText } from "./styles";
 // import styles from "./styles";
 import { ReactComponent as Tick } from "./Checkbox.svg";
 
@@ -55,7 +55,7 @@ function Infinite () {
 			<Container>
 				<TextContainer>
 
-					<Header>WRIGO <span style={{ fontWeight: 400, color: "#5db1ff" }}>Infinite</span></Header>
+					<Header>Wrigo <span style={{ fontWeight: 400, color: "#5db1ff" }}>Infinite</span></Header>
 					<Description><b>Wrigo Infinite</b> provides you unlimited access to our intelligent AI
 					writing evaluators with best capabilities on giving you feedbacks for
 					improvement and accurate band estimations to help you better
@@ -68,12 +68,10 @@ function Infinite () {
 							<CardBodyPrice><span style={{ fontSize: "3.6rem", color: "#5db1ff" }}>$</span><span style={{ fontSize: "3.6rem", color: "#5db1ff" }}>0</span>/ Month</CardBodyPrice>
 
 							<CardDescriptionHeader>Features:</CardDescriptionHeader>
-							<CardDescriptionText><Tick /> 3 Evaluations / Month</CardDescriptionText>
-							<CardDescriptionText><Tick /> 2 Sample writings / Month</CardDescriptionText>
-							<CardDescriptionText><Tick /> 3 Grammar correction / Month</CardDescriptionText>
-							{/* <CardDescriptionText><s><Tick /> Holistic feedback for submissions</s></CardDescriptionText>
-							<CardDescriptionText><s><Tick /> Writing argument suggestion</s></CardDescriptionText> */}
-
+							<CardDescriptionText><Tick />AI-Powered Grading</CardDescriptionText>
+							<CardDescriptionText><Tick /> Evaluation & Feedback</CardDescriptionText>
+							<CardDescriptionText><Tick /> Topic Library</CardDescriptionText>
+							<CardDescriptionText><Tick /> Writing Analytics</CardDescriptionText>
 						</CardFreeBody>
 
 					</CardFree>
@@ -82,12 +80,11 @@ function Infinite () {
 							<PreCardBodyHeader>Infinite</PreCardBodyHeader>
 							<PreCardBodyPrice><span style={{ fontSize: "3.6rem", color: "#d7ecff" }}>$9.99</span>/ Month</PreCardBodyPrice>
 
-							<PreCardDescriptionHeader>Features:</PreCardDescriptionHeader>
-							<PreCardDescriptionText><Tick /> Unlimited Evaluations</PreCardDescriptionText>
-							<PreCardDescriptionText><Tick /> Unlimited writings</PreCardDescriptionText>
-							<PreCardDescriptionText><Tick /> Unlimited Grammar correctionh</PreCardDescriptionText>
-							<PreCardDescriptionText><Tick /> Holistic feedback for submissions</PreCardDescriptionText>
-							<PreCardDescriptionText><Tick /> Writing argument suggestion</PreCardDescriptionText>
+							<PreCardDescriptionHeader>In addition to free tier:</PreCardDescriptionHeader>
+							<PreCardDescriptionText><Tick /> Precise AI-Powered Grading</PreCardDescriptionText>
+							<PreCardDescriptionText><Tick /> Extensive Evaluation & Feedback</PreCardDescriptionText>
+							<PreCardDescriptionText><Tick /> Intelligent Grammar Fix</PreCardDescriptionText>
+							<PreCardDescriptionText><Tick /> Writing Sample Generation</PreCardDescriptionText>
 
 						</CardPreBody>
 						<ButtonContainer>

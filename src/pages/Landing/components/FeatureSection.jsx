@@ -1,8 +1,8 @@
-import { CardsContainer, FeatureHeader, FeaturesTitle, FeatureCardWrap } from "../style";
+import { CardsContainer, FeatureHeader, FeaturesTitle, FeatureCardWrap, Remark } from "../style";
 import FeatureCards from "./FeatureCard.jsx";
 const FeatureSection = () => {
 	return (
-		<FeatureCardWrap >
+		<FeatureCardWrap id ="features">
 			<CardsContainer>
 				<FeaturesTitle>
 						What we actually do
@@ -18,6 +18,8 @@ const FeatureSection = () => {
 				</FeatureHeader>
 				<FeatureCards/>
 			</CardsContainer>
+			<Remark>1 Wrigo Infinite members are eligible to more extensive feedback content. </Remark>
+			<Remark>2 Only Wrigo Infinite members are entitled to these features. </Remark>
 		</FeatureCardWrap>
 
 	);

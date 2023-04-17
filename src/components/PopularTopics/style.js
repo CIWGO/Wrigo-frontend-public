@@ -8,10 +8,10 @@ export const ContentBox = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 25px 40px;
+  padding: 25px 40px; 
   background: #ffffff;
   border-radius: 20px;
-  height: 70vh;
+  height: 55vh;
   overflow: scroll;
 
   @media (max-width: 768px) {

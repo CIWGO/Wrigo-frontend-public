@@ -1,10 +1,11 @@
 import SignUpForm from "./SignUpForm";
 import { SignUpLayout, LoginTag, CreateAccount, Logo } from "./style";
+import logo from "../Landing/assets/logo+name.svg";
 
 const SignUpPage = () => {
 	return (
 		<SignUpLayout>
-			<Logo>WRIGO</Logo>
+			<Logo src={logo}></Logo>
 			<CreateAccount>Create account</CreateAccount>
 			<SignUpForm />
 
