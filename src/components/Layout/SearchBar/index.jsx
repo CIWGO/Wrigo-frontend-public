@@ -11,11 +11,14 @@ import { useNavigate } from "react-router-dom";
 const StyledSearch = styled(Select)`
   margin-left: 10px;
   width: 41vw;
+	min-width:400px;
   &:hover{
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
 	}
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     width: 80vw;
+	min-width:200px;
+
   }
 	input{
 		border:none;
