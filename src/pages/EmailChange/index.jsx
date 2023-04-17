@@ -1,5 +1,5 @@
 import EmailChangeForm from "./EmailChangeForm";
-import logo from "../Landing/assets/logo+name.svg";
+import logo from "../Landing/assets/logoName.svg";
 
 import { SignUpLayout, Logo, VerifyMessage, CheckMessage, CancelTag } from "./style";
 
