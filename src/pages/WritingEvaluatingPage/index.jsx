@@ -7,6 +7,7 @@ import RightComponent from "./right";
 import { WritingPageDiv } from "./style";
 import Left from "./Left";
 import { getPreviousFeed } from "../../utils/API";
+import { notification } from "antd";
 // import { notification } from "antd";
 
 const WritingPage = () => {
@@ -17,15 +18,22 @@ const WritingPage = () => {
 	const [preFeed, setPreFeed] = useState("");
 	const uid = localStorage.getItem("uid");
 	const token = localStorage.getItem("token");
+	const [firstTime, setFirstTime] = useState(true);
+
 	const { writingId } = useParams();
 	const mutation = useMutation({
 		mutationFn: (input) => {
 			return newRequest.post("/api/evaluate", input);
 		},
+		onError: () => { notification.error({ message: "Evaluator is busy, please retry." }); },
+		onSettled: () => { console.log(mutation.data); },
 		onSuccess: async () => {
-			setResubmit(true);	const previousFeed = await getPreviousFeed({ uid, writing_id: writingId, type: "feedback", token });
-			console.log(previousFeed);
-			setPreFeed(previousFeed.data);
+			console.log(firstTime);
+			if (firstTime) { setResubmit(true); setFirstTime(false); } else {
+				const previousFeed = await getPreviousFeed({ uid, writing_id: writingId, type: "feedback", token });
+				console.log(previousFeed);
+				setPreFeed(previousFeed.data);
+			}
 		}
 	});
 	const handleSubmit = (e) => {
@@ -33,13 +41,12 @@ const WritingPage = () => {
 		mutation.mutate({ writing_id: writingId, content, topic_content: topic, uid, token });
 	};
 
-	// const { data } = mutation;
-
 	useEffect(() => {
 		if (mutation.data) {
 			console.log(mutation.data);
 			setComment(mutation.data.data);
 		}
+		if (mutation.data && mutation.data.status !== 200) notification.error({ message: "Evaluator is busy, please retry." });
 	}, [mutation.data]);
 
 	const wordCount = content.trim().split(/\s+/).length - 1;

@@ -7,6 +7,7 @@ import Left from "./Left";
 import { WritingPageDiv } from "../WritingEvaluatingPage/style";
 import { viewHistory } from "../../utils";
 import RightComponent from "./right";
+import { notification } from "antd";
 // import { notification } from "antd";
 
 function WritingsPopulate () {
@@ -54,10 +55,28 @@ function WritingsPopulate () {
 		mutationFn: (input) => {
 			return newRequest.post("/api/evaluate", input);
 		},
+		onError: () => {	notification.error({ message: "Evaluator is busy, please retry." }); },
 		onSuccess: async () => {
 			setResubmit(true);
-			const previousFeed = await viewHistory({ uid, writing_id: writingId, type: "feedback", token });
-			setPreFeed(previousFeed.data);
+			console.log(0);
+			const latestFeed = await viewHistory({ uid, writing_id: writingId, type: "feedback", token });
+
+			// Update preFeed with the latest feedback data
+			setPreFeed(latestFeed.data);
+
+			// Update comment to display the latest feedback
+			setComment({
+				CC: latestFeed.data[0].score_CC,
+				GRA: latestFeed.data[0].score_GRA,
+				LR: latestFeed.data[0].score_LR,
+				TR: latestFeed.data[0].score_TR,
+				commentCC: latestFeed.data[0].feedback_CC,
+				commentGRA: latestFeed.data[0].feedback_GRA,
+				commentLR: latestFeed.data[0].feedback_LR,
+				commentTR: latestFeed.data[0].feedback_TR,
+				commentOVR: latestFeed.data[0].feedback_overall ? latestFeed.data[0].feedback_overall : null
+
+			});
 		}
 	});
 	const handleSubmit = async (e) => {
@@ -68,10 +87,12 @@ function WritingsPopulate () {
 	const wordCount = content.trim().split(/\s+/).length - 1;
 
 	useEffect(() => {
-		if (mutation.data) {
-			console.log(mutation.data);
+		if (mutation.data && mutation.data.data.isSubscribed) {
+			setSubscribed(true);
+			console.log("PRE:", mutation.data);
 			setComment(mutation.data.data.premiumFeedback);
 		}
+		if (mutation.data && mutation.data.status !== 200) notification.error({ message: "Evaluator is busy, please retry." });
 	}, [mutation.data]);
 
 	return (

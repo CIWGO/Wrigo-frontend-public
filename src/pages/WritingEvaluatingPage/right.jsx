@@ -21,6 +21,7 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 					<LoadingContainer>
 						<div className="loader"></div>
 						<LoadingText>Evaluating your writing...</LoadingText>
+						<p>This process may take about a minute.</p>
 					</LoadingContainer>
 				</Loading>
 			</RightCard>
