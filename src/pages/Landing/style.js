@@ -282,7 +282,7 @@ position:relative;
 height:270px;
 width:270px;
 @media (min-width: 1200px) {
-    width: 300px;
+  width: 300px;
   height:300px; }/* width when screen is wider than 1000px */
 margin:20px 0px;
 border-radius: 15px;

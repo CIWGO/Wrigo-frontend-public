@@ -19,7 +19,7 @@ import FeatureSection from "./components/FeatureSection.jsx";
 import PriceWrap from "./components/PriceSection.jsx";
 import AboutCard from "./components/AboutCard.jsx";
 import logo from "./assets/logo+name.svg";
-
+import Download from "./components/Download.jsx";
 const LandingPage = () => {
 	return (
 		<AppContainer>
@@ -40,6 +40,9 @@ const LandingPage = () => {
 					</NavMenuItem>
 					<NavMenuItem>
 						<NavLink href="#pricing">Pricing</NavLink>
+					</NavMenuItem>
+					<NavMenuItem>
+						<NavLink href="#download">Download</NavLink>
 					</NavMenuItem>
 					<NavMenuItem>
 						<NavLink href="#about">About</NavLink>
@@ -87,6 +90,7 @@ const LandingPage = () => {
 			<Main>
 				<FeatureSection />
 				<PriceWrap />
+				<Download/>
 				<AboutCard />
 			</Main>
 			<Footer>
