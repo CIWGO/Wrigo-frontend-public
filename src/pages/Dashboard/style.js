@@ -1,19 +1,25 @@
 import styled from "styled-components";
 
 const PopularTopicContainer = styled.div`
-  // position: relevant;
-  // width: 746px;
-  // height: 586px;
-  // left: 210px;
-  // top: 350px;
+
+  display:flex-column;
+  height:100%;
   width:100%;
+  @media (max-width: 768px ) {
+    display:flex-column;
+		grid-template-columns:100%;
+    grid-template-rows:auto auto;
+    max-width:1000px;
+    width:100%;
+	}
+
 `;
 
 const Background = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: flex-column;
   min-height: calc(100vh - 80px);
-  height: auto;
+  height: 100%;
+  width: 100%;
   padding: 0 20px 20px 20px;
   background-color: #f5f5f5;
 `;
@@ -27,37 +33,39 @@ const RecentWritingBox = styled.div`
 `;
 
 const BottomRow = styled.div`
-  margin-top:20px;
-  display:flex;
-  flex-direction:row;
-  width:100%;
-  height:auto;
-  // display: grid;
-  // grid-gap: 20px;
-  // grid-template-columns: 1fr 1fr;
-  // grid-auto-rows: calc(40% - 10px) calc(60% - 10px);
-  // width:100%;
-  // height:100%;
-  // @media (max-width: 768px) {
-  // aspect-ratio: 1/ 4;
-  // width:100%;
+  margin-top:10px;
+  display:grid;
+  grid-template-rows:100%;
+  grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+
+  @media (max-width: 768px ) {
+    diplay:grid;
+		grid-template-columns:100%;
+    grid-template-rows:auto auto;
+    aspect-ratio: 2/ 2.8;
+	}
 `;
 
 const LineChartDiv = styled.div`
   padding-left:20px;
   width: 100%;
-  min-height:586px;
-  height:auto;
+  display:flex-column;
+  @media (max-width: 768px ) {
+    width: 100%;
+    padding-left:0px;
+    margin-top:20px;
+	}
 `;
 
 const LineChartBackground = styled.div`
-  display:flex;
+  display:flex-column;
   margin-top:10px;
   background-color: #fff;
   align-items: center;
   justify-content: center;
   border-radius:20px;
-  height:75svh;
+  aspect-ratio: 4 /3;
+
 `;
 
 const Title = styled.div`
