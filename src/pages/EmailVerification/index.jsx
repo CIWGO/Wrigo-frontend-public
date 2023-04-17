@@ -29,7 +29,7 @@ const EmailVerificationPage = () => {
 	};
 	return (
 		<SignUpLayout>
-			<Logo>WRIGO</Logo>
+			<Logo>Wrigo</Logo>
 			<CreateAccount>Verify your email</CreateAccount>
 			<Message>Please check your inbox</Message>
 

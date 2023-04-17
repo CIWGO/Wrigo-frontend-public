@@ -62,7 +62,7 @@ const BillingInfo = (props) => {
 				<FormDefault.Item>
 					<label style={{ display: "block", textAlign: "start", color: "#2F71DA" }} htmlFor="plan">Plan</label>
 					<InputDisabled id="plan"
-						defaultValue={isSubscribed ? "WRIGO Infinite" : "free"}
+						defaultValue={isSubscribed ? "Wrigo Infinite" : "free"}
 						suffix={isSubscribed ? "$9.99/month" : "$0.00/month"}
 						style={{ color: "#2F71DA", fontWeight: 400 }} disabled={true} />
 				</FormDefault.Item>

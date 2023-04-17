@@ -4,7 +4,7 @@ import { SignUpLayout, VerifyMessage, Logo, CheckMessage, CancelTag } from "./st
 const ResetPasswordEmailVerificationPage = () => {
 	return (
 		<SignUpLayout>
-			<Logo>WRIGO</Logo>
+			<Logo>Wrigo</Logo>
 			<VerifyMessage>Verify your email</VerifyMessage>
 			<CheckMessage>Please check your inbox</CheckMessage>
 			<ResetPasswordEmailVerificationForm/>

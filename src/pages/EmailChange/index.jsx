@@ -7,7 +7,7 @@ const EmailChangePage = () => {
 	// const { uid, username, email } = useSelector((state) => state.emailVerificationStore);
 	return (
 		<SignUpLayout>
-			<Logo>WRIGO</Logo>
+			<Logo>Wrigo</Logo>
 			<VerifyMessage>Verify your email</VerifyMessage>
 			<CheckMessage>Please input new email address</CheckMessage>
 			<EmailChangeForm />

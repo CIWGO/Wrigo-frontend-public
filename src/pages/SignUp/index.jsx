@@ -4,7 +4,7 @@ import { SignUpLayout, LoginTag, CreateAccount, Logo } from "./style";
 const SignUpPage = () => {
 	return (
 		<SignUpLayout>
-			<Logo>WRIGO</Logo>
+			<Logo>Wrigo</Logo>
 			<CreateAccount>Create account</CreateAccount>
 			<SignUpForm />
 

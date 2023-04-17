@@ -25,6 +25,7 @@ export default function SideBar (props) {
 			title: "Are you sure you want to log out?",
 			okText: "Yes",
 			cancelText: "Cancel",
+			transitionName: "",
 			onOk () {
 				dispatch(userLogout());
 				clearLocalStorage();
@@ -54,7 +55,7 @@ export default function SideBar (props) {
 						fontSize: "35px"
 					}}
 				>
-					{isMobile ? "W" : "WRIGO"}
+					{isMobile ? "W" : "Wrigo"}
 				</Link>
 			</div>
 
@@ -107,7 +108,7 @@ export default function SideBar (props) {
 						icon={<CrownOutlined style={{ color: "#2F71DA" }}/>}
 						style={{ textAlign: "left" }}
 					>
-						<NavLink to="infinite" style={{ color: "#2F71DA" }}>WRIGO Infinite</NavLink>
+						<NavLink to="infinite" style={{ color: "#2F71DA" }}>Wrigo Infinite</NavLink>
 					</Menu.Item>
 
 					<Menu.Item

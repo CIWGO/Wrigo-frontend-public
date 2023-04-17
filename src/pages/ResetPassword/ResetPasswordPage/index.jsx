@@ -4,7 +4,7 @@ import { Logo, SignUpLayout, Message, CancelTag } from "./style";
 const ResetPasswordPage = () => {
 	return (
 		<SignUpLayout>
-			<Logo>WRIGO</Logo>
+			<Logo>Wrigo</Logo>
 			<Message>Reset your password</Message>
 			<ResetPasswordForm/>
 			<CancelTag to="/login"> Cancel</CancelTag>
