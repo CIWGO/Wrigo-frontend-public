@@ -69,15 +69,17 @@ const Email = (props) => {
 			if (response.status === 200) {
 				notification.success({ message: "Change email successful!" });
 			} else if (response.status === 500) {
-				notification.error({ message: "send fail 500 (Something went wrong)" });
+				throw new Error("send fail 500 (Something went wrong)");
+				// notification.error({ message: "send fail 500 (Something went wrong)" });
 			} else {
-				notification.error({ message: "send fail other than 500" });
+				throw new Error("send fail other than 500");
+				// notification.error({ message: "send fail other than 500" });
 			}
 			setTimeout(() => {
 				window.location.reload(false);
 			}, 2000);
-		} catch (e) {
-			console.err(e.message);
+		} catch (error) {
+			notification.error({ message: error.message });
 		}
 	};
 

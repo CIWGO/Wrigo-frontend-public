@@ -16,13 +16,15 @@ const IELTSPieChart = (props) => {
 	const { pieData } = props;
 	// const data = [2, 0, 0, 0, 0];
 	const data = pieData;
+	console.log(data);
 	const chartData = {
 		labels: [
 			"Opinion (Agree or Disagree)",
 			"Discussion (Discuss both views)",
 			"Problem and Solution",
 			"Direct Question",
-			"Advantage and Disadvantage"
+			"Advantage and Disadvantage",
+			"Others"
 		],
 		datasets: [
 			{
@@ -32,14 +34,16 @@ const IELTSPieChart = (props) => {
 					"#36A2EB",
 					"#FFCE56",
 					"#4BC0C0",
-					"#9966FF"
+					"#9966FF",
+					"#32CD32"
 				],
 				hoverBackgroundColor: [
 					"#FF6384",
 					"#36A2EB",
 					"#FFCE56",
 					"#4BC0C0",
-					"#9966FF"
+					"#9966FF",
+					"#32CD32"
 				]
 			}
 		]

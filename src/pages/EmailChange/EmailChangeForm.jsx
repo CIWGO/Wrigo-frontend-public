@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Form, Input, notification, Row, Space } from "antd";
 import { VerifyButton, MyForm, PageLayout, SendButton } from "./style";
-import { changeEmail, sendOTPViaEmail } from "../../utils/index";
+import { changeEmail, sendOTPViaEmail, verifyOTP } from "../../utils/index";
 import { useNavigate } from "react-router-dom";
 import { ERROR_MESSAGES } from "../../constants/errorMessages";
 
@@ -54,25 +54,30 @@ function EmailChangeForm () {
 	const onFinish = async (values) => {
 		const uid = localStorage.getItem("uid");
 		const { userInput, newEmail } = values;
-
-		await changeEmail({ uid, userInput, newEmail })
-			.then((response) => {
-				if (response.status === 200) {
-					notification.success({ message: "Email set successfully" });
-					navigate("/login");
-				}
-			})
-			.catch((error) => {
-				let errorMessage;
-				if (error.response && error.response.data && error.response.data.error) {
-					errorMessage = error.response.data.error;
-				} else if (error.response && error.response.status === 401) {
-					errorMessage = "Invalid or expired verification code";
-				} else {
-					errorMessage = error.message || "Unknown error occurred";
-				}
-				notification.error({ message: `${errorMessage}` });
-			});
+		await verifyOTP({ uid, userInput }).then(async (response) => {
+			if (response.status === 200) {
+				await changeEmail({ uid, newEmail })
+					.then((response) => {
+						if (response.status === 200) {
+							notification.success({ message: "Email changed successfully" });
+							navigate("/login");
+						}
+					})
+					.catch((error) => {
+						let errorMessage;
+						if (
+							error.response &&
+							error.response.data &&
+							error.response.data.error
+						) {
+							errorMessage = error.message || "Unknown error occurred";
+						}
+						notification.error({ message: `${errorMessage}` });
+					});
+			} else {
+				notification.error({ message: "Invalid or expired verification code" });
+			}
+		});
 	};
 
 	return (

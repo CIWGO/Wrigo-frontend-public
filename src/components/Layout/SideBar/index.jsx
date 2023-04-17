@@ -13,6 +13,23 @@ import { useMediaQuery } from "react-responsive";
 import { userLogout } from "../../../slice/userSlice";
 import { useDispatch } from "react-redux";
 import clearLocalStorage from "../../../features/clearLocalStorage";
+import logo from "../../../pages/Landing/assets/logo.svg";
+import logoAndName from "../../../pages/Landing/assets/logoName.svg";
+import styled from "styled-components";
+
+const Logo = styled.img`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 2rem;
+`;
+
+const LogoAndName = styled.img`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 6rem;
+`;
 
 export default function SideBar (props) {
 	const dispatch = useDispatch();
@@ -25,6 +42,7 @@ export default function SideBar (props) {
 			title: "Are you sure you want to log out?",
 			okText: "Yes",
 			cancelText: "Cancel",
+			transitionName: "",
 			onOk () {
 				dispatch(userLogout());
 				clearLocalStorage();
@@ -54,7 +72,7 @@ export default function SideBar (props) {
 						fontSize: "35px"
 					}}
 				>
-					{isMobile ? "W" : "WRIGO"}
+					{isMobile ? <Logo src={logo}/> : <LogoAndName src={logoAndName}/>}
 				</Link>
 			</div>
 
@@ -107,7 +125,7 @@ export default function SideBar (props) {
 						icon={<CrownOutlined style={{ color: "#2F71DA" }}/>}
 						style={{ textAlign: "left" }}
 					>
-						<NavLink to="infinite" style={{ color: "#2F71DA" }}>WRIGO Infinite</NavLink>
+						<NavLink to="infinite" style={{ color: "#2F71DA" }}>Wrigo Infinite</NavLink>
 					</Menu.Item>
 
 					<Menu.Item

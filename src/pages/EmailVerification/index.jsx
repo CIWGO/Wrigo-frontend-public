@@ -6,7 +6,8 @@ import {
 } from "../../slice/emailVerificationSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import logo from "../Landing/assets/logoName.svg";
+
 const EmailVerificationPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const EmailVerificationPage = () => {
 	};
 	return (
 		<SignUpLayout>
-			<Logo>WRIGO</Logo>
+			<Logo src={logo}></Logo>
 			<CreateAccount>Verify your email</CreateAccount>
 			<Message>Please check your inbox</Message>
 

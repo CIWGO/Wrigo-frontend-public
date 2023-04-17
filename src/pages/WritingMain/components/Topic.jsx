@@ -6,15 +6,16 @@ const TextBox = styled.div`
     top:20px;
     left:22px;
     right:22px;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 500;
     text-align: left;
-    line-height:20px;
+    line-height: 18px;
   `;
 const Topic = ({ taskTopic }) => {
 	return (
 		<TextBox>
 			{/* {taskTopic.slice(0, 100)}... */}
-			{taskTopic ? (taskTopic.length > 100 ? `${taskTopic.slice(0, 100)}...` : taskTopic) : ""}
+			{taskTopic ? (taskTopic.length > 110 ? `${taskTopic.slice(0, 110)}...` : taskTopic) : ""}
 		</TextBox>
 	);
 };

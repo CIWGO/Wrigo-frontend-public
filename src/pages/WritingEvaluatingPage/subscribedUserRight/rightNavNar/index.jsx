@@ -5,7 +5,7 @@ import FeedbackSection from "../feedback/index";
 import GrammarSection from "../grammar/index";
 import WritingSampleSection from "../writingSample/index";
 
-const NavBar = ({ text: writing, topic, premiumFeedback }) => {
+const NavBar = ({ text: writing, topic, premiumFeedback, setPrevious }) => {
 	const defaultCurrent = "feedback";
 	const defaultContent = <FeedbackSection text={premiumFeedback} />;
 
@@ -14,7 +14,8 @@ const NavBar = ({ text: writing, topic, premiumFeedback }) => {
 			label: "Feedback",
 			key: "feedback",
 			icon: <CommentOutlined />,
-			component: <FeedbackSection text={premiumFeedback} />
+			component: <FeedbackSection text={premiumFeedback} setPrevious = {setPrevious} />
+
 		},
 		{
 			label: "Grammar",
