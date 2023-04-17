@@ -22,25 +22,25 @@ const AboutCard = () => {
 	const developers1 = [
 		{ name: "Hai (Leo) Yang", url: "https://www.linkedin.com/in/haiy/" },
 		{ name: "Zihan Zhou", url: "https://www.linkedin.com/in/zihan-zhou-au/" },
-		{ name: "Eric Li", url: "www.linkedIn.com/in/Longfei-eric-li/" },
-		{ name: "Shuchen Wu", url: "https://www.linkedin.com/in/shuchen-wu/" },
+		{ name: "Longfei (Eric) Li", url: "https://www.linkedin.com/in/Longfei-eric-li/" },
+		{ name: "Shuchen (Athena) Wu", url: "https://www.linkedin.com/in/shuchen-wu/" },
 		{ name: "Rongnan (Amber) Xu", url: "https://www.linkedin.com/in/rongnan-xu-657712211/" }
 	];
 	const developers2 = [
 		{ name: "Zhiqiang (Albert) Yu ", url: "https://www.linkedin.com/in/albert-zhiqiang-yu/" },
 		{ name: "Renee Zheng", url: "https://www.linkedin.com/in/renee-zheng-98604a264/" },
 		{ name: "Chang Liu", url: "https://www.linkedin.com/in/changl19/" },
-		{ name: "Yinghe Zhou", url: "https://www.linkedin.com/in/yinghe-zhou-a04970175/" },
-		{ name: "Zizhen Luo", url: "https://www.linkedin.com/in/zizhen-luo/" },
+		{ name: "Yinghe (John) Zhou", url: "https://www.linkedin.com/in/yinghe-zhou-a04970175/" },
+		{ name: "Zizhen (Jason) Luo", url: "https://www.linkedin.com/in/zizhen-luo/" },
 		{ name: "Lucas Lin", url: "https://www.linkedin.com/in/lucas-d-lin/" }
 	];
 	const devops = [
 		{ name: "Gary Xiong", url: "https://www.linkedin.com/in/gary-xiong-846a67266/" },
 		{ name: "Joe Jia", url: "https://www.linkedin.com/in/joe-jia/" },
 		{ name: "Yu (Jerry) Hu", url: "http://linkedin.com/in/yu-jerry-hu-684916123" },
-		{ name: "Zhongxian Shen", url: "https://www.linkedin.com/" },
+		{ name: "Zhongxian (Eric) Shen", url: "https://www.linkedin.com/in/zhongxian-shen/" },
 		{ name: "Zixin Wang", url: "https://www.linkedin.com/in/zixin-wang-463a56161/" },
-		{ name: "Lawrence Li", url: "https://www.linkedin.com/" }
+		{ name: "Wenbo (Lawrence) Li", url: "www.linkedin.com/in/wenbo-li-au" }
 	];
 	return (
 		<Section id="about">
