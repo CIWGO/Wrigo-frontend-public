@@ -1,5 +1,4 @@
 import { Navigate } from "react-router-dom";
-// import RecentWritings from "../pages/Dashboard/recentWritings";
 import Statistics from "../pages/Statistics";
 import Profile from "../pages/Profile";
 import WritingPage from "../pages/WritingEvaluatingPage";
@@ -13,7 +12,6 @@ import EmailChangePage from "../pages/EmailChange";
 import EmailVerificationPage from "../pages/EmailVerification";
 import TopicContent from "../pages/TopicContent/index";
 import WritingsPopulate from "../pages/WritingsPopulate";
-// import PopularTopicsCard from "../pages/Dashboard/popularTopics";
 import DashBoardPage from "../pages/Dashboard/index";
 import Payment from "../pages/Payment/index";
 import MyWritingMain from "../pages/WritingMain/myWritingMain";
@@ -22,8 +20,6 @@ import PaymentHistory from "../pages/PaymentHistory";
 import ResetPasswordEmailVerificationPage from "../pages/ResetPassword/ResetPasswordEmailVerification";
 import ResetPasswordPage from "../pages/ResetPassword/ResetPasswordPage";
 import Infinite from "../pages/WrigoInfinite/index";
-
-// import SubscribedUserRight from "../pages/WritingEvaluatingPage/subscribedUserRight/index";
 
 export default [
 	{

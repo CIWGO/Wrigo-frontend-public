@@ -55,7 +55,7 @@ function Infinite () {
 			<Container>
 				<TextContainer>
 
-					<Header>WRIGO <span style={{ fontWeight: 400, color: "#5db1ff" }}>Infinite</span></Header>
+					<Header>Wrigo <span style={{ fontWeight: 400, color: "#5db1ff" }}>Infinite</span></Header>
 					<Description><b>Wrigo Infinite</b> provides you unlimited access to our intelligent AI
 					writing evaluators with best capabilities on giving you feedbacks for
 					improvement and accurate band estimations to help you better
