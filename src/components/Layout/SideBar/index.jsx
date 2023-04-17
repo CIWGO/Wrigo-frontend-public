@@ -13,6 +13,23 @@ import { useMediaQuery } from "react-responsive";
 import { userLogout } from "../../../slice/userSlice";
 import { useDispatch } from "react-redux";
 import clearLocalStorage from "../../../features/clearLocalStorage";
+import logo from "../../../pages/Landing/assets/logo.svg";
+import logoAndName from "../../../pages/Landing/assets/logo+name.svg";
+import styled from "styled-components";
+
+const Logo = styled.img`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 2rem;
+`;
+
+const LogoAndName = styled.img`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 6rem;
+`;
 
 export default function SideBar (props) {
 	const dispatch = useDispatch();
@@ -55,7 +72,7 @@ export default function SideBar (props) {
 						fontSize: "35px"
 					}}
 				>
-					{isMobile ? "W" : "Wrigo"}
+					{isMobile ? <Logo src={logo}/> : <LogoAndName src={logoAndName}/>}
 				</Link>
 			</div>
 

@@ -1,13 +1,12 @@
 import EmailChangeForm from "./EmailChangeForm";
-// import { useSelector } from "react-redux";
+import logo from "../Landing/assets/logo+name.svg";
 
 import { SignUpLayout, Logo, VerifyMessage, CheckMessage, CancelTag } from "./style";
 
 const EmailChangePage = () => {
-	// const { uid, username, email } = useSelector((state) => state.emailVerificationStore);
 	return (
 		<SignUpLayout>
-			<Logo>Wrigo</Logo>
+			<Logo src={logo}></Logo>
 			<VerifyMessage>Verify your email</VerifyMessage>
 			<CheckMessage>Please input new email address</CheckMessage>
 			<EmailChangeForm />
