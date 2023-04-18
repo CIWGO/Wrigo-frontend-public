@@ -8,7 +8,8 @@ import {
 	GridContainer,
 	GridItem,
 	LeftGrid,
-	RightGrid
+	RightGrid,
+	Bigcontainer
 } from "./style";
 import IELTSPieChart from "../../components/StatisticCard2";
 import HeadingComponent from "../../components/Heading";
@@ -63,7 +64,7 @@ const Statistics = () => {
 	const radarData = data.radarArr;
 
 	return (
-		<div>
+		<Bigcontainer>
 			<HeadingComponent displayValue={"Analytics"} />
 			<Container>
 				<GridContainer>
@@ -83,7 +84,7 @@ const Statistics = () => {
 					</RightGrid>
 				</GridContainer>
 			</Container>
-		</div>
+		</Bigcontainer>
 	);
 };
 export default Statistics;

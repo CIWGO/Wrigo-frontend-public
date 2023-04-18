@@ -77,7 +77,8 @@ const IELTSPieChart = (props) => {
 				justifyItems: "center",
 				height: "100%",
 				width: "100%",
-				display: "grid"
+				display: "grid",
+				padding: "10px"
 			}}
 		>
 			<Doughnut data={chartData} options={options} />

@@ -16,9 +16,9 @@ const PopularTopicContainer = styled.div`
 `;
 
 const Background = styled.div`
-  display: flex-column;
-  min-height: calc(100vh - 80px);
-  height: 100%;
+  display: grid-column;
+  min-height: calc(100% - 80px);
+  height: 80%;
   width: 100%;
   padding: 0 20px 20px 20px;
   background-color: #f5f5f5;
@@ -35,6 +35,7 @@ const RecentWritingBox = styled.div`
 const BottomRow = styled.div`
   margin-top:10px;
   display:grid;
+  height:70%;
   grid-template-rows:100%;
   grid-template-columns: calc(50% - 10px) calc(50% - 10px);
 
@@ -47,8 +48,10 @@ const BottomRow = styled.div`
 `;
 
 const LineChartDiv = styled.div`
-  padding-left:20px;
+  padding-left:50px;
   width: 100%;
+  max-height:100%;
+  height:100%;
   display:flex-column;
   @media (max-width: 768px ) {
     width: 100%;
@@ -65,7 +68,8 @@ const LineChartBackground = styled.div`
   justify-content: center;
   border-radius:20px;
   aspect-ratio: 4 /3;
-
+  max-height:55vh;
+  padding:20px;
 `;
 
 const Title = styled.div`
