@@ -9,7 +9,7 @@ import ProfileHeader from "./ProfileHeader/ProfileHeader";
 
 const { Header, Content } = Layout;
 const Container = styled(Layout)`
-height:100vh;
+height:100%;
 background-color: rgb(245, 245, 245);
 `;
 const SubContainer = styled(Layout)`
