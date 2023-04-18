@@ -21,6 +21,7 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 					<LoadingContainer>
 						<div className="loader"></div>
 						<LoadingText>Evaluating your writing...</LoadingText>
+						<p>This process may take about a minute.</p>
 					</LoadingContainer>
 				</Loading>
 			</RightCard>
@@ -47,6 +48,7 @@ const RightComponent = ({ comment, mutation, preFeed, topic, content }) => {
 		);
 	}
 	if (comment && !comment.isSubscribed) {
+		console.log(comment.response);
 		const score = comment.response.scores;
 		const numbers = [
 			score.TaskResponse,

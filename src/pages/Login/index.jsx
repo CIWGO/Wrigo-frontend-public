@@ -1,6 +1,6 @@
 import LoginForm from "./LoginForm";
 import { ForgotTag, Logo, WelcomeBack, LoginLayout } from "./style";
-import logo from "../Landing/assets/logo+name.svg";
+import logo from "../Landing/assets/logoName.svg";
 
 const Login = () => {
 	return (

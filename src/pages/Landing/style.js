@@ -205,11 +205,12 @@ export const AboutTitle = styled.h1`
 `;
 
 export const AboutSection = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: stretch;
-margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 20px;
 `;
 
 export const IconTeam = styled.img`
@@ -225,6 +226,10 @@ export const TeamSection = styled.div`
   padding: 50px;
   height: 100%;
   width: 30rem;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 30px;
+  }
 `;
 
 export const DevSection = styled.div`
@@ -372,10 +377,17 @@ margin-top: 6px;
 color:rgb(47, 113, 218);`;
 
 export const Carddetail = styled.div`
-font-size:14px;
-line-height:20px;
+font-size: 14px;
+font-family: 'Roboto', sans-serif;
+line-height: 20px;
 text-align: left;
-margin-top: 15px;`;
+margin-top: 10px;
+
+@media (max-width: 1200px) {
+  font-size: 12px;
+  line-height: 16px;
+  }
+`;
 
 export const Dot1 = styled.div`
 position: absolute; 
@@ -423,7 +435,7 @@ background-image:url(${Dot6Image});`;
 
 export const PriceCard = styled.div`
 width:270px;
-height:400px;
+height:425px;
 background-color: white;
 border-radius:13px;
 position: relative;
@@ -477,7 +489,9 @@ span{
 
 export const PriceDetail = styled.div`
 align-items: center;
+font-family: 'Roboto', sans-serif;
 font-size: 12px;
+font-weight: 400;
 margin-bottom: 15px;
 display: flex;
 svg{

@@ -1,6 +1,6 @@
 import ResetPasswordEmailVerificationForm from "./ResetPasswordEmailVerificationForm";
 import { SignUpLayout, VerifyMessage, Logo, CheckMessage, CancelTag } from "./style";
-import logo from "../../Landing/assets/logo+name.svg";
+import logo from "../../Landing/assets/logoName.svg";
 
 const ResetPasswordEmailVerificationPage = () => {
 	return (

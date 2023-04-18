@@ -14,7 +14,7 @@ import { userLogout } from "../../../slice/userSlice";
 import { useDispatch } from "react-redux";
 import clearLocalStorage from "../../../features/clearLocalStorage";
 import logo from "../../../pages/Landing/assets/logo.svg";
-import logoAndName from "../../../pages/Landing/assets/logo+name.svg";
+import logoAndName from "../../../pages/Landing/assets/logoName.svg";
 import styled from "styled-components";
 
 const Logo = styled.img`
