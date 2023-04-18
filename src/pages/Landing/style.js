@@ -440,6 +440,7 @@ background-color: white;
 border-radius:13px;
 position: relative;
 border:0.5px solid rgb(47, 113, 218); 
+margin:0px auto;
 `;
 
 export const PriceCardsContainer = styled.div`
@@ -447,6 +448,7 @@ export const PriceCardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap:50px;
+
 `;
 
 export const Top = styled.div`
