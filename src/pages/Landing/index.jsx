@@ -46,7 +46,7 @@ const LandingPage = () => {
 						<NavLink href="#download">Download</NavLink>
 					</NavMenuItem>
 					<NavMenuItem>
-						<NavLink href="#about">About</NavLink>
+						<NavLink href="#about">Team</NavLink>
 					</NavMenuItem>
 				</NavMenu>
 				<NavMenu>
