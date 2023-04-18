@@ -2,10 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #f5f5f5;
+  height:70%;
+  width:100%;
+`;
+export const Bigcontainer = styled.div`
+  background-color: #f5f5f5;
   height:100%;
   width:100%;
 `;
-
 export const GridContainer = styled.div`
   display: grid;
   grid-gap: 20px;
@@ -13,7 +17,7 @@ export const GridContainer = styled.div`
   justify-items: center;
   padding:20px;
   aspect-ratio: 4 / 3;
-  grid-template-rows:100%;
+  grid-template-rows:80%;
   grid-template-columns:calc(65% - 10px) calc(35% - 10px);;
   width:100%;
   max-width:1300px;
