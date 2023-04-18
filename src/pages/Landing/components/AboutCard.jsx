@@ -39,7 +39,7 @@ const AboutCard = () => {
 		{ name: "Joe Jia", url: "https://www.linkedin.com/in/joe-jia/" },
 		{ name: "Yu (Jerry) Hu", url: "http://linkedin.com/in/yu-jerry-hu-684916123" },
 		{ name: "Zhongxian (Eric) Shen", url: "https://www.linkedin.com/in/zhongxian-shen/" },
-		{ name: "Zixin Wang", url: "https://www.linkedin.com/in/zixin-wang-463a56161/" },
+		{ name: "Zixin Wang", url: "https://www.linkedin.com/in/zixin-wang-78bb05272/" },
 		{ name: "Wenbo (Lawrence) Li", url: "https://www.linkedin.com/in/wenbo-li-au" }
 	];
 	return (

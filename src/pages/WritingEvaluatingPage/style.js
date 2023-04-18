@@ -246,6 +246,7 @@ export const NoFeed = styled.div`
 `;
 
 export const FeedbackContainer = styled.div`
+margin-bottom: 25px;
   flex-direction: column;
   justify-content: space-around;
   gap: 40px;
