@@ -25,6 +25,7 @@ height:100%;
 width:100%;
 align-items: center;
 justify-content: center;
+padding:15px;
 `;
 const RadarChart = (radarData) => {
 	const data = {

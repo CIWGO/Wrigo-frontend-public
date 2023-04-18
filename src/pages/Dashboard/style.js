@@ -48,7 +48,7 @@ const BottomRow = styled.div`
 `;
 
 const LineChartDiv = styled.div`
-  padding-left:20px;
+  padding-left:50px;
   width: 100%;
   max-height:100%;
   height:100%;
@@ -68,7 +68,8 @@ const LineChartBackground = styled.div`
   justify-content: center;
   border-radius:20px;
   aspect-ratio: 4 /3;
-  height:55vh;
+  max-height:55vh;
+  padding:20px;
 `;
 
 const Title = styled.div`
