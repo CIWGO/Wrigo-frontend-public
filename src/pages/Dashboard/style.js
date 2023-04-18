@@ -35,7 +35,7 @@ const RecentWritingBox = styled.div`
 const BottomRow = styled.div`
   margin-top:10px;
   display:grid;
-  // height:50%;
+  height:70%;
   grid-template-rows:100%;
   grid-template-columns: calc(50% - 10px) calc(50% - 10px);
 
@@ -50,7 +50,8 @@ const BottomRow = styled.div`
 const LineChartDiv = styled.div`
   padding-left:20px;
   width: 100%;
-  // height:100%;
+  max-height:100%;
+  height:100%;
   display:flex-column;
   @media (max-width: 768px ) {
     width: 100%;
@@ -67,7 +68,7 @@ const LineChartBackground = styled.div`
   justify-content: center;
   border-radius:20px;
   aspect-ratio: 4 /3;
-  height:70%;
+  height:55vh;
 `;
 
 const Title = styled.div`

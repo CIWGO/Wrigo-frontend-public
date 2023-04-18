@@ -33,7 +33,7 @@ const PageLayout = () => {
 				selectedTab={selectedTab}
 			/>
 
-			<Layout style={{ marginLeft: isDesktopOrLaptop ? 200 : 50 }}>
+			<Layout style={{ marginLeft: isDesktopOrLaptop ? 200 : 50, height: "100%" }}>
 				<Header
 					style={{
 						padding: 0,
