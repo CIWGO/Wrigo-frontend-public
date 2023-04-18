@@ -1,3 +1,3 @@
-export const defaultBackEndPrefix = "https://api.wrigo.com.au/";
+export const defaultBackEndPrefix = "http://localhost:3005";
 
-export const defaultFrontEndPrefix = "https://wrigo.com.au/";
+export const defaultFrontEndPrefix = "https://wrigo.com.au";
