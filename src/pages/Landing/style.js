@@ -225,11 +225,6 @@ export const TeamSection = styled.div`
   align-items: center;
   padding: 50px;
   height: 100%;
-  width: 30rem;
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 30px;
-  }
 `;
 
 export const DevSection = styled.div`
