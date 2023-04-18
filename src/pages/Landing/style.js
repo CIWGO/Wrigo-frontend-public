@@ -162,7 +162,7 @@ export const SubTitle = styled.h2`
 `;
 export const H2 = styled.h2`
   color: #2f71da;
-  margin-top:30px;
+  margin:30px 50px 0px 50px;
 `;
 
 export const SectionList = styled.ul`
@@ -282,7 +282,7 @@ position:relative;
 height:270px;
 width:270px;
 @media (min-width: 1200px) {
-    width: 300px;
+  width: 300px;
   height:300px; }/* width when screen is wider than 1000px */
 margin:20px 0px;
 border-radius: 15px;
@@ -310,8 +310,9 @@ color:rgb(47, 115, 218);
 margin-top: 70px;
 `;
 export const PriceText = styled.div`
-  margin:0 auto;
-  max-width:600px;
+  padding:0 60px;
+  margin:20px auto;
+  max-width:500px;
   text-align: justify;
   font-family: 'Roboto', sans-serif;
   font-size:14px;
@@ -435,6 +436,7 @@ background-color: white;
 border-radius:13px;
 position: relative;
 border:0.5px solid rgb(47, 113, 218); 
+margin:0px auto;
 `;
 
 export const PriceCardsContainer = styled.div`
@@ -442,6 +444,7 @@ export const PriceCardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap:50px;
+
 `;
 
 export const Top = styled.div`

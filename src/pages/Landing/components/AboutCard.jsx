@@ -45,7 +45,7 @@ const AboutCard = () => {
 	return (
 		<Section id="about">
 			<About>
-				<AboutTitle>About the Team</AboutTitle>
+				<AboutTitle>Our Team</AboutTitle>
 				<AboutSection>
 					<TeamSection>
 						<TeamTitle>Tech Consultant</TeamTitle>
