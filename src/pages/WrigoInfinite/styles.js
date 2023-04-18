@@ -7,7 +7,7 @@ export const Section = styled(Space)`
   align-items: start;
   margin-top: 30px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: rgb(47, 113, 218);
   background: linear-gradient(
     355deg,

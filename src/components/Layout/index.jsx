@@ -1,13 +1,26 @@
 import { Layout } from "antd";
-import { useTheme } from "styled-components";
+import styled, { useTheme } from "styled-components";
 import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import SearchBar from "./SearchBar";
 import { Outlet, useLocation } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 import ProfileHeader from "./ProfileHeader/ProfileHeader";
 
 const { Header, Content } = Layout;
+const Container = styled(Layout)`
+height:100%;
+background-color: rgb(245, 245, 245);
+`;
+const SubContainer = styled(Layout)`
+background-color: rgb(245, 245, 245);
+margin-left:  200px;
+height: 100%;
+@media (max-width: 992px) {
+margin-left:  50px;
+}
+`;
+
 const PageLayout = () => {
 	const location = useLocation();
 	const [selectedTab, setSelectedTab] = useState(
@@ -18,7 +31,7 @@ const PageLayout = () => {
 		setSelectedTab(window.location.pathname?.split("/")[2]);
 	}, [location]);
 
-	const isDesktopOrLaptop = useMediaQuery({ minWidth: 992 });
+	// const isDesktopOrLaptop = useMediaQuery({ minWidth: 992 });
 	// Determine if the current route is /user/profile
 	const isProfileRoute = location.pathname.includes("/user/profile");
 	const isInfiniteRoute = location.pathname.includes("/user/infinite");
@@ -28,12 +41,12 @@ const PageLayout = () => {
 	} = useTheme();
 
 	return (
-		<Layout>
+		<Container>
 			<SideBar
 				selectedTab={selectedTab}
 			/>
 
-			<Layout style={{ marginLeft: isDesktopOrLaptop ? 200 : 50, height: "100%" }}>
+			<SubContainer>
 				<Header
 					style={{
 						padding: 0,
@@ -63,8 +76,8 @@ const PageLayout = () => {
 
 				<Content
 					style={{
-						margin: "0",
-						minHeight: "90vh"
+						margin: "0"
+						// minHeight: "95vh"
 						// backgroundColor: "grey"
 					}}
 				>
@@ -79,8 +92,8 @@ const PageLayout = () => {
 						<Outlet />
 					</div>
 				</Content>
-			</Layout>
-		</Layout>
+			</SubContainer>
+		</Container>
 	);
 };
 export default PageLayout;
