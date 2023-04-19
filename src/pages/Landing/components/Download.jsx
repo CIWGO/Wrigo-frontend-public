@@ -25,8 +25,9 @@ const DownloadButtonContainer = styled.div`
 `;
 
 const DownloadButton = styled(Button)`
-	background-color:#fff;
-	color:#2F71D5;
+	// background-color:black;
+	// color:white;
+	// color:#2F71D5;
 	height:50px;
 	width:200px;
 	margin-left: 20px;
@@ -43,7 +44,7 @@ const Download = () => {
 						<AppleOutlined />Download for MacOS
 					</DownloadButton>
 				</a>
-				<a href="https://wrigopublicdownload.s3.ap-southeast-2.amazonaws.com/Wrigo.dmg" download="Wrigo for Windows">
+				<a href="https://wrigopublicdownload.s3.ap-southeast-2.amazonaws.com/Wrigo.msi" download="Wrigo for Windows">
 					<DownloadButton type="primary">
 						<WindowsOutlined />Download for Windows
 					</DownloadButton>
