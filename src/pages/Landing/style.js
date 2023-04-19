@@ -131,10 +131,10 @@ export const Remark = styled.div`
 `;
 
 export const Section = styled.section`
-  background-color:#f7ebf7;
+  background-color:#F1F0FE;
   position: relative; 
   width: 100%; 
-  min-Height: 80vh; 
+  min-Height: 65vh; 
   overflow: hidden;
 `;
 
@@ -281,6 +281,7 @@ export const FeatureCard = styled.div`
 position:relative;
 height:270px;
 width:270px;
+
 @media (min-width: 1200px) {
   width: 300px;
   height:300px; }/* width when screen is wider than 1000px */
