@@ -1,15 +1,18 @@
-# Prototype
-
-- Preview: https://www.figma.com/proto/Q6cPeTEJqvtl8eHgrVlK2i/WRIGO?page-id=0%3A1&node-id=70%3A74&viewport=202%2C545%2C0.11&scaling=contain&starting-point-node-id=70%3A74
-- File: https://www.figma.com/file/Q6cPeTEJqvtl8eHgrVlK2i/WRIGO?node-id=0%3A1&t=o5e5Mxuyx225Wwsw-1
-
-# View the frontend through
-
-http://ciwgo.frontend.s3-website-ap-southeast-1.amazonaws.com
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Connection to the backend
+
+Backend Repo: https://github.com/CIWGO/Wrigo-backend-public
+
+Edit file in this directory to connect the backend: src/constants/index.js
+
+```
+export const defaultBackEndPrefix = "http://localhost:3005";
+export const defaultFrontEndPrefix = "http://localhost:3000";
+
+```
 
 ## Available Scripts
 
@@ -48,8 +51,28 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Version History
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 1.0 MVP
+- 1.1 Payment Integration
+- 1.2 Full Functional Demo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Author
+
+- Zihan Zhou zihanzhou1021@gmail.com
+- Renee Zheng xiaoruiz@utas.edu.au
+- Eric Li helloleolee@hotmail.com
+- Amber Xu xurongnan307@gmail.com
+- Shuchen Wu wushuchen113@gmail.com
+- Chang Liu changwork19@hotmail.com
+- Lucas Lin dl.world@hotmail.com
+- Albert Yu yuzhiqiang3014@gmail.com
+- Yinghe Zhou zhouyinghe0821@gmail.com
+- Zizhen Luo zizhenluo2328@gmail.com
+- Hai Yang leoyh.97@gmail.com
+- Haixin Zhang haixin.zhang.777@gmail.com
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
