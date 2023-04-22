@@ -11,7 +11,6 @@ Edit file in this directory to connect the backend: src/constants/index.js
 ```
 export const defaultBackEndPrefix = "http://localhost:3005";
 export const defaultFrontEndPrefix = "http://localhost:3000";
-
 ```
 
 ## Available Scripts
