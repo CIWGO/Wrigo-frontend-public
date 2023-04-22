@@ -20,7 +20,7 @@ Website: https://wrigo.com.au/
 
 - Backend Repo: https://github.com/CIWGO/Wrigo-backend-public
 
-- Edit file in this directory to connect the backend: src/constants/index.js
+- Edit URL in this directory to connect the backend: src/constants/index.js
 
 ```
 export const defaultBackEndPrefix = "http://localhost:3005";
